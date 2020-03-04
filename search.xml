@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/03/03/2/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3>]]></content>
+    <title>Css</title>
+    <url>/2020/03/03/3.3/</url>
+    <content><![CDATA[<h3 id="css-box-model"><a href="#css-box-model" class="headerlink" title="css box model"></a>css box model</h3><p>1.所有元素在 css 里都会是一个 box； margin 是该 box 与其他 box 的距离，而 padding 是该盒子边界与内容区的距离</p>
+<p>2.当两个 box 相邻时，margin 会塌陷（重叠），选 box margin 大的那一个作为距离</p>
+<p>3.box-sizing 属性：border-box，内容区宽度或高度会自动调整<br>padding + border + 内容 width= 盒子的宽度<br>padding+ border + 内容 height = 盒子的高度<br><img src="https://s2.ax1x.com/2020/03/04/35aepD.png" alt="alt text"></p>
+<h3 id="css-positioning"><a href="#css-positioning" class="headerlink" title="css positioning"></a>css positioning</h3><p>1.postion： 默认是 static relative 允许对元素的位置进行操作</p>
+<p>2.absolute：相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。条件是定位基点（一般是父元素）不能是 static 定位， 否则定位基点是 html。</p>
+<p>3.fixed：相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
+<p>4.sticky：一些时候是 relative 定位（定位基点是自身默认位置），另一些时候自动变成 fixed 定位（定位基点是视口）</p>
+<p>摘自：<a href="https://www.ruanyifeng.com/blog/2019/11/css-position.html" target="_blank" rel="noopener">阮一峰教程</a></p>
+]]></content>
       <tags>
-        <tag>chishi1</tag>
+        <tag>Daily juice</tag>
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2018/01/20/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>2.29 今日汇报</p>
-<p>今天用 jQuery，bootstrap3.7.3，以及 GitHub api 做了一个小应用，主要是读取用户输入，再返回输入的 username 的基本信息，包括用户头像、followers、仓库等。</p>
-<p>难点在于两次 ajax 的调用，第一次通过用户名获取用户的个人信息，第二次是在第一次结束之后再利用 url+/repos 来获取用户的最新仓库，用 each 方法来遍历整个 repos，再单个渲染；当 fetch 多个元素的时候，还要注意 jQuery append 的用法。<br>另，html 里学会了 target=”_blank”，打开新页面的指令。<br>总结：<br>这次的 jQuery 来写的小程序让我了解了怎么在 jQuery 里用异步调用，以及 bootstrap 的常见 class。</p>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <title>Redux</title>
+    <url>/2020/03/02/3.2/</url>
+    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><p>1.为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p>
+<p>2.什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p>
+<p>3.实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p>
+<p>4.其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p>
 ]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery&amp;Dom</title>
+    <url>/2020/03/01/3.1/</url>
+    <content><![CDATA[<h3 id="主要复习了-DOM-操作以及-jQuery"><a href="#主要复习了-DOM-操作以及-jQuery" class="headerlink" title="主要复习了 DOM 操作以及 jQuery"></a>主要复习了 DOM 操作以及 jQuery</h3><p>1.在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)</p>
+<p>2.事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。<br><img src="https://s2.ax1x.com/2020/03/04/35UlJU.png" alt="alt text"><br>但事件捕获(event capturing)与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。<br>element.addEventListener(event, function, useCapture)<br>true - 事件在捕获阶段执行<br>false- 默认。事件在冒泡阶段执行</p>
+<p>3.我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，会执行几次事件，会先执行冒泡还是捕获？<br>非目标元素捕获 -&gt; 目标元素代码顺序 -&gt; 非目标元素冒泡<br><a href="https://blog.csdn.net/moguzhale/article/details/53503044" target="_blank" rel="noopener">https://blog.csdn.net/moguzhale/article/details/53503044</a></p>
+<p>4.阻止冒泡和取消默认事件<br>event.stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。使用 event.preventDefault()可以取消默认事件<br><a href="https://www.jianshu.com/p/1fd066b4c0ba" target="_blank" rel="noopener">https://www.jianshu.com/p/1fd066b4c0ba</a></p>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+      </tags>
   </entry>
 </search>
