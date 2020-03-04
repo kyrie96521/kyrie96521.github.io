@@ -75,7 +75,7 @@
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/02/3.2/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/02/3.2/</id>
     <published>2020-03-02T07:57:48.000Z</published>
-    <updated>2020-03-04T13:54:58.136Z</updated>
+    <updated>2020-03-04T14:40:31.194Z</updated>
     
     <content type="html"><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><p>1.为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p><p>2.什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p><p>3.实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p><p>4.其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p>]]></content>
     
@@ -144,11 +144,11 @@
     
       <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
-      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
-    
       <category term="redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/redux/"/>
     
       <category term="javascript" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/javascript/"/>
+    
+      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
     
   </entry>
   
