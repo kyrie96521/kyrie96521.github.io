@@ -81,15 +81,15 @@
 
 
 
-<meta name="description" content="! This is you">
+<meta name="description" content="Record the leaning process of Kyle">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
 <meta property="og:url" content="https://github.com/kyrie96521/kyrie96521.github.io/about/index.html">
 <meta property="og:site_name" content="Kyle&#39;s Blog">
-<meta property="og:description" content="! This is you">
+<meta property="og:description" content="Record the leaning process of Kyle">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-03T08:30:00.000Z">
-<meta property="article:modified_time" content="2020-03-03T08:32:24.449Z">
+<meta property="article:modified_time" content="2020-03-06T13:32:15.940Z">
 <meta property="article:author" content="Kyle Yang">
 <meta property="article:tag" content="React">
 <meta property="article:tag" content=" Redux">
@@ -298,7 +298,7 @@
       <div class="post-body">
         
         
-          <p>! This is you</p>
+          <p>Record the leaning process of Kyle</p>
 
         
       </div>
@@ -318,6 +318,9 @@
 
           
 
+  
+    <div class="comments" id="comments">
+    </div>
   
 
 
@@ -611,6 +614,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GNKmyNeRmBvHegV6HdtSkYe0-gzGzoHsz# your leancloud application appid',
+        appKey: 'YveJSoP7xGNEI52lsboI33CV# your leancloud application appkey',
+        placeholder: 'say hello:D',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
