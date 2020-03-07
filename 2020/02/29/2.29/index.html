@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Daily juice,redux,javascript,react," />
+  <meta name="keywords" content="Daily juice,react,redux,javascript," />
 
 
 
@@ -93,9 +93,9 @@
 <meta property="article:modified_time" content="2020-03-04T14:15:28.568Z">
 <meta property="article:author" content="Kyle Yang">
 <meta property="article:tag" content="Daily juice">
+<meta property="article:tag" content="react">
 <meta property="article:tag" content="redux">
 <meta property="article:tag" content="javascript">
-<meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://github.com/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.png">
 
@@ -427,11 +427,11 @@
           
             <a href="/tags/Daily-juice/" rel="tag"><i class="fa fa-tag"></i> Daily juice</a>
           
+            <a href="/tags/react/" rel="tag"><i class="fa fa-tag"></i> react</a>
+          
             <a href="/tags/redux/" rel="tag"><i class="fa fa-tag"></i> redux</a>
           
             <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
-          
-            <a href="/tags/react/" rel="tag"><i class="fa fa-tag"></i> react</a>
           
         </div>
       
@@ -847,6 +847,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'GNKmyNeRmBvHegV6HdtSkYe0-gzGzoHsz',
+        appKey: 'YveJSoP7xGNEI52lsboI33CV',
+        placeholder: 'Say Hello:D# comment box placeholder',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

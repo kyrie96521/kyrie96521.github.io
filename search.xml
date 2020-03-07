@@ -1,92 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search>
-  <entry>
-    <title>css flex box</title>
-    <url>/2020/03/04/3.4/</url>
-    <content><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p>
-<p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">https://www.html.cn/archives/8629</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
-<p><img src="/images/background.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>Daily juice</tag>
-        <tag>css flex box</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css box model and positioning</title>
-    <url>/2020/03/03/3.3/</url>
-    <content><![CDATA[<h3 id="css-box-model"><a href="#css-box-model" class="headerlink" title="css box model"></a>css box model</h3><p>1.所有元素在 css 里都会是一个 box； margin 是该 box 与其他 box 的距离，而 padding 是该盒子边界与内容区的距离</p>
-<p>2.当两个 box 相邻时，margin 会塌陷（重叠），选 box margin 大的那一个作为距离</p>
-<p>3.box-sizing 属性：border-box，内容区宽度或高度会自动调整<br>padding + border + 内容 width= 盒子的宽度<br>padding+ border + 内容 height = 盒子的高度<br><img src="https://s2.ax1x.com/2020/03/04/35aepD.png" alt="alt text"></p>
-<h3 id="css-positioning"><a href="#css-positioning" class="headerlink" title="css positioning"></a>css positioning</h3><p>1.postion： 默认是 static relative 允许对元素的位置进行操作</p>
-<p>2.absolute：相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。条件是定位基点（一般是父元素）不能是 static 定位， 否则定位基点是 html。</p>
-<p>3.fixed：相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
-<p>4.sticky：一些时候是 relative 定位（定位基点是自身默认位置），另一些时候自动变成 fixed 定位（定位基点是视口）</p>
-<p>摘自：<a href="https://www.ruanyifeng.com/blog/2019/11/css-position.html" target="_blank" rel="noopener">阮一峰教程</a></p>
-]]></content>
-      <tags>
-        <tag>Daily juice</tag>
-        <tag>css box model</tag>
-        <tag>css positioning</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redux middleware</title>
-    <url>/2020/03/02/3.2/</url>
-    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><p>1.为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p>
-<p>2.什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p>
-<p>3.实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p>
-<p>4.其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p>
-]]></content>
-      <tags>
-        <tag>Daily juice</tag>
-        <tag>redux middleware</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>事件捕获及冒泡</title>
-    <url>/2020/03/01/3.1/</url>
-    <content><![CDATA[<h3 id="DOM-操作-amp-jQuery"><a href="#DOM-操作-amp-jQuery" class="headerlink" title="DOM 操作&amp;jQuery"></a>DOM 操作&amp;jQuery</h3><p>1.在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)</p>
-<p>2.事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。<br><img src="https://s2.ax1x.com/2020/03/04/35UlJU.png" alt="alt text"><br>但事件捕获(event capturing)与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。<br>element.addEventListener(event, function, useCapture)<br>true - 事件在捕获阶段执行<br>false- 默认。事件在冒泡阶段执行</p>
-<p>3.我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，会执行几次事件，会先执行冒泡还是捕获？<br>非目标元素捕获 -&gt; 目标元素代码顺序 -&gt; 非目标元素冒泡<br><a href="https://blog.csdn.net/moguzhale/article/details/53503044" target="_blank" rel="noopener">https://blog.csdn.net/moguzhale/article/details/53503044</a></p>
-<p>4.阻止冒泡和取消默认事件<br>event.stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。使用 event.preventDefault()可以取消默认事件<br><a href="https://www.jianshu.com/p/1fd066b4c0ba" target="_blank" rel="noopener">https://www.jianshu.com/p/1fd066b4c0ba</a></p>
-]]></content>
-      <tags>
-        <tag>Daily juice</tag>
-        <tag>Dom</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redux middleware</title>
-    <url>/2020/02/29/2.29/</url>
-    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><p>1.React 里 this 的指向问题<br>谁调用的 this 就指向谁。eg:constructor 函数里的 this.state、生命周期函数等，这些函数都是由 react 实例来调用的。<br>es6 箭头函数指向父层。eg：一个 onclick 函数；onclick={this.clickFunction} 这里的 this 是 undefined 的，所以在 clickFunction 里的 this 也是 undefined；有两种方法可以解决，第一种是将 clickFunction 变成箭头函数，箭头函数的 this 是指向父级作用域的，也就是 react 实例；第二种是使用 bind 改变 this 的指向。</p>
-<p>2.redux 小点<br>Redux 里 reducers 里的参数 state 要设置为空[ ]；<br>每个 reducer(不同的 function)处理 state 的一个“片段”；<br><code>const rootReducers = combineReducers({reducer 的集合})；</code><br>connect 连接组件和 redux，返回一个 function<br>开发时用来检查 state 对象是否被改变了 redux-immutable-state-invariant 插件；<br>mapStateToProps 实现了让组件获取自己需要的 data，避免了全部渲染；<br>如果没有加 mapdispatchtoprops, 组件实例会自动的把 dispatch 作为 props，允许我们 dispatch action，但需要添加类型检测，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">"prop-types"</span>;</span><br><span class="line">CoursesPage.propTypes = &#123;</span><br><span class="line">  dispatch: PropTypes.func.isRequired</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>3.渲染页面的流程<br><img src="/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.png" alt=""></p>
-<p>4.Js<br>扩展运算符<br>[…state,{object}] 合并 state 对象与 object 对象，如有重叠，将重叠的属性更新；<br>export<br>export default 对应着直接 import，不需要大括号，可以更改名字 ;<br>export 需要{ }；</p>
-]]></content>
-      <tags>
-        <tag>Daily juice</tag>
-        <tag>redux</tag>
-        <tag>javascript</tag>
-        <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redux&amp;JS</title>
-    <url>/2020/02/28/2.28/</url>
-    <content><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>1.React-Redux 将 react 组件绑定到 redux<br>how?provider 组件将 app 连接到 redux store<br>connect 组件将 react 组件连接到 redux store</p>
-<p>2.mapStateToProps<br>去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）<br>定义此函数时，组件会 subscribe redux store 的更新，每当 store 更新时，此函数会被调用；<br>mapDispatchToProps<br>去定义哪一 action 你想作为 props 传入给组件；</p>
-<h3 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h3><p>把一个 object 和 function 相连，在 function 里的 this 代指这个 object，更改 this 的指向。<br>1.bind<br>bind 会返回一个函数，但不会执行这个函数。<br>var newFunc = functionName.bind(object)<br>newFunc(argumentsOfFunction)</p>
-<p>2.call<br>functionName.call(object,argumentsOfFunction)</p>
-<p>3.apply<br>functionName.apply(object,arrayTypeArguments)</p>
-<p>4.箭头函数与普通函数 this 指向<br>this 永远指向的是最后调用它的对象<br>new 关键字可以改变 this 的指向<br>如果返回值是一个对象，那么 this 指向的就是那个返回的对象，如果返回值不是一个对象那么 this 还是指向函数的实例。<br>普通函数 this 指向取决于函数调用的位置; 箭头函数 this 指向取决于函数定义的位置<br><a href="https://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5216085.html</a><br><a href="https://zhuanlan.zhihu.com/p/47132493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47132493</a></p>
-]]></content>
-      <tags>
-        <tag>Daily juice</tag>
-        <tag>redux</tag>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
+<search> 
+  
+  
+    
+    <entry>
+      <title>css flex box</title>
+      <link href="/2020/03/04/3.4/"/>
+      <url>/2020/03/04/3.4/</url>
+      
+        <content type="html"><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p><p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">https://www.html.cn/archives/8629</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p><p><img src="/images/background.png" alt=""></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Daily juice </tag>
+            
+            <tag> css flex box </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>css box model and positioning</title>
+      <link href="/2020/03/03/3.3/"/>
+      <url>/2020/03/03/3.3/</url>
+      
+        <content type="html"><![CDATA[<h3 id="css-box-model"><a href="#css-box-model" class="headerlink" title="css box model"></a>css box model</h3><p>1.所有元素在 css 里都会是一个 box； margin 是该 box 与其他 box 的距离，而 padding 是该盒子边界与内容区的距离</p><p>2.当两个 box 相邻时，margin 会塌陷（重叠），选 box margin 大的那一个作为距离</p><p>3.box-sizing 属性：border-box，内容区宽度或高度会自动调整<br>padding + border + 内容 width= 盒子的宽度<br>padding+ border + 内容 height = 盒子的高度<br><img src="https://s2.ax1x.com/2020/03/04/35aepD.png" alt="alt text"></p><h3 id="css-positioning"><a href="#css-positioning" class="headerlink" title="css positioning"></a>css positioning</h3><p>1.postion： 默认是 static relative 允许对元素的位置进行操作</p><p>2.absolute：相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。条件是定位基点（一般是父元素）不能是 static 定位， 否则定位基点是 html。</p><p>3.fixed：相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p><p>4.sticky：一些时候是 relative 定位（定位基点是自身默认位置），另一些时候自动变成 fixed 定位（定位基点是视口）</p><p>摘自：<a href="https://www.ruanyifeng.com/blog/2019/11/css-position.html" target="_blank" rel="noopener">阮一峰教程</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Daily juice </tag>
+            
+            <tag> css box model </tag>
+            
+            <tag> css positioning </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redux middleware</title>
+      <link href="/2020/03/02/3.2/"/>
+      <url>/2020/03/02/3.2/</url>
+      
+        <content type="html"><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><p>1.为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p><p>2.什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p><p>3.实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p><p>4.其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Daily juice </tag>
+            
+            <tag> redux middleware </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>事件捕获及冒泡</title>
+      <link href="/2020/03/01/3.1/"/>
+      <url>/2020/03/01/3.1/</url>
+      
+        <content type="html"><![CDATA[<h3 id="DOM-操作-amp-jQuery"><a href="#DOM-操作-amp-jQuery" class="headerlink" title="DOM 操作&amp;jQuery"></a>DOM 操作&amp;jQuery</h3><p>1.在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)</p><p>2.事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。<br><img src="https://s2.ax1x.com/2020/03/04/35UlJU.png" alt="alt text"><br>但事件捕获(event capturing)与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。<br>element.addEventListener(event, function, useCapture)<br>true - 事件在捕获阶段执行<br>false- 默认。事件在冒泡阶段执行</p><p>3.我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，会执行几次事件，会先执行冒泡还是捕获？<br>非目标元素捕获 -&gt; 目标元素代码顺序 -&gt; 非目标元素冒泡<br><a href="https://blog.csdn.net/moguzhale/article/details/53503044" target="_blank" rel="noopener">https://blog.csdn.net/moguzhale/article/details/53503044</a></p><p>4.阻止冒泡和取消默认事件<br>event.stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。使用 event.preventDefault()可以取消默认事件<br><a href="https://www.jianshu.com/p/1fd066b4c0ba" target="_blank" rel="noopener">https://www.jianshu.com/p/1fd066b4c0ba</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Daily juice </tag>
+            
+            <tag> Dom </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redux middleware</title>
+      <link href="/2020/02/29/2.29/"/>
+      <url>/2020/02/29/2.29/</url>
+      
+        <content type="html"><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><p>1.React 里 this 的指向问题<br>谁调用的 this 就指向谁。eg:constructor 函数里的 this.state、生命周期函数等，这些函数都是由 react 实例来调用的。<br>es6 箭头函数指向父层。eg：一个 onclick 函数；onclick={this.clickFunction} 这里的 this 是 undefined 的，所以在 clickFunction 里的 this 也是 undefined；有两种方法可以解决，第一种是将 clickFunction 变成箭头函数，箭头函数的 this 是指向父级作用域的，也就是 react 实例；第二种是使用 bind 改变 this 的指向。</p><p>2.redux 小点<br>Redux 里 reducers 里的参数 state 要设置为空[ ]；<br>每个 reducer(不同的 function)处理 state 的一个“片段”；<br><code>const rootReducers = combineReducers({reducer 的集合})；</code><br>connect 连接组件和 redux，返回一个 function<br>开发时用来检查 state 对象是否被改变了 redux-immutable-state-invariant 插件；<br>mapStateToProps 实现了让组件获取自己需要的 data，避免了全部渲染；<br>如果没有加 mapdispatchtoprops, 组件实例会自动的把 dispatch 作为 props，允许我们 dispatch action，但需要添加类型检测，</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">"prop-types"</span>;</span><br><span class="line">CoursesPage.propTypes = &#123;</span><br><span class="line">  dispatch: PropTypes.func.isRequired</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>3.渲染页面的流程<br><img src="/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.png" alt=""></p><p>4.Js<br>扩展运算符<br>[…state,{object}] 合并 state 对象与 object 对象，如有重叠，将重叠的属性更新；<br>export<br>export default 对应着直接 import，不需要大括号，可以更改名字 ;<br>export 需要{ }；</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Daily juice </tag>
+            
+            <tag> react </tag>
+            
+            <tag> redux </tag>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Redux&amp;JS</title>
+      <link href="/2020/02/28/2.28/"/>
+      <url>/2020/02/28/2.28/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>1.React-Redux 将 react 组件绑定到 redux<br>how?provider 组件将 app 连接到 redux store<br>connect 组件将 react 组件连接到 redux store</p><p>2.mapStateToProps<br>去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）<br>定义此函数时，组件会 subscribe redux store 的更新，每当 store 更新时，此函数会被调用；<br>mapDispatchToProps<br>去定义哪一 action 你想作为 props 传入给组件；</p><h3 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h3><p>把一个 object 和 function 相连，在 function 里的 this 代指这个 object，更改 this 的指向。<br>1.bind<br>bind 会返回一个函数，但不会执行这个函数。<br>var newFunc = functionName.bind(object)<br>newFunc(argumentsOfFunction)</p><p>2.call<br>functionName.call(object,argumentsOfFunction)</p><p>3.apply<br>functionName.apply(object,arrayTypeArguments)</p><p>4.箭头函数与普通函数 this 指向<br>this 永远指向的是最后调用它的对象<br>new 关键字可以改变 this 的指向<br>如果返回值是一个对象，那么 this 指向的就是那个返回的对象，如果返回值不是一个对象那么 this 还是指向函数的实例。<br>普通函数 this 指向取决于函数调用的位置; 箭头函数 this 指向取决于函数定义的位置<br><a href="https://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5216085.html</a><br><a href="https://zhuanlan.zhihu.com/p/47132493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47132493</a></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Daily juice </tag>
+            
+            <tag> redux </tag>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
 </search>
