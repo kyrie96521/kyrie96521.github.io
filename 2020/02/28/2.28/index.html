@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Daily juice,redux,javascript," />
+  <meta name="keywords" content="Daily juice,redux,javascript,this," />
 
 
 
@@ -81,19 +81,20 @@
 
 
 
-<meta name="description" content="Redux1.React-Redux 将 react 组件绑定到 reduxhow?provider 组件将 app 连接到 redux storeconnect 组件将 react 组件连接到 redux store 2.mapStateToProps去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）定义此函数时，组件会 subscribe re">
+<meta name="description" content="Redux React-Redux 将 react 组件绑定到 reduxhow?provider 组件将 app 连接到 redux storeconnect 组件将 react 组件连接到 redux store  mapStateToProps去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）定义此函数时，组件会 subscribe redu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redux&amp;JS">
 <meta property="og:url" content="https://github.com/kyrie96521/kyrie96521.github.io/2020/02/28/2.28/index.html">
 <meta property="og:site_name" content="Kyle&#39;s Blog">
-<meta property="og:description" content="Redux1.React-Redux 将 react 组件绑定到 reduxhow?provider 组件将 app 连接到 redux storeconnect 组件将 react 组件连接到 redux store 2.mapStateToProps去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）定义此函数时，组件会 subscribe re">
+<meta property="og:description" content="Redux React-Redux 将 react 组件绑定到 reduxhow?provider 组件将 app 连接到 redux storeconnect 组件将 react 组件连接到 redux store  mapStateToProps去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）定义此函数时，组件会 subscribe redu">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-28T00:24:28.000Z">
-<meta property="article:modified_time" content="2020-03-04T14:26:22.380Z">
+<meta property="article:modified_time" content="2020-03-07T14:44:59.330Z">
 <meta property="article:author" content="Kyle Yang">
 <meta property="article:tag" content="Daily juice">
 <meta property="article:tag" content="redux">
 <meta property="article:tag" content="javascript">
+<meta property="article:tag" content="this">
 <meta name="twitter:card" content="summary">
 
 
@@ -362,7 +363,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  298
+                  293
                 </span>
               
 
@@ -399,12 +400,23 @@
       
 
       
-        <h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><p>1.React-Redux 将 react 组件绑定到 redux<br>how?provider 组件将 app 连接到 redux store<br>connect 组件将 react 组件连接到 redux store</p>
-<p>2.mapStateToProps<br>去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）<br>定义此函数时，组件会 subscribe redux store 的更新，每当 store 更新时，此函数会被调用；<br>mapDispatchToProps<br>去定义哪一 action 你想作为 props 传入给组件；</p>
-<h3 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h3><p>把一个 object 和 function 相连，在 function 里的 this 代指这个 object，更改 this 的指向。<br>1.bind<br>bind 会返回一个函数，但不会执行这个函数。<br>var newFunc = functionName.bind(object)<br>newFunc(argumentsOfFunction)</p>
-<p>2.call<br>functionName.call(object,argumentsOfFunction)</p>
-<p>3.apply<br>functionName.apply(object,arrayTypeArguments)</p>
-<p>4.箭头函数与普通函数 this 指向<br>this 永远指向的是最后调用它的对象<br>new 关键字可以改变 this 的指向<br>如果返回值是一个对象，那么 this 指向的就是那个返回的对象，如果返回值不是一个对象那么 this 还是指向函数的实例。<br>普通函数 this 指向取决于函数调用的位置; 箭头函数 this 指向取决于函数定义的位置<br><a href="https://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5216085.html</a><br><a href="https://zhuanlan.zhihu.com/p/47132493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47132493</a></p>
+        <h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol>
+<li><p>React-Redux 将 react 组件绑定到 redux<br>how?provider 组件将 app 连接到 redux store<br>connect 组件将 react 组件连接到 redux store</p>
+</li>
+<li><p>mapStateToProps<br>去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）<br>定义此函数时，组件会 subscribe redux store 的更新，每当 store 更新时，此函数会被调用；<br>mapDispatchToProps<br>去定义哪一 action 你想作为 props 传入给组件；</p>
+</li>
+</ol>
+<h3 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h3><p>把一个 object 和 function 相连，在 function 里的 this 代指这个 object，更改 this 的指向。</p>
+<ol>
+<li><p>bind<br>bind 会返回一个函数，但不会执行这个函数。<br>var newFunc = functionName.bind(object)<br>newFunc(argumentsOfFunction)</p>
+</li>
+<li><p>call<br>functionName.call(object,argumentsOfFunction)</p>
+</li>
+<li><p>apply<br>functionName.apply(object,arrayTypeArguments)</p>
+</li>
+<li><p>箭头函数与普通函数 this 指向<br>this 永远指向的是最后调用它的对象<br>new 关键字可以改变 this 的指向<br>如果返回值是一个对象，那么 this 指向的就是那个返回的对象，如果返回值不是一个对象那么 this 还是指向函数的实例。<br>普通函数 this 指向取决于函数调用的位置; 箭头函数 this 指向取决于函数定义的位置<br><a href="https://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5216085.html</a><br><a href="https://zhuanlan.zhihu.com/p/47132493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47132493</a></p>
+</li>
+</ol>
 
       
     </div>
@@ -428,6 +440,8 @@
           
             <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
           
+            <a href="/tags/this/" rel="tag"><i class="fa fa-tag"></i> this</a>
+          
         </div>
       
 
@@ -438,6 +452,10 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/27/2.27/" rel="next" title="React&JS">
+                <i class="fa fa-chevron-left"></i> React&JS
+              </a>
             
           </div>
 
@@ -536,7 +554,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -549,7 +567,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -642,7 +660,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">1.6k</span>
+    <span title="Site words total count">3.3k</span>
   
   
 
