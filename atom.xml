@@ -292,6 +292,8 @@
     
       <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
+      <category term="project" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/project/"/>
+    
       <category term="javascript" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/javascript/"/>
     
       <category term="promise" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/promise/"/>
@@ -299,8 +301,6 @@
       <category term="async-await" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/async-await/"/>
     
       <category term="axios" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/axios/"/>
-    
-      <category term="project" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/project/"/>
     
   </entry>
   
@@ -326,9 +326,9 @@
     
       <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
-      <category term="project" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/project/"/>
-    
       <category term="jquery" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/jquery/"/>
+    
+      <category term="project" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/project/"/>
     
   </entry>
   
@@ -357,6 +357,8 @@
     
       <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
+    
       <category term="webpack" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/webpack/"/>
     
       <category term="Bable" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Bable/"/>
@@ -366,8 +368,6 @@
       <category term="Redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Redux/"/>
     
       <category term="React-Router" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/React-Router/"/>
-    
-      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
     
   </entry>
   

@@ -1,289 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-<search> 
-  
-  
-    
-    <entry>
-      <title>Node</title>
-      <link href="/2020/03/07/3.7/"/>
-      <url>/2020/03/07/3.7/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><ol><li><p>为什么说 nodejs 是单线程语言呢？这是因为 nodejs 中 javascript 代码的执行是单线程；但 node 确实只有一个主线程，但是底层工作的线程却有多个。遇到异步时，主线程发出操作指令，然后就可以去做别的事情了（主线程不需要等待），所有操作完成后再执行回调。主线程什么时候知道操作完成执行回调，则通过 event loop 机制循环遍历。</p></li><li><p>nodejs 的异步 IO<br>当需要 IO(网络 IO/文件 IO)操作时，单线程的 javascript 并不会停下来等待 IO 操作完成，而是“事件驱动”开始介入，javascript 执行线程继续执行未完的 javascript 代码，当执行完成后该线程处于空闲状态</p></li><li><p>事件循环<br><img src="/images/node_sys.png" alt=""><br>Node.js 应用启动时，V8 引擎会执行你写的应用代码，保持一份观察者（注册在事件上的回调函数）列表。当事件发生时，它的回调函数会被加进一个事件队列。只要这个队列还有等待执行的回调函数，事件循环就会持续把回调函数从队列中拿出并执行。</p></li></ol><p>4.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//module 是一个 obj，有一个 exports 属性导出 function 或者 obj</span></span><br><span class="line"><span class="built_in">module</span>.exports.func = func</span><br><span class="line"><span class="built_in">module</span>.exports.endPoint = url (keep url private)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"./相对路径"</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span> pathObj = path.parse(\_\_filename)</span><br><span class="line"><span class="comment">//包含 dir 地址，root，name 等属性</span></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">"os"</span>)</span><br><span class="line"><span class="comment">//包含内存等等属性</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> node </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>JS</title>
-      <link href="/2020/03/06/3.6/"/>
-      <url>/2020/03/06/3.6/</url>
-      
-        <content type="html"><![CDATA[<h3 id="JS-高阶函数"><a href="#JS-高阶函数" class="headerlink" title="JS 高阶函数"></a>JS 高阶函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//forEach</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in this array not a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//map</span></span><br><span class="line"><span class="keyword">const</span> newArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//filter</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].filter(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//return true or false;</span></span><br><span class="line">  <span class="comment">//true will put the item back to the new array</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//reduce</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//prev item and next item will do some kind of calculation;</span></span><br><span class="line">  <span class="comment">//return a number</span></span><br><span class="line">&#125;, randomNumAsStartNum);</span><br><span class="line"></span><br><span class="line"><span class="comment">//some,every return true or false;</span></span><br><span class="line"><span class="comment">//some: if any item satisfy the condition,return true</span></span><br><span class="line"><span class="comment">//every: if all items satisfy the condition,return true</span></span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> javascript </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>css grid</title>
-      <link href="/2020/03/05/3.5/"/>
-      <url>/2020/03/05/3.5/</url>
-      
-        <content type="html"><![CDATA[<h3 id="css-grid"><a href="#css-grid" class="headerlink" title="css grid"></a>css grid</h3><ol><li>grid 构成</li></ol><p>Grid Container) 应用 display: grid 的元素<br>网格项(Grid Item) 网格容器（Grid Container）的子元素（例如直接子元素）<br>网格线(Grid Line) 网格轨道(Grid Track) 网格单元格(Grid Cell) 网格区域(Grid Area)</p><ol start="2"><li><p>grid 属性<br>学习了各种网格容器属性以及网格项属性；<br>两个教程：<br><a href="https://www.html.cn/archives/8510" target="_blank" rel="noopener">https://www.html.cn/archives/8510</a><br><a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html</a></p></li><li><p>网格容器与网格项结构<br><img src="/images/grid-1.png" alt=""><br><img src="/images/grid-2.png" alt=""></p></li><li><p>属性分为三大类：<br>grid container;grid item;以及 grid 里的 content</p></li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> css grid </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>css flex box</title>
-      <link href="/2020/03/04/3.4/"/>
-      <url>/2020/03/04/3.4/</url>
-      
-        <content type="html"><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p><p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">https://www.html.cn/archives/8629</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p><p><img src="/images/background.png" alt=""></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> css flex box </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>css box model and positioning</title>
-      <link href="/2020/03/03/3.3/"/>
-      <url>/2020/03/03/3.3/</url>
-      
-        <content type="html"><![CDATA[<h3 id="css-box-model"><a href="#css-box-model" class="headerlink" title="css box model"></a>css box model</h3><ol><li><p>所有元素在 css 里都会是一个 box； margin 是该 box 与其他 box 的距离，而 padding 是该盒子边界与内容区的距离</p></li><li><p>当两个 box 相邻时，margin 会塌陷（重叠），选 box margin 大的那一个作为距离</p></li><li><p>box-sizing 属性：border-box，内容区宽度或高度会自动调整<br>padding + border + 内容 width= 盒子的宽度<br>padding+ border + 内容 height = 盒子的高度<br><img src="https://s2.ax1x.com/2020/03/04/35aepD.png" alt="alt text"></p></li></ol><h3 id="css-positioning"><a href="#css-positioning" class="headerlink" title="css positioning"></a>css positioning</h3><ol><li><p>postion： 默认是 static relative 允许对元素的位置进行操作</p></li><li><p>absolute：相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。条件是定位基点（一般是父元素）不能是 static 定位， 否则定位基点是 html。</p></li><li><p>fixed：相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p></li><li><p>sticky：一些时候是 relative 定位（定位基点是自身默认位置），另一些时候自动变成 fixed 定位（定位基点是视口）</p></li></ol><p>摘自：<a href="https://www.ruanyifeng.com/blog/2019/11/css-position.html" target="_blank" rel="noopener">阮一峰教程</a></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> css box model </tag>
-            
-            <tag> css positioning </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Redux middleware</title>
-      <link href="/2020/03/02/3.2/"/>
-      <url>/2020/03/02/3.2/</url>
-      
-        <content type="html"><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol><li><p>为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p></li><li><p>什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p></li><li><p>实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p></li><li><p>其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p></li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> redux middleware </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>事件捕获及冒泡</title>
-      <link href="/2020/03/01/3.1/"/>
-      <url>/2020/03/01/3.1/</url>
-      
-        <content type="html"><![CDATA[<h3 id="DOM-操作-amp-jQuery"><a href="#DOM-操作-amp-jQuery" class="headerlink" title="DOM 操作&amp;jQuery"></a>DOM 操作&amp;jQuery</h3><ol><li><p>在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)</p></li><li><p>事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。<br><img src="https://s2.ax1x.com/2020/03/04/35UlJU.png" alt="alt text"><br>但事件捕获(event capturing)与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。<br>element.addEventListener(event, function, useCapture)<br>true - 事件在捕获阶段执行<br>false- 默认。事件在冒泡阶段执行</p></li><li><p>我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，会执行几次事件，会先执行冒泡还是捕获？<br>非目标元素捕获 -&gt; 目标元素代码顺序 -&gt; 非目标元素冒泡<br><a href="https://blog.csdn.net/moguzhale/article/details/53503044" target="_blank" rel="noopener">https://blog.csdn.net/moguzhale/article/details/53503044</a></p></li><li><p>阻止冒泡和取消默认事件<br>event.stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。使用 event.preventDefault()可以取消默认事件<br><a href="https://www.jianshu.com/p/1fd066b4c0ba" target="_blank" rel="noopener">https://www.jianshu.com/p/1fd066b4c0ba</a></p></li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> Dom </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Redux middleware</title>
-      <link href="/2020/02/29/2.29/"/>
-      <url>/2020/02/29/2.29/</url>
-      
-        <content type="html"><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol><li><p>React 里 this 的指向问题<br>谁调用的 this 就指向谁。eg:constructor 函数里的 this.state、生命周期函数等，这些函数都是由 react 实例来调用的。<br>es6 箭头函数指向父层。eg：一个 onclick 函数；onclick={this.clickFunction} 这里的 this 是 undefined 的，所以在 clickFunction 里的 this 也是 undefined；有两种方法可以解决，第一种是将 clickFunction 变成箭头函数，箭头函数的 this 是指向父级作用域的，也就是 react 实例；第二种是使用 bind 改变 this 的指向。</p></li><li><p>redux 小点<br>Redux 里 reducers 里的参数 state 要设置为空[ ]；<br>每个 reducer(不同的 function)处理 state 的一个“片段”；<br><code>const rootReducers = combineReducers({reducer 的集合})；</code><br>connect 连接组件和 redux，返回一个 function<br>开发时用来检查 state 对象是否被改变了 redux-immutable-state-invariant 插件；<br>mapStateToProps 实现了让组件获取自己需要的 data，避免了全部渲染；<br>如果没有加 mapdispatchtoprops, 组件实例会自动的把 dispatch 作为 props，允许我们 dispatch action，但需要添加类型检测，</p></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">"prop-types"</span>;</span><br><span class="line">CoursesPage.propTypes = &#123;</span><br><span class="line">  dispatch: PropTypes.func.isRequired</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><ol start="3"><li><p>渲染页面的流程<br><img src="/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.png" alt=""></p></li><li><p>Js<br>扩展运算符<br>[…state,{object}] 合并 state 对象与 object 对象，如有重叠，将重叠的属性更新；<br>export<br>export default 对应着直接 import，不需要大括号，可以更改名字 ;<br>export 需要{ }；</p></li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> redux </tag>
-            
-            <tag> javascript </tag>
-            
-            <tag> react </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Redux&amp;JS</title>
-      <link href="/2020/02/28/2.28/"/>
-      <url>/2020/02/28/2.28/</url>
-      
-        <content type="html"><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol><li><p>React-Redux 将 react 组件绑定到 redux<br>how?provider 组件将 app 连接到 redux store<br>connect 组件将 react 组件连接到 redux store</p></li><li><p>mapStateToProps<br>去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）<br>定义此函数时，组件会 subscribe redux store 的更新，每当 store 更新时，此函数会被调用；<br>mapDispatchToProps<br>去定义哪一 action 你想作为 props 传入给组件；</p></li></ol><h3 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h3><p>把一个 object 和 function 相连，在 function 里的 this 代指这个 object，更改 this 的指向。</p><ol><li><p>bind<br>bind 会返回一个函数，但不会执行这个函数。<br>var newFunc = functionName.bind(object)<br>newFunc(argumentsOfFunction)</p></li><li><p>call<br>functionName.call(object,argumentsOfFunction)</p></li><li><p>apply<br>functionName.apply(object,arrayTypeArguments)</p></li><li><p>箭头函数与普通函数 this 指向<br>this 永远指向的是最后调用它的对象<br>new 关键字可以改变 this 的指向<br>如果返回值是一个对象，那么 this 指向的就是那个返回的对象，如果返回值不是一个对象那么 this 还是指向函数的实例。<br>普通函数 this 指向取决于函数调用的位置; 箭头函数 this 指向取决于函数定义的位置<br><a href="https://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5216085.html</a><br><a href="https://zhuanlan.zhihu.com/p/47132493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47132493</a></p></li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> redux </tag>
-            
-            <tag> javascript </tag>
-            
-            <tag> this </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>React&amp;JS</title>
-      <link href="/2020/02/27/2.27/"/>
-      <url>/2020/02/27/2.27/</url>
-      
-        <content type="html"><![CDATA[<h3 id="JS-异步函数"><a href="#JS-异步函数" class="headerlink" title="JS 异步函数"></a>JS 异步函数</h3><ol><li><p>promise：<br><a href="https://juejin.im/post/5b605b035188251a90189c61" target="_blank" rel="noopener">https://juejin.im/post/5b605b035188251a90189c61</a></p></li><li><p>async-await:<br>更简洁可读性更强的语法糖相比于 promise<br><a href="https://juejin.im/post/5b0399bc518825426f311a3e" target="_blank" rel="noopener">https://juejin.im/post/5b0399bc518825426f311a3e</a></p></li><li><p>axios：<br>是一个基于 promise 的 HTTP 库，简可以发送 get、post 请求等<br><a href="https://cloud.tencent.com/developer/article/1498443" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1498443</a></p></li></ol><h3 id="youtube-搜索小应用"><a href="#youtube-搜索小应用" class="headerlink" title="youtube 搜索小应用"></a>youtube 搜索小应用</h3><ol><li>应用结构：<br><img src="/images/youtube_1.png" alt=""></li></ol><p>searchBar 是搜索栏组件，videoDetails 是用户所搜索或者点击的视频组件，videoList 是右侧相关视频清单组件，videoItem 是右侧单个渲染视频组件；<br>youtube 是向后台 api 发出请求。</p><ol start="2"><li><p>应用界面：<br><img src="/images/youtube-2.png" alt=""></p></li><li><p>整体流程：<br>在 App.js 文件中渲染了 searchBar 组件，videoDetail 组件以及 videoList 组件，在 videoList 里渲染了 videoItem 组件。<br>用户输入关键字，会显示首个视频以及右侧的清单；<br>这是通过 App 组件向 searchBar 里传递的异步函数(获取 youtube 数据)，onSubmit 事件处理来调用此异步函数。<br>用户点击右侧视频，会重新渲染页面；<br>这是通过 App 组件向 videoList 里传递的 onVideoSelected 函数，再由 videoList 组件传递给 videoItem，最后再 videoItem 组件里 onClick 事件处理来调用这个 onVideoSelected 函数，在 onVideoSelected 函数会利用 setState 重新更改选择的视频，令 app 组件再次渲染。</p></li></ol><p>整个项目要注意的是没有用 redux，导致传递 props 时最多经过了两个的组件，降低了可读性；在回调函数作为 props 时的处理问题；以及利用 async/await 从 youtube api 调取数据的流程，由 axios.create 创建实例等；</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> javascript </tag>
-            
-            <tag> promise </tag>
-            
-            <tag> async-await </tag>
-            
-            <tag> axios </tag>
-            
-            <tag> project </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>React&amp;JS</title>
-      <link href="/2020/02/25/2.25/"/>
-      <url>/2020/02/25/2.25/</url>
-      
-        <content type="html"><![CDATA[<p>今天用 jQuery，bootstrap3.7.3，以及 GitHub api 做了一个小应用，主要是读取用户输入，再返回输入的 username 的基本信息，包括用户头像、followers、仓库等。<br><img src="/images/github_j.png" alt=""></p><p>难点在于两次 ajax 的调用，第一次通过用户名获取用户的个人信息，第二次是在第一次结束之后再利用 url+/repos 来获取用户的最新仓库，用 each 方法来遍历整个 repos，再单个渲染；当 fetch 多个元素的时候，还要注意 jQuery append 的用法。<br>另，html 里学会了 target=”_blank”，打开新页面的指令。<br>总结：<br>这次的 jQuery 来写的小程序让我了解了怎么在 jQuery 里用异步调用，以及 bootstrap 的常见 class。</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> project </tag>
-            
-            <tag> jquery </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>React&amp;Redux</title>
-      <link href="/2020/02/24/2.24/"/>
-      <url>/2020/02/24/2.24/</url>
-      
-        <content type="html"><![CDATA[<ol><li><p>利用 webpack 来自定义开发环境，了解了 devServer，plugins，loader 的作用，如何在 package.json 里添加依赖等（还需再看，有些地方不是很理解）。</p></li><li><p>了解 Bable 的作用 （transpile JS to ECMA5）以及 eslint（代码规范）;</p></li><li><p>React function 组件的好处：省掉 this 关键字；transpiled 后代码量更少；高信噪比等。</p></li><li><p>梳理了 Redux 知识点以及 React-Router 的用法：<br>用于处理 复杂数据流、两个没有父子关系组件的交互、两个不同组件操作同样的内容、非分层的数据的情况。<br>三个原理：<br>不能直接改变 store；需要 action 作为 trigger；state 需要被纯函数（reducer）来处理<br>流程图：<br>actions are dispatched to reducers and<br>reducers return a new state then cause the change of store<br>store let each components aware the change using CONNECT(React-Redux)<br>reducers 可以看作绞肉机 每一次的 action 可以被多个 reducers 来 handle。<br>为什么 Redux 要由不可变化的 store？提高了 performance 只需要对比旧 state 和新 state 的 memory reference 就知道是否变化；更加清晰 每次的改变知道在哪变化以及怎么变化；方便 debug。<br>经过 reducer 的 action 返回的是一个新的 state，不会克隆内嵌元素，如果要拷贝整个 state，需要手动克隆内嵌对象（深拷贝）；但是深拷贝是降低 performance 的也是浪费的，只需要克隆已经改变的 object；还会造成不必要的渲染，react 会认为都变化了，但实际上只有子对象变化了。所以就是 redux 里的对比机制变相的提高了 performance。</p></li><li><p>容器组件和展示组件的区别。<a href="https://www.jianshu.com/p/6fa2b21f5df3" target="_blank" rel="noopener">https://www.jianshu.com/p/6fa2b21f5df3</a></p></li><li><p>this 指向问题<br>如果 this 所在的 function 是一个 obj 的方法时，则指向这个 obj；如果是属性，则指向父级作用域；<br>如果 this 所在的 function 在全局环境里，则指向 window；<br>如果 this 是在一个回调函数里，则指向 window（forEach 函数的第二个参数可以改变 this 指向）；<br>如果 this 是在一个构造函数里，则指向 new 的实例对象（empty obj）；<br>如果 this 在箭头函数（没有 this）里，则会指向父级作用域的 this 所指向的内容；</p></li></ol>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> Daily juice </tag>
-            
-            <tag> webpack </tag>
-            
-            <tag> Bable </tag>
-            
-            <tag> React </tag>
-            
-            <tag> Redux </tag>
-            
-            <tag> React-Router </tag>
-            
-            <tag> this </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-  
-  
+<search>
+  <entry>
+    <title>Node</title>
+    <url>/2020/03/07/3.7/</url>
+    <content><![CDATA[<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><ol>
+<li><p>为什么说 nodejs 是单线程语言呢？这是因为 nodejs 中 javascript 代码的执行是单线程；但 node 确实只有一个主线程，但是底层工作的线程却有多个。遇到异步时，主线程发出操作指令，然后就可以去做别的事情了（主线程不需要等待），所有操作完成后再执行回调。主线程什么时候知道操作完成执行回调，则通过 event loop 机制循环遍历。</p>
+</li>
+<li><p>nodejs 的异步 IO<br>当需要 IO(网络 IO/文件 IO)操作时，单线程的 javascript 并不会停下来等待 IO 操作完成，而是“事件驱动”开始介入，javascript 执行线程继续执行未完的 javascript 代码，当执行完成后该线程处于空闲状态</p>
+</li>
+<li><p>事件循环<br><img src="/images/node_sys.png" alt=""><br>Node.js 应用启动时，V8 引擎会执行你写的应用代码，保持一份观察者（注册在事件上的回调函数）列表。当事件发生时，它的回调函数会被加进一个事件队列。只要这个队列还有等待执行的回调函数，事件循环就会持续把回调函数从队列中拿出并执行。</p>
+</li>
+</ol>
+<p>4.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//module 是一个 obj，有一个 exports 属性导出 function 或者 obj</span></span><br><span class="line"><span class="built_in">module</span>.exports.func = func</span><br><span class="line"><span class="built_in">module</span>.exports.endPoint = url (keep url private)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"./相对路径"</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span> pathObj = path.parse(\_\_filename)</span><br><span class="line"><span class="comment">//包含 dir 地址，root，name 等属性</span></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">"os"</span>)</span><br><span class="line"><span class="comment">//包含内存等等属性</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS</title>
+    <url>/2020/03/06/3.6/</url>
+    <content><![CDATA[<h3 id="JS-高阶函数"><a href="#JS-高阶函数" class="headerlink" title="JS 高阶函数"></a>JS 高阶函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//forEach</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in this array not a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//map</span></span><br><span class="line"><span class="keyword">const</span> newArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//filter</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].filter(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//return true or false;</span></span><br><span class="line">  <span class="comment">//true will put the item back to the new array</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//reduce</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//prev item and next item will do some kind of calculation;</span></span><br><span class="line">  <span class="comment">//return a number</span></span><br><span class="line">&#125;, randomNumAsStartNum);</span><br><span class="line"></span><br><span class="line"><span class="comment">//some,every return true or false;</span></span><br><span class="line"><span class="comment">//some: if any item satisfy the condition,return true</span></span><br><span class="line"><span class="comment">//every: if all items satisfy the condition,return true</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css grid</title>
+    <url>/2020/03/05/3.5/</url>
+    <content><![CDATA[<h3 id="css-grid"><a href="#css-grid" class="headerlink" title="css grid"></a>css grid</h3><ol>
+<li>grid 构成</li>
+</ol>
+<p>Grid Container) 应用 display: grid 的元素<br>网格项(Grid Item) 网格容器（Grid Container）的子元素（例如直接子元素）<br>网格线(Grid Line) 网格轨道(Grid Track) 网格单元格(Grid Cell) 网格区域(Grid Area)</p>
+<ol start="2">
+<li><p>grid 属性<br>学习了各种网格容器属性以及网格项属性；<br>两个教程：<br><a href="https://www.html.cn/archives/8510" target="_blank" rel="noopener">https://www.html.cn/archives/8510</a><br><a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html</a></p>
+</li>
+<li><p>网格容器与网格项结构<br><img src="/images/grid-1.png" alt=""><br><img src="/images/grid-2.png" alt=""></p>
+</li>
+<li><p>属性分为三大类：<br>grid container;grid item;以及 grid 里的 content</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>css grid</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css flex box</title>
+    <url>/2020/03/04/3.4/</url>
+    <content><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p>
+<p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">https://www.html.cn/archives/8629</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p>
+<p><img src="/images/background.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>css flex box</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css box model and positioning</title>
+    <url>/2020/03/03/3.3/</url>
+    <content><![CDATA[<h3 id="css-box-model"><a href="#css-box-model" class="headerlink" title="css box model"></a>css box model</h3><ol>
+<li><p>所有元素在 css 里都会是一个 box； margin 是该 box 与其他 box 的距离，而 padding 是该盒子边界与内容区的距离</p>
+</li>
+<li><p>当两个 box 相邻时，margin 会塌陷（重叠），选 box margin 大的那一个作为距离</p>
+</li>
+<li><p>box-sizing 属性：border-box，内容区宽度或高度会自动调整<br>padding + border + 内容 width= 盒子的宽度<br>padding+ border + 内容 height = 盒子的高度<br><img src="https://s2.ax1x.com/2020/03/04/35aepD.png" alt="alt text"></p>
+</li>
+</ol>
+<h3 id="css-positioning"><a href="#css-positioning" class="headerlink" title="css positioning"></a>css positioning</h3><ol>
+<li><p>postion： 默认是 static relative 允许对元素的位置进行操作</p>
+</li>
+<li><p>absolute：相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。条件是定位基点（一般是父元素）不能是 static 定位， 否则定位基点是 html。</p>
+</li>
+<li><p>fixed：相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p>
+</li>
+<li><p>sticky：一些时候是 relative 定位（定位基点是自身默认位置），另一些时候自动变成 fixed 定位（定位基点是视口）</p>
+</li>
+</ol>
+<p>摘自：<a href="https://www.ruanyifeng.com/blog/2019/11/css-position.html" target="_blank" rel="noopener">阮一峰教程</a></p>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>css box model</tag>
+        <tag>css positioning</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redux middleware</title>
+    <url>/2020/03/02/3.2/</url>
+    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol>
+<li><p>为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p>
+</li>
+<li><p>什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p>
+</li>
+<li><p>实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p>
+</li>
+<li><p>其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>redux middleware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>事件捕获及冒泡</title>
+    <url>/2020/03/01/3.1/</url>
+    <content><![CDATA[<h3 id="DOM-操作-amp-jQuery"><a href="#DOM-操作-amp-jQuery" class="headerlink" title="DOM 操作&amp;jQuery"></a>DOM 操作&amp;jQuery</h3><ol>
+<li><p>在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)</p>
+</li>
+<li><p>事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。<br><img src="https://s2.ax1x.com/2020/03/04/35UlJU.png" alt="alt text"><br>但事件捕获(event capturing)与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。<br>element.addEventListener(event, function, useCapture)<br>true - 事件在捕获阶段执行<br>false- 默认。事件在冒泡阶段执行</p>
+</li>
+<li><p>我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，会执行几次事件，会先执行冒泡还是捕获？<br>非目标元素捕获 -&gt; 目标元素代码顺序 -&gt; 非目标元素冒泡<br><a href="https://blog.csdn.net/moguzhale/article/details/53503044" target="_blank" rel="noopener">https://blog.csdn.net/moguzhale/article/details/53503044</a></p>
+</li>
+<li><p>阻止冒泡和取消默认事件<br>event.stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。使用 event.preventDefault()可以取消默认事件<br><a href="https://www.jianshu.com/p/1fd066b4c0ba" target="_blank" rel="noopener">https://www.jianshu.com/p/1fd066b4c0ba</a></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>Dom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redux middleware</title>
+    <url>/2020/02/29/2.29/</url>
+    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol>
+<li><p>React 里 this 的指向问题<br>谁调用的 this 就指向谁。eg:constructor 函数里的 this.state、生命周期函数等，这些函数都是由 react 实例来调用的。<br>es6 箭头函数指向父层。eg：一个 onclick 函数；onclick={this.clickFunction} 这里的 this 是 undefined 的，所以在 clickFunction 里的 this 也是 undefined；有两种方法可以解决，第一种是将 clickFunction 变成箭头函数，箭头函数的 this 是指向父级作用域的，也就是 react 实例；第二种是使用 bind 改变 this 的指向。</p>
+</li>
+<li><p>redux 小点<br>Redux 里 reducers 里的参数 state 要设置为空[ ]；<br>每个 reducer(不同的 function)处理 state 的一个“片段”；<br><code>const rootReducers = combineReducers({reducer 的集合})；</code><br>connect 连接组件和 redux，返回一个 function<br>开发时用来检查 state 对象是否被改变了 redux-immutable-state-invariant 插件；<br>mapStateToProps 实现了让组件获取自己需要的 data，避免了全部渲染；<br>如果没有加 mapdispatchtoprops, 组件实例会自动的把 dispatch 作为 props，允许我们 dispatch action，但需要添加类型检测，</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">"prop-types"</span>;</span><br><span class="line">CoursesPage.propTypes = &#123;</span><br><span class="line">  dispatch: PropTypes.func.isRequired</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>渲染页面的流程<br><img src="/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.png" alt=""></p>
+</li>
+<li><p>Js<br>扩展运算符<br>[…state,{object}] 合并 state 对象与 object 对象，如有重叠，将重叠的属性更新；<br>export<br>export default 对应着直接 import，不需要大括号，可以更改名字 ;<br>export 需要{ }；</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>redux</tag>
+        <tag>javascript</tag>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redux&amp;JS</title>
+    <url>/2020/02/28/2.28/</url>
+    <content><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol>
+<li><p>React-Redux 将 react 组件绑定到 redux<br>how?provider 组件将 app 连接到 redux store<br>connect 组件将 react 组件连接到 redux store</p>
+</li>
+<li><p>mapStateToProps<br>去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）<br>定义此函数时，组件会 subscribe redux store 的更新，每当 store 更新时，此函数会被调用；<br>mapDispatchToProps<br>去定义哪一 action 你想作为 props 传入给组件；</p>
+</li>
+</ol>
+<h3 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h3><p>把一个 object 和 function 相连，在 function 里的 this 代指这个 object，更改 this 的指向。</p>
+<ol>
+<li><p>bind<br>bind 会返回一个函数，但不会执行这个函数。<br>var newFunc = functionName.bind(object)<br>newFunc(argumentsOfFunction)</p>
+</li>
+<li><p>call<br>functionName.call(object,argumentsOfFunction)</p>
+</li>
+<li><p>apply<br>functionName.apply(object,arrayTypeArguments)</p>
+</li>
+<li><p>箭头函数与普通函数 this 指向<br>this 永远指向的是最后调用它的对象<br>new 关键字可以改变 this 的指向<br>如果返回值是一个对象，那么 this 指向的就是那个返回的对象，如果返回值不是一个对象那么 this 还是指向函数的实例。<br>普通函数 this 指向取决于函数调用的位置; 箭头函数 this 指向取决于函数定义的位置<br><a href="https://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5216085.html</a><br><a href="https://zhuanlan.zhihu.com/p/47132493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47132493</a></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>redux</tag>
+        <tag>javascript</tag>
+        <tag>this</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React&amp;JS</title>
+    <url>/2020/02/27/2.27/</url>
+    <content><![CDATA[<h3 id="JS-异步函数"><a href="#JS-异步函数" class="headerlink" title="JS 异步函数"></a>JS 异步函数</h3><ol>
+<li><p>promise：<br><a href="https://juejin.im/post/5b605b035188251a90189c61" target="_blank" rel="noopener">https://juejin.im/post/5b605b035188251a90189c61</a></p>
+</li>
+<li><p>async-await:<br>更简洁可读性更强的语法糖相比于 promise<br><a href="https://juejin.im/post/5b0399bc518825426f311a3e" target="_blank" rel="noopener">https://juejin.im/post/5b0399bc518825426f311a3e</a></p>
+</li>
+<li><p>axios：<br>是一个基于 promise 的 HTTP 库，简可以发送 get、post 请求等<br><a href="https://cloud.tencent.com/developer/article/1498443" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1498443</a></p>
+</li>
+</ol>
+<h3 id="youtube-搜索小应用"><a href="#youtube-搜索小应用" class="headerlink" title="youtube 搜索小应用"></a>youtube 搜索小应用</h3><ol>
+<li>应用结构：<br><img src="/images/youtube_1.png" alt=""></li>
+</ol>
+<p>searchBar 是搜索栏组件，videoDetails 是用户所搜索或者点击的视频组件，videoList 是右侧相关视频清单组件，videoItem 是右侧单个渲染视频组件；<br>youtube 是向后台 api 发出请求。</p>
+<ol start="2">
+<li><p>应用界面：<br><img src="/images/youtube-2.png" alt=""></p>
+</li>
+<li><p>整体流程：<br>在 App.js 文件中渲染了 searchBar 组件，videoDetail 组件以及 videoList 组件，在 videoList 里渲染了 videoItem 组件。<br>用户输入关键字，会显示首个视频以及右侧的清单；<br>这是通过 App 组件向 searchBar 里传递的异步函数(获取 youtube 数据)，onSubmit 事件处理来调用此异步函数。<br>用户点击右侧视频，会重新渲染页面；<br>这是通过 App 组件向 videoList 里传递的 onVideoSelected 函数，再由 videoList 组件传递给 videoItem，最后再 videoItem 组件里 onClick 事件处理来调用这个 onVideoSelected 函数，在 onVideoSelected 函数会利用 setState 重新更改选择的视频，令 app 组件再次渲染。</p>
+</li>
+</ol>
+<p>整个项目要注意的是没有用 redux，导致传递 props 时最多经过了两个的组件，降低了可读性；在回调函数作为 props 时的处理问题；以及利用 async/await 从 youtube api 调取数据的流程，由 axios.create 创建实例等；</p>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>project</tag>
+        <tag>javascript</tag>
+        <tag>promise</tag>
+        <tag>async-await</tag>
+        <tag>axios</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React&amp;JS</title>
+    <url>/2020/02/25/2.25/</url>
+    <content><![CDATA[<p>今天用 jQuery，bootstrap3.7.3，以及 GitHub api 做了一个小应用，主要是读取用户输入，再返回输入的 username 的基本信息，包括用户头像、followers、仓库等。<br><img src="/images/github_j.png" alt=""></p>
+<p>难点在于两次 ajax 的调用，第一次通过用户名获取用户的个人信息，第二次是在第一次结束之后再利用 url+/repos 来获取用户的最新仓库，用 each 方法来遍历整个 repos，再单个渲染；当 fetch 多个元素的时候，还要注意 jQuery append 的用法。<br>另，html 里学会了 target=”_blank”，打开新页面的指令。<br>总结：<br>这次的 jQuery 来写的小程序让我了解了怎么在 jQuery 里用异步调用，以及 bootstrap 的常见 class。</p>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>jquery</tag>
+        <tag>project</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>React&amp;Redux</title>
+    <url>/2020/02/24/2.24/</url>
+    <content><![CDATA[<ol>
+<li><p>利用 webpack 来自定义开发环境，了解了 devServer，plugins，loader 的作用，如何在 package.json 里添加依赖等（还需再看，有些地方不是很理解）。</p>
+</li>
+<li><p>了解 Bable 的作用 （transpile JS to ECMA5）以及 eslint（代码规范）;</p>
+</li>
+<li><p>React function 组件的好处：省掉 this 关键字；transpiled 后代码量更少；高信噪比等。</p>
+</li>
+<li><p>梳理了 Redux 知识点以及 React-Router 的用法：<br>用于处理 复杂数据流、两个没有父子关系组件的交互、两个不同组件操作同样的内容、非分层的数据的情况。<br>三个原理：<br>不能直接改变 store；需要 action 作为 trigger；state 需要被纯函数（reducer）来处理<br>流程图：<br>actions are dispatched to reducers and<br>reducers return a new state then cause the change of store<br>store let each components aware the change using CONNECT(React-Redux)<br>reducers 可以看作绞肉机 每一次的 action 可以被多个 reducers 来 handle。<br>为什么 Redux 要由不可变化的 store？提高了 performance 只需要对比旧 state 和新 state 的 memory reference 就知道是否变化；更加清晰 每次的改变知道在哪变化以及怎么变化；方便 debug。<br>经过 reducer 的 action 返回的是一个新的 state，不会克隆内嵌元素，如果要拷贝整个 state，需要手动克隆内嵌对象（深拷贝）；但是深拷贝是降低 performance 的也是浪费的，只需要克隆已经改变的 object；还会造成不必要的渲染，react 会认为都变化了，但实际上只有子对象变化了。所以就是 redux 里的对比机制变相的提高了 performance。</p>
+</li>
+<li><p>容器组件和展示组件的区别。<a href="https://www.jianshu.com/p/6fa2b21f5df3" target="_blank" rel="noopener">https://www.jianshu.com/p/6fa2b21f5df3</a></p>
+</li>
+<li><p>this 指向问题<br>如果 this 所在的 function 是一个 obj 的方法时，则指向这个 obj；如果是属性，则指向父级作用域；<br>如果 this 所在的 function 在全局环境里，则指向 window；<br>如果 this 是在一个回调函数里，则指向 window（forEach 函数的第二个参数可以改变 this 指向）；<br>如果 this 是在一个构造函数里，则指向 new 的实例对象（empty obj）；<br>如果 this 在箭头函数（没有 this）里，则会指向父级作用域的 this 所指向的内容；</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>this</tag>
+        <tag>webpack</tag>
+        <tag>Bable</tag>
+        <tag>React</tag>
+        <tag>Redux</tag>
+        <tag>React-Router</tag>
+      </tags>
+  </entry>
 </search>
