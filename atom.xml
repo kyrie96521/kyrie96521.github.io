@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/kyrie96521/kyrie96521.github.io/"/>
-  <updated>2020-03-07T14:52:01.490Z</updated>
+  <updated>2020-03-10T02:28:08.739Z</updated>
   <id>https://github.com/kyrie96521/kyrie96521.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reat Hooks</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/09/3.9/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/09/3.9/</id>
+    <published>2020-03-08T14:23:48.000Z</published>
+    <updated>2020-03-10T02:28:08.739Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="react-hook"><a href="#react-hook" class="headerlink" title="react hook"></a>react hook</h3><ol><li><p>React 的核心思想是，一个 UI 组件响应一个 state 变化。</p></li><li><p>不使用 setState 更新 React 中的 state。<br>React 组件不再是 ES6 class，它是一个纯粹而简单的 JavaScript 函数。<br>const [buttonText, setButtonText] = useState(“Click me, please”);<br>[state 值,state 更新函数]</p></li><li><p>useEffect 获取数据替代 componentDidMount 在 React 中获取数据。<br>useEffect 与 React 类中的 componentDidMount，componentDidUpdate 和 componentWillUnmount 具有相同的用途，但统一为单个 API。<br>比如，在 useEffect 中调用 fetch。而且可以使用 setData（从 useState 中提取的更新函数）代替 this.setState。<br>“useEffect 与 componentDidMount，componentDidUpdate 和 componentWillUnmount 具有相同的用途”<br>componentDidUpdate！ componentDidUpdate 是一个生命周期方法，每当组件获得新的 props 或 state 发生变化时就会运行。如果直接调用 useEffect，你会看到无限循环。我们需要传递一个空数组作为 useEffect 的第二个参数：[]。</p></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  fetch(<span class="string">"http://localhost:3001/links/"</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">    .then(<span class="function"><span class="params">data</span> =&gt;</span> setData(data));</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure><ol start="4"><li><p>使用带有 React Hooks 的 render props 吗？<br>没有意义。那是因为 React Hooks 诞生的原因的：在组件之间共享逻辑。有了一个标准的、干净的方式来封装和共享逻辑。</p></li><li><p>可以在 useEffect 中使用 async/await 吗?<br>不能直接使用。那是因为 JavaScript 异步函数总是返回一个 promise，而 useEffect 只能返回另一个函数。如果你要在 useEffect 中使用 setInterval 定时器，我们应该返回一个函数（闭包）来清除 setInterval。</p></li></ol><p>摘自：<a href="https://fenews.org/posts/getting-started-with-react-hooks/" target="_blank" rel="noopener">React Hooks(2019)入门教程</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;react-hook&quot;&gt;&lt;a href=&quot;#react-hook&quot; class=&quot;headerlink&quot; title=&quot;react hook&quot;&gt;&lt;/a&gt;react hook&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;React 的核心思想是，一个 UI 组件响应一个 sta
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
+    
+      <category term="react hooks" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react-hooks/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/08/3.8/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/08/3.8/</id>
+    <published>2020-03-07T14:23:48.000Z</published>
+    <updated>2020-03-10T02:49:06.758Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天算是做完了 9321 的第一个 assignment，主要考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。</p><p>顺便记录一下 <a href="https://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git</a> 的基本操作。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天算是做完了 9321 的第一个 assignment，主要考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。&lt;/p&gt;
+&lt;p&gt;顺便记录一下 &lt;a href=&quot;https://www.
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
+    
+      <category term="unsw" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/unsw/"/>
+    
+      <category term="git" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>Node</title>
@@ -230,11 +286,11 @@
     
       <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
+      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
+    
       <category term="redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/redux/"/>
     
       <category term="javascript" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/javascript/"/>
-    
-      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
     
   </entry>
   
@@ -261,11 +317,11 @@
     
       <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
+    
       <category term="redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/redux/"/>
     
       <category term="javascript" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/javascript/"/>
-    
-      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
     
   </entry>
   
@@ -357,8 +413,6 @@
     
       <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
-      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
-    
       <category term="webpack" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/webpack/"/>
     
       <category term="Bable" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Bable/"/>
@@ -368,6 +422,8 @@
       <category term="Redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Redux/"/>
     
       <category term="React-Router" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/React-Router/"/>
+    
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
     
   </entry>
   
