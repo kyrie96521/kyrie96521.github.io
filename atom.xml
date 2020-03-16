@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/kyrie96521/kyrie96521.github.io/"/>
-  <updated>2020-03-10T02:28:08.739Z</updated>
+  <updated>2020-03-16T01:09:17.290Z</updated>
   <id>https://github.com/kyrie96521/kyrie96521.github.io/</id>
   
   <author>
@@ -18,10 +18,181 @@
   
   <entry>
     <title>Reat Hooks</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/15/3.15/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/15/3.15/</id>
+    <published>2020-03-14T14:23:48.000Z</published>
+    <updated>2020-03-16T01:09:17.290Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><ol><li><p>jQuery 的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作.</p></li><li><p>JavaScript 语言的一大特点就是单线程，同一个时间只能做一件事。JavaScript 的主要用途是与用户互动，以及操作 DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定 JavaScript 同时有两个线程，一个线程在某个 DOM 节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？</p></li><li><p>异步任务指的是，不进入主线程、而进入任务队列（task queue）的任务，只有任务队列通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。<br>（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。<br>（2）主线程之外，还存在一个任务队列（task queue）。只要异步任务有了运行结果，就在任务队列之中放置一个事件。<br>（3）一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。<br>（4）主线程不断重复上面的第三步。<br><img src="/images/eventloop.jpg" alt=""></p></li><li><p>所谓回调函数（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。<br>任务队列是一个先进先出的数据结构，排在前面的事件，优先被主线程读取。主线程的读取过程基本上是自动的，只要执行栈一清空，任务队列上第一位的事件就自动进入主线程。</p></li><li><p>ajax：可以在不重新加载整个网页的情况下，对网页的某部分进行更新。只要是 JS 调用异步通讯组件并使用格式化的数据来更新 web 页面上的内容或操作过程，那么我们用的方法就可算是 AJAX</p></li></ol><p>摘自：<img src="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" alt="阮一峰"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;事件循环&quot;&gt;&lt;a href=&quot;#事件循环&quot; class=&quot;headerlink&quot; title=&quot;事件循环&quot;&gt;&lt;/a&gt;事件循环&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;jQuery 的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作.&lt;/p&gt;
+&lt;/li&gt;
+
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
+    
+      <category term="jquery" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/jquery/"/>
+    
+      <category term="event loop" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/event-loop/"/>
+    
+      <category term="ajax" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/ajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>express</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/14/3.14/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/14/3.14/</id>
+    <published>2020-03-13T14:23:48.000Z</published>
+    <updated>2020-03-16T01:02:25.018Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol><li><p>简介<br>中间件：在 express 应用中，一切皆中间件。各种应用逻辑，如 cookie 解析、会话处理、日志记录、权限校验等，都是通过中间件来完成的。<br>路由：负责寻址。比如用户发送了个 http 请求，该定位到哪个资源，就是路由说了算。<br>模板引擎：负责视图动态渲染。</p></li><li><p><img src="https://github.com/nswbmw/N-blog/blob/master/book/3.2%20%E8%B7%AF%E7%94%B1.md" alt="express.Router"></p></li><li><p>模板引擎是一个将页面模板和数据结合起来生成 html 的工具。<br>app.set(‘views’, path.join(__dirname, ‘views’))// 设置存放模板文件的目录<br>app.set(‘view engine’, ‘ejs’)// 设置模板引擎为 ejs</p><p>通过调用 res.render 函数渲染 ejs 模板，res.render 第一个参数是模板的名字，这里是 users 则会匹配 views/users.ejs，第二个参数是传给模板的数据。<br>用 includes 拆分模板组件通常有两个好处：<br>模板可复用，减少重复代码<br>主模板结构清晰</p></li><li><p>中间件与 next<br>express 中的中间件（middleware）就是用来处理请求的，当一个中间件处理完，可以通过调用 next() 传递给下一个中间件，如果没有调用 next()，则请求不会往下传递，如内置的 res.render 其实就是渲染完 html 直接返回给客户端，没有调用 next()，从而没有传递给下一个中间件</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;express&quot;&gt;&lt;a href=&quot;#express&quot; class=&quot;headerlink&quot; title=&quot;express&quot;&gt;&lt;/a&gt;express&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;简介&lt;br&gt;中间件：在 express 应用中，一切皆中间件。各种应用逻辑，如 c
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
+    
+      <category term="express" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/express/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react+redux 项目流程</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/13/3.13/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/13/3.13/</id>
+    <published>2020-03-12T14:23:48.000Z</published>
+    <updated>2020-03-16T01:08:59.134Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="restful-Api-资源表现层状态转化"><a href="#restful-Api-资源表现层状态转化" class="headerlink" title="restful Api 资源表现层状态转化"></a>restful Api 资源表现层状态转化</h3><p>资源是一种信息实体，它可以有多种外在表现形式。我们把资源具体呈现出来的形式，叫做它的表现层（Representation）。比如，文本可以用 txt 格式表现，也可以用 HTML 格式、XML 格式、JSON 格式表现，甚至可以采用二进制格式；图片可以用 JPG 格式表现，也可以用 PNG 格式表现。<br>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生状态转化（State Transfer）。而这种转化是建立在表现层之上的，所以就是表现层状态转化。<br><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/09/restful.html</a><br><a href="https://www.cnblogs.com/yuri2016/p/7204594.html不错的教程" target="_blank" rel="noopener">https://www.cnblogs.com/yuri2016/p/7204594.html不错的教程</a></p><h3 id="react-redux-小项目流程"><a href="#react-redux-小项目流程" class="headerlink" title="react+redux 小项目流程"></a>react+redux 小项目流程</h3><ol><li><p>先 render 组件</p></li><li><p>componentDidMount (最常见的 fetch data 的地方就是在 componentDidMount 里)</p></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> componentDidMount() &#123;</span><br><span class="line"> <span class="comment">/*因为有 action 被发现</span></span><br><span class="line"><span class="comment">  一被调用立即执行 dispatch function</span></span><br><span class="line"><span class="comment">  store.dispatch(fetchpost());</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">  <span class="keyword">this</span>.props.fetchPosts();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="3"><li><p>action creator 对 api 请求负责初始化<br>export default axios.create({<br>baseURL: <a href="https://jsonplaceholder.typicode.com" target="_blank" rel="noopener">https://jsonplaceholder.typicode.com</a><br>});</p></li><li><p>action creator 使用 axios 去做出 api 请求<br>action 会被立刻 dispatch 被 reducers 执行，但是 api 请求是有 delay 的。所以需要异步 action creator，即中间件 redux-thunk 帮助我们能去完成发出请求的操作。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchPosts = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">async</span> (dispatch, getstate) =&gt; &#123;</span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> json.get(<span class="regexp">/posts);</span></span><br><span class="line"><span class="regexp">dispatch(&#123; type: FETCH_POSTS, payload: response.data &#125;);</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp">export const fetchUser = id =&gt; async dispatch =&gt; &#123;</span></span><br><span class="line"><span class="regexp">const response = await json.get(`/u</span>sers/$&#123;id&#125;<span class="string">`);</span></span><br><span class="line"><span class="string">dispatch(&#123; type: FETCH_USER, payload: response.data &#125;);</span></span><br><span class="line"><span class="string">&#125;;</span></span><br></pre></td></tr></table></figure><p>async 函数返回值是 Promise 对象，给了我们获取 data 的权限。<br>中间件：action creator 返回 function 或者 object，被 dispatch 到中间件，在中间件里会有 if 判断是 function 还是 object；如果是 obj，会直接到 reducers 里；如果是 function，会调用这个 function 以及 dispatch 和 getstate function。</p></li><li><p>api 返回 data<br>dispatch({ type: FETCH_POSTS, payload: response.data });</p></li><li><p>action creator 返回一个带有 fetched data 的 action，dispatch 给 reducers。</p></li><li><p>reducer 接收 action 并且通过 payload 数据返回一个新 state。<br>注意：<br>必须返回除了 undefined 以外的值 []是可以的；<br>state = null，第一次调用 state 默认是 null，表示现在没有被选择的值；<br>第二次调用的时候，state 是由第一次 return 出来的 state 和 action2 产生。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = [], action) =&gt; &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> FETCH_USER:</span><br><span class="line">      <span class="keyword">return</span> [...state, action.payload];</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li><li><p>新的 state 会被作为 props 传入 react 组件，造成重新渲染。store 可以看作是 state 的集合。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mapStateToProps = <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">posts</span>: state.posts &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, &#123; fetchPosts &#125;)(PostList);</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;restful-Api-资源表现层状态转化&quot;&gt;&lt;a href=&quot;#restful-Api-资源表现层状态转化&quot; class=&quot;headerlink&quot; title=&quot;restful Api 资源表现层状态转化&quot;&gt;&lt;/a&gt;restful Api 资源表现层状态转化&lt;/
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
+    
+      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
+    
+      <category term="redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/redux/"/>
+    
+      <category term="restful api" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/restful-api/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Redux</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/12/3.12/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/12/3.12/</id>
+    <published>2020-03-11T14:23:48.000Z</published>
+    <updated>2020-03-16T01:04:52.923Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol><li><p>redux 作用？<br>随着应用复杂度地不断提升，组件之间的状态通信变得越来越多，组件之间的耦合也变得越来越重。redux 能更好维护的模块间通信。</p></li><li><p>Redux 的单一状态树<br>所有的 state 都以一个对象树的形式储存在一个单一的 store 中。页面中的所有状态 or 数据，都应该用这种状态树的形式来描述；页面上的任何变化，都应该先去改变这个状态树，然后再通过某种方式实现到页面上。</p></li><li><p>action</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeText</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"CHANGE_TEXT"</span>,</span><br><span class="line">    payload: <span class="string">"Hello"</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Action 的任务是描述“发生了什么事情？”，这个函数会返回一个 Action 对象，这个对象里描述了“页面发生了什么”。随后这个对象会被传入到 Reducer 中。</p></li><li><p>reducer<br>(state, action) =&gt; newState<br>Reducer 的任务是根据传入的 Action 对象去修改状态树。<br>Reducer 是一个纯函数， 根据传入的 当前 state 和 action ，返回一个新的 state 。</p></li><li><p>Store<br>let store = createStore(Reducer);<br>state 是 store 的映射；<br>Store 就是把 Reducer 和 action 联系到一起的对象。<br>Store 有以下职责：<br>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器；</p></li><li><p>异步操作怎么办？<br>Action 发出以后，Reducer 立即算出 State，这叫做同步；Action 发出以后，过一段时间再执行 Reducer，这就是异步。中间件解决了这个问题。</p></li><li><p>什么是中间件？<br>中间件就是一个函数，对 store.dispatch 方法进行了改造，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</p></li></ol><p>摘自：<img src="https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" alt="阮一峰"><br><img src="https://zhuanlan.zhihu.com/p/24684803" alt="知乎 er"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Redux&quot;&gt;&lt;a href=&quot;#Redux&quot; class=&quot;headerlink&quot; title=&quot;Redux&quot;&gt;&lt;/a&gt;Redux&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;redux 作用？&lt;br&gt;随着应用复杂度地不断提升，组件之间的状态通信变得越来越多，组件之间的耦合
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
+    
+      <category term="redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/redux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>express</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/11/3.11/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/11/3.11/</id>
+    <published>2020-03-10T14:23:48.000Z</published>
+    <updated>2020-03-16T01:05:23.992Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol><li>webpack 作用及流程<br>component 必须返回 jsx，每次当 state 变化，组件重新渲染<br>比如 webpack 会把 jsx 语句转化为 bundle.js<br><img src="https://juejin.im/entry/58a177b0128fe100659d79ef" alt="webpack 流程介绍"></li></ol><p>2) express 项目结构<br>   其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore 文件里面写明文件 pull 到 github 时不需要上传的文件或文件夹，如 node_modules 文件夹。</p><p>3) <img src="https://www.zybuluo.com/kexinWeb/note/663277" alt="app.js"></p><ol start="4"><li>js 框架与模板引擎的区别<br>模板引擎，就是将 HTML 模板渲染出最终样子的工具。<br>把动态把数据填充到 HTML 里面，可以在服务器端做，也可以在浏览器端做<br>比如 angular 会根据取到的数据去填充}里的内容，这是在客户端完成的。<br>比如 JSP 会在服务器端去填充{$}里的内容，然后把最终的 html 送到浏览器，这是服务器端完成的。<br>有时候前后端模板引擎会同时使用，即使有前端的模板引擎，后端返回 HTML 有时也是需要的，不仅仅返回是 JSON 数据<br>区别：<br>前后端分离可以大大将服务端的压力分散给客户端，而客户端的计算性能损耗几乎是微乎其微，并且在开发流程上，效率也极大提升，也可以适应敏捷开发。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;express&quot;&gt;&lt;a href=&quot;#express&quot; class=&quot;headerlink&quot; title=&quot;express&quot;&gt;&lt;/a&gt;express&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;webpack 作用及流程&lt;br&gt;component 必须返回 jsx，每次当 stat
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
+    
+      <category term="express" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/express/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Webpack</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/10/3.10/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/10/3.10/</id>
+    <published>2020-03-09T14:23:48.000Z</published>
+    <updated>2020-03-16T00:38:47.252Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h3><ol><li><p>什么是 Webpack?<br>WebPack 可以看做是模块打包机：它做的事情是，分析你的项目结构，找到 JavaScript 模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript 等），并将其打包为合适的格式以供浏览器使用。</p></li><li><p>为什要使用 WebPack?<br>今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的 JavaScript 代码和一大堆依赖包。为了简化开发的复杂度，有不少好的实践方法<br>a:模块化，让我们可以把复杂的程序细化为小的文件;<br>b:类似于 TypeScript 这种在 JavaScript 基础上拓展的开发语言：使我们能够实现目前版本的 JavaScript 不能直接使用的特性，并且之后还能能装换为 JavaScript 文件使浏览器可以识别。</p></li><li><p>Webpack 的工作方式是?<br>在 webpack 看来一切都是模块！他会把项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack 将从这个文件开始找到你的项目的所有依赖文件，使用 loaders 处理它们，最后打包为一个浏览器可识别的 JavaScript 文件。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Webpack&quot;&gt;&lt;a href=&quot;#Webpack&quot; class=&quot;headerlink&quot; title=&quot;Webpack&quot;&gt;&lt;/a&gt;Webpack&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;什么是 Webpack?&lt;br&gt;WebPack 可以看做是模块打包机：它做的事情是
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
+    
+      <category term="Webpack" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React Hooks</title>
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/09/3.9/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/09/3.9/</id>
     <published>2020-03-08T14:23:48.000Z</published>
-    <updated>2020-03-10T02:28:08.739Z</updated>
+    <updated>2020-03-16T00:40:22.652Z</updated>
     
     <content type="html"><![CDATA[<h3 id="react-hook"><a href="#react-hook" class="headerlink" title="react hook"></a>react hook</h3><ol><li><p>React 的核心思想是，一个 UI 组件响应一个 state 变化。</p></li><li><p>不使用 setState 更新 React 中的 state。<br>React 组件不再是 ES6 class，它是一个纯粹而简单的 JavaScript 函数。<br>const [buttonText, setButtonText] = useState(“Click me, please”);<br>[state 值,state 更新函数]</p></li><li><p>useEffect 获取数据替代 componentDidMount 在 React 中获取数据。<br>useEffect 与 React 类中的 componentDidMount，componentDidUpdate 和 componentWillUnmount 具有相同的用途，但统一为单个 API。<br>比如，在 useEffect 中调用 fetch。而且可以使用 setData（从 useState 中提取的更新函数）代替 this.setState。<br>“useEffect 与 componentDidMount，componentDidUpdate 和 componentWillUnmount 具有相同的用途”<br>componentDidUpdate！ componentDidUpdate 是一个生命周期方法，每当组件获得新的 props 或 state 发生变化时就会运行。如果直接调用 useEffect，你会看到无限循环。我们需要传递一个空数组作为 useEffect 的第二个参数：[]。</p></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  fetch(<span class="string">"http://localhost:3001/links/"</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">    .then(<span class="function"><span class="params">data</span> =&gt;</span> setData(data));</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure><ol start="4"><li><p>使用带有 React Hooks 的 render props 吗？<br>没有意义。那是因为 React Hooks 诞生的原因的：在组件之间共享逻辑。有了一个标准的、干净的方式来封装和共享逻辑。</p></li><li><p>可以在 useEffect 中使用 async/await 吗?<br>不能直接使用。那是因为 JavaScript 异步函数总是返回一个 promise，而 useEffect 只能返回另一个函数。如果你要在 useEffect 中使用 setInterval 定时器，我们应该返回一个函数（闭包）来清除 setInterval。</p></li></ol><p>摘自：<a href="https://fenews.org/posts/getting-started-with-react-hooks/" target="_blank" rel="noopener">React Hooks(2019)入门教程</a></p>]]></content>
     
@@ -48,16 +219,16 @@
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/08/3.8/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/08/3.8/</id>
     <published>2020-03-07T14:23:48.000Z</published>
-    <updated>2020-03-10T02:49:06.758Z</updated>
+    <updated>2020-03-10T05:44:07.970Z</updated>
     
-    <content type="html"><![CDATA[<p>今天算是做完了 9321 的第一个 assignment，主要考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。</p><p>顺便记录一下 <a href="https://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git</a> 的基本操作。</p>]]></content>
+    <content type="html"><![CDATA[<p>今天算是做完了 9321 的第一个 assignment，考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。</p><p>顺便记录一下 <a href="https://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git</a> 的基本操作。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;今天算是做完了 9321 的第一个 assignment，主要考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。&lt;/p&gt;
-&lt;p&gt;顺便记录一下 &lt;a href=&quot;https://www.
+        &lt;p&gt;今天算是做完了 9321 的第一个 assignment，考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。&lt;/p&gt;
+&lt;p&gt;顺便记录一下 &lt;a href=&quot;https://www.bo
       
     
     </summary>
@@ -159,9 +330,9 @@
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/04/3.4/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/04/3.4/</id>
     <published>2020-03-03T14:23:48.000Z</published>
-    <updated>2020-03-07T14:45:57.918Z</updated>
+    <updated>2020-03-16T01:07:29.470Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p><p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">https://www.html.cn/archives/8629</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html</a></p><p><img src="/images/background.png" alt=""></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p><p>两个极好的教程:<br><img src="https://www.html.cn/archives/8629" alt="CSS3 Flexbox 布局完全指南"><br><img src="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" alt="阮一峰"></p><p><img src="/images/background.png" alt=""></p>]]></content>
     
     <summary type="html">
     
@@ -317,9 +488,9 @@
     
       <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
-      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
-    
       <category term="redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/redux/"/>
+    
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
     
       <category term="javascript" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/javascript/"/>
     
@@ -350,9 +521,9 @@
     
       <category term="project" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/project/"/>
     
-      <category term="javascript" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/javascript/"/>
-    
       <category term="promise" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/promise/"/>
+    
+      <category term="javascript" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/javascript/"/>
     
       <category term="async-await" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/async-await/"/>
     
@@ -393,7 +564,7 @@
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/02/24/2.24/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/02/24/2.24/</id>
     <published>2020-02-23T22:24:28.000Z</published>
-    <updated>2020-03-07T14:43:51.474Z</updated>
+    <updated>2020-03-16T01:08:18.864Z</updated>
     
     <content type="html"><![CDATA[<ol><li><p>利用 webpack 来自定义开发环境，了解了 devServer，plugins，loader 的作用，如何在 package.json 里添加依赖等（还需再看，有些地方不是很理解）。</p></li><li><p>了解 Bable 的作用 （transpile JS to ECMA5）以及 eslint（代码规范）;</p></li><li><p>React function 组件的好处：省掉 this 关键字；transpiled 后代码量更少；高信噪比等。</p></li><li><p>梳理了 Redux 知识点以及 React-Router 的用法：<br>用于处理 复杂数据流、两个没有父子关系组件的交互、两个不同组件操作同样的内容、非分层的数据的情况。<br>三个原理：<br>不能直接改变 store；需要 action 作为 trigger；state 需要被纯函数（reducer）来处理<br>流程图：<br>actions are dispatched to reducers and<br>reducers return a new state then cause the change of store<br>store let each components aware the change using CONNECT(React-Redux)<br>reducers 可以看作绞肉机 每一次的 action 可以被多个 reducers 来 handle。<br>为什么 Redux 要由不可变化的 store？提高了 performance 只需要对比旧 state 和新 state 的 memory reference 就知道是否变化；更加清晰 每次的改变知道在哪变化以及怎么变化；方便 debug。<br>经过 reducer 的 action 返回的是一个新的 state，不会克隆内嵌元素，如果要拷贝整个 state，需要手动克隆内嵌对象（深拷贝）；但是深拷贝是降低 performance 的也是浪费的，只需要克隆已经改变的 object；还会造成不必要的渲染，react 会认为都变化了，但实际上只有子对象变化了。所以就是 redux 里的对比机制变相的提高了 performance。</p></li><li><p>容器组件和展示组件的区别。<a href="https://www.jianshu.com/p/6fa2b21f5df3" target="_blank" rel="noopener">https://www.jianshu.com/p/6fa2b21f5df3</a></p></li><li><p>this 指向问题<br>如果 this 所在的 function 是一个 obj 的方法时，则指向这个 obj；如果是属性，则指向父级作用域；<br>如果 this 所在的 function 在全局环境里，则指向 window；<br>如果 this 是在一个回调函数里，则指向 window（forEach 函数的第二个参数可以改变 this 指向）；<br>如果 this 是在一个构造函数里，则指向 new 的实例对象（empty obj）；<br>如果 this 在箭头函数（没有 this）里，则会指向父级作用域的 this 所指向的内容；</p></li></ol>]]></content>
     
@@ -415,13 +586,13 @@
     
       <category term="webpack" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/webpack/"/>
     
-      <category term="Bable" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Bable/"/>
+      <category term="bable" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/bable/"/>
     
-      <category term="React" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/React/"/>
+      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
     
-      <category term="Redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Redux/"/>
+      <category term="redux" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/redux/"/>
     
-      <category term="React-Router" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/React-Router/"/>
+      <category term="react-router" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react-router/"/>
     
       <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
     
