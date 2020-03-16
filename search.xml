@@ -47,7 +47,7 @@
   <entry>
     <title>react+redux 项目流程</title>
     <url>/2020/03/13/3.13/</url>
-    <content><![CDATA[<h3 id="restful-Api-资源表现层状态转化"><a href="#restful-Api-资源表现层状态转化" class="headerlink" title="restful Api 资源表现层状态转化"></a>restful Api 资源表现层状态转化</h3><p>资源是一种信息实体，它可以有多种外在表现形式。我们把资源具体呈现出来的形式，叫做它的表现层（Representation）。比如，文本可以用 txt 格式表现，也可以用 HTML 格式、XML 格式、JSON 格式表现，甚至可以采用二进制格式；图片可以用 JPG 格式表现，也可以用 PNG 格式表现。<br>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生状态转化（State Transfer）。而这种转化是建立在表现层之上的，所以就是表现层状态转化。<br><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/09/restful.html</a><br><a href="https://www.cnblogs.com/yuri2016/p/7204594.html不错的教程" target="_blank" rel="noopener">https://www.cnblogs.com/yuri2016/p/7204594.html不错的教程</a></p>
+    <content><![CDATA[<h3 id="restful-Api-资源表现层状态转化"><a href="#restful-Api-资源表现层状态转化" class="headerlink" title="restful Api 资源表现层状态转化"></a>restful Api 资源表现层状态转化</h3><p>资源是一种信息实体，它可以有多种外在表现形式。我们把资源具体呈现出来的形式，叫做它的<a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">表现层（Representation）</a>。比如，文本可以用 txt 格式表现，也可以用 HTML 格式、XML 格式、JSON 格式表现，甚至可以采用二进制格式；图片可以用 JPG 格式表现，也可以用 PNG 格式表现。<br>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生<a href="https://www.cnblogs.com/yuri2016/p/7204594.html" target="_blank" rel="noopener">状态转化（State Transfer）</a>。而这种转化是建立在表现层之上的，所以就是表现层状态转化。</p>
 <h3 id="react-redux-小项目流程"><a href="#react-redux-小项目流程" class="headerlink" title="react+redux 小项目流程"></a>react+redux 小项目流程</h3><ol>
 <li><p>先 render 组件</p>
 </li>
@@ -105,7 +105,7 @@
 <li><p>什么是中间件？<br>中间件就是一个函数，对 store.dispatch 方法进行了改造，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</p>
 </li>
 </ol>
-<p>摘自：<img src="https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" alt="阮一峰"><br><img src="https://zhuanlan.zhihu.com/p/24684803" alt="知乎 er"></p>
+<p>摘自：<a href="https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" target="_blank" rel="noopener">阮一峰</a><br><a href="https://zhuanlan.zhihu.com/p/24684803" target="_blank" rel="noopener">知乎 er</a></p>
 ]]></content>
       <tags>
         <tag>Daily juice</tag>
@@ -116,10 +116,10 @@
     <title>express</title>
     <url>/2020/03/11/3.11/</url>
     <content><![CDATA[<h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol>
-<li>webpack 作用及流程<br>component 必须返回 jsx，每次当 state 变化，组件重新渲染<br>比如 webpack 会把 jsx 语句转化为 bundle.js<br><img src="https://juejin.im/entry/58a177b0128fe100659d79ef" alt="webpack 流程介绍"></li>
+<li>webpack 作用及流程<br>component 必须返回 jsx，每次当 state 变化，组件重新渲染<br>比如 webpack 会把 jsx 语句转化为 bundle.js<br><a href="https://juejin.im/entry/58a177b0128fe100659d79ef" target="_blank" rel="noopener">webpack 流程介绍</a></li>
 </ol>
 <p>2) express 项目结构<br>   其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore 文件里面写明文件 pull 到 github 时不需要上传的文件或文件夹，如 node_modules 文件夹。</p>
-<p>3) <img src="https://www.zybuluo.com/kexinWeb/note/663277" alt="app.js"></p>
+<p>3) <a href="https://www.zybuluo.com/kexinWeb/note/663277" target="_blank" rel="noopener">app.js</a></p>
 <ol start="4">
 <li>js 框架与模板引擎的区别<br>模板引擎，就是将 HTML 模板渲染出最终样子的工具。<br>把动态把数据填充到 HTML 里面，可以在服务器端做，也可以在浏览器端做<br>比如 angular 会根据取到的数据去填充}里的内容，这是在客户端完成的。<br>比如 JSP 会在服务器端去填充{$}里的内容，然后把最终的 html 送到浏览器，这是服务器端完成的。<br>有时候前后端模板引擎会同时使用，即使有前端的模板引擎，后端返回 HTML 有时也是需要的，不仅仅返回是 JSON 数据<br>区别：<br>前后端分离可以大大将服务端的压力分散给客户端，而客户端的计算性能损耗几乎是微乎其微，并且在开发流程上，效率也极大提升，也可以适应敏捷开发。</li>
 </ol>
@@ -238,7 +238,7 @@
     <title>css flex box</title>
     <url>/2020/03/04/3.4/</url>
     <content><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p>
-<p>两个极好的教程:<br><img src="https://www.html.cn/archives/8629" alt="CSS3 Flexbox 布局完全指南"><br><img src="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" alt="阮一峰"></p>
+<p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">CSS3 Flexbox 布局完全指南</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰</a></p>
 <p><img src="/images/background.png" alt=""></p>
 ]]></content>
       <tags>

@@ -81,22 +81,19 @@
 
 
 
-<meta name="description" content="express webpack 作用及流程component 必须返回 jsx，每次当 state 变化，组件重新渲染比如 webpack 会把 jsx 语句转化为 bundle.js  2) express 项目结构   其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore 文件里面写明文件 pul">
+<meta name="description" content="express webpack 作用及流程component 必须返回 jsx，每次当 state 变化，组件重新渲染比如 webpack 会把 jsx 语句转化为 bundle.jswebpack 流程介绍  2) express 项目结构   其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore">
 <meta property="og:type" content="article">
 <meta property="og:title" content="express">
 <meta property="og:url" content="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/11/3.11/index.html">
 <meta property="og:site_name" content="Kyle&#39;s Blog">
-<meta property="og:description" content="express webpack 作用及流程component 必须返回 jsx，每次当 state 变化，组件重新渲染比如 webpack 会把 jsx 语句转化为 bundle.js  2) express 项目结构   其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore 文件里面写明文件 pul">
+<meta property="og:description" content="express webpack 作用及流程component 必须返回 jsx，每次当 state 变化，组件重新渲染比如 webpack 会把 jsx 语句转化为 bundle.jswebpack 流程介绍  2) express 项目结构   其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://juejin.im/entry/58a177b0128fe100659d79ef">
-<meta property="og:image" content="https://www.zybuluo.com/kexinWeb/note/663277">
 <meta property="article:published_time" content="2020-03-10T14:23:48.000Z">
-<meta property="article:modified_time" content="2020-03-16T01:05:23.992Z">
+<meta property="article:modified_time" content="2020-03-16T01:14:33.604Z">
 <meta property="article:author" content="Kyle Yang">
 <meta property="article:tag" content="Daily juice">
 <meta property="article:tag" content="express">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://juejin.im/entry/58a177b0128fe100659d79ef">
 
 
 
@@ -364,7 +361,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  351
+                  357
                 </span>
               
 
@@ -402,10 +399,10 @@
 
       
         <h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol>
-<li>webpack 作用及流程<br>component 必须返回 jsx，每次当 state 变化，组件重新渲染<br>比如 webpack 会把 jsx 语句转化为 bundle.js<br><img src="https://juejin.im/entry/58a177b0128fe100659d79ef" alt="webpack 流程介绍"></li>
+<li>webpack 作用及流程<br>component 必须返回 jsx，每次当 state 变化，组件重新渲染<br>比如 webpack 会把 jsx 语句转化为 bundle.js<br><a href="https://juejin.im/entry/58a177b0128fe100659d79ef" target="_blank" rel="noopener">webpack 流程介绍</a></li>
 </ol>
 <p>2) express 项目结构<br>   其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore 文件里面写明文件 pull 到 github 时不需要上传的文件或文件夹，如 node_modules 文件夹。</p>
-<p>3) <img src="https://www.zybuluo.com/kexinWeb/note/663277" alt="app.js"></p>
+<p>3) <a href="https://www.zybuluo.com/kexinWeb/note/663277" target="_blank" rel="noopener">app.js</a></p>
 <ol start="4">
 <li>js 框架与模板引擎的区别<br>模板引擎，就是将 HTML 模板渲染出最终样子的工具。<br>把动态把数据填充到 HTML 里面，可以在服务器端做，也可以在浏览器端做<br>比如 angular 会根据取到的数据去填充}里的内容，这是在客户端完成的。<br>比如 JSP 会在服务器端去填充{$}里的内容，然后把最终的 html 送到浏览器，这是服务器端完成的。<br>有时候前后端模板引擎会同时使用，即使有前端的模板引擎，后端返回 HTML 有时也是需要的，不仅仅返回是 JSON 数据<br>区别：<br>前后端分离可以大大将服务端的压力分散给客户端，而客户端的计算性能损耗几乎是微乎其微，并且在开发流程上，效率也极大提升，也可以适应敏捷开发。</li>
 </ol>
