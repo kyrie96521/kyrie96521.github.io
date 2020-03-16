@@ -536,7 +536,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  335
+                  337
                 </span>
               
 
@@ -578,7 +578,7 @@
             <h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol>
 <li><p>简介<br>中间件：在 express 应用中，一切皆中间件。各种应用逻辑，如 cookie 解析、会话处理、日志记录、权限校验等，都是通过中间件来完成的。<br>路由：负责寻址。比如用户发送了个 http 请求，该定位到哪个资源，就是路由说了算。<br>模板引擎：负责视图动态渲染。</p>
 </li>
-<li><p><img src="https://github.com/nswbmw/N-blog/blob/master/book/3.2%20%E8%B7%AF%E7%94%B1.md" alt="express.Router"></p>
+<li><p><a href="https://github.scom/nswbmw/N-blog/blob/master/book/3.2%20%E8%B7%AF%E7%94%B1.md/" target="_blank" rel="noopener">express.Router</a></p>
 </li>
 <li><p>模板引擎是一个将页面模板和数据结合起来生成 html 的工具。<br>app.set(‘views’, path.join(__dirname, ‘views’))// 设置存放模板文件的目录<br>app.set(‘view engine’, ‘ejs’)// 设置模板引擎为 ejs</p>
 <p>通过调用 res.render 函数渲染 ejs 模板，res.render 第一个参数是模板的名字，这里是 users 则会匹配 views/users.ejs，第二个参数是传给模板的数据。<br>用 includes 拆分模板组件通常有两个好处：<br>模板可复用，减少重复代码<br>主模板结构清晰</p>
