@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/kyrie96521/kyrie96521.github.io/"/>
-  <updated>2020-03-16T01:09:17.290Z</updated>
+  <updated>2020-03-16T01:26:51.761Z</updated>
   <id>https://github.com/kyrie96521/kyrie96521.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/15/3.15/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/15/3.15/</id>
     <published>2020-03-14T14:23:48.000Z</published>
-    <updated>2020-03-16T01:09:17.290Z</updated>
+    <updated>2020-03-16T01:26:51.761Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><ol><li><p>jQuery 的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作.</p></li><li><p>JavaScript 语言的一大特点就是单线程，同一个时间只能做一件事。JavaScript 的主要用途是与用户互动，以及操作 DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定 JavaScript 同时有两个线程，一个线程在某个 DOM 节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？</p></li><li><p>异步任务指的是，不进入主线程、而进入任务队列（task queue）的任务，只有任务队列通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。<br>（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。<br>（2）主线程之外，还存在一个任务队列（task queue）。只要异步任务有了运行结果，就在任务队列之中放置一个事件。<br>（3）一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。<br>（4）主线程不断重复上面的第三步。<br><img src="/images/eventloop.jpg" alt=""></p></li><li><p>所谓回调函数（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。<br>任务队列是一个先进先出的数据结构，排在前面的事件，优先被主线程读取。主线程的读取过程基本上是自动的，只要执行栈一清空，任务队列上第一位的事件就自动进入主线程。</p></li><li><p>ajax：可以在不重新加载整个网页的情况下，对网页的某部分进行更新。只要是 JS 调用异步通讯组件并使用格式化的数据来更新 web 页面上的内容或操作过程，那么我们用的方法就可算是 AJAX</p></li></ol><p>摘自：<img src="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" alt="阮一峰"></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><ol><li><p>jQuery 的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作.</p></li><li><p>JavaScript 语言的一大特点就是单线程，同一个时间只能做一件事。JavaScript 的主要用途是与用户互动，以及操作 DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定 JavaScript 同时有两个线程，一个线程在某个 DOM 节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？</p></li><li><p>异步任务指的是，不进入主线程、而进入任务队列（task queue）的任务，只有任务队列通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。<br>（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。<br>（2）主线程之外，还存在一个任务队列（task queue）。只要异步任务有了运行结果，就在任务队列之中放置一个事件。<br>（3）一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。<br>（4）主线程不断重复上面的第三步。<br><img src="/images/eventloop.jpg" alt=""></p></li><li><p>所谓回调函数（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。<br>任务队列是一个先进先出的数据结构，排在前面的事件，优先被主线程读取。主线程的读取过程基本上是自动的，只要执行栈一清空，任务队列上第一位的事件就自动进入主线程。</p></li><li><p>ajax：可以在不重新加载整个网页的情况下，对网页的某部分进行更新。只要是 JS 调用异步通讯组件并使用格式化的数据来更新 web 页面上的内容或操作过程，那么我们用的方法就可算是 AJAX</p></li></ol><p>摘自：<a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">阮一峰</a></p>]]></content>
     
     <summary type="html">
     
@@ -111,9 +111,9 @@
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/12/3.12/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/12/3.12/</id>
     <published>2020-03-11T14:23:48.000Z</published>
-    <updated>2020-03-16T01:14:26.573Z</updated>
+    <updated>2020-03-16T01:26:02.006Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol><li><p>redux 作用？<br>随着应用复杂度地不断提升，组件之间的状态通信变得越来越多，组件之间的耦合也变得越来越重。redux 能更好维护的模块间通信。</p></li><li><p>Redux 的单一状态树<br>所有的 state 都以一个对象树的形式储存在一个单一的 store 中。页面中的所有状态 or 数据，都应该用这种状态树的形式来描述；页面上的任何变化，都应该先去改变这个状态树，然后再通过某种方式实现到页面上。</p></li><li><p>action</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeText</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"CHANGE_TEXT"</span>,</span><br><span class="line">    payload: <span class="string">"Hello"</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Action 的任务是描述“发生了什么事情？”，这个函数会返回一个 Action 对象，这个对象里描述了“页面发生了什么”。随后这个对象会被传入到 Reducer 中。</p></li><li><p>reducer<br>(state, action) =&gt; newState<br>Reducer 的任务是根据传入的 Action 对象去修改状态树。<br>Reducer 是一个纯函数， 根据传入的 当前 state 和 action ，返回一个新的 state 。</p></li><li><p>Store<br>let store = createStore(Reducer);<br>state 是 store 的映射；<br>Store 就是把 Reducer 和 action 联系到一起的对象。<br>Store 有以下职责：<br>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器；</p></li><li><p>异步操作怎么办？<br>Action 发出以后，Reducer 立即算出 State，这叫做同步；Action 发出以后，过一段时间再执行 Reducer，这就是异步。中间件解决了这个问题。</p></li><li><p>什么是中间件？<br>中间件就是一个函数，对 store.dispatch 方法进行了改造，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</p></li></ol><p>摘自：<a href="https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" target="_blank" rel="noopener">阮一峰</a><br><a href="https://zhuanlan.zhihu.com/p/24684803" target="_blank" rel="noopener">知乎 er</a></p>]]></content>
+    <content type="html"><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol><li><p>redux 作用？<br>随着应用复杂度地不断提升，组件之间的状态通信变得越来越多，组件之间的耦合也变得越来越重。redux 能更好维护的模块间通信。</p></li><li><p>Redux 的单一状态树<br>所有的 state 都以一个对象树的形式储存在一个单一的 store 中。页面中的所有状态 or 数据，都应该用这种状态树的形式来描述；页面上的任何变化，都应该先去改变这个状态树，然后再通过某种方式实现到页面上。</p></li><li><p>action</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeText</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"CHANGE_TEXT"</span>,</span><br><span class="line">    payload: <span class="string">"Hello"</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>Action 的任务是描述“发生了什么事情？”，这个函数会返回一个 Action 对象，这个对象里描述了“页面发生了什么”。随后这个对象会被传入到 Reducer 中。</p></li><li><p>reducer<br>(state, action) =&gt; newState<br>Reducer 的任务是根据传入的 Action 对象去修改状态树。<br>Reducer 是一个纯函数， 根据传入的 当前 state 和 action ，返回一个新的 state 。</p></li><li><p>Store<br>let store = createStore(Reducer);<br>state 是 store 的映射；<br>Store 就是把 Reducer 和 action 联系到一起的对象。<br>Store 有以下职责：<br>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器；</p></li><li><p>异步操作怎么办？<br>Action 发出以后，Reducer 立即算出 State，这叫做同步；Action 发出以后，过一段时间再执行 Reducer，这就是异步。中间件解决了这个问题。</p></li><li><p>什么是中间件？<br>中间件就是一个函数，对 store.dispatch 方法进行了改造，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</p></li></ol><p>摘自：<a href="https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" target="_blank" rel="noopener">阮一峰</a> <a href="https://zhuanlan.zhihu.com/p/24684803" target="_blank" rel="noopener">知乎 er</a></p>]]></content>
     
     <summary type="html">
     
@@ -138,16 +138,16 @@
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/11/3.11/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/11/3.11/</id>
     <published>2020-03-10T14:23:48.000Z</published>
-    <updated>2020-03-16T01:14:33.604Z</updated>
+    <updated>2020-03-16T01:26:35.555Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol><li>webpack 作用及流程<br>component 必须返回 jsx，每次当 state 变化，组件重新渲染<br>比如 webpack 会把 jsx 语句转化为 bundle.js<br><a href="https://juejin.im/entry/58a177b0128fe100659d79ef" target="_blank" rel="noopener">webpack 流程介绍</a></li></ol><p>2) express 项目结构<br>   其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore 文件里面写明文件 pull 到 github 时不需要上传的文件或文件夹，如 node_modules 文件夹。</p><p>3) <a href="https://www.zybuluo.com/kexinWeb/note/663277" target="_blank" rel="noopener">app.js</a></p><ol start="4"><li>js 框架与模板引擎的区别<br>模板引擎，就是将 HTML 模板渲染出最终样子的工具。<br>把动态把数据填充到 HTML 里面，可以在服务器端做，也可以在浏览器端做<br>比如 angular 会根据取到的数据去填充}里的内容，这是在客户端完成的。<br>比如 JSP 会在服务器端去填充{$}里的内容，然后把最终的 html 送到浏览器，这是服务器端完成的。<br>有时候前后端模板引擎会同时使用，即使有前端的模板引擎，后端返回 HTML 有时也是需要的，不仅仅返回是 JSON 数据<br>区别：<br>前后端分离可以大大将服务端的压力分散给客户端，而客户端的计算性能损耗几乎是微乎其微，并且在开发流程上，效率也极大提升，也可以适应敏捷开发。</li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol><li><p>webpack 作用及流程<br>component 必须返回 jsx，每次当 state 变化，组件重新渲染<br>比如 webpack 会把 jsx 语句转化为 bundle.js<br><a href="https://juejin.im/entry/58a177b0128fe100659d79ef" target="_blank" rel="noopener">webpack 流程介绍</a></p></li><li><p>express 项目结构<br>其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore 文件里面写明文件 pull 到 github 时不需要上传的文件或文件夹，如 node_modules 文件夹。</p></li><li><p><a href="https://www.zybuluo.com/kexinWeb/note/663277" target="_blank" rel="noopener">app.js</a></p></li><li><p>js 框架与模板引擎的区别<br>模板引擎，就是将 HTML 模板渲染出最终样子的工具。<br>把动态把数据填充到 HTML 里面，可以在服务器端做，也可以在浏览器端做<br>比如 angular 会根据取到的数据去填充}里的内容，这是在客户端完成的。<br>比如 JSP 会在服务器端去填充{$}里的内容，然后把最终的 html 送到浏览器，这是服务器端完成的。<br>有时候前后端模板引擎会同时使用，即使有前端的模板引擎，后端返回 HTML 有时也是需要的，不仅仅返回是 JSON 数据<br>区别：<br>前后端分离可以大大将服务端的压力分散给客户端，而客户端的计算性能损耗几乎是微乎其微，并且在开发流程上，效率也极大提升，也可以适应敏捷开发。</p></li></ol>]]></content>
     
     <summary type="html">
     
       
       
         &lt;h3 id=&quot;express&quot;&gt;&lt;a href=&quot;#express&quot; class=&quot;headerlink&quot; title=&quot;express&quot;&gt;&lt;/a&gt;express&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;webpack 作用及流程&lt;br&gt;component 必须返回 jsx，每次当 stat
+&lt;li&gt;&lt;p&gt;webpack 作用及流程&lt;br&gt;component 必须返回 jsx，每次当 s
       
     
     </summary>
