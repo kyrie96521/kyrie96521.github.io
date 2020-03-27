@@ -1,9 +1,149 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>social network project</title>
+    <url>/2020/03/21/3.21/</url>
+    <content><![CDATA[<p>今天做的 project 内容是 express 对 server 的配置包括路由以及连接 MongoDB，让我对后端的结构有一个初步的理解。主要是以下几个点：</p>
+<ol>
+<li>设置 PORT 环境变量并且告诉服务器去哪监听；若没有，本地在 5000 端口 。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PORT = process.env.PORT || <span class="number">5000</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>app.use(/api/users, require(./routers/api/users));<br>路由规则是 app.use(path,router)定义的，router 代表一个由 express.Router()创建的对象，在路由对象中可定义多个路由规则。每次将请求发送到服务器时，都会调用各个 app.use（middleware）</p>
+</li>
+<li><p><a href="https://blog.csdn.net/wthfeng/article/details/53366169" target="_blank" rel="noopener">app.use 和 app.get 的区别</a><br>app.use(path,callback)中的 callback 既可以是 router 对象又可以是函数<br>app.get(path,callback)中的 callback 只能是函数<br>给 app.get(app.post、app.put 同理)赋个路由对象是不行的</p>
+</li>
+<li><p>获取 mongoURI<br>cluster 连接自己的 app，设置安全地址等</p>
+</li>
+<li><p>mongodb 连接配置<br>每次用 async 函数时，都要用 try-catch 函数来判断失败情况</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>project</tag>
+        <tag>express</tag>
+        <tag>mongodb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Scss</title>
+    <url>/2020/03/21/3.23/</url>
+    <content><![CDATA[<h3 id="scss"><a href="#scss" class="headerlink" title="scss"></a><a href="https://zhuanlan.zhihu.com/p/35478792" target="_blank" rel="noopener">scss</a></h3><ol>
+<li>变量用来存储需要在 CSS 中复用的信息，例如颜色和字体。</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="variable">$font-stack</span>: Helvetica, sans-serif;</span><br><span class="line"><span class="variable">$primary-color</span>: <span class="number">#333</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">100%</span> <span class="variable">$font-stack</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$primary-color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>是过度的使用嵌套会让产生的 CSS 难以维护，因此是一种不好的实践</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>SASS 能够将代码分割为多个片段，并以 underscore 风格的下划线作为其命名前缀,SASS 会通过这些下划线来辨别哪些文件是 SASS 片段，并且不让片段内容直接生成为 CSS 文件，从而只是在使用@import 指令的位置被导入.</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// _reset.scss</span></span><br><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span>,</span><br><span class="line"><span class="selector-tag">ul</span>,</span><br><span class="line"><span class="selector-tag">ol</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// base.scss</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">"reset"</span>;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">100%</span> Helvetica, sans-serif;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#efefef</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>混合（Mixin）用来分组那些需要在页面中复用的 CSS 声明，开发人员可以通过向 Mixin 传递变量参数来让代码更加灵活</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> border-radius(<span class="variable">$radius</span>) &#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  -ms-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> border-radius(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码建立了一个名为 border-radius 的 Mixin，并传递了一个变量$radius 作为参数，然后在后续代码中通过@include border-radius(10px)使用该 Mixin，最终编译的结果如下：</p>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  -ms-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>继承是 SASS 中非常重要的一个特性，可以通过@extend 指令在选择器之间复用 CSS 属性，并且不会产生冗余的代码</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这段代码不会被输出到最终生成的CSS文件，因为它没有被任何代码所继承。</span></span><br><span class="line">%other-styles &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面代码会正常输出到生成的CSS文件，因为它被其接下来的代码所继承。</span></span><br><span class="line">%message-common &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.message</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">  <span class="attribute">border-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.error</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">  <span class="attribute">border-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">  <span class="attribute">border-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>操作符<br>SASS 提供了标准的算术运算符，例如+、-、*、/、%。</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">aside</span><span class="selector-attr">[role="complementary"]</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span> / <span class="number">960px</span> * <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>Scss 允许 CSS 规则嵌套使用，父子规则将会呈现包含选择器的关系,可以避免重复的使用父级选择器，从而达到简化 CSS 代码结构的目的.<br>Scss 使用$关键字在 CSS 规则中引用父级选择器，例如在嵌套使用伪类选择器的场景下：</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*===== SCSS =====*/</span></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line"><span class="attribute">font-weight</span>: bold;</span><br><span class="line"><span class="attribute">text-decoration</span>: none;</span><br><span class="line">&amp;<span class="selector-pseudo">:hover</span> &#123; <span class="attribute">text-decoration</span>: underline; &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="8">
+<li>Scss 当中只需要编写命名空间一次，后续嵌套的子属性都将会位于该命名空间之下</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>Scss</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>react</title>
+    <url>/2020/03/21/3.22/</url>
+    <content><![CDATA[<ol>
+<li><p>除了构造函数和生命周期钩子函数里会自动绑定 this 为当前组件外，其他的都不会自动绑定 <a href="https://sunburst.wang/posts/2019/07/05/react-docs-notes.html#_1-%E5%85%83%E7%B4%A0-%E7%BB%84%E4%BB%B6" target="_blank" rel="noopener">this 的指向</a>为当前组件。<br>如果你在 JSX 里忘记将 this 绑定到 this.handleClick 并把它传入了 onClick，那么当你调用这个函数的时候 this 的值为 undefined。</p>
+</li>
+<li><p>React 中，你可以创建不同的组件来封装各种你需要的行为。然后，依据应用的不同状态，你可以只渲染对应状态下的部分内容。</p>
+</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>欢迎&#123;isQbVip &amp;&amp; <span class="tag">&lt;<span class="name">a</span>&gt;</span>请尽快升级为正式 Vip!<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>如果条件是 true，&amp;&amp; 右侧的元素就会被渲染，如果是 false，React 会忽略并跳过它。</p>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>react</tag>
+        <tag>this</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Reat Hooks</title>
+    <url>/2020/03/19/3.19/</url>
+    <content><![CDATA[<ol>
+<li><p>mongodb<br>sharded cluster：同一个集合的不同子集分发存储到不同的机器（shard）上，Mongodb 使用 sharding 机制来支持超大数据量，将不同的 CRUD 路由到不同的机器上执行，提到了数据库的吞吐性能。<br>collection：table 的集合。</p>
+</li>
+<li><p>Mongoose 是在 node.js 环境下对 mongodb 进行便捷操作的对象模型工具</p>
+</li>
+<li><p>AJAX<br>AJAX 是与服务器交换数据并更新部分网页的艺术，在不重新加载整个页面的情况下。<br><a href="https://juejin.im/post/587f8dbd570c3522011c0f59" target="_blank" rel="noopener">Ajax 的工作原理</a>相当于在用户和服务器之间加了一个中间层(ajax 引擎),使用户操作与服务器响应异步化。并不是所有的用户请求都提交给服务器,像—些数据验证(比如判断用户是否输入了数据)和数据处理(比如判断用户输入数据是否是数字)等都交给 Ajax 引擎自己来做, 只有确定需要从服务器读取新数据时再由 Ajax 引擎代为向服务器提交请求。把这些交给了 Ajax 引擎，用户操作起来也就感觉更加流畅了。</p>
+</li>
+<li><p>jQuery<br><a href="https://www.twle.cn/l/yufei/jquery/jquery-basic-ajax-load.html" target="_blank" rel="noopener">AJAX load</a> 方法可以从服务器加载数据，并把返回的数据放入被选元素中</p>
+<p>jQuery <a href="https://www.twle.cn/l/yufei/jquery/jquery-basic-ajax-get-post.html" target="_blank" rel="noopener">get()和 post()方法</a>用于通过 HTTP GET 或 POST 请求从服务器请求数据</p>
+<p>jQuery 提供了 children() 和 find() 方法用于向下遍历 DOM 树，以查找元素的后代。<br>jQuery 提供了 parent() 、parents() 和 parentsUntil() 方法用于向上遍历 DOM 树，以查找元素的祖先。</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>jquery</tag>
+        <tag>ajax</tag>
+        <tag>mongodb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Reat Hooks</title>
+    <url>/2020/03/18/3.18/</url>
+    <content><![CDATA[<ol>
+<li><p>todoList app<br>加深了对 ES6，react hook，Jsx 的理解；<br>useState(initialState) 可以接收新的 state 或者一个返回 state 的函数；</p>
+</li>
+<li><p>用 Hooks 实现生命周期<br>每次 Render 都有自己的 Props 与 State。<br>每次一 function 结束 rendering，useeffect 就会被调用。</p>
+<p>format: useEffect(()=&gt;{}, [state])<br>useEffect 会调用当 state 变化的时候，如果是空数组[],则 hook 不会被调用。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fetch <span class="keyword">from</span> Api</span><br><span class="line">format: useEffect(<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> fetch(&amp;quot;url&amp;quot;);</span><br><span class="line"><span class="keyword">const</span> data = <span class="keyword">await</span> response.json();</span><br><span class="line"><span class="keyword">const</span> [item] = data.results;</span><br><span class="line">setPerson(item);</span><br><span class="line">&#125;, [state])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>DOM 操作<br>DOM 就是浏览器为 JavaScript 提供的一系列接口，通过这些接口我们可以操作 web 页面。<br>document.title 设置文档标题等价于 HTML 的 title 标签。<br>innerHTML 与 outerHTML 的区别？<br>innerHTML：内部 HTML，content<br/>；<br>outerHTML：外部 HTML，<div>content<br/></div>；<br>innerText：内部文本，content ；<br>outerText：内部文本，content ；<br><img src="/images/html.jpg" alt=""><br>摘自：<a href="https://fenews.org/posts/getting-started-with-react-hooks/" target="_blank" rel="noopener">React Hooks(2019)入门教程</a></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>project</tag>
+        <tag>react hooks</tag>
+        <tag>dom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>事件循环</title>
     <url>/2020/03/15/3.15/</url>
-    <content><![CDATA[<h3 id="事件循环"><a href="#事件循环" class="headerlink" title="事件循环"></a>事件循环</h3><ol>
+    <content><![CDATA[<ol>
 <li><p>jQuery 的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作.</p>
 </li>
 <li><p>JavaScript 语言的一大特点就是单线程，同一个时间只能做一件事。JavaScript 的主要用途是与用户互动，以及操作 DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定 JavaScript 同时有两个线程，一个线程在某个 DOM 节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？</p>
@@ -145,7 +285,7 @@
 ]]></content>
       <tags>
         <tag>Daily juice</tag>
-        <tag>Webpack</tag>
+        <tag>webpack</tag>
       </tags>
   </entry>
   <entry>
@@ -312,7 +452,7 @@
 ]]></content>
       <tags>
         <tag>Daily juice</tag>
-        <tag>Dom</tag>
+        <tag>dom</tag>
       </tags>
   </entry>
   <entry>
@@ -335,9 +475,9 @@
 ]]></content>
       <tags>
         <tag>Daily juice</tag>
+        <tag>javascript</tag>
         <tag>react</tag>
         <tag>redux</tag>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -363,9 +503,9 @@
 ]]></content>
       <tags>
         <tag>Daily juice</tag>
+        <tag>javascript</tag>
         <tag>redux</tag>
         <tag>this</tag>
-        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -393,11 +533,11 @@
 ]]></content>
       <tags>
         <tag>Daily juice</tag>
-        <tag>project</tag>
         <tag>promise</tag>
         <tag>javascript</tag>
         <tag>async-await</tag>
         <tag>axios</tag>
+        <tag>project</tag>
       </tags>
   </entry>
   <entry>
@@ -408,8 +548,8 @@
 ]]></content>
       <tags>
         <tag>Daily juice</tag>
-        <tag>jquery</tag>
         <tag>project</tag>
+        <tag>jquery</tag>
       </tags>
   </entry>
   <entry>
