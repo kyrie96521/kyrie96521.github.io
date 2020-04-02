@@ -1,35 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>social network project</title>
-    <url>/2020/03/21/3.21/</url>
-    <content><![CDATA[<p>今天做的 project 内容是 express 对 server 的配置包括路由以及连接 MongoDB，让我对后端的结构有一个初步的理解。主要是以下几个点：</p>
-<ol>
-<li>设置 PORT 环境变量并且告诉服务器去哪监听；若没有，本地在 5000 端口 。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PORT = process.env.PORT || <span class="number">5000</span>;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>app.use(/api/users, require(./routers/api/users));<br>路由规则是 app.use(path,router)定义的，router 代表一个由 express.Router()创建的对象，在路由对象中可定义多个路由规则。每次将请求发送到服务器时，都会调用各个 app.use（middleware）</p>
-</li>
-<li><p><a href="https://blog.csdn.net/wthfeng/article/details/53366169" target="_blank" rel="noopener">app.use 和 app.get 的区别</a><br>app.use(path,callback)中的 callback 既可以是 router 对象又可以是函数<br>app.get(path,callback)中的 callback 只能是函数<br>给 app.get(app.post、app.put 同理)赋个路由对象是不行的</p>
-</li>
-<li><p>获取 mongoURI<br>cluster 连接自己的 app，设置安全地址等</p>
-</li>
-<li><p>mongodb 连接配置<br>每次用 async 函数时，都要用 try-catch 函数来判断失败情况</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>Daily juice</tag>
-        <tag>project</tag>
-        <tag>express</tag>
-        <tag>mongodb</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Scss</title>
-    <url>/2020/03/21/3.23/</url>
+    <url>/2020/03/23/3.23/</url>
     <content><![CDATA[<h3 id="scss"><a href="#scss" class="headerlink" title="scss"></a><a href="https://zhuanlan.zhihu.com/p/35478792" target="_blank" rel="noopener">scss</a></h3><ol>
 <li>变量用来存储需要在 CSS 中复用的信息，例如颜色和字体。</li>
 </ol>
@@ -79,7 +52,7 @@
   </entry>
   <entry>
     <title>react</title>
-    <url>/2020/03/21/3.22/</url>
+    <url>/2020/03/22/3.22/</url>
     <content><![CDATA[<ol>
 <li><p>除了构造函数和生命周期钩子函数里会自动绑定 this 为当前组件外，其他的都不会自动绑定 <a href="https://sunburst.wang/posts/2019/07/05/react-docs-notes.html#_1-%E5%85%83%E7%B4%A0-%E7%BB%84%E4%BB%B6" target="_blank" rel="noopener">this 的指向</a>为当前组件。<br>如果你在 JSX 里忘记将 this 绑定到 this.handleClick 并把它传入了 onClick，那么当你调用这个函数的时候 this 的值为 undefined。</p>
 </li>
@@ -97,7 +70,34 @@
       </tags>
   </entry>
   <entry>
-    <title>Reat Hooks</title>
+    <title>social network project</title>
+    <url>/2020/03/21/3.21/</url>
+    <content><![CDATA[<p>今天做的 project 内容是 express 对 server 的配置包括路由以及连接 MongoDB，让我对后端的结构有一个初步的理解。主要是以下几个点：</p>
+<ol>
+<li>设置 PORT 环境变量并且告诉服务器去哪监听；若没有，本地在 5000 端口 。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PORT = process.env.PORT || <span class="number">5000</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>app.use(/api/users, require(./routers/api/users));<br>路由规则是 app.use(path,router)定义的，router 代表一个由 express.Router()创建的对象，在路由对象中可定义多个路由规则。每次将请求发送到服务器时，都会调用各个 app.use（middleware）</p>
+</li>
+<li><p><a href="https://blog.csdn.net/wthfeng/article/details/53366169" target="_blank" rel="noopener">app.use 和 app.get 的区别</a><br>app.use(path,callback)中的 callback 既可以是 router 对象又可以是函数<br>app.get(path,callback)中的 callback 只能是函数<br>给 app.get(app.post、app.put 同理)赋个路由对象是不行的</p>
+</li>
+<li><p>获取 mongoURI<br>cluster 连接自己的 app，设置安全地址等</p>
+</li>
+<li><p>mongodb 连接配置<br>每次用 async 函数时，都要用 try-catch 函数来判断失败情况</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>Daily juice</tag>
+        <tag>project</tag>
+        <tag>express</tag>
+        <tag>mongodb</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>backend staff</title>
     <url>/2020/03/19/3.19/</url>
     <content><![CDATA[<ol>
 <li><p>mongodb<br>sharded cluster：同一个集合的不同子集分发存储到不同的机器（shard）上，Mongodb 使用 sharding 机制来支持超大数据量，将不同的 CRUD 路由到不同的机器上执行，提到了数据库的吞吐性能。<br>collection：table 的集合。</p>
@@ -136,12 +136,12 @@
       <tags>
         <tag>Daily juice</tag>
         <tag>project</tag>
-        <tag>react hooks</tag>
         <tag>dom</tag>
+        <tag>react hooks</tag>
       </tags>
   </entry>
   <entry>
-    <title>事件循环</title>
+    <title>event-loop</title>
     <url>/2020/03/15/3.15/</url>
     <content><![CDATA[<ol>
 <li><p>jQuery 的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作.</p>
@@ -475,9 +475,9 @@
 ]]></content>
       <tags>
         <tag>Daily juice</tag>
-        <tag>javascript</tag>
         <tag>react</tag>
         <tag>redux</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
@@ -503,9 +503,9 @@
 ]]></content>
       <tags>
         <tag>Daily juice</tag>
-        <tag>javascript</tag>
         <tag>redux</tag>
         <tag>this</tag>
+        <tag>javascript</tag>
       </tags>
   </entry>
   <entry>
