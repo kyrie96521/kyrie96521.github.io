@@ -88,9 +88,9 @@
 <meta property="og:site_name" content="Kyle&#39;s Blog">
 <meta property="og:description" content="mongoose.Schemaschema 就是数据库对象的集合，这个集合包含了各种对象如：表、视图、存储过程、索引等。在 Mongoose 中，一切都被 Schema 所驱动。在下面程序中，我们定义了一个 UserSchema，这个 UserSchema 对应在 mongoDB 中是一个 UserSchema 集合。该集合有两个属性，一个是 name，类型为 string，另一个是 email">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.2/%22/images/jwt.jpg%22">
+<meta property="og:image" content="https://github.com/images/jwt.jpg">
 <meta property="article:published_time" content="2020-04-01T14:23:48.000Z">
-<meta property="article:modified_time" content="2020-04-06T04:24:42.827Z">
+<meta property="article:modified_time" content="2020-04-06T08:23:10.350Z">
 <meta property="article:author" content="Kyle Yang">
 <meta property="article:tag" content="this">
 <meta property="article:tag" content="mongodb">
@@ -100,7 +100,7 @@
 <meta property="article:tag" content="异步">
 <meta property="article:tag" content="mongoose">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.2/%22/images/jwt.jpg%22">
+<meta name="twitter:image" content="https://github.com/images/jwt.jpg">
 
 
 
@@ -431,12 +431,15 @@
 </li>
 <li><p><a href="https://segmentfault.com/a/1190000016788484" target="_blank" rel="noopener">aysnc-await</a></p>
 </li>
-<li><p><a href="http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html" target="_blank" rel="noopener">json web token</a><br>互联网服务一般流程是下面这样:<br>1、用户向服务器发送用户名和密码。<br>2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。<br>3、服务器向用户返回一个 session_id，写入用户的 Cookie。<br>4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。<br>5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。<br>JWT 的方案是服务器不保存 session 数据，所有数据都保存在客户端，每次请求都发回服务器。JWT 的原理是，服务器认证以后，生成一个 JSON 对象，发回给用户，每当用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名。服务器就不保存任何 session 数据了，也就是说，服务器变成无状态了，从而比较容易实现扩展。<br><img src="%22/images/jwt.jpg%22" alt=""></p>
+<li><p><a href="http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html" target="_blank" rel="noopener">json web token</a><br>互联网服务一般流程是下面这样:<br>1、用户向服务器发送用户名和密码。<br>2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。<br>3、服务器向用户返回一个 session_id，写入用户的 Cookie。<br>4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。<br>5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。<br>JWT 的方案是服务器不保存 session 数据，所有数据都保存在客户端，每次请求都发回服务器。JWT 的原理是，服务器认证以后，生成一个 JSON 对象，发回给用户，每当用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名。服务器就不保存任何 session 数据了，也就是说，服务器变成无状态了，从而比较容易实现扩展。<br><img src="/images/jwt.jpg" alt=""></p>
 </li>
-<li><p>config.get() 使用 config 来管理配置文件<br>eg:config.get(“jwtSecret”),jwtSecret 在配置文件里。</p>
+<li><p>config.get() 使用 config 来管理配置文件</p>
 </li>
-<li><p>在服务器里 entrypt password</p>
-</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config.get(<span class="string">"jwtSecret"</span>); <span class="comment">//jwtSecret 在配置文件里。</span></span><br></pre></td></tr></table></figure>
+
+<ol start="9">
+<li>在服务器里 entrypt password</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> salt = <span class="keyword">await</span> bcrypt.genSalt(<span class="number">10</span>);</span><br><span class="line">user.password = <span class="keyword">await</span> bcrypt.hash(passwork, salt);</span><br></pre></td></tr></table></figure>
 
