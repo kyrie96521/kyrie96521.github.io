@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/23/3.23/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/06/4.6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kyle Yang">
@@ -309,7 +309,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/23/3.23/" itemprop="url">Scss</a></h1>
+                <a class="post-title-link" href="/2020/04/06/4.6/" itemprop="url">express路由</a></h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-23T01:23:48+11:00">
-                2020-03-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-06T01:23:48+10:00">
+                2020-04-06
               </time>
             
 
@@ -340,8 +340,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/23/3.23/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/23/3.23/" itemprop="commentCount"></span>
+                <a href="/2020/04/06/4.6/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/06/4.6/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,7 +363,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  673
+                  623
                 </span>
               
 
@@ -402,47 +402,32 @@
       
         
           
-            <h3 id="scss"><a href="#scss" class="headerlink" title="scss"></a><a href="https://zhuanlan.zhihu.com/p/35478792" target="_blank" rel="noopener">scss</a></h3><ol>
-<li>变量用来存储需要在 CSS 中复用的信息，例如颜色和字体。</li>
+            <ol>
+<li><p>路由<br>路由表示应用程序端点 (URI) 的定义以及端点响应客户机请求的方式。</p>
+</li>
+<li><p>路由方法<br>路由方法派生自 HTTP 方法之一，附加到 express 类的实例</p>
+</li>
 </ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$font-stack</span>: Helvetica, sans-serif;</span><br><span class="line"><span class="variable">$primary-color</span>: <span class="number">#333</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">100%</span> <span class="variable">$font-stack</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$primary-color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// POST method route</span></span><br><span class="line">app.post(<span class="string">"/"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">"POST request to the homepage"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li>是过度的使用嵌套会让产生的 CSS 难以维护，因此是一种不好的实践</li>
-</ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有一种特殊路由方法：app.all()，它并非派生自 HTTP 方法。该方法用于在所有请求方法的路径中装入中间件函数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.all(<span class="string">"/secret"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Accessing the secret section ..."</span>);</span><br><span class="line">  next(); <span class="comment">// pass control to the next handler</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
-<li>SASS 能够将代码分割为多个片段，并以 underscore 风格的下划线作为其命名前缀,SASS 会通过这些下划线来辨别哪些文件是 SASS 片段，并且不让片段内容直接生成为 CSS 文件，从而只是在使用@import 指令的位置被导入.</li>
+<li>路由路径<br>路由路径与请求方法相结合，用于定义可以在其中提出请求的端点。路由路径可以是字符串、字符串模式或正则表达式。<br>此路由路径将匹配 /abe 和 /abcde。</li>
 </ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// _reset.scss</span></span><br><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span>,</span><br><span class="line"><span class="selector-tag">ul</span>,</span><br><span class="line"><span class="selector-tag">ol</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// base.scss</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">"reset"</span>;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">100%</span> Helvetica, sans-serif;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#efefef</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/ab(cd)?e"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">"ab(cd)?e"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <ol start="4">
-<li>混合（Mixin）用来分组那些需要在页面中复用的 CSS 声明，开发人员可以通过向 Mixin 传递变量参数来让代码更加灵活</li>
+<li>路由处理程序<br>可以提供多个回调函数，以类似于中间件的行为方式来处理请求，这些回调函数可能调用 next(“route”) 来绕过剩余的路由回，路由处理程序的形式可以是一个函数、一组函数或者两者的结合。</li>
 </ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> border-radius(<span class="variable">$radius</span>) &#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  -ms-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> border-radius(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cb0 = <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"CB0"</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cb1 = <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"CB1"</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.get(</span><br><span class="line">  <span class="string">"/example/d"</span>,</span><br><span class="line">  [cb0, cb1],</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"the response will be sent by the next function ..."</span>);</span><br><span class="line">    next();</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Hello from D!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-<p>上面的代码建立了一个名为 border-radius 的 Mixin，并传递了一个变量$radius 作为参数，然后在后续代码中通过@include border-radius(10px)使用该 Mixin，最终编译的结果如下：</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  -ms-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5.app.route()<br>使用 app.route() 为路由路径创建可链接的路由处理程序。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app</span><br><span class="line">  .route(<span class="string">"/book"</span>)</span><br><span class="line">  .get(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Get a random book"</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .post(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Add a book"</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .put(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Update the book"</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
 
-<ol start="5">
-<li>继承是 SASS 中非常重要的一个特性，可以通过@extend 指令在选择器之间复用 CSS 属性，并且不会产生冗余的代码</li>
-</ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这段代码不会被输出到最终生成的CSS文件，因为它没有被任何代码所继承。</span></span><br><span class="line">%other-styles &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面代码会正常输出到生成的CSS文件，因为它被其接下来的代码所继承。</span></span><br><span class="line">%message-common &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.message</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">  <span class="attribute">border-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.error</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">  <span class="attribute">border-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">  <span class="attribute">border-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>操作符<br>SASS 提供了标准的算术运算符，例如+、-、*、/、%。</li>
-</ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">aside</span><span class="selector-attr">[role="complementary"]</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span> / <span class="number">960px</span> * <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="7">
-<li>Scss 允许 CSS 规则嵌套使用，父子规则将会呈现包含选择器的关系,可以避免重复的使用父级选择器，从而达到简化 CSS 代码结构的目的.<br>Scss 使用$关键字在 CSS 规则中引用父级选择器，例如在嵌套使用伪类选择器的场景下：</li>
-</ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*===== SCSS =====*/</span></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line"><span class="attribute">font-weight</span>: bold;</span><br><span class="line"><span class="attribute">text-decoration</span>: none;</span><br><span class="line">&amp;<span class="selector-pseudo">:hover</span> &#123; <span class="attribute">text-decoration</span>: underline; &#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="8">
-<li>Scss 当中只需要编写命名空间一次，后续嵌套的子属性都将会位于该命名空间之下</li>
-</ol>
+<p>6.express.Router<br>使用 express.Router 类来创建可安装的模块化路由处理程序。Router 实例是完整的中间件和路由系统；因此，常常将其称为“微型应用程序”。<br>以下示例将路由器创建为模块，在其中装入中间件，定义一些路由，然后安装在主应用程序的路径中。<br>在应用程序目录中创建名为 birds.js 的路由器文件，其中包含以下内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line"></span><br><span class="line"><span class="comment">// middleware that is specific to this router</span></span><br><span class="line">router.use(<span class="function"><span class="keyword">function</span> <span class="title">timeLog</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Time: "</span>, <span class="built_in">Date</span>.now());</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// define the home page route</span></span><br><span class="line">router.get(<span class="string">"/"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">"Birds home page"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// define the about route</span></span><br><span class="line">router.get(<span class="string">"/about"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">"About birds"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router;</span><br><span class="line"><span class="comment">//接着，在应用程序中装入路由器模块：</span></span><br><span class="line"><span class="keyword">var</span> birds = <span class="built_in">require</span>(<span class="string">"./birds"</span>);</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">"/birds"</span>, birds);</span><br></pre></td></tr></table></figure>
 
           
         
@@ -491,7 +476,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/22/3.22/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/05/4.5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kyle Yang">
@@ -510,7 +495,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/22/3.22/" itemprop="url">react</a></h1>
+                <a class="post-title-link" href="/2020/04/05/4.5/" itemprop="url">html&js</a></h1>
         
 
         <div class="post-meta">
@@ -522,8 +507,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-22T01:23:48+11:00">
-                2020-03-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-05T02:23:48+11:00">
+                2020-04-05
               </time>
             
 
@@ -541,8 +526,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/22/3.22/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/22/3.22/" itemprop="commentCount"></span>
+                <a href="/2020/04/05/4.5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/05/4.5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -564,7 +549,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  196
+                  318
                 </span>
               
 
@@ -604,14 +589,18 @@
         
           
             <ol>
-<li><p>除了构造函数和生命周期钩子函数里会自动绑定 this 为当前组件外，其他的都不会自动绑定 <a href="https://sunburst.wang/posts/2019/07/05/react-docs-notes.html#_1-%E5%85%83%E7%B4%A0-%E7%BB%84%E4%BB%B6" target="_blank" rel="noopener">this 的指向</a>为当前组件。<br>如果你在 JSX 里忘记将 this 绑定到 this.handleClick 并把它传入了 onClick，那么当你调用这个函数的时候 this 的值为 undefined。</p>
+<li><p>setTimeout()、setInterval()的区别在于？<br>setTimeout()：当方法执行完成定时器就立即停止(但是定时器还在,只不过没用了);<br>setInterval()：当方法执行完成,定时器并没有停止,以后每隔[interval]这么长的时间都会重新的执行对应的方法[function],直到我们手动清除定时器为止;</p>
 </li>
-<li><p>React 中，你可以创建不同的组件来封装各种你需要的行为。然后，依据应用的不同状态，你可以只渲染对应状态下的部分内容。</p>
+<li><p>什么 HTML 结构的语义化？<br>我的理解是让每个标签具有意义而不是无意义的标签 div 和 span；<br>为什么要语义化?<br>为了在没有 CSS 的情况下，页面也能呈现出很好地内容结构、代码结构；用户体验；有利于 SEO（搜索引擎优化）；便于团队开发和维护，语义化更具可读性，遵循 W3C 标准的团队都遵循这个标准，可以减少差异化。</p>
+</li>
+<li><p><a href="https://blog.csdn.net/major_zhang/article/details/79154287" target="_blank" rel="noopener">Promise 和 async-await 理解</a></p>
+</li>
+<li><p>JSX 最终会被 babel 编译为合法的 JS 语句给 React.createElement()函数调用（编译器在遇到{时采用 JS 语法进行解析，遇到&lt;就采用 HTML 规则进行解析）</p>
+</li>
+<li><p>label 标签</p>
 </li>
 </ol>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>欢迎&#123;isQbVip &amp;&amp; <span class="tag">&lt;<span class="name">a</span>&gt;</span>请尽快升级为正式 Vip!<span class="tag">&lt;/<span class="name">a</span>&gt;</span>&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果条件是 true，&amp;&amp; 右侧的元素就会被渲染，如果是 false，React 会忽略并跳过它。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;label&gt; 标签的 <span class="keyword">for</span> 属性应当与相关元素（input）的 id 属性相同。</span><br><span class="line">&lt;label <span class="keyword">for</span>=<span class="string">"jog"</span>&gt;慢跑&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">&lt;input type="checkbox" name="jog" id="jog" /</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
 
           
         
@@ -660,7 +649,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/21/3.21/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/04/4.4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kyle Yang">
@@ -679,7 +668,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/21/3.21/" itemprop="url">social network project</a></h1>
+                <a class="post-title-link" href="/2020/04/04/4.4/" itemprop="url">react this keyword</a></h1>
         
 
         <div class="post-meta">
@@ -691,8 +680,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-21T01:23:48+11:00">
-                2020-03-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-04T01:23:48+11:00">
+                2020-04-04
               </time>
             
 
@@ -710,8 +699,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/21/3.21/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/21/3.21/" itemprop="commentCount"></span>
+                <a href="/2020/04/04/4.4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/04/4.4/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -733,7 +722,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  250
+                  951
                 </span>
               
 
@@ -749,7 +738,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  3
                 </span>
               
             </div>
@@ -772,21 +761,224 @@
       
         
           
-            <p>今天做的 project 内容是 express 对 server 的配置包括路由以及连接 MongoDB，让我对后端的结构有一个初步的理解。主要是以下几个点：</p>
-<ol>
-<li>设置 PORT 环境变量并且告诉服务器去哪监听；若没有，本地在 5000 端口 。</li>
+            <ol>
+<li><p>SQL 中 join 操作后面的 on 与 where 的区别<br>得到 on 条件是在 left join 之前先进行条件筛选，而后才对两个表格 join 操作，on 比 where 起作用更早，先根据 on 条件进行多表的连接操作，生成一个临时表再通过 where 来筛选</p>
+</li>
+<li><p>react 什么时候 render？<br>如果父组件重新渲染，则会发生重新渲染（可能包括新道具）<br>如果调用 this.setState（），将安排重新渲染。</p>
+</li>
+<li><p>function 的三种类型<br>构造函数：是用于使用 new 关键字创建具有相同原型的新对象的函数</p>
+</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> PORT = process.env.PORT || <span class="number">5000</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">"amitai"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(newPerson.name); <span class="comment">// ‘amitai’this === newPerson</span></span><br><span class="line"><span class="comment">//我们使用它来设置 Person 的实例。调用构造函数时，this.name 的值为“ amitai”。并且对象 newPerson 具有值为 amitai 的属性名称。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//普通函数：如果函数不是对象的属性，则它是“普通函数”。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// undefined in “strict mode” or the global variable</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法：方法是一个定义为对象属性的函数。</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">person.firstName = <span class="string">"Amitai"</span>;</span><br><span class="line">person.lastName = <span class="string">"Barnea"</span>; <span class="comment">// 在方法里，this 用于引用对象的其他属性</span></span><br><span class="line"><span class="built_in">console</span>.log(person.fullName()); <span class="comment">// ‘Amitai Barnea’</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象方法和内嵌函数的 this 指向</span></span><br><span class="line"><span class="comment">//与变量不同，this 关键字没有作用域，并且嵌套函数不继承其调用者的 this 值,会被当做为普通函数指向 window/global。</span></span><br><span class="line"><span class="comment">//如果将嵌套函数作为方法调用，则其 this 值为在其上调用的对象.</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//person</span></span><br><span class="line">    <span class="keyword">var</span> calcFullName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window/global</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//把返回值换成 this.firstName + " " + this.lastName 会正常打印</span></span><br><span class="line">    <span class="keyword">return</span> calcFullName();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">person.firstName = <span class="string">"Amitai"</span>;</span><br><span class="line">person.lastName = <span class="string">"Barnea"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.fullName()); <span class="comment">// Undefined!!!</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>react 怎么操作 dom？<br>大部分情况下你不需要去操作 DOM 元素，你只需要通过设置组件的状态值（setState），react 会通过状态值去渲染组 UI。但是可能在某些情况下你确实需要直接操作 DOM。<br>react 是从 jsx 到虚拟 dom 再从虚拟 dom 生成 dom 的，所以需要在页面生成 DOM 后才能去操作 DOM 节点的，那么很容易让我们相到 react 的几个生命周期，componentDidMount（）就是在组件挂载之后调用的一个生命周期，这时已经生成了 DOM 节点，所以，可以在这个生命周期里 操作 DOM！</p>
+</li>
+<li><p>为什么在 componentWillReceiveProps 在中调用 this.setState() 将不会引起第二次渲染？如果不重新渲染，那么获取到的新数据怎么更新到视图上去？</p>
+</li>
+</ol>
+<p>props 有两种调用方式，第一，直接使用<br>这种方式，父组件改变 props 后，子组件重新渲染，由于直接使用的 props，所以我们不需要做什么就可以正常显示最新的 props</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.props.someThings&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二、转换成自己的 state<br>由于我们使用的是 state，所以每当父组件每次重新传递 props 时，我们需要重新处理下，将 props 转换成自己的 state，这里就用到了 componentWillReceiveProps。为什么不会二次渲染是这样的：每次子组件接收到新的 props，都会重新渲染一次，除非你做了处理来阻止（比如使用：shouldComponentUpdate），但是你可以在这次渲染前，根据新的 props 更新 state，更新 state 也会触发一次重新渲染，但 react 不会这么傻，所以只会渲染一次，这对应用的性能是有利的。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      someThings: props.someThings,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">someThings</span>: nextProps.someThings &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.state.someThings&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kyle Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kyle's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/02/4.2/" itemprop="url">mongodb</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-02T01:23:48+11:00">
+                2020-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/02/4.2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/02/4.2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>mongoose.Schema<br>schema 就是数据库对象的集合，这个集合包含了各种对象如：表、视图、存储过程、索引等。在 Mongoose 中，一切都被 Schema 所驱动。<br>在下面程序中，我们定义了一个 UserSchema，这个 UserSchema 对应在 mongoDB 中是一个 UserSchema 集合。该集合有两个属性，一个是 name，类型为 string，另一个是 email，类型也是 string。<br>在 Mongoose 中，所有数据都由一个 Schema 开始创建。每一个 schema 都映射到一个 Mongodb 的集合(collection)，并定义了该集合(collection)中的文档(document)的形式。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> UserSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">  name: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    required: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  email: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    required: <span class="literal">true</span>,</span><br><span class="line">    unique: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
-<li><p>app.use(/api/users, require(./routers/api/users));<br>路由规则是 app.use(path,router)定义的，router 代表一个由 express.Router()创建的对象，在路由对象中可定义多个路由规则。每次将请求发送到服务器时，都会调用各个 app.use（middleware）</p>
+<li><p>理解中间件：<br>将具体业务和底层逻辑解耦的组件，解耦指的是各部分相互独立，也可以通过接口相匹配。<br>大致的效果是：需要利用服务的人（前端写业务的），不需要知道底层逻辑（提供服务的）的具体实现，只要拿着中间件结果来用就好了。<br>express 里的中间件指的在处理请求和发送响应之间的方法/功能/操作。</p>
 </li>
-<li><p><a href="https://blog.csdn.net/wthfeng/article/details/53366169" target="_blank" rel="noopener">app.use 和 app.get 的区别</a><br>app.use(path,callback)中的 callback 既可以是 router 对象又可以是函数<br>app.get(path,callback)中的 callback 只能是函数<br>给 app.get(app.post、app.put 同理)赋个路由对象是不行的</p>
+<li><p>body-parser 中间件<br>body-parser 是一个 HTTP 请求体解析中间件，使用这个模块可以解析 JSON、Raw、文本、URL-encoded 格式的请求体，Express 框架中就是使用这个模块做为请求体解析中间件。</p>
 </li>
-<li><p>获取 mongoURI<br>cluster 连接自己的 app，设置安全地址等</p>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.json(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br></pre></td></tr></table></figure>
+
+<p>返回一个仅解析 json 格式数据的中间件，并且让我们通过 req.body 得到 data</p>
+<ol start="4">
+<li>express-validator 中间件</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; check, validationResult &#125; = <span class="built_in">require</span>(<span class="string">"express-validator/check"</span>);</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://github.com/huruji/blog/issues/21">check</a>，判断合法性等方法。</p>
+<ol start="5">
+<li><p>HTTP<br>http headers 里的：<br>Content-Type 标头用于指示资源的媒体类型。媒体类型是与文件一起发送的字符串，指示文件的格式。例如，对于图像文件，其媒体类型将为 png 或 jpg 等.</p>
+<p>状态码：<br>200 OK 请求成功。一般用于 GET 与 POST 请求<br>201 Created 已创建。成功请求并创建了新的资源<br>400 Bad Request 客户端请求的语法错误，服务器无法理解<br>403 Forbidden 服务器理解请求客户端的请求，但是拒绝执行此请求<br>404 Not Found 服务器无法根据客户端的请求找到资源（网页）<br>500 Internal Server Error 服务器内部错误，无法完成请求</p>
 </li>
-<li><p>mongodb 连接配置<br>每次用 async 函数时，都要用 try-catch 函数来判断失败情况</p>
+<li><p><a href="https://segmentfault.com/a/1190000016788484" target="_blank" rel="noopener">aysnc-await</a></p>
 </li>
+<li><p><a href="http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html" target="_blank" rel="noopener">json web token</a><br>互联网服务一般流程是下面这样:<br>1、用户向服务器发送用户名和密码。<br>2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。<br>3、服务器向用户返回一个 session_id，写入用户的 Cookie。<br>4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。<br>5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。<br>JWT 的方案是服务器不保存 session 数据，所有数据都保存在客户端，每次请求都发回服务器。JWT 的原理是，服务器认证以后，生成一个 JSON 对象，发回给用户，每当用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名。服务器就不保存任何 session 数据了，也就是说，服务器变成无状态了，从而比较容易实现扩展。<br><img src="%22/images/jwt.jpg%22" alt=""></p>
+</li>
+<li><p>config.get() 使用 config 来管理配置文件<br>eg:config.get(“jwtSecret”),jwtSecret 在配置文件里。</p>
+</li>
+<li><p>在服务器里 entrypt password</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> salt = <span class="keyword">await</span> bcrypt.genSalt(<span class="number">10</span>);</span><br><span class="line">user.password = <span class="keyword">await</span> bcrypt.hash(passwork, salt);</span><br></pre></td></tr></table></figure>
+
+<ol start="10">
+<li>异步原理：<br>js 是单线程，意味着排队执行，如果计算量大，cpu 会忙不过来。设计者意识到主线程完全可以不管 io 阻塞，挂起处于等待中的任务，先运行排在后面的任务，等到 io 阻塞返回了结果，再把挂起的任务执行下去。</li>
 </ol>
 
           
@@ -836,7 +1028,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/19/3.19/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kyle Yang">
@@ -855,7 +1047,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/19/3.19/" itemprop="url">backend staff</a></h1>
+                <a class="post-title-link" href="/2020/04/02/4.3/" itemprop="url">CICD</a></h1>
         
 
         <div class="post-meta">
@@ -867,8 +1059,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-19T01:23:48+11:00">
-                2020-03-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-02T01:23:48+11:00">
+                2020-04-02
               </time>
             
 
@@ -886,8 +1078,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/19/3.19/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/19/3.19/" itemprop="commentCount"></span>
+                <a href="/2020/04/02/4.3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/02/4.3/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -909,693 +1101,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  394
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>mongodb<br>sharded cluster：同一个集合的不同子集分发存储到不同的机器（shard）上，Mongodb 使用 sharding 机制来支持超大数据量，将不同的 CRUD 路由到不同的机器上执行，提到了数据库的吞吐性能。<br>collection：table 的集合。</p>
-</li>
-<li><p>Mongoose 是在 node.js 环境下对 mongodb 进行便捷操作的对象模型工具</p>
-</li>
-<li><p>AJAX<br>AJAX 是与服务器交换数据并更新部分网页的艺术，在不重新加载整个页面的情况下。<br><a href="https://juejin.im/post/587f8dbd570c3522011c0f59" target="_blank" rel="noopener">Ajax 的工作原理</a>相当于在用户和服务器之间加了一个中间层(ajax 引擎),使用户操作与服务器响应异步化。并不是所有的用户请求都提交给服务器,像—些数据验证(比如判断用户是否输入了数据)和数据处理(比如判断用户输入数据是否是数字)等都交给 Ajax 引擎自己来做, 只有确定需要从服务器读取新数据时再由 Ajax 引擎代为向服务器提交请求。把这些交给了 Ajax 引擎，用户操作起来也就感觉更加流畅了。</p>
-</li>
-<li><p>jQuery<br><a href="https://www.twle.cn/l/yufei/jquery/jquery-basic-ajax-load.html" target="_blank" rel="noopener">AJAX load</a> 方法可以从服务器加载数据，并把返回的数据放入被选元素中</p>
-<p>jQuery <a href="https://www.twle.cn/l/yufei/jquery/jquery-basic-ajax-get-post.html" target="_blank" rel="noopener">get()和 post()方法</a>用于通过 HTTP GET 或 POST 请求从服务器请求数据</p>
-<p>jQuery 提供了 children() 和 find() 方法用于向下遍历 DOM 树，以查找元素的后代。<br>jQuery 提供了 parent() 、parents() 和 parentsUntil() 方法用于向上遍历 DOM 树，以查找元素的祖先。</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/18/3.18/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kyle Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kyle's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/18/3.18/" itemprop="url">Reat Hooks</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-18T01:23:48+11:00">
-                2020-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/03/18/3.18/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/18/3.18/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  208
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>todoList app<br>加深了对 ES6，react hook，Jsx 的理解；<br>useState(initialState) 可以接收新的 state 或者一个返回 state 的函数；</p>
-</li>
-<li><p>用 Hooks 实现生命周期<br>每次 Render 都有自己的 Props 与 State。<br>每次一 function 结束 rendering，useeffect 就会被调用。</p>
-<p>format: useEffect(()=&gt;{}, [state])<br>useEffect 会调用当 state 变化的时候，如果是空数组[],则 hook 不会被调用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetch <span class="keyword">from</span> Api</span><br><span class="line">format: useEffect(<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> fetch(&amp;quot;url&amp;quot;);</span><br><span class="line"><span class="keyword">const</span> data = <span class="keyword">await</span> response.json();</span><br><span class="line"><span class="keyword">const</span> [item] = data.results;</span><br><span class="line">setPerson(item);</span><br><span class="line">&#125;, [state])</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>DOM 操作<br>DOM 就是浏览器为 JavaScript 提供的一系列接口，通过这些接口我们可以操作 web 页面。<br>document.title 设置文档标题等价于 HTML 的 title 标签。<br>innerHTML 与 outerHTML 的区别？<br>innerHTML：内部 HTML，content<br/>；<br>outerHTML：外部 HTML，<div>content<br/></div>；<br>innerText：内部文本，content ；<br>outerText：内部文本，content ；<br><img src="/images/html.jpg" alt=""><br>摘自：<a href="https://fenews.org/posts/getting-started-with-react-hooks/" target="_blank" rel="noopener">React Hooks(2019)入门教程</a></p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/15/3.15/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kyle Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kyle's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/15/3.15/" itemprop="url">event-loop</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-15T01:23:48+11:00">
-                2020-03-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/03/15/3.15/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/15/3.15/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  567
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>jQuery 的基本设计思想和主要用法，就是选择某个网页元素，然后对其进行某种操作.</p>
-</li>
-<li><p>JavaScript 语言的一大特点就是单线程，同一个时间只能做一件事。JavaScript 的主要用途是与用户互动，以及操作 DOM。这决定了它只能是单线程，否则会带来很复杂的同步问题。比如，假定 JavaScript 同时有两个线程，一个线程在某个 DOM 节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为准？</p>
-</li>
-<li><p>异步任务指的是，不进入主线程、而进入任务队列（task queue）的任务，只有任务队列通知主线程，某个异步任务可以执行了，该任务才会进入主线程执行。<br>（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。<br>（2）主线程之外，还存在一个任务队列（task queue）。只要异步任务有了运行结果，就在任务队列之中放置一个事件。<br>（3）一旦执行栈中的所有同步任务执行完毕，系统就会读取任务队列，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。<br>（4）主线程不断重复上面的第三步。<br><img src="/images/eventloop.jpg" alt=""></p>
-</li>
-<li><p>所谓回调函数（callback），就是那些会被主线程挂起来的代码。异步任务必须指定回调函数，当主线程开始执行异步任务，就是执行对应的回调函数。<br>任务队列是一个先进先出的数据结构，排在前面的事件，优先被主线程读取。主线程的读取过程基本上是自动的，只要执行栈一清空，任务队列上第一位的事件就自动进入主线程。</p>
-</li>
-<li><p>ajax：可以在不重新加载整个网页的情况下，对网页的某部分进行更新。只要是 JS 调用异步通讯组件并使用格式化的数据来更新 web 页面上的内容或操作过程，那么我们用的方法就可算是 AJAX</p>
-</li>
-</ol>
-<p>摘自：<a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">阮一峰</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/14/3.14/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kyle Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kyle's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/14/3.14/" itemprop="url">express</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-14T01:23:48+11:00">
-                2020-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/03/14/3.14/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/14/3.14/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  337
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol>
-<li><p>简介<br>中间件：在 express 应用中，一切皆中间件。各种应用逻辑，如 cookie 解析、会话处理、日志记录、权限校验等，都是通过中间件来完成的。<br>路由：负责寻址。比如用户发送了个 http 请求，该定位到哪个资源，就是路由说了算。<br>模板引擎：负责视图动态渲染。</p>
-</li>
-<li><p><a href="https://github.scom/nswbmw/N-blog/blob/master/book/3.2%20%E8%B7%AF%E7%94%B1.md/" target="_blank" rel="noopener">express.Router</a></p>
-</li>
-<li><p>模板引擎是一个将页面模板和数据结合起来生成 html 的工具。<br>app.set(‘views’, path.join(__dirname, ‘views’))// 设置存放模板文件的目录<br>app.set(‘view engine’, ‘ejs’)// 设置模板引擎为 ejs</p>
-<p>通过调用 res.render 函数渲染 ejs 模板，res.render 第一个参数是模板的名字，这里是 users 则会匹配 views/users.ejs，第二个参数是传给模板的数据。<br>用 includes 拆分模板组件通常有两个好处：<br>模板可复用，减少重复代码<br>主模板结构清晰</p>
-</li>
-<li><p>中间件与 next<br>express 中的中间件（middleware）就是用来处理请求的，当一个中间件处理完，可以通过调用 next() 传递给下一个中间件，如果没有调用 next()，则请求不会往下传递，如内置的 res.render 其实就是渲染完 html 直接返回给客户端，没有调用 next()，从而没有传递给下一个中间件</p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/13/3.13/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kyle Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kyle's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/03/13/3.13/" itemprop="url">react+redux 项目流程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-13T01:23:48+11:00">
-                2020-03-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/03/13/3.13/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/13/3.13/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  608
+                  638
                 </span>
               
 
@@ -1634,32 +1140,358 @@
       
         
           
-            <h3 id="restful-Api-资源表现层状态转化"><a href="#restful-Api-资源表现层状态转化" class="headerlink" title="restful Api 资源表现层状态转化"></a>restful Api 资源表现层状态转化</h3><p>资源是一种信息实体，它可以有多种外在表现形式。我们把资源具体呈现出来的形式，叫做它的<a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">表现层（Representation）</a>。比如，文本可以用 txt 格式表现，也可以用 HTML 格式、XML 格式、JSON 格式表现，甚至可以采用二进制格式；图片可以用 JPG 格式表现，也可以用 PNG 格式表现。<br>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生<a href="https://www.cnblogs.com/yuri2016/p/7204594.html" target="_blank" rel="noopener">状态转化（State Transfer）</a>。而这种转化是建立在表现层之上的，所以就是表现层状态转化。</p>
-<h3 id="react-redux-小项目流程"><a href="#react-redux-小项目流程" class="headerlink" title="react+redux 小项目流程"></a>react+redux 小项目流程</h3><ol>
-<li><p>先 render 组件</p>
+            <h3 id="CICD"><a href="#CICD" class="headerlink" title="CICD"></a><a href="https://blog.jjonline.cn/linux/238.html" target="_blank" rel="noopener">CICD</a></h3><p>CI 的英文名称是 Continuous Integration，中文翻译为：持续集成。<br>CI 中，开发人员将会频繁地向主干提交代码，这些新提交的代码在最终合并到主干前，需要经过编译和自动化测试流进行验证。</p>
+<p>持续集成（CI）是在源代码变更后自动检测、拉取、构建和（在大多数情况下）进行单元测试的过程。持续集成的目标是快速确保开发人员新提交的变更是好的，并且适合在代码库中进一步使用。CI 的流程执行和理论实践让我们可以确定新代码和原有代码能否正确地集成在一起。</p>
+<p>CD 可对应多个英文名称，持续交付 Continuous Delivery 和持续部署 Continuous Deployment 。<br>持续交付<br>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。<br>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中或发布给最终使用的用户。<br><img src="%22/images/ci.png%22" alt=""><br>持续部署<br>对于一个成熟的 CI/CD 管道（Pipeline）来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。<br>持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。<br>持续交付并不是指软件每一个改动都要尽快部署到产品环境中，它指的是任何的代码修改都可以在任何时候实施部署。<br>持续交付表示的是一种能力，而持续部署表示的则一种方式。持续部署是持续交付的最高阶段<br><img src="%22/images/cd.png%22" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/01/4.1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kyle Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kyle's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/01/4.1/" itemprop="url">this keyword of react</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-01T01:23:48+11:00">
+                2020-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/04/01/4.1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/01/4.1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  717
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>为什么用 react hooks？<br>允许创建每个组件为函数组件。<br>更简单的在组件中分享状态逻辑。</p>
 </li>
-<li><p>componentDidMount (最常见的 fetch data 的地方就是在 componentDidMount 里)</p>
+<li><p>React Fragments<br>React 中常见模式是为一个组件返回多个元素。为了包裹多个元素你肯定写过很多的 div 和 span，进行不必要的嵌套，无形中增加了浏览器的渲染压力。Fragments 简写形式&lt;&gt;&lt;/&gt;。</p>
+</li>
+<li><p>this 指向 1.普通函数 — this 指向函数的调用对象</p>
 </li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> componentDidMount() &#123;</span><br><span class="line"> <span class="comment">/*因为有 action 被发现</span></span><br><span class="line"><span class="comment">  一被调用立即执行 dispatch function</span></span><br><span class="line"><span class="comment">  store.dispatch(fetchpost());</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">  <span class="keyword">this</span>.props.fetchPosts();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> user = <span class="string">"XX"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">//这里f 的调用等同于window.f(); 所以f函数内部this指向的是window</span></span><br></pre></td></tr></table></figure>
+
+<p>2.对象方法中调用 —- this 指向上级对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//xxx</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn();</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里要注意一点，就是在对象中可能有多层嵌套的对象，但是this指向的都是他调用地方的上级对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// bbb</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">obj.b.fn();</span><br><span class="line"><span class="comment">//如上，虽然是在obj里面this调用，但是因为是在obj.b这个对象中，所以this指向的是 obj.b</span></span><br><span class="line"></span><br><span class="line">注意不能只看上级对象，更关键的是调用对象</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// undefined</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = obj.b.fn;</span><br><span class="line">f()</span><br><span class="line"><span class="comment">//如上，this其实是在f执行的时候调用的，这时候，f的this的调用对象是window,那么就可以理解window.user为undefined</span></span><br></pre></td></tr></table></figure>
 
 <ol start="3">
-<li><p>action creator 对 api 请求负责初始化<br>export default axios.create({<br>baseURL: <a href="https://jsonplaceholder.typicode.com" target="_blank" rel="noopener">https://jsonplaceholder.typicode.com</a><br>});</p>
-</li>
-<li><p>action creator 使用 axios 去做出 api 请求<br>action 会被立刻 dispatch 被 reducers 执行，但是 api 请求是有 delay 的。所以需要异步 action creator，即中间件 redux-thunk 帮助我们能去完成发出请求的操作。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> fetchPosts = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">async</span> (dispatch, getstate) =&gt; &#123;</span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> json.get(<span class="regexp">/posts);</span></span><br><span class="line"><span class="regexp">dispatch(&#123; type: FETCH_POSTS, payload: response.data &#125;);</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp">export const fetchUser = id =&gt; async dispatch =&gt; &#123;</span></span><br><span class="line"><span class="regexp">const response = await json.get(`/u</span>sers/$&#123;id&#125;<span class="string">`);</span></span><br><span class="line"><span class="string">dispatch(&#123; type: FETCH_USER, payload: response.data &#125;);</span></span><br><span class="line"><span class="string">&#125;;</span></span><br></pre></td></tr></table></figure>
+<li>构造函数 — this 指向 new 出来的对象</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.user = <span class="string">"xxx;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">var a = new Fn();</span></span><br><span class="line"><span class="string">    console.log(a.user); //xxx</span></span><br><span class="line"><span class="string">//new 的过程其实也是初始化了一个新的对象，然后用新的对象调用原先的函数 Fn.call(a) 这个情况跟下面这种情况类似了。</span></span><br></pre></td></tr></table></figure>
 
-<p>async 函数返回值是 Promise 对象，给了我们获取 data 的权限。<br>中间件：action creator 返回 function 或者 object，被 dispatch 到中间件，在中间件里会有 if 判断是 function 还是 object；如果是 obj，会直接到 reducers 里；如果是 function，会调用这个 function 以及 dispatch 和 getstate function。</p>
+<p>4.apply, call, bind 通过改变函数的调用对象而改变 this 的指向</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"id:"</span>, <span class="keyword">this</span>.id); <span class="comment">//42</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line">foo.call(&#123; <span class="attr">id</span>: <span class="number">42</span> &#125;); <span class="comment">//foo函数的调用对象变成了 &#123;id: 42&#125;,所以this指向发生了变化</span></span><br></pre></td></tr></table></figure>
+
+<p>5.箭头函数 this 的指向 —- this 指向其定义时候的对象</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"peter"</span>;</span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  name: <span class="string">"tony"</span>,</span><br><span class="line">  c: (<span class="keyword">this</span>.name = <span class="string">"lily"</span>),</span><br><span class="line">  b: <span class="built_in">console</span>.log(<span class="string">"1"</span>, name), <span class="comment">//peter,函数里this指向global(node)/window ; 最先打印出</span></span><br><span class="line">  jiantou: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//若注解c: (this.name = "lily"),this === &#123;&#125;,指的定义处上下文;否则&#123;this.name = "lily"&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//lily</span></span><br><span class="line">  &#125;,</span><br><span class="line">  putong: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">/* obj a &#123;</span></span><br><span class="line"><span class="comment">        name: 'tony',</span></span><br><span class="line"><span class="comment">        b: undefined,</span></span><br><span class="line"><span class="comment">        jiantou: [Function: jiantou],</span></span><br><span class="line"><span class="comment">        putong: [Function: putong]</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//tony</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">a.jiantou();</span><br><span class="line">a.putong();</span><br><span class="line"><span class="keyword">typeof</span> a.b; <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>箭头函数的 this 在定义时所在的对象，其实质是因为箭头函数没有自己的 this,用的是外层的 this。<br>普通函数的 this 是看的是它执行时候的调用对象; 箭头函数的 this 与它的执行没有关系，在定义的时候就决定了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/30/3.30/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kyle Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kyle's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/30/3.30/" itemprop="url">React 的生命周期</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-30T01:23:48+11:00">
+                2020-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/30/3.30/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/30/3.30/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  411
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>Virtual DOM 工作原理<br>Virtual DOM 是一个轻量级的 JavaScript 对象。它是一个节点树，将元素、它们的属性和内容作为对象及其属性，可以理解为树上的每个节点。 React 的渲染函数从 React 组件中创建一个节点树。然后它响应数据模型中的变化来更新该树，该变化是由用户或系统完成的各种动作引起的。<br>每当底层数据发生改变时，整个 UI 都将在 Virtual DOM 描述中重新渲染。<br>计算之前 DOM 表示与新表示的之间的差异。<br>完成计算后，将只用实际更改的内容更新 real DOM。</p>
 </li>
-<li><p>api 返回 data<br>dispatch({ type: FETCH_POSTS, payload: response.data });</p>
-</li>
-<li><p>action creator 返回一个带有 fetched data 的 action，dispatch 给 reducers。</p>
-</li>
-<li><p>reducer 接收 action 并且通过 payload 数据返回一个新 state。<br>注意：<br>必须返回除了 undefined 以外的值 []是可以的；<br>state = null，第一次调用 state 默认是 null，表示现在没有被选择的值；<br>第二次调用的时候，state 是由第一次 return 出来的 state 和 action2 产生。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = [], action) =&gt; &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> FETCH_USER:</span><br><span class="line">      <span class="keyword">return</span> [...state, action.payload];</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>新的 state 会被作为 props 传入 react 组件，造成重新渲染。store 可以看作是 state 的集合。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mapStateToProps = <span class="function"><span class="params">state</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; <span class="attr">posts</span>: state.posts &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(mapStateToProps, &#123; fetchPosts &#125;)(PostList);</span><br></pre></td></tr></table></figure>
+<li><p><a href="https://juejin.im/post/5b077f04f265da0dc073caa6" target="_blank" rel="noopener">React 的生命周期方法有哪些</a><br>componentWillMount:在渲染之前执行，用于根组件中的 App 级配置。<br>componentDidMount：在第一次渲染之后执行，可以在这里做 AJAX 请求，DOM 的操作或状态更新以及设置事件监听器。<br>componentWillReceiveProps：在初始化 render 的时候不会执行，它会在组件接受到新的状态(Props)时被触发，一般用于父组件状态更新时子组件的重新渲染<br>shouldComponentUpdate：确定是否更新组件。默认情况下，它返回 true。如果确定在 state 或 props 更新后组件不需要在重新渲染，则可以返回 false，这是一个提高性能的方法。<br>componentWillUpdate：在 shouldComponentUpdate 返回 true 确定要更新组件之前执行。<br>componentDidUpdate：它主要用于更新 DOM 以响应 props 或 state 更改。<br>componentWillUnmount：它用于取消任何的网络请求，或删除与组件关联的所有事件监听器。</p>
 </li>
 </ol>
 
@@ -1710,7 +1542,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/12/3.12/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/29/3.29/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kyle Yang">
@@ -1729,7 +1561,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/12/3.12/" itemprop="url">Redux</a></h1>
+                <a class="post-title-link" href="/2020/03/29/3.29/" itemprop="url">this keyword of react</a></h1>
         
 
         <div class="post-meta">
@@ -1741,8 +1573,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-12T01:23:48+11:00">
-                2020-03-12
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-29T01:23:48+11:00">
+                2020-03-29
               </time>
             
 
@@ -1760,8 +1592,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/12/3.12/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/12/3.12/" itemprop="commentCount"></span>
+                <a href="/2020/03/29/3.29/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/29/3.29/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1783,7 +1615,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  430
+                  638
                 </span>
               
 
@@ -1799,7 +1631,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -1822,26 +1654,20 @@
       
         
           
-            <h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol>
-<li><p>redux 作用？<br>随着应用复杂度地不断提升，组件之间的状态通信变得越来越多，组件之间的耦合也变得越来越重。redux 能更好维护的模块间通信。</p>
+            <ol>
+<li><p>react 中 this 指向<br>发现还是对 this 指向掌握不明确，看完这个博客清晰多了。<br>React 是通过创建虚拟 DOM，然后将虚拟 DOM 生成真实的 DOM，最后插入到页面中，而 React 生命周期中 render 方法的作用就是将虚拟 DOM 渲染成真实 DOM。在 JSX 语法中: onClick={ function } onClick 这个属性本身只是一个”中间变量”。将函数赋值给 onClick 这个中间变量，后面不仅要进行 JSX 语法转化,将 JSX 组件转换成 Javascript 对象,还要再将 Javascript 对象转换成真实 DOM。<br>前提：JS 中的 this 是由函数调用者调用的时候决定的。把 onClick 作为中间变量,指向一个函数的时候,后面的一系列处理中，使用 onClick 这个中间变量所指向的函数，里面的 this 自然就丢失掉了，不是再指向对象实例了。</p>
 </li>
-<li><p>Redux 的单一状态树<br>所有的 state 都以一个对象树的形式储存在一个单一的 store 中。页面中的所有状态 or 数据，都应该用这种状态树的形式来描述；页面上的任何变化，都应该先去改变这个状态树，然后再通过某种方式实现到页面上。</p>
-</li>
-<li><p>action</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeText</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"CHANGE_TEXT"</span>,</span><br><span class="line">    payload: <span class="string">"Hello"</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Action 的任务是描述“发生了什么事情？”，这个函数会返回一个 Action 对象，这个对象里描述了“页面发生了什么”。随后这个对象会被传入到 Reducer 中。</p>
-</li>
-<li><p>reducer<br>(state, action) =&gt; newState<br>Reducer 的任务是根据传入的 Action 对象去修改状态树。<br>Reducer 是一个纯函数， 根据传入的 当前 state 和 action ，返回一个新的 state 。</p>
-</li>
-<li><p>Store<br>let store = createStore(Reducer);<br>state 是 store 的映射；<br>Store 就是把 Reducer 和 action 联系到一起的对象。<br>Store 有以下职责：<br>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器；</p>
-</li>
-<li><p>异步操作怎么办？<br>Action 发出以后，Reducer 立即算出 State，这叫做同步；Action 发出以后，过一段时间再执行 Reducer，这就是异步。中间件解决了这个问题。</p>
-</li>
-<li><p>什么是中间件？<br>中间件就是一个函数，对 store.dispatch 方法进行了改造，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</p>
+<li><p>实例</p>
 </li>
 </ol>
-<p>摘自：<a href="https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" target="_blank" rel="noopener">阮一峰</a> <a href="https://zhuanlan.zhihu.com/p/24684803" target="_blank" rel="noopener">知乎 er</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  name: <span class="string">"jack"</span>,</span><br><span class="line">  getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">test.getName();</span><br><span class="line"><span class="comment">//使用node test.js执行上述代码可以正常输出jack。 之后，我们对代码进行调整：</span></span><br><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  name: <span class="string">"jack"</span>,</span><br><span class="line">  getJack: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//如果传递一个函数名给一个变量，之后通过函数名()的方式进行调用，在方法内部如果使用this则this的指向会丢失</span></span><br><span class="line"><span class="keyword">const</span> func = test.getJack;</span><br><span class="line">func();</span><br><span class="line"></span><br><span class="line"><span class="comment">//我们没有直接调用对象的方法，而是将方法声明给一个中间变量，之后利用中间变量()调用方法，此时 this 则失去指向，输出 undefined，如果使用 node 环境执行 js 文件则输出 node 相关信息，如嵌入到 html 中则 this 指向 window 对象。</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>React 事件绑定<br>React 中的 bind 同上方原理一致,在 JSX 中传递的事件不是一个字符串，而是一个函数（如:onClick={this.handleClick}），此时 onClick 即是中间变量，所以处理函数中的 this 指向会丢失。解决这个问题就是给调用函数时 bind(this)，从而使得无论事件处理函数如何传递，this 指向都是当前实例化对象。 当然，如果不想使用 bind(this)，我们可以在声明函数时使用箭头函数将函数内容返回给一个变量，并在调用时直接使用 this.变量名即可。<br><img src="/images/this.png" alt=""></p>
+</li>
+<li><p>React 没有自动的把 bind 集成到 render 方法中呢?<br>因为 render 多次调用每次都要 bind 会影响性能，所以官方建议 constructor 中手动 bind 达到性能优化。</p>
+</li>
+</ol>
 
           
         
@@ -1890,7 +1716,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/11/3.11/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/28/3.28/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kyle Yang">
@@ -1909,7 +1735,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/11/3.11/" itemprop="url">express</a></h1>
+                <a class="post-title-link" href="/2020/03/28/3.28/" itemprop="url">react-router</a></h1>
         
 
         <div class="post-meta">
@@ -1921,8 +1747,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-11T01:23:48+11:00">
-                2020-03-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-28T01:23:48+11:00">
+                2020-03-28
               </time>
             
 
@@ -1940,8 +1766,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/11/3.11/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/11/3.11/" itemprop="commentCount"></span>
+                <a href="/2020/03/28/3.28/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/28/3.28/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1963,7 +1789,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  355
+                  1.1k
                 </span>
               
 
@@ -1979,7 +1805,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  4
                 </span>
               
             </div>
@@ -2002,14 +1828,211 @@
       
         
           
-            <h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol>
-<li><p>webpack 作用及流程<br>component 必须返回 jsx，每次当 state 变化，组件重新渲染<br>比如 webpack 会把 jsx 语句转化为 bundle.js<br><a href="https://juejin.im/entry/58a177b0128fe100659d79ef" target="_blank" rel="noopener">webpack 流程介绍</a></p>
+            <ol>
+<li><p>前端路由与后端路由<br>后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。</p>
 </li>
-<li><p>express 项目结构<br>其中 app.js 是入口文件，views 文件夹下面放置的是需要渲染的模板文件，package.json 是整个项目的配置文件，.gitignore 文件里面写明文件 pull 到 github 时不需要上传的文件或文件夹，如 node_modules 文件夹。</p>
+<li><p><a href="http://www.ruanyifeng.com/blog/2007/11/mvc.html" target="_blank" rel="noopener">MVC</a><br>MVC 是三个单词的首字母缩写，它们是 Model（模型）、View（视图）和 Controller（控制）。<br>这个模式认为，程序不论简单或复杂，从结构上看，都可以分成三层。<br>1）最上面的一层，是直接面向最终用户的视图层（View）。它是提供给用户的操作界面，是程序的外壳。<br>2）最底下的一层，是核心的数据层（Model），也就是程序需要操作的数据或信息。<br>3）中间的一层，就是控制层（Controller），它负责根据用户从视图层输入的指令，选取数据层中的数据，然后对其进行相应的操作，产生最终结果。<br>这三层是紧密联系在一起的，但又是互相独立的，每一层内部的变化不影响其他层。每一层都对外提供接口（Interface），供上面一层调用。这样一来，软件就可以实现模块化，修改外观或者变更数据都不用修改其他层，大大方便了维护和升级。</p>
 </li>
-<li><p><a href="https://www.zybuluo.com/kexinWeb/note/663277" target="_blank" rel="noopener">app.js</a></p>
+<li><p>SPA Single Page Application<br>单页应用程序是一个 Web 应用程序，其中客户端 JavaScript 处理路由而不是后端。优点有：<br>SPA 非常易于部署到生产环境中。<br>SPA 快速且易于使用，因为您不必等待重新加载页面。<br>应用程序会动态加载状态。由于该应用程序使用较少的带宽，并且该应用程序的整体性能超过了典型的前端/后端应用程序的性能，因此可以改善用户体验。</p>
 </li>
-<li><p>js 框架与模板引擎的区别<br>模板引擎，就是将 HTML 模板渲染出最终样子的工具。<br>把动态把数据填充到 HTML 里面，可以在服务器端做，也可以在浏览器端做<br>比如 angular 会根据取到的数据去填充}里的内容，这是在客户端完成的。<br>比如 JSP 会在服务器端去填充{$}里的内容，然后把最终的 html 送到浏览器，这是服务器端完成的。<br>有时候前后端模板引擎会同时使用，即使有前端的模板引擎，后端返回 HTML 有时也是需要的，不仅仅返回是 JSON 数据<br>区别：<br>前后端分离可以大大将服务端的压力分散给客户端，而客户端的计算性能损耗几乎是微乎其微，并且在开发流程上，效率也极大提升，也可以适应敏捷开发。</p>
+<li><p>复习 sql<br>GROUP BY–根据(by)一定的规则进行分组(Group)。 它的作用是通过一定的规则将一个数据集划分成若干个小的区域，然后针对若干个小区域进行数据处理。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer <span class="comment">----查找每个客户的总金额</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="comment">--在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与合计函数一起使用。</span></span><br><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">WHERE</span> Customer=<span class="string">"Bush"</span> <span class="keyword">OR</span> Customer=<span class="string">"Adams"</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">SUM</span>(OrderPrice)&gt;<span class="number">1500</span><span class="comment">----查找客户 Bush 或 Adams 拥有超过 1500 的订单总金额</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>react-router<br>路由器对象有两种类型。浏览器路由器哈希路由器如果我们要处理动态请求，请使用 BrowserRouter；如果要处理静态请求，请使用 HashRouter。</p>
+</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; BrowserRouter &#125; <span class="keyword">from</span> <span class="string">"react-router-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"./App"</span>;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;BrowserRouter&gt;</span><br><span class="line">    &#123;<span class="string">" "</span>&#125;</span><br><span class="line">    &lt;App /&gt;&#123;<span class="string">" "</span>&#125;</span><br><span class="line">  &lt;<span class="regexp">/BrowserRouter&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById("root")</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/three compoents:home,contract,about</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/app.js</span></span><br><span class="line"><span class="regexp">class App extends Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;Router&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;</span></span><br><span class="line"><span class="regexp">          &lt;h2&gt;Welcome to React Router Tutorial&lt;/</span>h2&gt;</span><br><span class="line">          &lt;nav className=<span class="string">"navbar navbar-expand-lg navbar-light bg-light"</span>&gt;</span><br><span class="line">            &lt;ul className=<span class="string">"navbar-nav mr-auto"</span>&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  Home</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/contact"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  Contact</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/about"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  About</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>nav&gt;</span><br><span class="line">          &lt;hr /&gt;</span><br><span class="line">          &lt;Switch&gt;</span><br><span class="line">            &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">"/contact"</span> component=&#123;Contact&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">"/about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">          &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Router 是 react 路由的外层盒子，里面的内容就是单页面应用的路由以及路由组件。Router 下面只能包含一个盒子标签，类似这里的 div。</p>
+<p>Link 是点击切换到哪一组件的链接。Link 代表一个链接，在 html 界面中会解析成 a 标签。作为一个链接，必须有一个 to 属性，代表链接地址。这个链接地址是一个相对路径。</p>
+<p>Route 代表路由有一个 path 和一个组件属性（也以 component、render 等等）。path 代表相对路径，component 代表组件。</p>
+<p>Switch 只会渲染第一个路径，不用则会使每一个被匹配到的 Route 都会被渲染。只找到第一个被 location 匹配到的 route 就停止匹配。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/24/3.24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kyle Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kyle's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/24/3.24/" itemprop="url">express</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-24T01:23:48+11:00">
+                2020-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/24/3.24/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/24/3.24/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  537
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>express</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(express); <span class="keyword">const</span> app = express();</span><br><span class="line">app.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(listening on <span class="number">3000</span>) &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>Express 处理 GET 请求通过 get method:<br>app.get(path, callback)<br>path 是 domain 后面的内容，callback 是当路径匹配时 server 将要做什么；<br>app.get(/, function(req, res) { res.send(Hello World) })<br>用 respons 给浏览器写一个”Hello World”；</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="regexp">/, (req, res) =&gt; &#123; res.sendFile(\_\_dirname + /i</span>ndex.html) &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>将 index.html 页面放回到浏览器中</p>
+<p>仅当 POST 请求发送到服务器时，CREATE 操作才由浏览器执行</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">/quotes</span> <span class="attr">method</span>=<span class="string">POST</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">text</span> <span class="attr">placeholder</span>=<span class="string">name</span> <span class="attr">name</span>=<span class="string">name</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">text</span> <span class="attr">placeholder</span>=<span class="string">quote</span> <span class="attr">name</span>=<span class="string">quote</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">submit</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>action 属性告诉浏览器在我们的 Express 应用中导航到的位置。在这种情况下，我们导航到/ quotes。method 属性告诉浏览器发送什么请求。在这种情况下，这是一个 POST 请求。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.post(<span class="regexp">/quotes, (req, res) =&gt; &#123; console.log(Hello!) &#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p>重新启动服务器并刷新浏览器。然后，在表单元素中输入一些内容。能够看到 Hello！在命令行中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bodyParser= <span class="built_in">require</span>(body-parser)app.use(bodyParser.urlencoded(&#123;<span class="attr">extended</span>: <span class="literal">true</span>&#125;))</span><br></pre></td></tr></table></figure>
+
+<p>Express 允许我们使用 use 方法向应用程序中添加诸如 body-parser 之类的中间件。在处理 Express 时，经常听到“中间件”一词。这些东西基本上是在我们的应用程序处理它们之前更改请求或响应对象的插件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.post(<span class="regexp">/quotes, (req, res) =&gt; &#123; console.log(req.body) &#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p>body-parser 中的 urlencoded 方法告诉 body-parser 从<form>元素中提取数据并将其添加到请求对象的 body 属性中。</p>
+</li>
+<li><p>node<br>npm install nodemon –save-dev<br>–save-dev 标志会将 Nodemon 保存为您的 package.json 文件中的 devDependency。<br>{ // … scripts: { dev: nodemon server.js } // … }<br>现在可以运行 npm run dev 来触发 nodemon server.js。</p>
+<p>npm install mongodb –save<br>collection 是一个存东西的命名空间.</p>
+</li>
+<li><p>9321ass<br>9321 这次的 assignment 主要用 flask 框架和数据库交互来写 api，数据是从网页的 json 格式数据读到数据库里，然后将数据渲染在 swagger-ui 页面上，有 7 个不同的功能（增删改查）。主要运用了 Flask-RESTful 和 sqlite 等包。</p>
 </li>
 </ol>
 
@@ -2051,7 +2074,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">next</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">next</a>
   </nav>
 
 
@@ -2102,7 +2125,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2115,7 +2138,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -2165,7 +2188,7 @@
     <h6 class="widget-title"></h6>
     <div id="myCanvasContainer" class="widget tagcloud">
         <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Daily-juice/" rel="tag">Daily juice</a><span class="tag-list-count">25</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scss/" rel="tag">Scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async-await/" rel="tag">async-await</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/" rel="tag">axios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bable/" rel="tag">bable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-box-model/" rel="tag">css box model</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/" rel="tag">css flex box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/" rel="tag">css grid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-positioning/" rel="tag">css positioning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/" rel="tag">dom</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event-loop/" rel="tag">event loop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/" rel="tag">express</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/" rel="tag">project</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/promise/" rel="tag">promise</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react hooks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/" rel="tag">react-router</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux-middleware/" rel="tag">redux middleware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful-api/" rel="tag">restful api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/" rel="tag">this</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unsw/" rel="tag">unsw</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CICD/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Daily-juice/" rel="tag">Daily juice</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVC/" rel="tag">MVC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPA/" rel="tag">SPA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scss/" rel="tag">Scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/" rel="tag">async</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async-await/" rel="tag">async-await</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/" rel="tag">axios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aysnc/" rel="tag">aysnc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bable/" rel="tag">bable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/comp9321/" rel="tag">comp9321</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-box-model/" rel="tag">css box model</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/" rel="tag">css flex box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/" rel="tag">css grid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-positioning/" rel="tag">css positioning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/" rel="tag">dom</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event-loop/" rel="tag">event loop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/" rel="tag">express</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lifecycle/" rel="tag">lifecycle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/" rel="tag">middleware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/" rel="tag">mongoose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/" rel="tag">project</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/promise/" rel="tag">promise</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react hooks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/" rel="tag">react-router</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux-middleware/" rel="tag">redux middleware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful-api/" rel="tag">restful api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/" rel="tag">this</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unsw/" rel="tag">unsw</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtual-dom/" rel="tag">virtual dom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag">异步</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -2203,7 +2226,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">8.1k</span>
+    <span title="Site words total count">15k</span>
   
   
 

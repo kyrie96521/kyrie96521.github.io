@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/kyrie96521/kyrie96521.github.io/"/>
-  <updated>2020-03-28T05:04:57.212Z</updated>
+  <updated>2020-04-06T05:14:57.058Z</updated>
   <id>https://github.com/kyrie96521/kyrie96521.github.io/</id>
   
   <author>
@@ -17,11 +17,320 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>express路由</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/06/4.6/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/06/4.6/</id>
+    <published>2020-04-05T15:23:48.000Z</published>
+    <updated>2020-04-06T05:14:57.058Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>路由<br>路由表示应用程序端点 (URI) 的定义以及端点响应客户机请求的方式。</p></li><li><p>路由方法<br>路由方法派生自 HTTP 方法之一，附加到 express 类的实例</p></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// POST method route</span></span><br><span class="line">app.post(<span class="string">"/"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">"POST request to the homepage"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>有一种特殊路由方法：app.all()，它并非派生自 HTTP 方法。该方法用于在所有请求方法的路径中装入中间件函数。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.all(<span class="string">"/secret"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Accessing the secret section ..."</span>);</span><br><span class="line">  next(); <span class="comment">// pass control to the next handler</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><ol start="3"><li>路由路径<br>路由路径与请求方法相结合，用于定义可以在其中提出请求的端点。路由路径可以是字符串、字符串模式或正则表达式。<br>此路由路径将匹配 /abe 和 /abcde。</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="string">"/ab(cd)?e"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">"ab(cd)?e"</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><ol start="4"><li>路由处理程序<br>可以提供多个回调函数，以类似于中间件的行为方式来处理请求，这些回调函数可能调用 next(“route”) 来绕过剩余的路由回，路由处理程序的形式可以是一个函数、一组函数或者两者的结合。</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cb0 = <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"CB0"</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cb1 = <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"CB1"</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">app.get(</span><br><span class="line">  <span class="string">"/example/d"</span>,</span><br><span class="line">  [cb0, cb1],</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"the response will be sent by the next function ..."</span>);</span><br><span class="line">    next();</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Hello from D!"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br></pre></td></tr></table></figure><p>5.app.route()<br>使用 app.route() 为路由路径创建可链接的路由处理程序。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">app</span><br><span class="line">  .route(<span class="string">"/book"</span>)</span><br><span class="line">  .get(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Get a random book"</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .post(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Add a book"</span>);</span><br><span class="line">  &#125;)</span><br><span class="line">  .put(<span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">    res.send(<span class="string">"Update the book"</span>);</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure><p>6.express.Router<br>使用 express.Router 类来创建可安装的模块化路由处理程序。Router 实例是完整的中间件和路由系统；因此，常常将其称为“微型应用程序”。<br>以下示例将路由器创建为模块，在其中装入中间件，定义一些路由，然后安装在主应用程序的路径中。<br>在应用程序目录中创建名为 birds.js 的路由器文件，其中包含以下内容：</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">"express"</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line"></span><br><span class="line"><span class="comment">// middleware that is specific to this router</span></span><br><span class="line">router.use(<span class="function"><span class="keyword">function</span> <span class="title">timeLog</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"Time: "</span>, <span class="built_in">Date</span>.now());</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// define the home page route</span></span><br><span class="line">router.get(<span class="string">"/"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">"Birds home page"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// define the about route</span></span><br><span class="line">router.get(<span class="string">"/about"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">"About birds"</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = router;</span><br><span class="line"><span class="comment">//接着，在应用程序中装入路由器模块：</span></span><br><span class="line"><span class="keyword">var</span> birds = <span class="built_in">require</span>(<span class="string">"./birds"</span>);</span><br><span class="line"></span><br><span class="line">app.use(<span class="string">"/birds"</span>, birds);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;路由&lt;br&gt;路由表示应用程序端点 (URI) 的定义以及端点响应客户机请求的方式。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;路由方法&lt;br&gt;路由方法派生自 HTTP 方法之一，附加到 express 类的实例&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;figure cl
+      
+    
+    </summary>
+    
+    
+    
+      <category term="express" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/express/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>html&amp;js</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/05/4.5/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/05/4.5/</id>
+    <published>2020-04-04T15:23:48.000Z</published>
+    <updated>2020-04-06T05:07:11.150Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>setTimeout()、setInterval()的区别在于？<br>setTimeout()：当方法执行完成定时器就立即停止(但是定时器还在,只不过没用了);<br>setInterval()：当方法执行完成,定时器并没有停止,以后每隔[interval]这么长的时间都会重新的执行对应的方法[function],直到我们手动清除定时器为止;</p></li><li><p>什么 HTML 结构的语义化？<br>我的理解是让每个标签具有意义而不是无意义的标签 div 和 span；<br>为什么要语义化?<br>为了在没有 CSS 的情况下，页面也能呈现出很好地内容结构、代码结构；用户体验；有利于 SEO（搜索引擎优化）；便于团队开发和维护，语义化更具可读性，遵循 W3C 标准的团队都遵循这个标准，可以减少差异化。</p></li><li><p><a href="https://blog.csdn.net/major_zhang/article/details/79154287" target="_blank" rel="noopener">Promise 和 async-await 理解</a></p></li><li><p>JSX 最终会被 babel 编译为合法的 JS 语句给 React.createElement()函数调用（编译器在遇到{时采用 JS 语法进行解析，遇到&lt;就采用 HTML 规则进行解析）</p></li><li><p>label 标签</p></li></ol><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;label&gt; 标签的 <span class="keyword">for</span> 属性应当与相关元素（input）的 id 属性相同。</span><br><span class="line">&lt;label <span class="keyword">for</span>=<span class="string">"jog"</span>&gt;慢跑&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">&lt;input type="checkbox" name="jog" id="jog" /</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;setTimeout()、setInterval()的区别在于？&lt;br&gt;setTimeout()：当方法执行完成定时器就立即停止(但是定时器还在,只不过没用了);&lt;br&gt;setInterval()：当方法执行完成,定时器并没有停止,以后每隔[interva
+      
+    
+    </summary>
+    
+    
+    
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
+    
+      <category term="promise" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/promise/"/>
+    
+      <category term="sql" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/sql/"/>
+    
+      <category term="js" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/js/"/>
+    
+      <category term="html" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/html/"/>
+    
+      <category term="async" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/async/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react this keyword</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/04/4.4/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/04/4.4/</id>
+    <published>2020-04-03T14:23:48.000Z</published>
+    <updated>2020-04-06T05:02:40.690Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>SQL 中 join 操作后面的 on 与 where 的区别<br>得到 on 条件是在 left join 之前先进行条件筛选，而后才对两个表格 join 操作，on 比 where 起作用更早，先根据 on 条件进行多表的连接操作，生成一个临时表再通过 where 来筛选</p></li><li><p>react 什么时候 render？<br>如果父组件重新渲染，则会发生重新渲染（可能包括新道具）<br>如果调用 this.setState（），将安排重新渲染。</p></li><li><p>function 的三种类型<br>构造函数：是用于使用 new 关键字创建具有相同原型的新对象的函数</p></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">"amitai"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(newPerson.name); <span class="comment">// ‘amitai’this === newPerson</span></span><br><span class="line"><span class="comment">//我们使用它来设置 Person 的实例。调用构造函数时，this.name 的值为“ amitai”。并且对象 newPerson 具有值为 amitai 的属性名称。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//普通函数：如果函数不是对象的属性，则它是“普通函数”。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// undefined in “strict mode” or the global variable</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法：方法是一个定义为对象属性的函数。</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">person.firstName = <span class="string">"Amitai"</span>;</span><br><span class="line">person.lastName = <span class="string">"Barnea"</span>; <span class="comment">// 在方法里，this 用于引用对象的其他属性</span></span><br><span class="line"><span class="built_in">console</span>.log(person.fullName()); <span class="comment">// ‘Amitai Barnea’</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象方法和内嵌函数的 this 指向</span></span><br><span class="line"><span class="comment">//与变量不同，this 关键字没有作用域，并且嵌套函数不继承其调用者的 this 值,会被当做为普通函数指向 window/global。</span></span><br><span class="line"><span class="comment">//如果将嵌套函数作为方法调用，则其 this 值为在其上调用的对象.</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//person</span></span><br><span class="line">    <span class="keyword">var</span> calcFullName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window/global</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//把返回值换成 this.firstName + " " + this.lastName 会正常打印</span></span><br><span class="line">    <span class="keyword">return</span> calcFullName();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">person.firstName = <span class="string">"Amitai"</span>;</span><br><span class="line">person.lastName = <span class="string">"Barnea"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.fullName()); <span class="comment">// Undefined!!!</span></span><br></pre></td></tr></table></figure><ol start="4"><li><p>react 怎么操作 dom？<br>大部分情况下你不需要去操作 DOM 元素，你只需要通过设置组件的状态值（setState），react 会通过状态值去渲染组 UI。但是可能在某些情况下你确实需要直接操作 DOM。<br>react 是从 jsx 到虚拟 dom 再从虚拟 dom 生成 dom 的，所以需要在页面生成 DOM 后才能去操作 DOM 节点的，那么很容易让我们相到 react 的几个生命周期，componentDidMount（）就是在组件挂载之后调用的一个生命周期，这时已经生成了 DOM 节点，所以，可以在这个生命周期里 操作 DOM！</p></li><li><p>为什么在 componentWillReceiveProps 在中调用 this.setState() 将不会引起第二次渲染？如果不重新渲染，那么获取到的新数据怎么更新到视图上去？</p></li></ol><p>props 有两种调用方式，第一，直接使用<br>这种方式，父组件改变 props 后，子组件重新渲染，由于直接使用的 props，所以我们不需要做什么就可以正常显示最新的 props</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.props.someThings&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>第二、转换成自己的 state<br>由于我们使用的是 state，所以每当父组件每次重新传递 props 时，我们需要重新处理下，将 props 转换成自己的 state，这里就用到了 componentWillReceiveProps。为什么不会二次渲染是这样的：每次子组件接收到新的 props，都会重新渲染一次，除非你做了处理来阻止（比如使用：shouldComponentUpdate），但是你可以在这次渲染前，根据新的 props 更新 state，更新 state 也会触发一次重新渲染，但 react 不会这么傻，所以只会渲染一次，这对应用的性能是有利的。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      someThings: props.someThings,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">someThings</span>: nextProps.someThings &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.state.someThings&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;SQL 中 join 操作后面的 on 与 where 的区别&lt;br&gt;得到 on 条件是在 left join 之前先进行条件筛选，而后才对两个表格 join 操作，on 比 where 起作用更早，先根据 on 条件进行多表的连接操作，生成一个临时表再通
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
+    
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
+    
+      <category term="dom" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/dom/"/>
+    
+      <category term="sql" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/sql/"/>
+    
+      <category term="lifecycle" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/lifecycle/"/>
+    
+      <category term="js" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mongodb</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.2/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.2/</id>
+    <published>2020-04-01T14:23:48.000Z</published>
+    <updated>2020-04-06T04:24:42.827Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>mongoose.Schema<br>schema 就是数据库对象的集合，这个集合包含了各种对象如：表、视图、存储过程、索引等。在 Mongoose 中，一切都被 Schema 所驱动。<br>在下面程序中，我们定义了一个 UserSchema，这个 UserSchema 对应在 mongoDB 中是一个 UserSchema 集合。该集合有两个属性，一个是 name，类型为 string，另一个是 email，类型也是 string。<br>在 Mongoose 中，所有数据都由一个 Schema 开始创建。每一个 schema 都映射到一个 Mongodb 的集合(collection)，并定义了该集合(collection)中的文档(document)的形式。</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> UserSchema = <span class="keyword">new</span> mongoose.Schema(&#123;</span><br><span class="line">  name: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    required: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  email: &#123;</span><br><span class="line">    type: <span class="built_in">String</span>,</span><br><span class="line">    required: <span class="literal">true</span>,</span><br><span class="line">    unique: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><ol start="2"><li><p>理解中间件：<br>将具体业务和底层逻辑解耦的组件，解耦指的是各部分相互独立，也可以通过接口相匹配。<br>大致的效果是：需要利用服务的人（前端写业务的），不需要知道底层逻辑（提供服务的）的具体实现，只要拿着中间件结果来用就好了。<br>express 里的中间件指的在处理请求和发送响应之间的方法/功能/操作。</p></li><li><p>body-parser 中间件<br>body-parser 是一个 HTTP 请求体解析中间件，使用这个模块可以解析 JSON、Raw、文本、URL-encoded 格式的请求体，Express 框架中就是使用这个模块做为请求体解析中间件。</p></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.use(express.json(&#123; <span class="attr">extended</span>: <span class="literal">false</span> &#125;));</span><br></pre></td></tr></table></figure><p>返回一个仅解析 json 格式数据的中间件，并且让我们通过 req.body 得到 data</p><ol start="4"><li>express-validator 中间件</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; check, validationResult &#125; = <span class="built_in">require</span>(<span class="string">"express-validator/check"</span>);</span><br></pre></td></tr></table></figure><p><a href="https://github.com/huruji/blog/issues/21">check</a>，判断合法性等方法。</p><ol start="5"><li><p>HTTP<br>http headers 里的：<br>Content-Type 标头用于指示资源的媒体类型。媒体类型是与文件一起发送的字符串，指示文件的格式。例如，对于图像文件，其媒体类型将为 png 或 jpg 等.</p><p>状态码：<br>200 OK 请求成功。一般用于 GET 与 POST 请求<br>201 Created 已创建。成功请求并创建了新的资源<br>400 Bad Request 客户端请求的语法错误，服务器无法理解<br>403 Forbidden 服务器理解请求客户端的请求，但是拒绝执行此请求<br>404 Not Found 服务器无法根据客户端的请求找到资源（网页）<br>500 Internal Server Error 服务器内部错误，无法完成请求</p></li><li><p><a href="https://segmentfault.com/a/1190000016788484" target="_blank" rel="noopener">aysnc-await</a></p></li><li><p><a href="http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html" target="_blank" rel="noopener">json web token</a><br>互联网服务一般流程是下面这样:<br>1、用户向服务器发送用户名和密码。<br>2、服务器验证通过后，在当前对话（session）里面保存相关数据，比如用户角色、登录时间等等。<br>3、服务器向用户返回一个 session_id，写入用户的 Cookie。<br>4、用户随后的每一次请求，都会通过 Cookie，将 session_id 传回服务器。<br>5、服务器收到 session_id，找到前期保存的数据，由此得知用户的身份。<br>JWT 的方案是服务器不保存 session 数据，所有数据都保存在客户端，每次请求都发回服务器。JWT 的原理是，服务器认证以后，生成一个 JSON 对象，发回给用户，每当用户与服务端通信的时候，都要发回这个 JSON 对象。服务器完全只靠这个对象认定用户身份。为了防止用户篡改数据，服务器在生成这个对象的时候，会加上签名。服务器就不保存任何 session 数据了，也就是说，服务器变成无状态了，从而比较容易实现扩展。<br><img src="%22/images/jwt.jpg%22" alt=""></p></li><li><p>config.get() 使用 config 来管理配置文件<br>eg:config.get(“jwtSecret”),jwtSecret 在配置文件里。</p></li><li><p>在服务器里 entrypt password</p></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> salt = <span class="keyword">await</span> bcrypt.genSalt(<span class="number">10</span>);</span><br><span class="line">user.password = <span class="keyword">await</span> bcrypt.hash(passwork, salt);</span><br></pre></td></tr></table></figure><ol start="10"><li>异步原理：<br>js 是单线程，意味着排队执行，如果计算量大，cpu 会忙不过来。设计者意识到主线程完全可以不管 io 阻塞，挂起处于等待中的任务，先运行排在后面的任务，等到 io 阻塞返回了结果，再把挂起的任务执行下去。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;mongoose.Schema&lt;br&gt;schema 就是数据库对象的集合，这个集合包含了各种对象如：表、视图、存储过程、索引等。在 Mongoose 中，一切都被 Schema 所驱动。&lt;br&gt;在下面程序中，我们定义了一个 UserSchema，这个 UserS
+      
+    
+    </summary>
+    
+    
+    
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
+    
+      <category term="mongodb" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/mongodb/"/>
+    
+      <category term="middleware" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/middleware/"/>
+    
+      <category term="http" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/http/"/>
+    
+      <category term="aysnc" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/aysnc/"/>
+    
+      <category term="异步" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/%E5%BC%82%E6%AD%A5/"/>
+    
+      <category term="mongoose" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/mongoose/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CICD</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.3/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.3/</id>
+    <published>2020-04-01T14:23:48.000Z</published>
+    <updated>2020-04-06T04:30:53.568Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="CICD"><a href="#CICD" class="headerlink" title="CICD"></a><a href="https://blog.jjonline.cn/linux/238.html" target="_blank" rel="noopener">CICD</a></h3><p>CI 的英文名称是 Continuous Integration，中文翻译为：持续集成。<br>CI 中，开发人员将会频繁地向主干提交代码，这些新提交的代码在最终合并到主干前，需要经过编译和自动化测试流进行验证。</p><p>持续集成（CI）是在源代码变更后自动检测、拉取、构建和（在大多数情况下）进行单元测试的过程。持续集成的目标是快速确保开发人员新提交的变更是好的，并且适合在代码库中进一步使用。CI 的流程执行和理论实践让我们可以确定新代码和原有代码能否正确地集成在一起。</p><p>CD 可对应多个英文名称，持续交付 Continuous Delivery 和持续部署 Continuous Deployment 。<br>持续交付<br>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。<br>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中或发布给最终使用的用户。<br><img src="%22/images/ci.png%22" alt=""><br>持续部署<br>对于一个成熟的 CI/CD 管道（Pipeline）来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。<br>持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。<br>持续交付并不是指软件每一个改动都要尽快部署到产品环境中，它指的是任何的代码修改都可以在任何时候实施部署。<br>持续交付表示的是一种能力，而持续部署表示的则一种方式。持续部署是持续交付的最高阶段<br><img src="%22/images/cd.png%22" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;CICD&quot;&gt;&lt;a href=&quot;#CICD&quot; class=&quot;headerlink&quot; title=&quot;CICD&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://blog.jjonline.cn/linux/238.html&quot; target=&quot;_blank&quot; rel=&quot;noo
+      
+    
+    </summary>
+    
+    
+    
+      <category term="CICD" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/CICD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>this keyword of react</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/01/4.1/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/01/4.1/</id>
+    <published>2020-03-31T14:23:48.000Z</published>
+    <updated>2020-04-06T04:17:32.682Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>为什么用 react hooks？<br>允许创建每个组件为函数组件。<br>更简单的在组件中分享状态逻辑。</p></li><li><p>React Fragments<br>React 中常见模式是为一个组件返回多个元素。为了包裹多个元素你肯定写过很多的 div 和 span，进行不必要的嵌套，无形中增加了浏览器的渲染压力。Fragments 简写形式&lt;&gt;&lt;/&gt;。</p></li><li><p>this 指向 1.普通函数 — this 指向函数的调用对象</p></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> user = <span class="string">"XX"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">//这里f 的调用等同于window.f(); 所以f函数内部this指向的是window</span></span><br></pre></td></tr></table></figure><p>2.对象方法中调用 —- this 指向上级对象</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//xxx</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn();</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里要注意一点，就是在对象中可能有多层嵌套的对象，但是this指向的都是他调用地方的上级对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// bbb</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">obj.b.fn();</span><br><span class="line"><span class="comment">//如上，虽然是在obj里面this调用，但是因为是在obj.b这个对象中，所以this指向的是 obj.b</span></span><br><span class="line"></span><br><span class="line">注意不能只看上级对象，更关键的是调用对象</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// undefined</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = obj.b.fn;</span><br><span class="line">f()</span><br><span class="line"><span class="comment">//如上，this其实是在f执行的时候调用的，这时候，f的this的调用对象是window,那么就可以理解window.user为undefined</span></span><br></pre></td></tr></table></figure><ol start="3"><li>构造函数 — this 指向 new 出来的对象</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.user = <span class="string">"xxx;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">var a = new Fn();</span></span><br><span class="line"><span class="string">    console.log(a.user); //xxx</span></span><br><span class="line"><span class="string">//new 的过程其实也是初始化了一个新的对象，然后用新的对象调用原先的函数 Fn.call(a) 这个情况跟下面这种情况类似了。</span></span><br></pre></td></tr></table></figure><p>4.apply, call, bind 通过改变函数的调用对象而改变 this 的指向</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"id:"</span>, <span class="keyword">this</span>.id); <span class="comment">//42</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line">foo.call(&#123; <span class="attr">id</span>: <span class="number">42</span> &#125;); <span class="comment">//foo函数的调用对象变成了 &#123;id: 42&#125;,所以this指向发生了变化</span></span><br></pre></td></tr></table></figure><p>5.箭头函数 this 的指向 —- this 指向其定义时候的对象</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"peter"</span>;</span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  name: <span class="string">"tony"</span>,</span><br><span class="line">  c: (<span class="keyword">this</span>.name = <span class="string">"lily"</span>),</span><br><span class="line">  b: <span class="built_in">console</span>.log(<span class="string">"1"</span>, name), <span class="comment">//peter,函数里this指向global(node)/window ; 最先打印出</span></span><br><span class="line">  jiantou: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//若注解c: (this.name = "lily"),this === &#123;&#125;,指的定义处上下文;否则&#123;this.name = "lily"&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//lily</span></span><br><span class="line">  &#125;,</span><br><span class="line">  putong: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">/* obj a &#123;</span></span><br><span class="line"><span class="comment">        name: 'tony',</span></span><br><span class="line"><span class="comment">        b: undefined,</span></span><br><span class="line"><span class="comment">        jiantou: [Function: jiantou],</span></span><br><span class="line"><span class="comment">        putong: [Function: putong]</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//tony</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">a.jiantou();</span><br><span class="line">a.putong();</span><br><span class="line"><span class="keyword">typeof</span> a.b; <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure><p>箭头函数的 this 在定义时所在的对象，其实质是因为箭头函数没有自己的 this,用的是外层的 this。<br>普通函数的 this 是看的是它执行时候的调用对象; 箭头函数的 this 与它的执行没有关系，在定义的时候就决定了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;为什么用 react hooks？&lt;br&gt;允许创建每个组件为函数组件。&lt;br&gt;更简单的在组件中分享状态逻辑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;React Fragments&lt;br&gt;React 中常见模式是为一个组件返回多个元素。为了包裹多个元素你肯定写过
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
+    
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React 的生命周期</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/30/3.30/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/30/3.30/</id>
+    <published>2020-03-29T14:23:48.000Z</published>
+    <updated>2020-04-06T05:05:52.329Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>Virtual DOM 工作原理<br>Virtual DOM 是一个轻量级的 JavaScript 对象。它是一个节点树，将元素、它们的属性和内容作为对象及其属性，可以理解为树上的每个节点。 React 的渲染函数从 React 组件中创建一个节点树。然后它响应数据模型中的变化来更新该树，该变化是由用户或系统完成的各种动作引起的。<br>每当底层数据发生改变时，整个 UI 都将在 Virtual DOM 描述中重新渲染。<br>计算之前 DOM 表示与新表示的之间的差异。<br>完成计算后，将只用实际更改的内容更新 real DOM。</p></li><li><p><a href="https://juejin.im/post/5b077f04f265da0dc073caa6" target="_blank" rel="noopener">React 的生命周期方法有哪些</a><br>componentWillMount:在渲染之前执行，用于根组件中的 App 级配置。<br>componentDidMount：在第一次渲染之后执行，可以在这里做 AJAX 请求，DOM 的操作或状态更新以及设置事件监听器。<br>componentWillReceiveProps：在初始化 render 的时候不会执行，它会在组件接受到新的状态(Props)时被触发，一般用于父组件状态更新时子组件的重新渲染<br>shouldComponentUpdate：确定是否更新组件。默认情况下，它返回 true。如果确定在 state 或 props 更新后组件不需要在重新渲染，则可以返回 false，这是一个提高性能的方法。<br>componentWillUpdate：在 shouldComponentUpdate 返回 true 确定要更新组件之前执行。<br>componentDidUpdate：它主要用于更新 DOM 以响应 props 或 state 更改。<br>componentWillUnmount：它用于取消任何的网络请求，或删除与组件关联的所有事件监听器。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Virtual DOM 工作原理&lt;br&gt;Virtual DOM 是一个轻量级的 JavaScript 对象。它是一个节点树，将元素、它们的属性和内容作为对象及其属性，可以理解为树上的每个节点。 React 的渲染函数从 React 组件中创建一个节点树。然
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
+    
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
+    
+      <category term="virtual dom" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/virtual-dom/"/>
+    
+      <category term="lifecycle" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/lifecycle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>this keyword of react</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/29/3.29/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/29/3.29/</id>
+    <published>2020-03-28T14:23:48.000Z</published>
+    <updated>2020-04-06T04:13:44.463Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>react 中 this 指向<br>发现还是对 this 指向掌握不明确，看完这个博客清晰多了。<br>React 是通过创建虚拟 DOM，然后将虚拟 DOM 生成真实的 DOM，最后插入到页面中，而 React 生命周期中 render 方法的作用就是将虚拟 DOM 渲染成真实 DOM。在 JSX 语法中: onClick={ function } onClick 这个属性本身只是一个”中间变量”。将函数赋值给 onClick 这个中间变量，后面不仅要进行 JSX 语法转化,将 JSX 组件转换成 Javascript 对象,还要再将 Javascript 对象转换成真实 DOM。<br>前提：JS 中的 this 是由函数调用者调用的时候决定的。把 onClick 作为中间变量,指向一个函数的时候,后面的一系列处理中，使用 onClick 这个中间变量所指向的函数，里面的 this 自然就丢失掉了，不是再指向对象实例了。</p></li><li><p>实例</p></li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  name: <span class="string">"jack"</span>,</span><br><span class="line">  getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">test.getName();</span><br><span class="line"><span class="comment">//使用node test.js执行上述代码可以正常输出jack。 之后，我们对代码进行调整：</span></span><br><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  name: <span class="string">"jack"</span>,</span><br><span class="line">  getJack: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//如果传递一个函数名给一个变量，之后通过函数名()的方式进行调用，在方法内部如果使用this则this的指向会丢失</span></span><br><span class="line"><span class="keyword">const</span> func = test.getJack;</span><br><span class="line">func();</span><br><span class="line"></span><br><span class="line"><span class="comment">//我们没有直接调用对象的方法，而是将方法声明给一个中间变量，之后利用中间变量()调用方法，此时 this 则失去指向，输出 undefined，如果使用 node 环境执行 js 文件则输出 node 相关信息，如嵌入到 html 中则 this 指向 window 对象。</span></span><br></pre></td></tr></table></figure><ol start="3"><li><p>React 事件绑定<br>React 中的 bind 同上方原理一致,在 JSX 中传递的事件不是一个字符串，而是一个函数（如:onClick={this.handleClick}），此时 onClick 即是中间变量，所以处理函数中的 this 指向会丢失。解决这个问题就是给调用函数时 bind(this)，从而使得无论事件处理函数如何传递，this 指向都是当前实例化对象。 当然，如果不想使用 bind(this)，我们可以在声明函数时使用箭头函数将函数内容返回给一个变量，并在调用时直接使用 this.变量名即可。<br><img src="/images/this.png" alt=""></p></li><li><p>React 没有自动的把 bind 集成到 render 方法中呢?<br>因为 render 多次调用每次都要 bind 会影响性能，所以官方建议 constructor 中手动 bind 达到性能优化。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;react 中 this 指向&lt;br&gt;发现还是对 this 指向掌握不明确，看完这个博客清晰多了。&lt;br&gt;React 是通过创建虚拟 DOM，然后将虚拟 DOM 生成真实的 DOM，最后插入到页面中，而 React 生命周期中 render 方法的作用就是
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
+    
+      <category term="this" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/this/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>react-router</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/28/3.28/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/28/3.28/</id>
+    <published>2020-03-27T14:23:48.000Z</published>
+    <updated>2020-04-06T04:04:40.200Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>前端路由与后端路由<br>后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。</p></li><li><p><a href="http://www.ruanyifeng.com/blog/2007/11/mvc.html" target="_blank" rel="noopener">MVC</a><br>MVC 是三个单词的首字母缩写，它们是 Model（模型）、View（视图）和 Controller（控制）。<br>这个模式认为，程序不论简单或复杂，从结构上看，都可以分成三层。<br>1）最上面的一层，是直接面向最终用户的视图层（View）。它是提供给用户的操作界面，是程序的外壳。<br>2）最底下的一层，是核心的数据层（Model），也就是程序需要操作的数据或信息。<br>3）中间的一层，就是控制层（Controller），它负责根据用户从视图层输入的指令，选取数据层中的数据，然后对其进行相应的操作，产生最终结果。<br>这三层是紧密联系在一起的，但又是互相独立的，每一层内部的变化不影响其他层。每一层都对外提供接口（Interface），供上面一层调用。这样一来，软件就可以实现模块化，修改外观或者变更数据都不用修改其他层，大大方便了维护和升级。</p></li><li><p>SPA Single Page Application<br>单页应用程序是一个 Web 应用程序，其中客户端 JavaScript 处理路由而不是后端。优点有：<br>SPA 非常易于部署到生产环境中。<br>SPA 快速且易于使用，因为您不必等待重新加载页面。<br>应用程序会动态加载状态。由于该应用程序使用较少的带宽，并且该应用程序的整体性能超过了典型的前端/后端应用程序的性能，因此可以改善用户体验。</p></li><li><p>复习 sql<br>GROUP BY–根据(by)一定的规则进行分组(Group)。 它的作用是通过一定的规则将一个数据集划分成若干个小的区域，然后针对若干个小区域进行数据处理。</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer <span class="comment">----查找每个客户的总金额</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="comment">--在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与合计函数一起使用。</span></span><br><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">WHERE</span> Customer=<span class="string">"Bush"</span> <span class="keyword">OR</span> Customer=<span class="string">"Adams"</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">SUM</span>(OrderPrice)&gt;<span class="number">1500</span><span class="comment">----查找客户 Bush 或 Adams 拥有超过 1500 的订单总金额</span></span><br></pre></td></tr></table></figure></li><li><p>react-router<br>路由器对象有两种类型。浏览器路由器哈希路由器如果我们要处理动态请求，请使用 BrowserRouter；如果要处理静态请求，请使用 HashRouter。</p></li></ol><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; BrowserRouter &#125; <span class="keyword">from</span> <span class="string">"react-router-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"./App"</span>;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;BrowserRouter&gt;</span><br><span class="line">    &#123;<span class="string">" "</span>&#125;</span><br><span class="line">    &lt;App /&gt;&#123;<span class="string">" "</span>&#125;</span><br><span class="line">  &lt;<span class="regexp">/BrowserRouter&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById("root")</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/three compoents:home,contract,about</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/app.js</span></span><br><span class="line"><span class="regexp">class App extends Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;Router&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;</span></span><br><span class="line"><span class="regexp">          &lt;h2&gt;Welcome to React Router Tutorial&lt;/</span>h2&gt;</span><br><span class="line">          &lt;nav className=<span class="string">"navbar navbar-expand-lg navbar-light bg-light"</span>&gt;</span><br><span class="line">            &lt;ul className=<span class="string">"navbar-nav mr-auto"</span>&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  Home</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/contact"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  Contact</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/about"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  About</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>nav&gt;</span><br><span class="line">          &lt;hr /&gt;</span><br><span class="line">          &lt;Switch&gt;</span><br><span class="line">            &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">"/contact"</span> component=&#123;Contact&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">"/about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">          &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure><p>Router 是 react 路由的外层盒子，里面的内容就是单页面应用的路由以及路由组件。Router 下面只能包含一个盒子标签，类似这里的 div。</p><p>Link 是点击切换到哪一组件的链接。Link 代表一个链接，在 html 界面中会解析成 a 标签。作为一个链接，必须有一个 to 属性，代表链接地址。这个链接地址是一个相对路径。</p><p>Route 代表路由有一个 path 和一个组件属性（也以 component、render 等等）。path 代表相对路径，component 代表组件。</p><p>Switch 只会渲染第一个路径，不用则会使每一个被匹配到的 Route 都会被渲染。只找到第一个被 location 匹配到的 route 就停止匹配。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;前端路由与后端路由&lt;br&gt;后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。&lt;/p&gt;
+&lt;/li&gt;
+&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react-router" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react-router/"/>
+    
+      <category term="sql" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/sql/"/>
+    
+      <category term="SPA" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/SPA/"/>
+    
+      <category term="MVC" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/MVC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>express</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/24/3.24/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/24/3.24/</id>
+    <published>2020-03-23T14:23:48.000Z</published>
+    <updated>2020-04-06T03:52:22.320Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><p>express</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> express = <span class="built_in">require</span>(express); <span class="keyword">const</span> app = express();</span><br><span class="line">app.listen(<span class="number">3000</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="built_in">console</span>.log(listening on <span class="number">3000</span>) &#125;)</span><br></pre></td></tr></table></figure><p>Express 处理 GET 请求通过 get method:<br>app.get(path, callback)<br>path 是 domain 后面的内容，callback 是当路径匹配时 server 将要做什么；<br>app.get(/, function(req, res) { res.send(Hello World) })<br>用 respons 给浏览器写一个”Hello World”；</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.get(<span class="regexp">/, (req, res) =&gt; &#123; res.sendFile(\_\_dirname + /i</span>ndex.html) &#125;)</span><br></pre></td></tr></table></figure><p>将 index.html 页面放回到浏览器中</p><p>仅当 POST 请求发送到服务器时，CREATE 操作才由浏览器执行</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">/quotes</span> <span class="attr">method</span>=<span class="string">POST</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">text</span> <span class="attr">placeholder</span>=<span class="string">name</span> <span class="attr">name</span>=<span class="string">name</span>&gt;</span> <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">text</span> <span class="attr">placeholder</span>=<span class="string">quote</span> <span class="attr">name</span>=<span class="string">quote</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">submit</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span> <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure><p>action 属性告诉浏览器在我们的 Express 应用中导航到的位置。在这种情况下，我们导航到/ quotes。method 属性告诉浏览器发送什么请求。在这种情况下，这是一个 POST 请求。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.post(<span class="regexp">/quotes, (req, res) =&gt; &#123; console.log(Hello!) &#125;)</span></span><br></pre></td></tr></table></figure><p>重新启动服务器并刷新浏览器。然后，在表单元素中输入一些内容。能够看到 Hello！在命令行中。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bodyParser= <span class="built_in">require</span>(body-parser)app.use(bodyParser.urlencoded(&#123;<span class="attr">extended</span>: <span class="literal">true</span>&#125;))</span><br></pre></td></tr></table></figure><p>Express 允许我们使用 use 方法向应用程序中添加诸如 body-parser 之类的中间件。在处理 Express 时，经常听到“中间件”一词。这些东西基本上是在我们的应用程序处理它们之前更改请求或响应对象的插件。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">app.post(<span class="regexp">/quotes, (req, res) =&gt; &#123; console.log(req.body) &#125;)</span></span><br></pre></td></tr></table></figure><p>body-parser 中的 urlencoded 方法告诉 body-parser 从<form>元素中提取数据并将其添加到请求对象的 body 属性中。</p></li><li><p>node<br>npm install nodemon –save-dev<br>–save-dev 标志会将 Nodemon 保存为您的 package.json 文件中的 devDependency。<br>{ // … scripts: { dev: nodemon server.js } // … }<br>现在可以运行 npm run dev 来触发 nodemon server.js。</p><p>npm install mongodb –save<br>collection 是一个存东西的命名空间.</p></li><li><p>9321ass<br>9321 这次的 assignment 主要用 flask 框架和数据库交互来写 api，数据是从网页的 json 格式数据读到数据库里，然后将数据渲染在 swagger-ui 页面上，有 7 个不同的功能（增删改查）。主要运用了 Flask-RESTful 和 sqlite 等包。</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;p&gt;express&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="express" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/express/"/>
+    
+      <category term="comp9321" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/comp9321/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Scss</title>
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/23/3.23/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/23/3.23/</id>
     <published>2020-03-22T14:23:48.000Z</published>
-    <updated>2020-03-28T05:04:57.212Z</updated>
+    <updated>2020-04-06T02:10:19.206Z</updated>
     
     <content type="html"><![CDATA[<h3 id="scss"><a href="#scss" class="headerlink" title="scss"></a><a href="https://zhuanlan.zhihu.com/p/35478792" target="_blank" rel="noopener">scss</a></h3><ol><li>变量用来存储需要在 CSS 中复用的信息，例如颜色和字体。</li></ol><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$font-stack</span>: Helvetica, sans-serif;</span><br><span class="line"><span class="variable">$primary-color</span>: <span class="number">#333</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">100%</span> <span class="variable">$font-stack</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="variable">$primary-color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="2"><li>是过度的使用嵌套会让产生的 CSS 难以维护，因此是一种不好的实践</li></ol><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="selector-tag">ul</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">list-style</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="3"><li>SASS 能够将代码分割为多个片段，并以 underscore 风格的下划线作为其命名前缀,SASS 会通过这些下划线来辨别哪些文件是 SASS 片段，并且不让片段内容直接生成为 CSS 文件，从而只是在使用@import 指令的位置被导入.</li></ol><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// _reset.scss</span></span><br><span class="line"><span class="selector-tag">html</span>,</span><br><span class="line"><span class="selector-tag">body</span>,</span><br><span class="line"><span class="selector-tag">ul</span>,</span><br><span class="line"><span class="selector-tag">ol</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// base.scss</span></span><br><span class="line"><span class="keyword">@import</span> <span class="string">"reset"</span>;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">font</span>: <span class="number">100%</span> Helvetica, sans-serif;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#efefef</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="4"><li>混合（Mixin）用来分组那些需要在页面中复用的 CSS 声明，开发人员可以通过向 Mixin 传递变量参数来让代码更加灵活</li></ol><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@mixin</span> border-radius(<span class="variable">$radius</span>) &#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  -ms-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="variable">$radius</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="keyword">@include</span> border-radius(<span class="number">10px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的代码建立了一个名为 border-radius 的 Mixin，并传递了一个变量$radius 作为参数，然后在后续代码中通过@include border-radius(10px)使用该 Mixin，最终编译的结果如下：</p><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  -ms-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  -moz-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">  -webkit-<span class="attribute">border-radius</span>: <span class="number">10px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="5"><li>继承是 SASS 中非常重要的一个特性，可以通过@extend 指令在选择器之间复用 CSS 属性，并且不会产生冗余的代码</li></ol><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这段代码不会被输出到最终生成的CSS文件，因为它没有被任何代码所继承。</span></span><br><span class="line">%other-styles &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下面代码会正常输出到生成的CSS文件，因为它被其接下来的代码所继承。</span></span><br><span class="line">%message-common &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.message</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.success</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">  <span class="attribute">border-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.error</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">  <span class="attribute">border-color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.warning</span> &#123;</span><br><span class="line">  <span class="keyword">@extend</span> %message-common;</span><br><span class="line">  <span class="attribute">border-color</span>: yellow;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="6"><li>操作符<br>SASS 提供了标准的算术运算符，例如+、-、*、/、%。</li></ol><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">aside</span><span class="selector-attr">[role="complementary"]</span> &#123;</span><br><span class="line">  <span class="attribute">float</span>: right;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">300px</span> / <span class="number">960px</span> * <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="7"><li>Scss 允许 CSS 规则嵌套使用，父子规则将会呈现包含选择器的关系,可以避免重复的使用父级选择器，从而达到简化 CSS 代码结构的目的.<br>Scss 使用$关键字在 CSS 规则中引用父级选择器，例如在嵌套使用伪类选择器的场景下：</li></ol><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*===== SCSS =====*/</span></span><br><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line"><span class="attribute">font-weight</span>: bold;</span><br><span class="line"><span class="attribute">text-decoration</span>: none;</span><br><span class="line">&amp;<span class="selector-pseudo">:hover</span> &#123; <span class="attribute">text-decoration</span>: underline; &#125;</span><br></pre></td></tr></table></figure><ol start="8"><li>Scss 当中只需要编写命名空间一次，后续嵌套的子属性都将会位于该命名空间之下</li></ol>]]></content>
     
@@ -35,8 +344,6 @@
     </summary>
     
     
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
       <category term="Scss" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Scss/"/>
     
@@ -139,9 +446,9 @@
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/18/3.18/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/18/3.18/</id>
     <published>2020-03-17T14:23:48.000Z</published>
-    <updated>2020-03-27T10:53:34.023Z</updated>
+    <updated>2020-04-06T01:56:23.383Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>todoList app<br>加深了对 ES6，react hook，Jsx 的理解；<br>useState(initialState) 可以接收新的 state 或者一个返回 state 的函数；</p></li><li><p>用 Hooks 实现生命周期<br>每次 Render 都有自己的 Props 与 State。<br>每次一 function 结束 rendering，useeffect 就会被调用。</p><p>format: useEffect(()=&gt;{}, [state])<br>useEffect 会调用当 state 变化的时候，如果是空数组[],则 hook 不会被调用。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetch <span class="keyword">from</span> Api</span><br><span class="line">format: useEffect(<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> fetch(&amp;quot;url&amp;quot;);</span><br><span class="line"><span class="keyword">const</span> data = <span class="keyword">await</span> response.json();</span><br><span class="line"><span class="keyword">const</span> [item] = data.results;</span><br><span class="line">setPerson(item);</span><br><span class="line">&#125;, [state])</span><br></pre></td></tr></table></figure></li><li><p>DOM 操作<br>DOM 就是浏览器为 JavaScript 提供的一系列接口，通过这些接口我们可以操作 web 页面。<br>document.title 设置文档标题等价于 HTML 的 title 标签。<br>innerHTML 与 outerHTML 的区别？<br>innerHTML：内部 HTML，content<br/>；<br>outerHTML：外部 HTML，<div>content<br/></div>；<br>innerText：内部文本，content ；<br>outerText：内部文本，content ；<br><img src="/images/html.jpg" alt=""><br>摘自：<a href="https://fenews.org/posts/getting-started-with-react-hooks/" target="_blank" rel="noopener">React Hooks(2019)入门教程</a></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>todoList app<br>加深了对 ES6，react hook，Jsx 的理解；<br>useState(initialState) 可以接收新的 state 或者一个返回 state 的函数；</p></li><li><p>用 Hooks 实现生命周期<br>每次 Render 都有自己的 Props 与 State。<br>每次一 function 结束 rendering，useeffect 就会被调用。</p><p>format: useEffect(()=&gt;{}, [state])<br>useEffect 会调用当 state 变化的时候，如果是空数组[],则 hook 不会被调用。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fetch <span class="keyword">from</span> Api</span><br><span class="line">format: useEffect(<span class="keyword">async</span> ()=&gt;&#123;</span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> fetch(&amp;quot;url&amp;quot;);</span><br><span class="line"><span class="keyword">const</span> data = <span class="keyword">await</span> response.json();</span><br><span class="line"><span class="keyword">const</span> [item] = data.results;</span><br><span class="line">setPerson(item);</span><br><span class="line">&#125;, [state])</span><br></pre></td></tr></table></figure></li><li><p>DOM 操作<br>DOM 就是浏览器为 JavaScript 提供的一系列接口，通过这些接口我们可以操作 web 页面。<br>document.title 设置文档标题等价于 HTML 的 title 标签。<br>innerHTML 与 outerHTML 的区别？<br>innerHTML：内部 HTML，content<br/>；<br>outerHTML：外部 HTML，<div>content<br/></div>；<br>innerText：内部文本，content；<br>outerText：内部文本，content；<br><img src="/images/html.jpg" alt=""><br>摘自：<a href="https://fenews.org/posts/getting-started-with-react-hooks/" target="_blank" rel="noopener">React Hooks(2019)入门教程</a></p></li></ol>]]></content>
     
     <summary type="html">
     
@@ -308,280 +615,6 @@
       <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
     
       <category term="express" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/express/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Webpack</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/10/3.10/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/10/3.10/</id>
-    <published>2020-03-09T14:23:48.000Z</published>
-    <updated>2020-03-17T11:33:06.253Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h3><ol><li><p>什么是 Webpack?<br>WebPack 可以看做是模块打包机：它做的事情是，分析你的项目结构，找到 JavaScript 模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript 等），并将其打包为合适的格式以供浏览器使用。</p></li><li><p>为什要使用 WebPack?<br>今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的 JavaScript 代码和一大堆依赖包。为了简化开发的复杂度，有不少好的实践方法<br>a:模块化，让我们可以把复杂的程序细化为小的文件;<br>b:类似于 TypeScript 这种在 JavaScript 基础上拓展的开发语言：使我们能够实现目前版本的 JavaScript 不能直接使用的特性，并且之后还能能装换为 JavaScript 文件使浏览器可以识别。</p></li><li><p>Webpack 的工作方式是?<br>在 webpack 看来一切都是模块！他会把项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack 将从这个文件开始找到你的项目的所有依赖文件，使用 loaders 处理它们，最后打包为一个浏览器可识别的 JavaScript 文件。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Webpack&quot;&gt;&lt;a href=&quot;#Webpack&quot; class=&quot;headerlink&quot; title=&quot;Webpack&quot;&gt;&lt;/a&gt;Webpack&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;什么是 Webpack?&lt;br&gt;WebPack 可以看做是模块打包机：它做的事情是
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="webpack" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/webpack/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>React Hooks</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/09/3.9/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/09/3.9/</id>
-    <published>2020-03-08T14:23:48.000Z</published>
-    <updated>2020-03-16T00:40:22.652Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="react-hook"><a href="#react-hook" class="headerlink" title="react hook"></a>react hook</h3><ol><li><p>React 的核心思想是，一个 UI 组件响应一个 state 变化。</p></li><li><p>不使用 setState 更新 React 中的 state。<br>React 组件不再是 ES6 class，它是一个纯粹而简单的 JavaScript 函数。<br>const [buttonText, setButtonText] = useState(“Click me, please”);<br>[state 值,state 更新函数]</p></li><li><p>useEffect 获取数据替代 componentDidMount 在 React 中获取数据。<br>useEffect 与 React 类中的 componentDidMount，componentDidUpdate 和 componentWillUnmount 具有相同的用途，但统一为单个 API。<br>比如，在 useEffect 中调用 fetch。而且可以使用 setData（从 useState 中提取的更新函数）代替 this.setState。<br>“useEffect 与 componentDidMount，componentDidUpdate 和 componentWillUnmount 具有相同的用途”<br>componentDidUpdate！ componentDidUpdate 是一个生命周期方法，每当组件获得新的 props 或 state 发生变化时就会运行。如果直接调用 useEffect，你会看到无限循环。我们需要传递一个空数组作为 useEffect 的第二个参数：[]。</p></li></ol><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">useEffect(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  fetch(<span class="string">"http://localhost:3001/links/"</span>)</span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">    .then(<span class="function"><span class="params">data</span> =&gt;</span> setData(data));</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure><ol start="4"><li><p>使用带有 React Hooks 的 render props 吗？<br>没有意义。那是因为 React Hooks 诞生的原因的：在组件之间共享逻辑。有了一个标准的、干净的方式来封装和共享逻辑。</p></li><li><p>可以在 useEffect 中使用 async/await 吗?<br>不能直接使用。那是因为 JavaScript 异步函数总是返回一个 promise，而 useEffect 只能返回另一个函数。如果你要在 useEffect 中使用 setInterval 定时器，我们应该返回一个函数（闭包）来清除 setInterval。</p></li></ol><p>摘自：<a href="https://fenews.org/posts/getting-started-with-react-hooks/" target="_blank" rel="noopener">React Hooks(2019)入门教程</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;react-hook&quot;&gt;&lt;a href=&quot;#react-hook&quot; class=&quot;headerlink&quot; title=&quot;react hook&quot;&gt;&lt;/a&gt;react hook&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;React 的核心思想是，一个 UI 组件响应一个 sta
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="react hooks" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react-hooks/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/08/3.8/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/08/3.8/</id>
-    <published>2020-03-07T14:23:48.000Z</published>
-    <updated>2020-03-10T05:44:07.970Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天算是做完了 9321 的第一个 assignment，考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。</p><p>顺便记录一下 <a href="https://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git</a> 的基本操作。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;今天算是做完了 9321 的第一个 assignment，考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。&lt;/p&gt;
-&lt;p&gt;顺便记录一下 &lt;a href=&quot;https://www.bo
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="unsw" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/unsw/"/>
-    
-      <category term="git" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Node</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/07/3.7/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/07/3.7/</id>
-    <published>2020-03-06T14:23:48.000Z</published>
-    <updated>2020-03-07T14:52:01.490Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><ol><li><p>为什么说 nodejs 是单线程语言呢？这是因为 nodejs 中 javascript 代码的执行是单线程；但 node 确实只有一个主线程，但是底层工作的线程却有多个。遇到异步时，主线程发出操作指令，然后就可以去做别的事情了（主线程不需要等待），所有操作完成后再执行回调。主线程什么时候知道操作完成执行回调，则通过 event loop 机制循环遍历。</p></li><li><p>nodejs 的异步 IO<br>当需要 IO(网络 IO/文件 IO)操作时，单线程的 javascript 并不会停下来等待 IO 操作完成，而是“事件驱动”开始介入，javascript 执行线程继续执行未完的 javascript 代码，当执行完成后该线程处于空闲状态</p></li><li><p>事件循环<br><img src="/images/node_sys.png" alt=""><br>Node.js 应用启动时，V8 引擎会执行你写的应用代码，保持一份观察者（注册在事件上的回调函数）列表。当事件发生时，它的回调函数会被加进一个事件队列。只要这个队列还有等待执行的回调函数，事件循环就会持续把回调函数从队列中拿出并执行。</p></li></ol><p>4.</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//module 是一个 obj，有一个 exports 属性导出 function 或者 obj</span></span><br><span class="line"><span class="built_in">module</span>.exports.func = func</span><br><span class="line"><span class="built_in">module</span>.exports.endPoint = url (keep url private)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"./相对路径"</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span> pathObj = path.parse(\_\_filename)</span><br><span class="line"><span class="comment">//包含 dir 地址，root，name 等属性</span></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">"os"</span>)</span><br><span class="line"><span class="comment">//包含内存等等属性</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;Node&quot;&gt;&lt;a href=&quot;#Node&quot; class=&quot;headerlink&quot; title=&quot;Node&quot;&gt;&lt;/a&gt;Node&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;为什么说 nodejs 是单线程语言呢？这是因为 nodejs 中 javascript 代码的执行是单线
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="node" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/node/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JS</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/06/3.6/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/06/3.6/</id>
-    <published>2020-03-05T14:23:48.000Z</published>
-    <updated>2020-03-08T00:21:01.878Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="JS-高阶函数"><a href="#JS-高阶函数" class="headerlink" title="JS 高阶函数"></a>JS 高阶函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//forEach</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in this array not a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//map</span></span><br><span class="line"><span class="keyword">const</span> newArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//filter</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].filter(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//return true or false;</span></span><br><span class="line">  <span class="comment">//true will put the item back to the new array</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//reduce</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//prev item and next item will do some kind of calculation;</span></span><br><span class="line">  <span class="comment">//return a number</span></span><br><span class="line">&#125;, randomNumAsStartNum);</span><br><span class="line"></span><br><span class="line"><span class="comment">//some,every return true or false;</span></span><br><span class="line"><span class="comment">//some: if any item satisfy the condition,return true</span></span><br><span class="line"><span class="comment">//every: if all items satisfy the condition,return true</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;JS-高阶函数&quot;&gt;&lt;a href=&quot;#JS-高阶函数&quot; class=&quot;headerlink&quot; title=&quot;JS 高阶函数&quot;&gt;&lt;/a&gt;JS 高阶函数&lt;/h3&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="javascript" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css grid</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/05/3.5/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/05/3.5/</id>
-    <published>2020-03-04T14:23:48.000Z</published>
-    <updated>2020-03-08T00:21:01.878Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="css-grid"><a href="#css-grid" class="headerlink" title="css grid"></a>css grid</h3><ol><li>grid 构成</li></ol><p>Grid Container) 应用 display: grid 的元素<br>网格项(Grid Item) 网格容器（Grid Container）的子元素（例如直接子元素）<br>网格线(Grid Line) 网格轨道(Grid Track) 网格单元格(Grid Cell) 网格区域(Grid Area)</p><ol start="2"><li><p>grid 属性<br>学习了各种网格容器属性以及网格项属性；<br>两个教程：<br><a href="https://www.html.cn/archives/8510" target="_blank" rel="noopener">https://www.html.cn/archives/8510</a><br><a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html</a></p></li><li><p>网格容器与网格项结构<br><img src="/images/grid-1.png" alt=""><br><img src="/images/grid-2.png" alt=""></p></li><li><p>属性分为三大类：<br>grid container;grid item;以及 grid 里的 content</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;css-grid&quot;&gt;&lt;a href=&quot;#css-grid&quot; class=&quot;headerlink&quot; title=&quot;css grid&quot;&gt;&lt;/a&gt;css grid&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;grid 构成&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Grid Container) 应用
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="css grid" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/css-grid/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css flex box</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/04/3.4/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/04/3.4/</id>
-    <published>2020-03-03T14:23:48.000Z</published>
-    <updated>2020-03-16T01:14:46.576Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p><p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">CSS3 Flexbox 布局完全指南</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰</a></p><p><img src="/images/background.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;css-flex-box&quot;&gt;&lt;a href=&quot;#css-flex-box&quot; class=&quot;headerlink&quot; title=&quot;css flex box&quot;&gt;&lt;/a&gt;css flex box&lt;/h3&gt;&lt;p&gt;在 flex 布局中，flex 项（就是子元素）要么按照 m
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="css flex box" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/css-flex-box/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>css box model and positioning</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/03/3.3/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/03/3.3/</id>
-    <published>2020-03-03T01:57:48.000Z</published>
-    <updated>2020-03-07T14:45:42.404Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="css-box-model"><a href="#css-box-model" class="headerlink" title="css box model"></a>css box model</h3><ol><li><p>所有元素在 css 里都会是一个 box； margin 是该 box 与其他 box 的距离，而 padding 是该盒子边界与内容区的距离</p></li><li><p>当两个 box 相邻时，margin 会塌陷（重叠），选 box margin 大的那一个作为距离</p></li><li><p>box-sizing 属性：border-box，内容区宽度或高度会自动调整<br>padding + border + 内容 width= 盒子的宽度<br>padding+ border + 内容 height = 盒子的高度<br><img src="https://s2.ax1x.com/2020/03/04/35aepD.png" alt="alt text"></p></li></ol><h3 id="css-positioning"><a href="#css-positioning" class="headerlink" title="css positioning"></a>css positioning</h3><ol><li><p>postion： 默认是 static relative 允许对元素的位置进行操作</p></li><li><p>absolute：相对于上级元素（一般是父元素）进行偏移，即定位基点是父元素。条件是定位基点（一般是父元素）不能是 static 定位， 否则定位基点是 html。</p></li><li><p>fixed：相对于视口（viewport，浏览器窗口）进行偏移，即定位基点是浏览器窗口。这会导致元素的位置不随页面滚动而变化，好像固定在网页上一样。</p></li><li><p>sticky：一些时候是 relative 定位（定位基点是自身默认位置），另一些时候自动变成 fixed 定位（定位基点是视口）</p></li></ol><p>摘自：<a href="https://www.ruanyifeng.com/blog/2019/11/css-position.html" target="_blank" rel="noopener">阮一峰教程</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;css-box-model&quot;&gt;&lt;a href=&quot;#css-box-model&quot; class=&quot;headerlink&quot; title=&quot;css box model&quot;&gt;&lt;/a&gt;css box model&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;所有元素在 css 里都会是一个 
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="css box model" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/css-box-model/"/>
-    
-      <category term="css positioning" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/css-positioning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Redux middleware</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/02/3.2/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/02/3.2/</id>
-    <published>2020-03-02T07:57:48.000Z</published>
-    <updated>2020-03-07T14:45:29.531Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol><li><p>为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p></li><li><p>什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p></li><li><p>实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p></li><li><p>其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;redux-中间件&quot;&gt;&lt;a href=&quot;#redux-中间件&quot; class=&quot;headerlink&quot; title=&quot;redux 中间件&quot;&gt;&lt;/a&gt;redux 中间件&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;为什么要有中间件：目的是去处理一些在 redux 里的异步问题 s
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="redux middleware" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/redux-middleware/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>事件捕获及冒泡</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/01/3.1/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/01/3.1/</id>
-    <published>2020-03-01T10:47:28.000Z</published>
-    <updated>2020-03-17T11:33:06.253Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="DOM-操作-amp-jQuery"><a href="#DOM-操作-amp-jQuery" class="headerlink" title="DOM 操作&amp;jQuery"></a>DOM 操作&amp;jQuery</h3><ol><li><p>在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)</p></li><li><p>事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。<br><img src="https://s2.ax1x.com/2020/03/04/35UlJU.png" alt="alt text"><br>但事件捕获(event capturing)与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。<br>element.addEventListener(event, function, useCapture)<br>true - 事件在捕获阶段执行<br>false- 默认。事件在冒泡阶段执行</p></li><li><p>我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，会执行几次事件，会先执行冒泡还是捕获？<br>非目标元素捕获 -&gt; 目标元素代码顺序 -&gt; 非目标元素冒泡<br><a href="https://blog.csdn.net/moguzhale/article/details/53503044" target="_blank" rel="noopener">https://blog.csdn.net/moguzhale/article/details/53503044</a></p></li><li><p>阻止冒泡和取消默认事件<br>event.stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。使用 event.preventDefault()可以取消默认事件<br><a href="https://www.jianshu.com/p/1fd066b4c0ba" target="_blank" rel="noopener">https://www.jianshu.com/p/1fd066b4c0ba</a></p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;DOM-操作-amp-jQuery&quot;&gt;&lt;a href=&quot;#DOM-操作-amp-jQuery&quot; class=&quot;headerlink&quot; title=&quot;DOM 操作&amp;amp;jQuery&quot;&gt;&lt;/a&gt;DOM 操作&amp;amp;jQuery&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;在
-      
-    
-    </summary>
-    
-    
-    
-      <category term="Daily juice" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/Daily-juice/"/>
-    
-      <category term="dom" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/dom/"/>
     
   </entry>
   
