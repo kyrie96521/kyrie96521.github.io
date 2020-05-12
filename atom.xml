@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://github.com/kyrie96521/kyrie96521.github.io/"/>
-  <updated>2020-04-19T08:04:40.023Z</updated>
+  <updated>2020-05-10T13:20:47.221Z</updated>
   <id>https://github.com/kyrie96521/kyrie96521.github.io/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>react lifecycle</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/23/4.23/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/23/4.23/</id>
+    <published>2020-04-22T15:23:48.000Z</published>
+    <updated>2020-05-10T13:20:47.221Z</updated>
+    
+    <content type="html"><![CDATA[<p>众所周知，这个世界上的所有事物都遵循一个周期（例如人类或树木）。我们出生，成长，然后死亡。几乎所有事物都遵循其生命周期，React 组件也是如此。组件被创建（mount 安装在 DOM 上），通过更新而增长，然后消失（在 DOM 上卸载 unmount）。这称为组件生命周期。</p><ol><li><p>初始化 initialize<br>在这个阶段，组件将通过 setting state 和 prop 来开始。这通常是在 constructor method 构造方法中完成的。</p></li><li><p>安装 mounting<br>mounting 是我们的 React 组件在 DOM 上挂载的阶段（即创建并插入到 DOM 中）。初始化阶段完成后，此阶段开始。在此阶段，我们的组件将首次呈现。此阶段可用的方法是：</p></li></ol><p>componentWillMount（）在组件安装在 DOM 上或调用 render 方法之前，将调用此方法。使用此方法后，将安装组件。注意：请勿在此方法中使用 this.setstate 进行 API 调用或任何数据更改，因为它是在 render 方法之前调用的。因此，由于 DOM 尚未挂载，因此无法对其进行任何处理（即使用 API??响应更新数据）。因此，我们无法使用 API??响应来更新状态。</p><p>componentDidMount（）在组件安装到 DOM 后，将调用此方法。<br>与 componentWillMount 一样，它在生命周期中被调用一次。在执行此方法之前，将调用 render 方法（即，我们可以访问 DOM）。我们可以进行 API 调用，并使用 API??响应更新状态。</p><ol start="3"><li>更新 updating<br>这是我们组件通过的第三阶段。在已创建组件的安装阶段之后，进入了更新阶段。这是组件状态改变的地方，因此，进行了重新渲染。在此阶段，组件的数据（state 和 prop）会根据用户事件（例如单击，键入等）进行更新。这导致组件的重新渲染。此阶段可用的方法是：</li></ol><p>shouldComponentUpdate（）此方法确定是否应更新组件。<br>默认情况下，它返回 true。但是在某些时候，如果您想在某种条件下重新渲染组件，则应该使用 componentComponentUpdate 方法。例如，假设您只想在 prop 发生更改时重新渲染组件，然后利用此方法的强大功能。它接收诸如 nextProps 和 nextState 之类的参数，这些参数可以帮助我们通过与当前 prop 值进行比较来决定是否重新渲染。</p><p>componentWillUpdate（）重新渲染组件之前调用它。在“ shouldComponentUpdate”方法之后调用一次。如果要在重新渲染组件之前以及在更新状态和属性之后执行一些计算，那么这是执行此操作的最佳位置。就像“ shouldComponentUpdate”方法一样，它也接收诸如 nextProps 和 nextState 之类的参数。</p><p>ComponentDidUpdate（）在重新渲染组件之后立即调用此方法。在新的（更新的）组件在 DOM 上更新后，将执行“ componentDidUpdate”方法。此方法接收诸如 prevProps 和 prevState 之类的参数。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LifeCycle</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"><span class="keyword">constructor</span>(props)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    date : <span class="keyword">new</span> <span class="built_in">Date</span>(),</span><br><span class="line">    clickedStatus: <span class="literal">false</span>,</span><br><span class="line">    list:[]</span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br><span class="line">componentWillMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component will mount!)</span><br><span class="line">&#125;</span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component did mount!)</span><br><span class="line">    <span class="keyword">this</span>.getList();</span><br><span class="line">&#125;</span><br><span class="line">getList=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">/*** method to make api call***/</span></span><br><span class="line">    fetch(https:<span class="comment">//api.mydomain.com)</span></span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">    .then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="keyword">this</span>.setState(&#123; <span class="attr">list</span>:data &#125;));</span><br><span class="line">&#125;</span><br><span class="line">shouldComponentUpdate(nextProps, nextState)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.state.list!==nextState.list</span><br><span class="line">&#125;</span><br><span class="line">componentWillUpdate(nextProps, nextState) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component will update!);</span><br><span class="line">&#125;</span><br><span class="line">componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component did update!)</span><br><span class="line">&#125;</span><br><span class="line">render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;h3&gt;Hello Mounting Lifecycle Methods!&lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ol start="4"><li><p>卸载<br>这是组件生命周期的最后一个阶段。顾名思义，该阶段将组件从 DOM 卸载。此阶段可用的方法是：<br>componentWillUnmount（）在卸载组件之前会调用此方法。在从 DOM 中删除组件之前，执行“ componentWillUnMount”。此方法表示组件生命周期的结束。</p></li><li><p><img src="/images/reactlife.jpg" alt=""></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;众所周知，这个世界上的所有事物都遵循一个周期（例如人类或树木）。我们出生，成长，然后死亡。几乎所有事物都遵循其生命周期，React 组件也是如此。组件被创建（mount 安装在 DOM 上），通过更新而增长，然后消失（在 DOM 上卸载 unmount）。这称为组件生命周期
+      
+    
+    </summary>
+    
+    
+    
+      <category term="react" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/react/"/>
+    
+  </entry>
+  
+  <entry>
     <title>sass</title>
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/18/4.18/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/18/4.18/</id>
     <published>2020-04-17T15:23:48.000Z</published>
-    <updated>2020-04-19T08:04:40.023Z</updated>
+    <updated>2020-05-10T12:54:10.649Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><p>CSS 预处理器：用一种专门的编程语言，进行网页样式设计，然后再编译成正常的 CSS 文件</p></li><li><p>嵌套<br>在嵌套的代码块内，可以使用&amp;引用父元素。比如 a:hover 伪类</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   　　 <span class="selector-tag">a</span> &#123;</span><br><span class="line">   　　　　&amp;:hover &#123; color: #ffb3ff; &#125;</span><br><span class="line">   　 &#125;</span><br></pre></td></tr></table></figure></li><li><p>继承</p></li></ol><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   　　<span class="selector-class">.class1</span> &#123;</span><br><span class="line">   　　　　 <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">   　　&#125;</span><br><span class="line">   　　<span class="selector-class">.class2</span> &#123;</span><br><span class="line">   　　　　@extend .class1;</span><br><span class="line">   　　　　 <span class="selector-tag">font-size</span><span class="selector-pseudo">:120</span>%;</span><br><span class="line">   　　&#125;</span><br></pre></td></tr></table></figure><ol start="4"><li>Mixin 可以重用的代码块<br>mixin 可以指定参数和缺省值。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="keyword">@mixin</span> left($<span class="attribute">value:</span> <span class="number">10px</span>) &#123;</span><br><span class="line">　<span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line">　margin-right: $value;</span><br><span class="line">　　&#125;</span><br><span class="line">使用的时候，根据需要加入参数：</span><br><span class="line">　　 <span class="selector-tag">div</span> &#123;</span><br><span class="line">　　　　@include left(20px);</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5.条件、循环语句</span><br><span class="line">http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2012&#x2F;06&#x2F;sass.html</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<ol><li><p>CSS 预处理器：用一种专门的编程语言，进行网页样式设计，然后再编译成正常的 CSS 文件</p></li><li><p>嵌套<br>在嵌套的代码块内，可以使用&amp;引用父元素。比如 a:hover 伪类</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   　　 <span class="selector-tag">a</span> &#123;</span><br><span class="line">   　　　　&amp;:hover &#123; color: #ffb3ff; &#125;</span><br><span class="line">   　 &#125;</span><br></pre></td></tr></table></figure></li><li><p>继承</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">   　　<span class="selector-class">.class1</span> &#123;</span><br><span class="line">   　　　　 <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">   　　&#125;</span><br><span class="line">   　　<span class="selector-class">.class2</span> &#123;</span><br><span class="line">   　　　　@extend .class1;</span><br><span class="line">   　　　　 <span class="selector-tag">font-size</span><span class="selector-pseudo">:120</span>%;</span><br><span class="line">   　　&#125;</span><br></pre></td></tr></table></figure></li><li><p>Mixin 可以重用的代码块<br>mixin 可以指定参数和缺省值。</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">　　<span class="keyword">@mixin</span> left($<span class="attribute">value:</span> <span class="number">10px</span>) &#123;</span><br><span class="line">　<span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line">　margin-right: $value;</span><br><span class="line">　　&#125;</span><br><span class="line">使用的时候，根据需要加入参数：</span><br><span class="line">　　 <span class="selector-tag">div</span> &#123;</span><br><span class="line">　　　　@include left(20px);</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure></li><li><p>条件、循环语句<br><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2012/06/sass.html</a></p></li></ol>]]></content>
     
     <summary type="html">
     
@@ -49,9 +73,9 @@
     <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/17/4.17/"/>
     <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/17/4.17/</id>
     <published>2020-04-16T15:23:48.000Z</published>
-    <updated>2020-04-19T08:02:19.087Z</updated>
+    <updated>2020-05-10T12:57:27.826Z</updated>
     
-    <content type="html"><![CDATA[<ol><li>使用 heroku 更新内容</li></ol><ul><li>git status 看改变</li><li>git add</li><li>git commit -m</li><li>git pull</li><li>git push push 到远端</li><li>heroku login</li><li>git push heroku master 重新部署</li></ul><ol start="2"><li><p>weather-project 项目结构<br><a href="https://github.com/kyrie96521/weather-website">github repo</a><br>技术栈 node，hbs 视图</p></li><li><p>主要项目流程<br>当用户输入地点时，监听 submit 事件并传入回调，在 js 文件夹里的 app.js 会 fetch 用户输入</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="regexp">/weather?address= + location).then(response =&gt; &#123;&#125;)</span></span><br></pre></td></tr></table></figure><p>在根目录的之后 app.get(/weather, (req, res) =&gt; {})响应，根据地点来调用 forecast.js 和 geocode.js, 并通过 res.send({})（服务器端返回数据到客户）返回一个 json 格式的数据给 app.js。<br>之后 then 用 response 来获得数据并操作 dom 来渲染在页面上。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="regexp">/weather?address= + location).then(response =&gt; &#123;</span></span><br><span class="line"><span class="regexp">response.json().then(data =&gt; &#123;</span></span><br><span class="line"><span class="regexp">console.log(data);</span></span><br><span class="line"><span class="regexp">if (data.error) &#123;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/console.log(data.error);</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/能够显示在 DOM 里</span></span><br><span class="line"><span class="regexp">messageOne.textContent = data.error;</span></span><br><span class="line"><span class="regexp">&#125;else &#123;</span></span><br><span class="line"><span class="regexp">messageOne.textContent = data.location;</span></span><br><span class="line"><span class="regexp">messageTwo.textContent = data.forcast;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure></li><li><p>项目难点<br>fetch endpoint 等待搜索结果时间，then 里传入回调函数 response 异步获取资源<br>fetch(url).then(function(response===res.send)</p></li></ol><p>等待 request api 时间过后，传入回调函数作为参数传进 forecast.js 来获取数据，注意异步。<br>项目流程逻辑以及回调函数。</p>]]></content>
+    <content type="html"><![CDATA[<ol><li>使用 heroku 更新内容</li></ol><ul><li>git status 看改变</li><li>git add</li><li>git commit -m</li><li>git pull</li><li>git push push 到远端</li><li>heroku login</li><li>git push heroku master 重新部署</li></ul><ol start="2"><li><p>weather-project 项目结构<br><a href="https://github.com/kyrie96521/weather-website">github repo</a><br>技术栈 node，hbs 视图</p></li><li><p>主要项目流程<br>当用户输入地点时，监听 submit 事件并传入回调，在 js 文件夹里的 app.js 会 fetch 用户输入</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="regexp">/weather?address= + location).then(response =&gt; &#123;&#125;)</span></span><br></pre></td></tr></table></figure><p>在根目录的之后 app.get(/weather, (req, res) =&gt; {})响应，根据地点来调用 forecast.js 和 geocode.js, 并通过 res.send({})（服务器端返回数据到客户）返回一个 json 格式的数据给 app.js。<br>之后 then 用 response 来获得数据并操作 dom 来渲染在页面上。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fetch(<span class="regexp">/weather?address= + location).then(response =&gt; &#123;</span></span><br><span class="line"><span class="regexp">response.json().then(data =&gt; &#123;</span></span><br><span class="line"><span class="regexp">console.log(data);</span></span><br><span class="line"><span class="regexp">if (data.error) &#123;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/console.log(data.error);</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/能够显示在 DOM 里</span></span><br><span class="line"><span class="regexp">messageOne.textContent = data.error;</span></span><br><span class="line"><span class="regexp">&#125;else &#123;</span></span><br><span class="line"><span class="regexp">messageOne.textContent = data.location;</span></span><br><span class="line"><span class="regexp">messageTwo.textContent = data.forcast;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure></li><li><p>项目难点<br>fetch endpoint 等待搜索结果时间，then 里传入回调函数 response 异步获取资源<br>fetch(url).then(function(response===res.send)</p><p>等待 request api 时间过后，传入回调函数作为参数传进 forecast.js 来获取数据，注意异步。<br>项目流程逻辑以及回调函数。</p></li></ol>]]></content>
     
     <summary type="html">
     
@@ -285,35 +309,11 @@
     
       <category term="dom" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/dom/"/>
     
-      <category term="sql" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/sql/"/>
-    
       <category term="lifecycle" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/lifecycle/"/>
     
+      <category term="sql" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/sql/"/>
+    
       <category term="js" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CICD</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.3/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.3/</id>
-    <published>2020-04-01T14:23:48.000Z</published>
-    <updated>2020-04-10T10:48:20.570Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="CICD"><a href="#CICD" class="headerlink" title="CICD"></a><a href="https://blog.jjonline.cn/linux/238.html" target="_blank" rel="noopener">CICD</a></h3><p>CI 的英文名称是 Continuous Integration，中文翻译为：持续集成。<br>CI 中，开发人员将会频繁地向主干提交代码，这些新提交的代码在最终合并到主干前，需要经过编译和自动化测试流进行验证。</p><p>持续集成（CI）是在源代码变更后自动检测、拉取、构建和（在大多数情况下）进行单元测试的过程。持续集成的目标是快速确保开发人员新提交的变更是好的，并且适合在代码库中进一步使用。CI 的流程执行和理论实践让我们可以确定新代码和原有代码能否正确地集成在一起。</p><p>CD 可对应多个英文名称，持续交付 Continuous Delivery 和持续部署 Continuous Deployment 。<br>持续交付<br>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。<br>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中或发布给最终使用的用户。<br><img src="/images/ci.png" alt=""><br>持续部署<br>对于一个成熟的 CI/CD 管道（Pipeline）来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。<br>持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。<br>持续交付并不是指软件每一个改动都要尽快部署到产品环境中，它指的是任何的代码修改都可以在任何时候实施部署。<br>持续交付表示的是一种能力，而持续部署表示的则一种方式。持续部署是持续交付的最高阶段<br><img src="/images/cd.png" alt=""></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;CICD&quot;&gt;&lt;a href=&quot;#CICD&quot; class=&quot;headerlink&quot; title=&quot;CICD&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://blog.jjonline.cn/linux/238.html&quot; target=&quot;_blank&quot; rel=&quot;noo
-      
-    
-    </summary>
-    
-    
-    
-      <category term="CICD" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/CICD/"/>
     
   </entry>
   
@@ -351,6 +351,30 @@
       <category term="异步" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/%E5%BC%82%E6%AD%A5/"/>
     
       <category term="mongoose" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/mongoose/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CICD</title>
+    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.3/"/>
+    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/04/02/4.3/</id>
+    <published>2020-04-01T14:23:48.000Z</published>
+    <updated>2020-04-10T10:48:20.570Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="CICD"><a href="#CICD" class="headerlink" title="CICD"></a><a href="https://blog.jjonline.cn/linux/238.html" target="_blank" rel="noopener">CICD</a></h3><p>CI 的英文名称是 Continuous Integration，中文翻译为：持续集成。<br>CI 中，开发人员将会频繁地向主干提交代码，这些新提交的代码在最终合并到主干前，需要经过编译和自动化测试流进行验证。</p><p>持续集成（CI）是在源代码变更后自动检测、拉取、构建和（在大多数情况下）进行单元测试的过程。持续集成的目标是快速确保开发人员新提交的变更是好的，并且适合在代码库中进一步使用。CI 的流程执行和理论实践让我们可以确定新代码和原有代码能否正确地集成在一起。</p><p>CD 可对应多个英文名称，持续交付 Continuous Delivery 和持续部署 Continuous Deployment 。<br>持续交付<br>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。<br>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中或发布给最终使用的用户。<br><img src="/images/ci.png" alt=""><br>持续部署<br>对于一个成熟的 CI/CD 管道（Pipeline）来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。<br>持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。<br>持续交付并不是指软件每一个改动都要尽快部署到产品环境中，它指的是任何的代码修改都可以在任何时候实施部署。<br>持续交付表示的是一种能力，而持续部署表示的则一种方式。持续部署是持续交付的最高阶段<br><img src="/images/cd.png" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;CICD&quot;&gt;&lt;a href=&quot;#CICD&quot; class=&quot;headerlink&quot; title=&quot;CICD&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://blog.jjonline.cn/linux/238.html&quot; target=&quot;_blank&quot; rel=&quot;noo
+      
+    
+    </summary>
+    
+    
+    
+      <category term="CICD" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/CICD/"/>
     
   </entry>
   
@@ -578,35 +602,6 @@
       <category term="project" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/project/"/>
     
       <category term="express" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/express/"/>
-    
-      <category term="mongodb" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/mongodb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>backend staff</title>
-    <link href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/19/3.19/"/>
-    <id>https://github.com/kyrie96521/kyrie96521.github.io/2020/03/19/3.19/</id>
-    <published>2020-03-18T14:23:48.000Z</published>
-    <updated>2020-04-10T10:48:20.571Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>mongodb<br>sharded cluster：同一个集合的不同子集分发存储到不同的机器（shard）上，Mongodb 使用 sharding 机制来支持超大数据量，将不同的 CRUD 路由到不同的机器上执行，提到了数据库的吞吐性能。<br>collection：table 的集合。</p></li><li><p>Mongoose 是在 node.js 环境下对 mongodb 进行便捷操作的对象模型工具</p></li><li><p>AJAX<br>AJAX 是与服务器交换数据并更新部分网页的艺术，在不重新加载整个页面的情况下。<br><a href="https://juejin.im/post/587f8dbd570c3522011c0f59" target="_blank" rel="noopener">Ajax 的工作原理</a>相当于在用户和服务器之间加了一个中间层(ajax 引擎),使用户操作与服务器响应异步化。并不是所有的用户请求都提交给服务器,像—些数据验证(比如判断用户是否输入了数据)和数据处理(比如判断用户输入数据是否是数字)等都交给 Ajax 引擎自己来做, 只有确定需要从服务器读取新数据时再由 Ajax 引擎代为向服务器提交请求。把这些交给了 Ajax 引擎，用户操作起来也就感觉更加流畅了。</p></li><li><p>jQuery<br><a href="https://www.twle.cn/l/yufei/jquery/jquery-basic-ajax-load.html" target="_blank" rel="noopener">AJAX load</a> 方法可以从服务器加载数据，并把返回的数据放入被选元素中</p><p>jQuery <a href="https://www.twle.cn/l/yufei/jquery/jquery-basic-ajax-get-post.html" target="_blank" rel="noopener">get()和 post()方法</a>用于通过 HTTP GET 或 POST 请求从服务器请求数据</p><p>jQuery 提供了 children() 和 find() 方法用于向下遍历 DOM 树，以查找元素的后代。<br>jQuery 提供了 parent() 、parents() 和 parentsUntil() 方法用于向上遍历 DOM 树，以查找元素的祖先。</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;mongodb&lt;br&gt;sharded cluster：同一个集合的不同子集分发存储到不同的机器（shard）上，Mongodb 使用 sharding 机制来支持超大数据量，将不同的 CRUD 路由到不同的机器上执行，提到了数据库的吞吐性能。&lt;br&gt;col
-      
-    
-    </summary>
-    
-    
-    
-      <category term="jquery" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/jquery/"/>
-    
-      <category term="ajax" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/ajax/"/>
     
       <category term="mongodb" scheme="https://github.com/kyrie96521/kyrie96521.github.io/tags/mongodb/"/>
     

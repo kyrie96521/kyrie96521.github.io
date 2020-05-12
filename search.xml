@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>React&amp;JS</title>
-    <url>/2020/02/25/2.25/</url>
-    <content><![CDATA[<p>今天用 jQuery，bootstrap3.7.3，以及 GitHub api 做了一个小应用，主要是读取用户输入，再返回输入的 username 的基本信息，包括用户头像、followers、仓库等。<br><img src="/images/github_j.png" alt=""></p>
-<p>难点在于两次 ajax 的调用，第一次通过用户名获取用户的个人信息，第二次是在第一次结束之后再利用 url+/repos 来获取用户的最新仓库，用 each 方法来遍历整个 repos，再单个渲染；当 fetch 多个元素的时候，还要注意 jQuery append 的用法。<br>另，html 里学会了 target=”_blank”，打开新页面的指令。<br>总结：<br>这次的 jQuery 来写的小程序让我了解了怎么在 jQuery 里用异步调用，以及 bootstrap 的常见 class。</p>
-]]></content>
-      <tags>
-        <tag>jquery</tag>
-        <tag>project</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>React&amp;Redux</title>
     <url>/2020/02/24/2.24/</url>
     <content><![CDATA[<ol>
@@ -39,45 +28,45 @@
       </tags>
   </entry>
   <entry>
-    <title>事件捕获及冒泡</title>
-    <url>/2020/03/01/3.1/</url>
-    <content><![CDATA[<h3 id="DOM-操作-amp-jQuery"><a href="#DOM-操作-amp-jQuery" class="headerlink" title="DOM 操作&amp;jQuery"></a>DOM 操作&amp;jQuery</h3><ol>
-<li><p>在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)</p>
-</li>
-<li><p>事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。<br><img src="https://s2.ax1x.com/2020/03/04/35UlJU.png" alt="alt text"><br>但事件捕获(event capturing)与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。<br>element.addEventListener(event, function, useCapture)<br>true - 事件在捕获阶段执行<br>false- 默认。事件在冒泡阶段执行</p>
-</li>
-<li><p>我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，会执行几次事件，会先执行冒泡还是捕获？<br>非目标元素捕获 -&gt; 目标元素代码顺序 -&gt; 非目标元素冒泡<br><a href="https://blog.csdn.net/moguzhale/article/details/53503044" target="_blank" rel="noopener">https://blog.csdn.net/moguzhale/article/details/53503044</a></p>
-</li>
-<li><p>阻止冒泡和取消默认事件<br>event.stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。使用 event.preventDefault()可以取消默认事件<br><a href="https://www.jianshu.com/p/1fd066b4c0ba" target="_blank" rel="noopener">https://www.jianshu.com/p/1fd066b4c0ba</a></p>
-</li>
-</ol>
+    <title>React&amp;JS</title>
+    <url>/2020/02/25/2.25/</url>
+    <content><![CDATA[<p>今天用 jQuery，bootstrap3.7.3，以及 GitHub api 做了一个小应用，主要是读取用户输入，再返回输入的 username 的基本信息，包括用户头像、followers、仓库等。<br><img src="/images/github_j.png" alt=""></p>
+<p>难点在于两次 ajax 的调用，第一次通过用户名获取用户的个人信息，第二次是在第一次结束之后再利用 url+/repos 来获取用户的最新仓库，用 each 方法来遍历整个 repos，再单个渲染；当 fetch 多个元素的时候，还要注意 jQuery append 的用法。<br>另，html 里学会了 target=”_blank”，打开新页面的指令。<br>总结：<br>这次的 jQuery 来写的小程序让我了解了怎么在 jQuery 里用异步调用，以及 bootstrap 的常见 class。</p>
 ]]></content>
       <tags>
-        <tag>dom</tag>
+        <tag>jquery</tag>
+        <tag>project</tag>
       </tags>
   </entry>
   <entry>
-    <title>Redux middleware</title>
-    <url>/2020/02/29/2.29/</url>
-    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol>
-<li><p>React 里 this 的指向问题<br>谁调用的 this 就指向谁。eg:constructor 函数里的 this.state、生命周期函数等，这些函数都是由 react 实例来调用的。<br>es6 箭头函数指向父层。eg：一个 onclick 函数；onclick={this.clickFunction} 这里的 this 是 undefined 的，所以在 clickFunction 里的 this 也是 undefined；有两种方法可以解决，第一种是将 clickFunction 变成箭头函数，箭头函数的 this 是指向父级作用域的，也就是 react 实例；第二种是使用 bind 改变 this 的指向。</p>
+    <title>React&amp;JS</title>
+    <url>/2020/02/27/2.27/</url>
+    <content><![CDATA[<h3 id="JS-异步函数"><a href="#JS-异步函数" class="headerlink" title="JS 异步函数"></a>JS 异步函数</h3><ol>
+<li><p>promise：<br><a href="https://juejin.im/post/5b605b035188251a90189c61" target="_blank" rel="noopener">https://juejin.im/post/5b605b035188251a90189c61</a></p>
 </li>
-<li><p>redux 小点<br>Redux 里 reducers 里的参数 state 要设置为空[ ]；<br>每个 reducer(不同的 function)处理 state 的一个“片段”；<br><code>const rootReducers = combineReducers({reducer 的集合})；</code><br>connect 连接组件和 redux，返回一个 function<br>开发时用来检查 state 对象是否被改变了 redux-immutable-state-invariant 插件；<br>mapStateToProps 实现了让组件获取自己需要的 data，避免了全部渲染；<br>如果没有加 mapdispatchtoprops, 组件实例会自动的把 dispatch 作为 props，允许我们 dispatch action，但需要添加类型检测，</p>
+<li><p>async-await:<br>更简洁可读性更强的语法糖相比于 promise<br><a href="https://juejin.im/post/5b0399bc518825426f311a3e" target="_blank" rel="noopener">https://juejin.im/post/5b0399bc518825426f311a3e</a></p>
 </li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">"prop-types"</span>;</span><br><span class="line">CoursesPage.propTypes = &#123;</span><br><span class="line">  dispatch: PropTypes.func.isRequired</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>渲染页面的流程<br><img src="/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.png" alt=""></p>
-</li>
-<li><p>Js<br>扩展运算符<br>[…state,{object}] 合并 state 对象与 object 对象，如有重叠，将重叠的属性更新；<br>export<br>export default 对应着直接 import，不需要大括号，可以更改名字 ;<br>export 需要{ }；</p>
+<li><p>axios：<br>是一个基于 promise 的 HTTP 库，简可以发送 get、post 请求等<br><a href="https://cloud.tencent.com/developer/article/1498443" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1498443</a></p>
 </li>
 </ol>
+<h3 id="youtube-搜索小应用"><a href="#youtube-搜索小应用" class="headerlink" title="youtube 搜索小应用"></a>youtube 搜索小应用</h3><ol>
+<li>应用结构：<br><img src="/images/youtube_1.png" alt=""></li>
+</ol>
+<p>searchBar 是搜索栏组件，videoDetails 是用户所搜索或者点击的视频组件，videoList 是右侧相关视频清单组件，videoItem 是右侧单个渲染视频组件；<br>youtube 是向后台 api 发出请求。</p>
+<ol start="2">
+<li><p>应用界面：<br><img src="/images/youtube-2.png" alt=""></p>
+</li>
+<li><p>整体流程：<br>在 App.js 文件中渲染了 searchBar 组件，videoDetail 组件以及 videoList 组件，在 videoList 里渲染了 videoItem 组件。<br>用户输入关键字，会显示首个视频以及右侧的清单；<br>这是通过 App 组件向 searchBar 里传递的异步函数(获取 youtube 数据)，onSubmit 事件处理来调用此异步函数。<br>用户点击右侧视频，会重新渲染页面；<br>这是通过 App 组件向 videoList 里传递的 onVideoSelected 函数，再由 videoList 组件传递给 videoItem，最后再 videoItem 组件里 onClick 事件处理来调用这个 onVideoSelected 函数，在 onVideoSelected 函数会利用 setState 重新更改选择的视频，令 app 组件再次渲染。</p>
+</li>
+</ol>
+<p>整个项目要注意的是没有用 redux，导致传递 props 时最多经过了两个的组件，降低了可读性；在回调函数作为 props 时的处理问题；以及利用 async/await 从 youtube api 调取数据的流程，由 axios.create 创建实例等；</p>
 ]]></content>
       <tags>
-        <tag>react</tag>
-        <tag>redux</tag>
+        <tag>project</tag>
+        <tag>promise</tag>
         <tag>javascript</tag>
+        <tag>async-await</tag>
+        <tag>axios</tag>
       </tags>
   </entry>
   <entry>
@@ -108,34 +97,61 @@
       </tags>
   </entry>
   <entry>
-    <title>React&amp;JS</title>
-    <url>/2020/02/27/2.27/</url>
-    <content><![CDATA[<h3 id="JS-异步函数"><a href="#JS-异步函数" class="headerlink" title="JS 异步函数"></a>JS 异步函数</h3><ol>
-<li><p>promise：<br><a href="https://juejin.im/post/5b605b035188251a90189c61" target="_blank" rel="noopener">https://juejin.im/post/5b605b035188251a90189c61</a></p>
+    <title>事件捕获及冒泡</title>
+    <url>/2020/03/01/3.1/</url>
+    <content><![CDATA[<h3 id="DOM-操作-amp-jQuery"><a href="#DOM-操作-amp-jQuery" class="headerlink" title="DOM 操作&amp;jQuery"></a>DOM 操作&amp;jQuery</h3><ol>
+<li><p>在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)</p>
 </li>
-<li><p>async-await:<br>更简洁可读性更强的语法糖相比于 promise<br><a href="https://juejin.im/post/5b0399bc518825426f311a3e" target="_blank" rel="noopener">https://juejin.im/post/5b0399bc518825426f311a3e</a></p>
+<li><p>事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。<br><img src="https://s2.ax1x.com/2020/03/04/35UlJU.png" alt="alt text"><br>但事件捕获(event capturing)与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。<br>element.addEventListener(event, function, useCapture)<br>true - 事件在捕获阶段执行<br>false- 默认。事件在冒泡阶段执行</p>
 </li>
-<li><p>axios：<br>是一个基于 promise 的 HTTP 库，简可以发送 get、post 请求等<br><a href="https://cloud.tencent.com/developer/article/1498443" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1498443</a></p>
+<li><p>我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，会执行几次事件，会先执行冒泡还是捕获？<br>非目标元素捕获 -&gt; 目标元素代码顺序 -&gt; 非目标元素冒泡<br><a href="https://blog.csdn.net/moguzhale/article/details/53503044" target="_blank" rel="noopener">https://blog.csdn.net/moguzhale/article/details/53503044</a></p>
 </li>
-</ol>
-<h3 id="youtube-搜索小应用"><a href="#youtube-搜索小应用" class="headerlink" title="youtube 搜索小应用"></a>youtube 搜索小应用</h3><ol>
-<li>应用结构：<br><img src="/images/youtube_1.png" alt=""></li>
-</ol>
-<p>searchBar 是搜索栏组件，videoDetails 是用户所搜索或者点击的视频组件，videoList 是右侧相关视频清单组件，videoItem 是右侧单个渲染视频组件；<br>youtube 是向后台 api 发出请求。</p>
-<ol start="2">
-<li><p>应用界面：<br><img src="/images/youtube-2.png" alt=""></p>
-</li>
-<li><p>整体流程：<br>在 App.js 文件中渲染了 searchBar 组件，videoDetail 组件以及 videoList 组件，在 videoList 里渲染了 videoItem 组件。<br>用户输入关键字，会显示首个视频以及右侧的清单；<br>这是通过 App 组件向 searchBar 里传递的异步函数(获取 youtube 数据)，onSubmit 事件处理来调用此异步函数。<br>用户点击右侧视频，会重新渲染页面；<br>这是通过 App 组件向 videoList 里传递的 onVideoSelected 函数，再由 videoList 组件传递给 videoItem，最后再 videoItem 组件里 onClick 事件处理来调用这个 onVideoSelected 函数，在 onVideoSelected 函数会利用 setState 重新更改选择的视频，令 app 组件再次渲染。</p>
+<li><p>阻止冒泡和取消默认事件<br>event.stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。使用 event.preventDefault()可以取消默认事件<br><a href="https://www.jianshu.com/p/1fd066b4c0ba" target="_blank" rel="noopener">https://www.jianshu.com/p/1fd066b4c0ba</a></p>
 </li>
 </ol>
-<p>整个项目要注意的是没有用 redux，导致传递 props 时最多经过了两个的组件，降低了可读性；在回调函数作为 props 时的处理问题；以及利用 async/await 从 youtube api 调取数据的流程，由 axios.create 创建实例等；</p>
 ]]></content>
       <tags>
-        <tag>project</tag>
+        <tag>dom</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Webpack</title>
+    <url>/2020/03/10/3.10/</url>
+    <content><![CDATA[<h3 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h3><ol>
+<li><p>什么是 Webpack?<br>WebPack 可以看做是模块打包机：它做的事情是，分析你的项目结构，找到 JavaScript 模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript 等），并将其打包为合适的格式以供浏览器使用。</p>
+</li>
+<li><p>为什要使用 WebPack?<br>今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的 JavaScript 代码和一大堆依赖包。为了简化开发的复杂度，有不少好的实践方法<br>a:模块化，让我们可以把复杂的程序细化为小的文件;<br>b:类似于 TypeScript 这种在 JavaScript 基础上拓展的开发语言：使我们能够实现目前版本的 JavaScript 不能直接使用的特性，并且之后还能能装换为 JavaScript 文件使浏览器可以识别。</p>
+</li>
+<li><p>Webpack 的工作方式是?<br>在 webpack 看来一切都是模块！他会把项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack 将从这个文件开始找到你的项目的所有依赖文件，使用 loaders 处理它们，最后打包为一个浏览器可识别的 JavaScript 文件。</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redux middleware</title>
+    <url>/2020/02/29/2.29/</url>
+    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol>
+<li><p>React 里 this 的指向问题<br>谁调用的 this 就指向谁。eg:constructor 函数里的 this.state、生命周期函数等，这些函数都是由 react 实例来调用的。<br>es6 箭头函数指向父层。eg：一个 onclick 函数；onclick={this.clickFunction} 这里的 this 是 undefined 的，所以在 clickFunction 里的 this 也是 undefined；有两种方法可以解决，第一种是将 clickFunction 变成箭头函数，箭头函数的 this 是指向父级作用域的，也就是 react 实例；第二种是使用 bind 改变 this 的指向。</p>
+</li>
+<li><p>redux 小点<br>Redux 里 reducers 里的参数 state 要设置为空[ ]；<br>每个 reducer(不同的 function)处理 state 的一个“片段”；<br><code>const rootReducers = combineReducers({reducer 的集合})；</code><br>connect 连接组件和 redux，返回一个 function<br>开发时用来检查 state 对象是否被改变了 redux-immutable-state-invariant 插件；<br>mapStateToProps 实现了让组件获取自己需要的 data，避免了全部渲染；<br>如果没有加 mapdispatchtoprops, 组件实例会自动的把 dispatch 作为 props，允许我们 dispatch action，但需要添加类型检测，</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">"prop-types"</span>;</span><br><span class="line">CoursesPage.propTypes = &#123;</span><br><span class="line">  dispatch: PropTypes.func.isRequired</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>渲染页面的流程<br><img src="/images/%E6%B8%B2%E6%9F%93%E6%B5%81%E7%A8%8B.png" alt=""></p>
+</li>
+<li><p>Js<br>扩展运算符<br>[…state,{object}] 合并 state 对象与 object 对象，如有重叠，将重叠的属性更新；<br>export<br>export default 对应着直接 import，不需要大括号，可以更改名字 ;<br>export 需要{ }；</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>react</tag>
+        <tag>redux</tag>
         <tag>javascript</tag>
-        <tag>promise</tag>
-        <tag>async-await</tag>
-        <tag>axios</tag>
       </tags>
   </entry>
   <entry>
@@ -195,6 +211,25 @@
       </tags>
   </entry>
   <entry>
+    <title>express</title>
+    <url>/2020/03/14/3.14/</url>
+    <content><![CDATA[<h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol>
+<li><p>简介<br>中间件：在 express 应用中，一切皆中间件。各种应用逻辑，如 cookie 解析、会话处理、日志记录、权限校验等，都是通过中间件来完成的。<br>路由：负责寻址。比如用户发送了个 http 请求，该定位到哪个资源，就是路由说了算。<br>模板引擎：负责视图动态渲染。</p>
+</li>
+<li><p><a href="https://github.scom/nswbmw/N-blog/blob/master/book/3.2%20%E8%B7%AF%E7%94%B1.md/" target="_blank" rel="noopener">express.Router</a></p>
+</li>
+<li><p>模板引擎是一个将页面模板和数据结合起来生成 html 的工具。<br>app.set(‘views’, path.join(__dirname, ‘views’))// 设置存放模板文件的目录<br>app.set(‘view engine’, ‘ejs’)// 设置模板引擎为 ejs</p>
+<p>通过调用 res.render 函数渲染 ejs 模板，res.render 第一个参数是模板的名字，这里是 users 则会匹配 views/users.ejs，第二个参数是传给模板的数据。<br>用 includes 拆分模板组件通常有两个好处：<br>模板可复用，减少重复代码<br>主模板结构清晰</p>
+</li>
+<li><p>中间件与 next<br>express 中的中间件（middleware）就是用来处理请求的，当一个中间件处理完，可以通过调用 next() 传递给下一个中间件，如果没有调用 next()，则请求不会往下传递，如内置的 res.render 其实就是渲染完 html 直接返回给客户端，没有调用 next()，从而没有传递给下一个中间件</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>express</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Redux</title>
     <url>/2020/03/12/3.12/</url>
     <content><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol>
@@ -223,22 +258,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Webpack</title>
-    <url>/2020/03/10/3.10/</url>
-    <content><![CDATA[<h3 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h3><ol>
-<li><p>什么是 Webpack?<br>WebPack 可以看做是模块打包机：它做的事情是，分析你的项目结构，找到 JavaScript 模块以及其它的一些浏览器不能直接运行的拓展语言（Scss，TypeScript 等），并将其打包为合适的格式以供浏览器使用。</p>
-</li>
-<li><p>为什要使用 WebPack?<br>今的很多网页其实可以看做是功能丰富的应用，它们拥有着复杂的 JavaScript 代码和一大堆依赖包。为了简化开发的复杂度，有不少好的实践方法<br>a:模块化，让我们可以把复杂的程序细化为小的文件;<br>b:类似于 TypeScript 这种在 JavaScript 基础上拓展的开发语言：使我们能够实现目前版本的 JavaScript 不能直接使用的特性，并且之后还能能装换为 JavaScript 文件使浏览器可以识别。</p>
-</li>
-<li><p>Webpack 的工作方式是?<br>在 webpack 看来一切都是模块！他会把项目当做一个整体，通过一个给定的主文件（如：index.js），Webpack 将从这个文件开始找到你的项目的所有依赖文件，使用 loaders 处理它们，最后打包为一个浏览器可识别的 JavaScript 文件。</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>webpack</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>event-loop</title>
     <url>/2020/03/15/3.15/</url>
     <content><![CDATA[<ol>
@@ -259,25 +278,6 @@
         <tag>jquery</tag>
         <tag>event loop</tag>
         <tag>ajax</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>express</title>
-    <url>/2020/03/14/3.14/</url>
-    <content><![CDATA[<h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol>
-<li><p>简介<br>中间件：在 express 应用中，一切皆中间件。各种应用逻辑，如 cookie 解析、会话处理、日志记录、权限校验等，都是通过中间件来完成的。<br>路由：负责寻址。比如用户发送了个 http 请求，该定位到哪个资源，就是路由说了算。<br>模板引擎：负责视图动态渲染。</p>
-</li>
-<li><p><a href="https://github.scom/nswbmw/N-blog/blob/master/book/3.2%20%E8%B7%AF%E7%94%B1.md/" target="_blank" rel="noopener">express.Router</a></p>
-</li>
-<li><p>模板引擎是一个将页面模板和数据结合起来生成 html 的工具。<br>app.set(‘views’, path.join(__dirname, ‘views’))// 设置存放模板文件的目录<br>app.set(‘view engine’, ‘ejs’)// 设置模板引擎为 ejs</p>
-<p>通过调用 res.render 函数渲染 ejs 模板，res.render 第一个参数是模板的名字，这里是 users 则会匹配 views/users.ejs，第二个参数是传给模板的数据。<br>用 includes 拆分模板组件通常有两个好处：<br>模板可复用，减少重复代码<br>主模板结构清晰</p>
-</li>
-<li><p>中间件与 next<br>express 中的中间件（middleware）就是用来处理请求的，当一个中间件处理完，可以通过调用 next() 传递给下一个中间件，如果没有调用 next()，则请求不会往下传递，如内置的 res.render 其实就是渲染完 html 直接返回给客户端，没有调用 next()，从而没有传递给下一个中间件</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>express</tag>
       </tags>
   </entry>
   <entry>
@@ -323,6 +323,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Redux middleware</title>
+    <url>/2020/03/02/3.2/</url>
+    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol>
+<li><p>为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p>
+</li>
+<li><p>什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p>
+</li>
+<li><p>实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p>
+</li>
+<li><p>其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>redux middleware</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>social network project</title>
     <url>/2020/03/21/3.21/</url>
     <content><![CDATA[<p>今天做的 project 内容是 express 对 server 的配置包括路由以及连接 MongoDB，让我对后端的结构有一个初步的理解。主要是以下几个点：</p>
@@ -364,24 +382,6 @@
       <tags>
         <tag>react</tag>
         <tag>this</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Redux middleware</title>
-    <url>/2020/03/02/3.2/</url>
-    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol>
-<li><p>为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p>
-</li>
-<li><p>什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p>
-</li>
-<li><p>实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p>
-</li>
-<li><p>其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>redux middleware</tag>
       </tags>
   </entry>
   <entry>
@@ -434,59 +434,6 @@
       </tags>
   </entry>
   <entry>
-    <title>react-router</title>
-    <url>/2020/03/28/3.28/</url>
-    <content><![CDATA[<ol>
-<li><p>前端路由与后端路由<br>后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。</p>
-</li>
-<li><p><a href="http://www.ruanyifeng.com/blog/2007/11/mvc.html" target="_blank" rel="noopener">MVC</a><br>MVC 是三个单词的首字母缩写，它们是 Model（模型）、View（视图）和 Controller（控制）。<br>这个模式认为，程序不论简单或复杂，从结构上看，都可以分成三层。<br>1）最上面的一层，是直接面向最终用户的视图层（View）。它是提供给用户的操作界面，是程序的外壳。<br>2）最底下的一层，是核心的数据层（Model），也就是程序需要操作的数据或信息。<br>3）中间的一层，就是控制层（Controller），它负责根据用户从视图层输入的指令，选取数据层中的数据，然后对其进行相应的操作，产生最终结果。<br>这三层是紧密联系在一起的，但又是互相独立的，每一层内部的变化不影响其他层。每一层都对外提供接口（Interface），供上面一层调用。这样一来，软件就可以实现模块化，修改外观或者变更数据都不用修改其他层，大大方便了维护和升级。</p>
-</li>
-<li><p>SPA Single Page Application<br>单页应用程序是一个 Web 应用程序，其中客户端 JavaScript 处理路由而不是后端。优点有：<br>SPA 非常易于部署到生产环境中。<br>SPA 快速且易于使用，因为您不必等待重新加载页面。<br>应用程序会动态加载状态。由于该应用程序使用较少的带宽，并且该应用程序的整体性能超过了典型的前端/后端应用程序的性能，因此可以改善用户体验。</p>
-</li>
-<li><p>复习 sql<br>GROUP BY–根据(by)一定的规则进行分组(Group)。 它的作用是通过一定的规则将一个数据集划分成若干个小的区域，然后针对若干个小区域进行数据处理。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer <span class="comment">----查找每个客户的总金额</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="comment">--在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与合计函数一起使用。</span></span><br><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">WHERE</span> Customer=<span class="string">"Bush"</span> <span class="keyword">OR</span> Customer=<span class="string">"Adams"</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">SUM</span>(OrderPrice)&gt;<span class="number">1500</span><span class="comment">----查找客户 Bush 或 Adams 拥有超过 1500 的订单总金额</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>react-router<br>路由器对象有两种类型。浏览器路由器哈希路由器如果我们要处理动态请求，请使用 BrowserRouter；如果要处理静态请求，请使用 HashRouter。</p>
-</li>
-</ol>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; BrowserRouter &#125; <span class="keyword">from</span> <span class="string">"react-router-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"./App"</span>;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;BrowserRouter&gt;</span><br><span class="line">    &#123;<span class="string">" "</span>&#125;</span><br><span class="line">    &lt;App /&gt;&#123;<span class="string">" "</span>&#125;</span><br><span class="line">  &lt;<span class="regexp">/BrowserRouter&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById("root")</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/three compoents:home,contract,about</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/app.js</span></span><br><span class="line"><span class="regexp">class App extends Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;Router&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;</span></span><br><span class="line"><span class="regexp">          &lt;h2&gt;Welcome to React Router Tutorial&lt;/</span>h2&gt;</span><br><span class="line">          &lt;nav className=<span class="string">"navbar navbar-expand-lg navbar-light bg-light"</span>&gt;</span><br><span class="line">            &lt;ul className=<span class="string">"navbar-nav mr-auto"</span>&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  Home</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/contact"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  Contact</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/about"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  About</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>nav&gt;</span><br><span class="line">          &lt;hr /&gt;</span><br><span class="line">          &lt;Switch&gt;</span><br><span class="line">            &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">"/contact"</span> component=&#123;Contact&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">"/about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">          &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>Router 是 react 路由的外层盒子，里面的内容就是单页面应用的路由以及路由组件。Router 下面只能包含一个盒子标签，类似这里的 div。</p>
-<p>Link 是点击切换到哪一组件的链接。Link 代表一个链接，在 html 界面中会解析成 a 标签。作为一个链接，必须有一个 to 属性，代表链接地址。这个链接地址是一个相对路径。</p>
-<p>Route 代表路由有一个 path 和一个组件属性（也以 component、render 等等）。path 代表相对路径，component 代表组件。</p>
-<p>Switch 只会渲染第一个路径，不用则会使每一个被匹配到的 Route 都会被渲染。只找到第一个被 location 匹配到的 route 就停止匹配。</p>
-]]></content>
-      <tags>
-        <tag>react-router</tag>
-        <tag>sql</tag>
-        <tag>SPA</tag>
-        <tag>MVC</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>this keyword of react</title>
-    <url>/2020/03/29/3.29/</url>
-    <content><![CDATA[<ol>
-<li><p>react 中 this 指向<br>发现还是对 this 指向掌握不明确，看完这个博客清晰多了。<br>React 是通过创建虚拟 DOM，然后将虚拟 DOM 生成真实的 DOM，最后插入到页面中，而 React 生命周期中 render 方法的作用就是将虚拟 DOM 渲染成真实 DOM。在 JSX 语法中: onClick={ function } onClick 这个属性本身只是一个”中间变量”。将函数赋值给 onClick 这个中间变量，后面不仅要进行 JSX 语法转化,将 JSX 组件转换成 Javascript 对象,还要再将 Javascript 对象转换成真实 DOM。<br>前提：JS 中的 this 是由函数调用者调用的时候决定的。把 onClick 作为中间变量,指向一个函数的时候,后面的一系列处理中，使用 onClick 这个中间变量所指向的函数，里面的 this 自然就丢失掉了，不是再指向对象实例了。</p>
-</li>
-<li><p>实例</p>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  name: <span class="string">"jack"</span>,</span><br><span class="line">  getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">test.getName();</span><br><span class="line"><span class="comment">//使用node test.js执行上述代码可以正常输出jack。 之后，我们对代码进行调整：</span></span><br><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  name: <span class="string">"jack"</span>,</span><br><span class="line">  getJack: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//如果传递一个函数名给一个变量，之后通过函数名()的方式进行调用，在方法内部如果使用this则this的指向会丢失</span></span><br><span class="line"><span class="keyword">const</span> func = test.getJack;</span><br><span class="line">func();</span><br><span class="line"></span><br><span class="line"><span class="comment">//我们没有直接调用对象的方法，而是将方法声明给一个中间变量，之后利用中间变量()调用方法，此时 this 则失去指向，输出 undefined，如果使用 node 环境执行 js 文件则输出 node 相关信息，如嵌入到 html 中则 this 指向 window 对象。</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>React 事件绑定<br>React 中的 bind 同上方原理一致,在 JSX 中传递的事件不是一个字符串，而是一个函数（如:onClick={this.handleClick}），此时 onClick 即是中间变量，所以处理函数中的 this 指向会丢失。解决这个问题就是给调用函数时 bind(this)，从而使得无论事件处理函数如何传递，this 指向都是当前实例化对象。 当然，如果不想使用 bind(this)，我们可以在声明函数时使用箭头函数将函数内容返回给一个变量，并在调用时直接使用 this.变量名即可。<br><img src="/images/this.png" alt=""></p>
-</li>
-<li><p>React 没有自动的把 bind 集成到 render 方法中呢?<br>因为 render 多次调用每次都要 bind 会影响性能，所以官方建议 constructor 中手动 bind 达到性能优化。</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>react</tag>
-        <tag>this</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>express</title>
     <url>/2020/03/24/3.24/</url>
     <content><![CDATA[<ol>
@@ -524,14 +471,26 @@
       </tags>
   </entry>
   <entry>
-    <title>css flex box</title>
-    <url>/2020/03/04/3.4/</url>
-    <content><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p>
-<p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">CSS3 Flexbox 布局完全指南</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰</a></p>
-<p><img src="/images/background.png" alt=""></p>
+    <title>this keyword of react</title>
+    <url>/2020/03/29/3.29/</url>
+    <content><![CDATA[<ol>
+<li><p>react 中 this 指向<br>发现还是对 this 指向掌握不明确，看完这个博客清晰多了。<br>React 是通过创建虚拟 DOM，然后将虚拟 DOM 生成真实的 DOM，最后插入到页面中，而 React 生命周期中 render 方法的作用就是将虚拟 DOM 渲染成真实 DOM。在 JSX 语法中: onClick={ function } onClick 这个属性本身只是一个”中间变量”。将函数赋值给 onClick 这个中间变量，后面不仅要进行 JSX 语法转化,将 JSX 组件转换成 Javascript 对象,还要再将 Javascript 对象转换成真实 DOM。<br>前提：JS 中的 this 是由函数调用者调用的时候决定的。把 onClick 作为中间变量,指向一个函数的时候,后面的一系列处理中，使用 onClick 这个中间变量所指向的函数，里面的 this 自然就丢失掉了，不是再指向对象实例了。</p>
+</li>
+<li><p>实例</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  name: <span class="string">"jack"</span>,</span><br><span class="line">  getName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">test.getName();</span><br><span class="line"><span class="comment">//使用node test.js执行上述代码可以正常输出jack。 之后，我们对代码进行调整：</span></span><br><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">  name: <span class="string">"jack"</span>,</span><br><span class="line">  getJack: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//如果传递一个函数名给一个变量，之后通过函数名()的方式进行调用，在方法内部如果使用this则this的指向会丢失</span></span><br><span class="line"><span class="keyword">const</span> func = test.getJack;</span><br><span class="line">func();</span><br><span class="line"></span><br><span class="line"><span class="comment">//我们没有直接调用对象的方法，而是将方法声明给一个中间变量，之后利用中间变量()调用方法，此时 this 则失去指向，输出 undefined，如果使用 node 环境执行 js 文件则输出 node 相关信息，如嵌入到 html 中则 this 指向 window 对象。</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>React 事件绑定<br>React 中的 bind 同上方原理一致,在 JSX 中传递的事件不是一个字符串，而是一个函数（如:onClick={this.handleClick}），此时 onClick 即是中间变量，所以处理函数中的 this 指向会丢失。解决这个问题就是给调用函数时 bind(this)，从而使得无论事件处理函数如何传递，this 指向都是当前实例化对象。 当然，如果不想使用 bind(this)，我们可以在声明函数时使用箭头函数将函数内容返回给一个变量，并在调用时直接使用 this.变量名即可。<br><img src="/images/this.png" alt=""></p>
+</li>
+<li><p>React 没有自动的把 bind 集成到 render 方法中呢?<br>因为 render 多次调用每次都要 bind 会影响性能，所以官方建议 constructor 中手动 bind 达到性能优化。</p>
+</li>
+</ol>
 ]]></content>
       <tags>
-        <tag>css flex box</tag>
+        <tag>react</tag>
+        <tag>this</tag>
       </tags>
   </entry>
   <entry>
@@ -580,6 +539,17 @@
       </tags>
   </entry>
   <entry>
+    <title>css flex box</title>
+    <url>/2020/03/04/3.4/</url>
+    <content><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p>
+<p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">CSS3 Flexbox 布局完全指南</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰</a></p>
+<p><img src="/images/background.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>css flex box</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>css grid</title>
     <url>/2020/03/05/3.5/</url>
     <content><![CDATA[<h3 id="css-grid"><a href="#css-grid" class="headerlink" title="css grid"></a>css grid</h3><ol>
@@ -611,6 +581,62 @@
       </tags>
   </entry>
   <entry>
+    <title>JS</title>
+    <url>/2020/03/06/3.6/</url>
+    <content><![CDATA[<h3 id="JS-高阶函数"><a href="#JS-高阶函数" class="headerlink" title="JS 高阶函数"></a>JS 高阶函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//forEach</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in this array not a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//map</span></span><br><span class="line"><span class="keyword">const</span> newArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//filter</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].filter(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//return true or false;</span></span><br><span class="line">  <span class="comment">//true will put the item back to the new array</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//reduce</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//prev item and next item will do some kind of calculation;</span></span><br><span class="line">  <span class="comment">//return a number</span></span><br><span class="line">&#125;, randomNumAsStartNum);</span><br><span class="line"></span><br><span class="line"><span class="comment">//some,every return true or false;</span></span><br><span class="line"><span class="comment">//some: if any item satisfy the condition,return true</span></span><br><span class="line"><span class="comment">//every: if all items satisfy the condition,return true</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>react-router</title>
+    <url>/2020/03/28/3.28/</url>
+    <content><![CDATA[<ol>
+<li><p>前端路由与后端路由<br>后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。</p>
+</li>
+<li><p><a href="http://www.ruanyifeng.com/blog/2007/11/mvc.html" target="_blank" rel="noopener">MVC</a><br>MVC 是三个单词的首字母缩写，它们是 Model（模型）、View（视图）和 Controller（控制）。<br>这个模式认为，程序不论简单或复杂，从结构上看，都可以分成三层。<br>1）最上面的一层，是直接面向最终用户的视图层（View）。它是提供给用户的操作界面，是程序的外壳。<br>2）最底下的一层，是核心的数据层（Model），也就是程序需要操作的数据或信息。<br>3）中间的一层，就是控制层（Controller），它负责根据用户从视图层输入的指令，选取数据层中的数据，然后对其进行相应的操作，产生最终结果。<br>这三层是紧密联系在一起的，但又是互相独立的，每一层内部的变化不影响其他层。每一层都对外提供接口（Interface），供上面一层调用。这样一来，软件就可以实现模块化，修改外观或者变更数据都不用修改其他层，大大方便了维护和升级。</p>
+</li>
+<li><p>SPA Single Page Application<br>单页应用程序是一个 Web 应用程序，其中客户端 JavaScript 处理路由而不是后端。优点有：<br>SPA 非常易于部署到生产环境中。<br>SPA 快速且易于使用，因为您不必等待重新加载页面。<br>应用程序会动态加载状态。由于该应用程序使用较少的带宽，并且该应用程序的整体性能超过了典型的前端/后端应用程序的性能，因此可以改善用户体验。</p>
+</li>
+<li><p>复习 sql<br>GROUP BY–根据(by)一定的规则进行分组(Group)。 它的作用是通过一定的规则将一个数据集划分成若干个小的区域，然后针对若干个小区域进行数据处理。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer <span class="comment">----查找每个客户的总金额</span></span><br><span class="line"><span class="keyword">HAVING</span> <span class="comment">--在 SQL 中增加 HAVING 子句原因是，WHERE 关键字无法与合计函数一起使用。</span></span><br><span class="line"><span class="keyword">SELECT</span> Customer,<span class="keyword">SUM</span>(OrderPrice) <span class="keyword">FROM</span> Orders</span><br><span class="line"><span class="keyword">WHERE</span> Customer=<span class="string">"Bush"</span> <span class="keyword">OR</span> Customer=<span class="string">"Adams"</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Customer</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">SUM</span>(OrderPrice)&gt;<span class="number">1500</span><span class="comment">----查找客户 Bush 或 Adams 拥有超过 1500 的订单总金额</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>react-router<br>路由器对象有两种类型。浏览器路由器哈希路由器如果我们要处理动态请求，请使用 BrowserRouter；如果要处理静态请求，请使用 HashRouter。</p>
+</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; BrowserRouter &#125; <span class="keyword">from</span> <span class="string">"react-router-dom"</span>;</span><br><span class="line"><span class="keyword">import</span> App <span class="keyword">from</span> <span class="string">"./App"</span>;</span><br><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;BrowserRouter&gt;</span><br><span class="line">    &#123;<span class="string">" "</span>&#125;</span><br><span class="line">    &lt;App /&gt;&#123;<span class="string">" "</span>&#125;</span><br><span class="line">  &lt;<span class="regexp">/BrowserRouter&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById("root")</span></span><br><span class="line"><span class="regexp">);</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/three compoents:home,contract,about</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/app.js</span></span><br><span class="line"><span class="regexp">class App extends Component &#123;</span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      &lt;Router&gt;</span></span><br><span class="line"><span class="regexp">        &lt;div&gt;</span></span><br><span class="line"><span class="regexp">          &lt;h2&gt;Welcome to React Router Tutorial&lt;/</span>h2&gt;</span><br><span class="line">          &lt;nav className=<span class="string">"navbar navbar-expand-lg navbar-light bg-light"</span>&gt;</span><br><span class="line">            &lt;ul className=<span class="string">"navbar-nav mr-auto"</span>&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  Home</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/contact"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  Contact</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">              &lt;li&gt;</span><br><span class="line">                &lt;Link to=&#123;<span class="string">"/about"</span>&#125; className=<span class="string">"nav-link"</span>&gt;</span><br><span class="line">                  About</span><br><span class="line">                &lt;<span class="regexp">/Link&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>li&gt;</span><br><span class="line">            &lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>nav&gt;</span><br><span class="line">          &lt;hr /&gt;</span><br><span class="line">          &lt;Switch&gt;</span><br><span class="line">            &lt;Route exact path=<span class="string">"/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">"/contact"</span> component=&#123;Contact&#125; /&gt;</span><br><span class="line">            &lt;Route path=<span class="string">"/about"</span> component=&#123;About&#125; /&gt;</span><br><span class="line">          &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>Router 是 react 路由的外层盒子，里面的内容就是单页面应用的路由以及路由组件。Router 下面只能包含一个盒子标签，类似这里的 div。</p>
+<p>Link 是点击切换到哪一组件的链接。Link 代表一个链接，在 html 界面中会解析成 a 标签。作为一个链接，必须有一个 to 属性，代表链接地址。这个链接地址是一个相对路径。</p>
+<p>Route 代表路由有一个 path 和一个组件属性（也以 component、render 等等）。path 代表相对路径，component 代表组件。</p>
+<p>Switch 只会渲染第一个路径，不用则会使每一个被匹配到的 Route 都会被渲染。只找到第一个被 location 匹配到的 route 就停止匹配。</p>
+]]></content>
+      <tags>
+        <tag>react-router</tag>
+        <tag>sql</tag>
+        <tag>SPA</tag>
+        <tag>MVC</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>compare</title>
+    <url>/2020/04/12/4.12/</url>
+    <content><![CDATA[<ol>
+<li>mongodb 和 mysql 的对比<br><img src="/images/mysql.png" alt=""></li>
+</ol>
+<p>MySQL MongoDB<br>表 集合<br>行 文档<br>列 字段<br>joins 嵌入文档或者链接</p>
+<ol start="2">
+<li>TDD 和 BDD<br>TDD 的原理是在开发功能代码之前，先编写单元测试用例代码，测试代码确定需要编写什么产品代码<br>BDD 的原理是鼓励软件项目中的开发者、QA 和非技术人员或商业参与者之间的协作,行为驱动是从用户的需求出发，强调系统行为</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>this</tag>
+        <tag>jsx</tag>
+        <tag>tdd</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>React Hooks</title>
     <url>/2020/03/09/3.9/</url>
     <content><![CDATA[<h3 id="react-hook"><a href="#react-hook" class="headerlink" title="react hook"></a>react hook</h3><ol>
@@ -636,94 +662,21 @@
       </tags>
   </entry>
   <entry>
-    <title>JS</title>
-    <url>/2020/03/06/3.6/</url>
-    <content><![CDATA[<h3 id="JS-高阶函数"><a href="#JS-高阶函数" class="headerlink" title="JS 高阶函数"></a>JS 高阶函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//forEach</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in this array not a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//map</span></span><br><span class="line"><span class="keyword">const</span> newArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//filter</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].filter(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//return true or false;</span></span><br><span class="line">  <span class="comment">//true will put the item back to the new array</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//reduce</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//prev item and next item will do some kind of calculation;</span></span><br><span class="line">  <span class="comment">//return a number</span></span><br><span class="line">&#125;, randomNumAsStartNum);</span><br><span class="line"></span><br><span class="line"><span class="comment">//some,every return true or false;</span></span><br><span class="line"><span class="comment">//some: if any item satisfy the condition,return true</span></span><br><span class="line"><span class="comment">//every: if all items satisfy the condition,return true</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>compare</title>
-    <url>/2020/04/12/4.12/</url>
+    <title>css</title>
+    <url>/2020/04/16/4.16/</url>
     <content><![CDATA[<ol>
-<li>mongodb 和 mysql 的对比<br><img src="/images/mysql.png" alt=""></li>
-</ol>
-<p>MySQL MongoDB<br>表 集合<br>行 文档<br>列 字段<br>joins 嵌入文档或者链接</p>
-<ol start="2">
-<li>TDD 和 BDD<br>TDD 的原理是在开发功能代码之前，先编写单元测试用例代码，测试代码确定需要编写什么产品代码<br>BDD 的原理是鼓励软件项目中的开发者、QA 和非技术人员或商业参与者之间的协作,行为驱动是从用户的需求出发，强调系统行为</li>
+<li><p>float 属性指定元素应如何浮动。<br>浮动元素之后的元素将在其周围流动<br>eg:比如<p>&lt;img ..float..&gt;</p></p>
+<p>会在img周围流动
+</li>
+<li><p>网页上的每个元素都是一个矩形框。CSS 中的 display 属性确定矩形框的行为。<br>display: none<br>none 是 CSS 1 就提出来的属性，将元素设置为 none 的时候既不会占据空间，也无法显示，相当于该元素不存在。<br>display: inline<br>元素会占据最小的空间。任何高度和宽度属性均无效。<br>目前有很多原生的元素都是 inline 的，span、a、label、input、 img、 strong 和 em 就是典型的行内元素元素。default 是 inline 的。<br>display: block<br>元素会独占一行，即使宽度有剩余也会独占一行。<br>display: inline-block<br>inline-block 既具有 block 的宽高特性又具有 inline 的同行元素特性。可以设置高度和宽度。</p>
+</li>
+<li><p>为什么会出现<a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">flex</a>以及解决了什么？<br>为了提供一个更有效地布局、对齐方式，并且能够使容器中的子元素大小未知或动态变化情况下仍然能够分配好子元素之间的空间。<br>Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度（和排列顺序），从而能够最好地填充可用空间（主要是为了适应所有类型的显示设备和屏幕尺寸）。flex 布容器能够放大子元素使之尽可能填充可用空间，也可以收缩子元素使之不溢出。<br>相比于常规布局（基于垂直的块（block）和基于水平的内联（inline）， 虽然传统布局适用于页面，但它们对于大型或复杂的应用程序布局来说缺乏灵活性（特别是在改变方向，调整大小，拉伸，收缩等方面），flex 布容器能够放大子元素使之尽可能填充可用空间，也可以收缩子元素使之不溢出。</p>
+</li>
 </ol>
 ]]></content>
       <tags>
-        <tag>this</tag>
-        <tag>jsx</tag>
-        <tag>tdd</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>this keyword of react</title>
-    <url>/2020/04/01/4.1/</url>
-    <content><![CDATA[<ol>
-<li><p>为什么用 react hooks？<br>允许创建每个组件为函数组件。<br>更简单的在组件中分享状态逻辑。</p>
-</li>
-<li><p>React Fragments<br>React 中常见模式是为一个组件返回多个元素。为了包裹多个元素你肯定写过很多的 div 和 span，进行不必要的嵌套，无形中增加了浏览器的渲染压力。Fragments 简写形式&lt;&gt;&lt;/&gt;。</p>
-</li>
-<li><p>this 指向</p>
-</li>
-</ol>
-<p>普通函数 this 指向函数的调用对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> user = <span class="string">"XX"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">//这里f 的调用等同于window.f(); 所以f函数内部this指向的是window</span></span><br></pre></td></tr></table></figure>
-
-<p>对象方法中调用 —- this 指向上级对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//xxx</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn();</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里要注意一点，就是在对象中可能有多层嵌套的对象，但是this指向的都是他调用地方的上级对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// bbb</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">obj.b.fn();</span><br><span class="line"><span class="comment">//如上，虽然是在obj里面this调用，但是因为是在obj.b这个对象中，所以this指向的是 obj.b</span></span><br><span class="line"></span><br><span class="line">注意不能只看上级对象，更关键的是调用对象</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// undefined</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = obj.b.fn;</span><br><span class="line">f()</span><br><span class="line"><span class="comment">//如上，this其实是在f执行的时候调用的，这时候，f的this的调用对象是window,那么就可以理解window.user为undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>构造函数 — this 指向 new 出来的对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.user = <span class="string">"xxx;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">var a = new Fn();</span></span><br><span class="line"><span class="string">    console.log(a.user); //xxx</span></span><br><span class="line"><span class="string">//new 的过程其实也是初始化了一个新的对象，然后用新的对象调用原先的函数 Fn.call(a) 这个情况跟下面这种情况类似了。</span></span><br></pre></td></tr></table></figure>
-
-<p>apply, call, bind 通过改变函数的调用对象而改变 this 的指向</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"id:"</span>, <span class="keyword">this</span>.id); <span class="comment">//42</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line">foo.call(&#123; <span class="attr">id</span>: <span class="number">42</span> &#125;); <span class="comment">//foo函数的调用对象变成了 &#123;id: 42&#125;,所以this指向发生了变化</span></span><br></pre></td></tr></table></figure>
-
-<p>箭头函数 this 的指向 —- this 指向其定义时候的对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name = <span class="string">"peter"</span>;</span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  name: <span class="string">"tony"</span>,</span><br><span class="line">  c: (<span class="keyword">this</span>.name = <span class="string">"lily"</span>),</span><br><span class="line">  b: <span class="built_in">console</span>.log(<span class="string">"1"</span>, name), <span class="comment">//peter,函数里this指向global(node)/window ; 最先打印出</span></span><br><span class="line">  jiantou: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//若注解c: (this.name = "lily"),this === &#123;&#125;,指的定义处上下文;否则&#123;this.name = "lily"&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//lily</span></span><br><span class="line">  &#125;,</span><br><span class="line">  putong: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">/* obj a &#123;</span></span><br><span class="line"><span class="comment">        name: 'tony',</span></span><br><span class="line"><span class="comment">        b: undefined,</span></span><br><span class="line"><span class="comment">        jiantou: [Function: jiantou],</span></span><br><span class="line"><span class="comment">        putong: [Function: putong]</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//tony</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">a.jiantou();</span><br><span class="line">a.putong();</span><br><span class="line"><span class="keyword">typeof</span> a.b; <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
-
-<p>箭头函数的 this 在定义时所在的对象，其实质是因为箭头函数没有自己的 this,用的是外层的 this。<br>普通函数的 this 是看的是它执行时候的调用对象; 箭头函数的 this 与它的执行没有关系，在定义的时候就决定了。</p>
-]]></content>
-      <tags>
-        <tag>react</tag>
-        <tag>this</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>express路由</title>
-    <url>/2020/04/06/4.10/</url>
-    <content><![CDATA[<ol>
-<li>JSX 中使用三元运算符<br>{}大括号来在 JSX 中显示 JS 变量</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello &#123;this.props.someVar ? "World" : "Kitty"&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>对象方法，”this”</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  age: <span class="number">30</span>,</span><br><span class="line"></span><br><span class="line">  sayHi() &#123;</span><br><span class="line">    <span class="comment">// "this" 指的是“当前的对象”; 可用 "user" 替代 "this"</span></span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">user.sayHi();</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果是 alert(user.name)，并且将 user 复制给另一个变量，例如 admin = user，并赋另外的值给 user，那么它将访问到错误的对象。</span></span><br><span class="line"><span class="keyword">let</span> admin = user;</span><br><span class="line">user = <span class="literal">null</span>; <span class="comment">// 重写让其更明显</span></span><br><span class="line">admin.sayHi(); <span class="comment">// 噢哟！在 sayHi() 使用了旧的 name 属性！报错！</span></span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>“this” 不受限制<br>this 可以用于任何函数，this 的值是在代码运行时计算出来的，它取决于代码上下文。 在没有对象的情况下调用：this == undefined 。</p>
-</li>
-<li><p>内部：引用类型<br>obj.method() 语句中有两个操作符。<br>首先，点符号 ‘.’ 取得这个 obj.method 属性。其后的括号 () 调用它。<br>如果把这些操作拆分开，那么 this 肯定会丢失：</p>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  hi() &#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将赋值与方法调用拆分为两行</span></span><br><span class="line"><span class="keyword">let</span> hi = user.hi;</span><br><span class="line">hi(); <span class="comment">// 错误，因为 this 未定义</span></span><br></pre></td></tr></table></figure>
-
-<p>这里 hi = user.hi 把函数赋值给变量，其后的最后一行代码是完全独立的，所以它没有 this。<br>为了让 user.hi() 有效，JavaScript 用了一个技巧 —— 这个 ‘.’ 点符号返回的不是一个函数，而是一种特殊的 引用类型 的值。<br>引用类型是一种“规范中有的类型”。我们不能明确地指定它，但它被用在编程语言的内部。<br>引用类型的值是三部分的结合 (base, name, strict)，如下：<br>base 是对象。<br>name 是属性名。<br>在严格模式 use strict 下，strict 为真。<br>属性访问 user.hi 的结果不是函数，而是引用类型。在严格模式下的 user.hi 是：<br>// 引用类型值<br>(user, “hi”, true)<br>括号 () 调用引用类型时，将接收关于该对象及其方法的所有信息，并且可以设定正确的 this 值（这里等于 user）。<br>引用类型是一种特殊的“中间”内部类型，用于将信息从点符号 . 传递到调用括号 ()。<br>像赋值 hi = user.hi 等其他的操作，将引用类型作为一个整体丢弃，只获取 user.hi（一个函数）的值进行传递。因此，任何进一步的操作都会“失去” this。</p>
-<ol start="5">
-<li>箭头函数没有自己的 “this”<br><a href="https://zh.javascript.info/arrow-functions#jian-tou-han-shu-mei-you-this" target="_blank" rel="noopener">箭头函数</a>没有 this。如果访问 this，则会从外部获取。</li>
-</ol>
-<p>6) 我的理解是：this 的传递需要对象+.+方法并且调用（）才能传递，否则会丢失。而且 this 是调用时给值，指向调用它的对象。</p>
-]]></content>
-      <tags>
-        <tag>this</tag>
-        <tag>jsx</tag>
+        <tag>css float</tag>
+        <tag>css flex</tag>
       </tags>
   </entry>
   <entry>
@@ -742,6 +695,39 @@
 ]]></content>
       <tags>
         <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>weather projrct</title>
+    <url>/2020/04/17/4.17/</url>
+    <content><![CDATA[<ol>
+<li>使用 heroku 更新内容</li>
+</ol>
+<ul>
+<li>git status 看改变</li>
+<li>git add</li>
+<li>git commit -m</li>
+<li>git pull</li>
+<li>git push push 到远端</li>
+<li>heroku login</li>
+<li>git push heroku master 重新部署</li>
+</ul>
+<ol start="2">
+<li><p>weather-project 项目结构<br><a href="https://github.com/kyrie96521/weather-website">github repo</a><br>技术栈 node，hbs 视图</p>
+</li>
+<li><p>主要项目流程<br>当用户输入地点时，监听 submit 事件并传入回调，在 js 文件夹里的 app.js 会 fetch 用户输入</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fetch(<span class="regexp">/weather?address= + location).then(response =&gt; &#123;&#125;)</span></span><br></pre></td></tr></table></figure>
+
+<p>在根目录的之后 app.get(/weather, (req, res) =&gt; {})响应，根据地点来调用 forecast.js 和 geocode.js, 并通过 res.send({})（服务器端返回数据到客户）返回一个 json 格式的数据给 app.js。<br>之后 then 用 response 来获得数据并操作 dom 来渲染在页面上。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fetch(<span class="regexp">/weather?address= + location).then(response =&gt; &#123;</span></span><br><span class="line"><span class="regexp">response.json().then(data =&gt; &#123;</span></span><br><span class="line"><span class="regexp">console.log(data);</span></span><br><span class="line"><span class="regexp">if (data.error) &#123;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/console.log(data.error);</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/能够显示在 DOM 里</span></span><br><span class="line"><span class="regexp">messageOne.textContent = data.error;</span></span><br><span class="line"><span class="regexp">&#125;else &#123;</span></span><br><span class="line"><span class="regexp">messageOne.textContent = data.location;</span></span><br><span class="line"><span class="regexp">messageTwo.textContent = data.forcast;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>项目难点<br>fetch endpoint 等待搜索结果时间，then 里传入回调函数 response 异步获取资源<br>fetch(url).then(function(response===res.send)</p>
+<p>等待 request api 时间过后，传入回调函数作为参数传进 forecast.js 来获取数据，注意异步。<br>项目流程逻辑以及回调函数。</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>project</tag>
       </tags>
   </entry>
   <entry>
@@ -774,39 +760,6 @@
       </tags>
   </entry>
   <entry>
-    <title>weather projrct</title>
-    <url>/2020/04/17/4.17/</url>
-    <content><![CDATA[<ol>
-<li>使用 heroku 更新内容</li>
-</ol>
-<ul>
-<li>git status 看改变</li>
-<li>git add</li>
-<li>git commit -m</li>
-<li>git pull</li>
-<li>git push push 到远端</li>
-<li>heroku login</li>
-<li>git push heroku master 重新部署</li>
-</ul>
-<ol start="2">
-<li><p>weather-project 项目结构<br><a href="https://github.com/kyrie96521/weather-website">github repo</a><br>技术栈 node，hbs 视图</p>
-</li>
-<li><p>主要项目流程<br>当用户输入地点时，监听 submit 事件并传入回调，在 js 文件夹里的 app.js 会 fetch 用户输入</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fetch(<span class="regexp">/weather?address= + location).then(response =&gt; &#123;&#125;)</span></span><br></pre></td></tr></table></figure>
-
-<p>在根目录的之后 app.get(/weather, (req, res) =&gt; {})响应，根据地点来调用 forecast.js 和 geocode.js, 并通过 res.send({})（服务器端返回数据到客户）返回一个 json 格式的数据给 app.js。<br>之后 then 用 response 来获得数据并操作 dom 来渲染在页面上。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">fetch(<span class="regexp">/weather?address= + location).then(response =&gt; &#123;</span></span><br><span class="line"><span class="regexp">response.json().then(data =&gt; &#123;</span></span><br><span class="line"><span class="regexp">console.log(data);</span></span><br><span class="line"><span class="regexp">if (data.error) &#123;</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/console.log(data.error);</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/能够显示在 DOM 里</span></span><br><span class="line"><span class="regexp">messageOne.textContent = data.error;</span></span><br><span class="line"><span class="regexp">&#125;else &#123;</span></span><br><span class="line"><span class="regexp">messageOne.textContent = data.location;</span></span><br><span class="line"><span class="regexp">messageTwo.textContent = data.forcast;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br><span class="line"><span class="regexp">&#125;);</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>项目难点<br>fetch endpoint 等待搜索结果时间，then 里传入回调函数 response 异步获取资源<br>fetch(url).then(function(response===res.send)</p>
-</li>
-</ol>
-<p>等待 request api 时间过后，传入回调函数作为参数传进 forecast.js 来获取数据，注意异步。<br>项目流程逻辑以及回调函数。</p>
-]]></content>
-      <tags>
-        <tag>project</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>sass</title>
     <url>/2020/04/18/4.18/</url>
     <content><![CDATA[<ol>
@@ -816,48 +769,48 @@
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">   　　 <span class="selector-tag">a</span> &#123;</span><br><span class="line">   　　　　&amp;:hover &#123; color: #ffb3ff; &#125;</span><br><span class="line">   　 &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>继承</p>
-</li>
-</ol>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line">   　　<span class="selector-class">.class1</span> &#123;</span><br><span class="line">   　　　　 <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">   　　&#125;</span><br><span class="line">   　　<span class="selector-class">.class2</span> &#123;</span><br><span class="line">   　　　　@extend .class1;</span><br><span class="line">   　　　　 <span class="selector-tag">font-size</span><span class="selector-pseudo">:120</span>%;</span><br><span class="line">   　　&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>Mixin 可以重用的代码块<br>mixin 可以指定参数和缺省值。<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">　　<span class="keyword">@mixin</span> left($<span class="attribute">value:</span> <span class="number">10px</span>) &#123;</span><br><span class="line">　<span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line">　margin-right: $value;</span><br><span class="line">　　&#125;</span><br><span class="line">使用的时候，根据需要加入参数：</span><br><span class="line">　　 <span class="selector-tag">div</span> &#123;</span><br><span class="line">　　　　@include left(20px);</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
-
+</li>
+<li><p>Mixin 可以重用的代码块<br>mixin 可以指定参数和缺省值。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">　　<span class="keyword">@mixin</span> left($<span class="attribute">value:</span> <span class="number">10px</span>) &#123;</span><br><span class="line">　<span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line">　margin-right: $value;</span><br><span class="line">　　&#125;</span><br><span class="line">使用的时候，根据需要加入参数：</span><br><span class="line">　　 <span class="selector-tag">div</span> &#123;</span><br><span class="line">　　　　@include left(20px);</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>条件、循环语句<br><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2012/06/sass.html</a></p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">5.条件、循环语句</span><br><span class="line">http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2012&#x2F;06&#x2F;sass.html</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>sass</tag>
       </tags>
   </entry>
   <entry>
-    <title>CICD</title>
-    <url>/2020/04/02/4.3/</url>
-    <content><![CDATA[<h3 id="CICD"><a href="#CICD" class="headerlink" title="CICD"></a><a href="https://blog.jjonline.cn/linux/238.html" target="_blank" rel="noopener">CICD</a></h3><p>CI 的英文名称是 Continuous Integration，中文翻译为：持续集成。<br>CI 中，开发人员将会频繁地向主干提交代码，这些新提交的代码在最终合并到主干前，需要经过编译和自动化测试流进行验证。</p>
-<p>持续集成（CI）是在源代码变更后自动检测、拉取、构建和（在大多数情况下）进行单元测试的过程。持续集成的目标是快速确保开发人员新提交的变更是好的，并且适合在代码库中进一步使用。CI 的流程执行和理论实践让我们可以确定新代码和原有代码能否正确地集成在一起。</p>
-<p>CD 可对应多个英文名称，持续交付 Continuous Delivery 和持续部署 Continuous Deployment 。<br>持续交付<br>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。<br>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中或发布给最终使用的用户。<br><img src="/images/ci.png" alt=""><br>持续部署<br>对于一个成熟的 CI/CD 管道（Pipeline）来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。<br>持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。<br>持续交付并不是指软件每一个改动都要尽快部署到产品环境中，它指的是任何的代码修改都可以在任何时候实施部署。<br>持续交付表示的是一种能力，而持续部署表示的则一种方式。持续部署是持续交付的最高阶段<br><img src="/images/cd.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>CICD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css</title>
-    <url>/2020/04/16/4.16/</url>
-    <content><![CDATA[<ol>
-<li><p>float 属性指定元素应如何浮动。<br>浮动元素之后的元素将在其周围流动<br>eg:比如<p>&lt;img ..float..&gt;</p></p>
-<p>会在img周围流动
+    <title>react lifecycle</title>
+    <url>/2020/04/23/4.23/</url>
+    <content><![CDATA[<p>众所周知，这个世界上的所有事物都遵循一个周期（例如人类或树木）。我们出生，成长，然后死亡。几乎所有事物都遵循其生命周期，React 组件也是如此。组件被创建（mount 安装在 DOM 上），通过更新而增长，然后消失（在 DOM 上卸载 unmount）。这称为组件生命周期。</p>
+<ol>
+<li><p>初始化 initialize<br>在这个阶段，组件将通过 setting state 和 prop 来开始。这通常是在 constructor method 构造方法中完成的。</p>
 </li>
-<li><p>网页上的每个元素都是一个矩形框。CSS 中的 display 属性确定矩形框的行为。<br>display: none<br>none 是 CSS 1 就提出来的属性，将元素设置为 none 的时候既不会占据空间，也无法显示，相当于该元素不存在。<br>display: inline<br>元素会占据最小的空间。任何高度和宽度属性均无效。<br>目前有很多原生的元素都是 inline 的，span、a、label、input、 img、 strong 和 em 就是典型的行内元素元素。default 是 inline 的。<br>display: block<br>元素会独占一行，即使宽度有剩余也会独占一行。<br>display: inline-block<br>inline-block 既具有 block 的宽高特性又具有 inline 的同行元素特性。可以设置高度和宽度。</p>
+<li><p>安装 mounting<br>mounting 是我们的 React 组件在 DOM 上挂载的阶段（即创建并插入到 DOM 中）。初始化阶段完成后，此阶段开始。在此阶段，我们的组件将首次呈现。此阶段可用的方法是：</p>
 </li>
-<li><p>为什么会出现<a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">flex</a>以及解决了什么？<br>为了提供一个更有效地布局、对齐方式，并且能够使容器中的子元素大小未知或动态变化情况下仍然能够分配好子元素之间的空间。<br>Flex 布局的主要思想是使父容器能够调节子元素的宽度/高度（和排列顺序），从而能够最好地填充可用空间（主要是为了适应所有类型的显示设备和屏幕尺寸）。flex 布容器能够放大子元素使之尽可能填充可用空间，也可以收缩子元素使之不溢出。<br>相比于常规布局（基于垂直的块（block）和基于水平的内联（inline）， 虽然传统布局适用于页面，但它们对于大型或复杂的应用程序布局来说缺乏灵活性（特别是在改变方向，调整大小，拉伸，收缩等方面），flex 布容器能够放大子元素使之尽可能填充可用空间，也可以收缩子元素使之不溢出。</p>
+</ol>
+<p>componentWillMount（）在组件安装在 DOM 上或调用 render 方法之前，将调用此方法。使用此方法后，将安装组件。注意：请勿在此方法中使用 this.setstate 进行 API 调用或任何数据更改，因为它是在 render 方法之前调用的。因此，由于 DOM 尚未挂载，因此无法对其进行任何处理（即使用 API??响应更新数据）。因此，我们无法使用 API??响应来更新状态。</p>
+<p>componentDidMount（）在组件安装到 DOM 后，将调用此方法。<br>与 componentWillMount 一样，它在生命周期中被调用一次。在执行此方法之前，将调用 render 方法（即，我们可以访问 DOM）。我们可以进行 API 调用，并使用 API??响应更新状态。</p>
+<ol start="3">
+<li>更新 updating<br>这是我们组件通过的第三阶段。在已创建组件的安装阶段之后，进入了更新阶段。这是组件状态改变的地方，因此，进行了重新渲染。在此阶段，组件的数据（state 和 prop）会根据用户事件（例如单击，键入等）进行更新。这导致组件的重新渲染。此阶段可用的方法是：</li>
+</ol>
+<p>shouldComponentUpdate（）此方法确定是否应更新组件。<br>默认情况下，它返回 true。但是在某些时候，如果您想在某种条件下重新渲染组件，则应该使用 componentComponentUpdate 方法。例如，假设您只想在 prop 发生更改时重新渲染组件，然后利用此方法的强大功能。它接收诸如 nextProps 和 nextState 之类的参数，这些参数可以帮助我们通过与当前 prop 值进行比较来决定是否重新渲染。</p>
+<p>componentWillUpdate（）重新渲染组件之前调用它。在“ shouldComponentUpdate”方法之后调用一次。如果要在重新渲染组件之前以及在更新状态和属性之后执行一些计算，那么这是执行此操作的最佳位置。就像“ shouldComponentUpdate”方法一样，它也接收诸如 nextProps 和 nextState 之类的参数。</p>
+<p>ComponentDidUpdate（）在重新渲染组件之后立即调用此方法。在新的（更新的）组件在 DOM 上更新后，将执行“ componentDidUpdate”方法。此方法接收诸如 prevProps 和 prevState 之类的参数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LifeCycle</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"><span class="keyword">constructor</span>(props)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    date : <span class="keyword">new</span> <span class="built_in">Date</span>(),</span><br><span class="line">    clickedStatus: <span class="literal">false</span>,</span><br><span class="line">    list:[]</span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br><span class="line">componentWillMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component will mount!)</span><br><span class="line">&#125;</span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component did mount!)</span><br><span class="line">    <span class="keyword">this</span>.getList();</span><br><span class="line">&#125;</span><br><span class="line">getList=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">/*** method to make api call***/</span></span><br><span class="line">    fetch(https:<span class="comment">//api.mydomain.com)</span></span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">    .then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="keyword">this</span>.setState(&#123; <span class="attr">list</span>:data &#125;));</span><br><span class="line">&#125;</span><br><span class="line">shouldComponentUpdate(nextProps, nextState)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.state.list!==nextState.list</span><br><span class="line">&#125;</span><br><span class="line">componentWillUpdate(nextProps, nextState) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component will update!);</span><br><span class="line">&#125;</span><br><span class="line">componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component did update!)</span><br><span class="line">&#125;</span><br><span class="line">render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;h3&gt;Hello Mounting Lifecycle Methods!&lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>卸载<br>这是组件生命周期的最后一个阶段。顾名思义，该阶段将组件从 DOM 卸载。此阶段可用的方法是：<br>componentWillUnmount（）在卸载组件之前会调用此方法。在从 DOM 中删除组件之前，执行“ componentWillUnMount”。此方法表示组件生命周期的结束。</p>
+</li>
+<li><p><img src="/images/reactlife.jpg" alt=""></p>
 </li>
 </ol>
 ]]></content>
       <tags>
-        <tag>css float</tag>
-        <tag>css flex</tag>
+        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -916,6 +869,38 @@
       </tags>
   </entry>
   <entry>
+    <title>express路由</title>
+    <url>/2020/04/06/4.10/</url>
+    <content><![CDATA[<ol>
+<li>JSX 中使用三元运算符<br>{}大括号来在 JSX 中显示 JS 变量</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello &#123;this.props.someVar ? "World" : "Kitty"&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>对象方法，”this”</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  age: <span class="number">30</span>,</span><br><span class="line"></span><br><span class="line">  sayHi() &#123;</span><br><span class="line">    <span class="comment">// "this" 指的是“当前的对象”; 可用 "user" 替代 "this"</span></span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">user.sayHi();</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果是 alert(user.name)，并且将 user 复制给另一个变量，例如 admin = user，并赋另外的值给 user，那么它将访问到错误的对象。</span></span><br><span class="line"><span class="keyword">let</span> admin = user;</span><br><span class="line">user = <span class="literal">null</span>; <span class="comment">// 重写让其更明显</span></span><br><span class="line">admin.sayHi(); <span class="comment">// 噢哟！在 sayHi() 使用了旧的 name 属性！报错！</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>“this” 不受限制<br>this 可以用于任何函数，this 的值是在代码运行时计算出来的，它取决于代码上下文。 在没有对象的情况下调用：this == undefined 。</p>
+</li>
+<li><p>内部：引用类型<br>obj.method() 语句中有两个操作符。<br>首先，点符号 ‘.’ 取得这个 obj.method 属性。其后的括号 () 调用它。<br>如果把这些操作拆分开，那么 this 肯定会丢失：</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  hi() &#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将赋值与方法调用拆分为两行</span></span><br><span class="line"><span class="keyword">let</span> hi = user.hi;</span><br><span class="line">hi(); <span class="comment">// 错误，因为 this 未定义</span></span><br></pre></td></tr></table></figure>
+
+<p>这里 hi = user.hi 把函数赋值给变量，其后的最后一行代码是完全独立的，所以它没有 this。<br>为了让 user.hi() 有效，JavaScript 用了一个技巧 —— 这个 ‘.’ 点符号返回的不是一个函数，而是一种特殊的 引用类型 的值。<br>引用类型是一种“规范中有的类型”。我们不能明确地指定它，但它被用在编程语言的内部。<br>引用类型的值是三部分的结合 (base, name, strict)，如下：<br>base 是对象。<br>name 是属性名。<br>在严格模式 use strict 下，strict 为真。<br>属性访问 user.hi 的结果不是函数，而是引用类型。在严格模式下的 user.hi 是：<br>// 引用类型值<br>(user, “hi”, true)<br>括号 () 调用引用类型时，将接收关于该对象及其方法的所有信息，并且可以设定正确的 this 值（这里等于 user）。<br>引用类型是一种特殊的“中间”内部类型，用于将信息从点符号 . 传递到调用括号 ()。<br>像赋值 hi = user.hi 等其他的操作，将引用类型作为一个整体丢弃，只获取 user.hi（一个函数）的值进行传递。因此，任何进一步的操作都会“失去” this。</p>
+<ol start="5">
+<li>箭头函数没有自己的 “this”<br><a href="https://zh.javascript.info/arrow-functions#jian-tou-han-shu-mei-you-this" target="_blank" rel="noopener">箭头函数</a>没有 this。如果访问 this，则会从外部获取。</li>
+</ol>
+<p>6) 我的理解是：this 的传递需要对象+.+方法并且调用（）才能传递，否则会丢失。而且 this 是调用时给值，指向调用它的对象。</p>
+]]></content>
+      <tags>
+        <tag>this</tag>
+        <tag>jsx</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>react this keyword</title>
     <url>/2020/04/04/4.4/</url>
     <content><![CDATA[<ol>
@@ -944,35 +929,20 @@
         <tag>react</tag>
         <tag>this</tag>
         <tag>dom</tag>
-        <tag>sql</tag>
         <tag>lifecycle</tag>
+        <tag>sql</tag>
         <tag>js</tag>
       </tags>
   </entry>
   <entry>
-    <title>html&amp;js</title>
-    <url>/2020/04/05/4.5/</url>
-    <content><![CDATA[<ol>
-<li><p>setTimeout()、setInterval()的区别在于？<br>setTimeout()：当方法执行完成定时器就立即停止(但是定时器还在,只不过没用了);<br>setInterval()：当方法执行完成,定时器并没有停止,以后每隔[interval]这么长的时间都会重新的执行对应的方法[function],直到我们手动清除定时器为止;</p>
-</li>
-<li><p>什么 HTML 结构的语义化？<br>我的理解是让每个标签具有意义而不是无意义的标签 div 和 span；<br>为什么要语义化?<br>为了在没有 CSS 的情况下，页面也能呈现出很好地内容结构、代码结构；用户体验；有利于 SEO（搜索引擎优化）；便于团队开发和维护，语义化更具可读性，遵循 W3C 标准的团队都遵循这个标准，可以减少差异化。</p>
-</li>
-<li><p><a href="https://blog.csdn.net/major_zhang/article/details/79154287" target="_blank" rel="noopener">Promise 和 async-await 理解</a></p>
-</li>
-<li><p>JSX 最终会被 babel 编译为合法的 JS 语句给 React.createElement()函数调用（编译器在遇到{时采用 JS 语法进行解析，遇到&lt;就采用 HTML 规则进行解析）</p>
-</li>
-<li><p>label 标签</p>
-</li>
-</ol>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;label&gt; 标签的 <span class="keyword">for</span> 属性应当与相关元素（input）的 id 属性相同。</span><br><span class="line">&lt;label <span class="keyword">for</span>=<span class="string">"jog"</span>&gt;慢跑&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">&lt;input type="checkbox" name="jog" id="jog" /</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+    <title>CICD</title>
+    <url>/2020/04/02/4.3/</url>
+    <content><![CDATA[<h3 id="CICD"><a href="#CICD" class="headerlink" title="CICD"></a><a href="https://blog.jjonline.cn/linux/238.html" target="_blank" rel="noopener">CICD</a></h3><p>CI 的英文名称是 Continuous Integration，中文翻译为：持续集成。<br>CI 中，开发人员将会频繁地向主干提交代码，这些新提交的代码在最终合并到主干前，需要经过编译和自动化测试流进行验证。</p>
+<p>持续集成（CI）是在源代码变更后自动检测、拉取、构建和（在大多数情况下）进行单元测试的过程。持续集成的目标是快速确保开发人员新提交的变更是好的，并且适合在代码库中进一步使用。CI 的流程执行和理论实践让我们可以确定新代码和原有代码能否正确地集成在一起。</p>
+<p>CD 可对应多个英文名称，持续交付 Continuous Delivery 和持续部署 Continuous Deployment 。<br>持续交付<br>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。<br>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中或发布给最终使用的用户。<br><img src="/images/ci.png" alt=""><br>持续部署<br>对于一个成熟的 CI/CD 管道（Pipeline）来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。<br>持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。<br>持续交付并不是指软件每一个改动都要尽快部署到产品环境中，它指的是任何的代码修改都可以在任何时候实施部署。<br>持续交付表示的是一种能力，而持续部署表示的则一种方式。持续部署是持续交付的最高阶段<br><img src="/images/cd.png" alt=""></p>
 ]]></content>
       <tags>
-        <tag>this</tag>
-        <tag>promise</tag>
-        <tag>sql</tag>
-        <tag>js</tag>
-        <tag>html</tag>
-        <tag>async</tag>
+        <tag>CICD</tag>
       </tags>
   </entry>
   <entry>
@@ -1007,6 +977,65 @@
 ]]></content>
       <tags>
         <tag>express</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html&amp;js</title>
+    <url>/2020/04/05/4.5/</url>
+    <content><![CDATA[<ol>
+<li><p>setTimeout()、setInterval()的区别在于？<br>setTimeout()：当方法执行完成定时器就立即停止(但是定时器还在,只不过没用了);<br>setInterval()：当方法执行完成,定时器并没有停止,以后每隔[interval]这么长的时间都会重新的执行对应的方法[function],直到我们手动清除定时器为止;</p>
+</li>
+<li><p>什么 HTML 结构的语义化？<br>我的理解是让每个标签具有意义而不是无意义的标签 div 和 span；<br>为什么要语义化?<br>为了在没有 CSS 的情况下，页面也能呈现出很好地内容结构、代码结构；用户体验；有利于 SEO（搜索引擎优化）；便于团队开发和维护，语义化更具可读性，遵循 W3C 标准的团队都遵循这个标准，可以减少差异化。</p>
+</li>
+<li><p><a href="https://blog.csdn.net/major_zhang/article/details/79154287" target="_blank" rel="noopener">Promise 和 async-await 理解</a></p>
+</li>
+<li><p>JSX 最终会被 babel 编译为合法的 JS 语句给 React.createElement()函数调用（编译器在遇到{时采用 JS 语法进行解析，遇到&lt;就采用 HTML 规则进行解析）</p>
+</li>
+<li><p>label 标签</p>
+</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;label&gt; 标签的 <span class="keyword">for</span> 属性应当与相关元素（input）的 id 属性相同。</span><br><span class="line">&lt;label <span class="keyword">for</span>=<span class="string">"jog"</span>&gt;慢跑&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">&lt;input type="checkbox" name="jog" id="jog" /</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>this</tag>
+        <tag>promise</tag>
+        <tag>sql</tag>
+        <tag>js</tag>
+        <tag>html</tag>
+        <tag>async</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>this keyword of react</title>
+    <url>/2020/04/01/4.1/</url>
+    <content><![CDATA[<ol>
+<li><p>为什么用 react hooks？<br>允许创建每个组件为函数组件。<br>更简单的在组件中分享状态逻辑。</p>
+</li>
+<li><p>React Fragments<br>React 中常见模式是为一个组件返回多个元素。为了包裹多个元素你肯定写过很多的 div 和 span，进行不必要的嵌套，无形中增加了浏览器的渲染压力。Fragments 简写形式&lt;&gt;&lt;/&gt;。</p>
+</li>
+<li><p>this 指向</p>
+</li>
+</ol>
+<p>普通函数 this 指向函数的调用对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> user = <span class="string">"XX"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">//这里f 的调用等同于window.f(); 所以f函数内部this指向的是window</span></span><br></pre></td></tr></table></figure>
+
+<p>对象方法中调用 —- this 指向上级对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//xxx</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn();</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里要注意一点，就是在对象中可能有多层嵌套的对象，但是this指向的都是他调用地方的上级对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// bbb</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">obj.b.fn();</span><br><span class="line"><span class="comment">//如上，虽然是在obj里面this调用，但是因为是在obj.b这个对象中，所以this指向的是 obj.b</span></span><br><span class="line"></span><br><span class="line">注意不能只看上级对象，更关键的是调用对象</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// undefined</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = obj.b.fn;</span><br><span class="line">f()</span><br><span class="line"><span class="comment">//如上，this其实是在f执行的时候调用的，这时候，f的this的调用对象是window,那么就可以理解window.user为undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>构造函数 — this 指向 new 出来的对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.user = <span class="string">"xxx;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">var a = new Fn();</span></span><br><span class="line"><span class="string">    console.log(a.user); //xxx</span></span><br><span class="line"><span class="string">//new 的过程其实也是初始化了一个新的对象，然后用新的对象调用原先的函数 Fn.call(a) 这个情况跟下面这种情况类似了。</span></span><br></pre></td></tr></table></figure>
+
+<p>apply, call, bind 通过改变函数的调用对象而改变 this 的指向</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"id:"</span>, <span class="keyword">this</span>.id); <span class="comment">//42</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line">foo.call(&#123; <span class="attr">id</span>: <span class="number">42</span> &#125;); <span class="comment">//foo函数的调用对象变成了 &#123;id: 42&#125;,所以this指向发生了变化</span></span><br></pre></td></tr></table></figure>
+
+<p>箭头函数 this 的指向 —- this 指向其定义时候的对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name = <span class="string">"peter"</span>;</span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  name: <span class="string">"tony"</span>,</span><br><span class="line">  c: (<span class="keyword">this</span>.name = <span class="string">"lily"</span>),</span><br><span class="line">  b: <span class="built_in">console</span>.log(<span class="string">"1"</span>, name), <span class="comment">//peter,函数里this指向global(node)/window ; 最先打印出</span></span><br><span class="line">  jiantou: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//若注解c: (this.name = "lily"),this === &#123;&#125;,指的定义处上下文;否则&#123;this.name = "lily"&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//lily</span></span><br><span class="line">  &#125;,</span><br><span class="line">  putong: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">/* obj a &#123;</span></span><br><span class="line"><span class="comment">        name: 'tony',</span></span><br><span class="line"><span class="comment">        b: undefined,</span></span><br><span class="line"><span class="comment">        jiantou: [Function: jiantou],</span></span><br><span class="line"><span class="comment">        putong: [Function: putong]</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//tony</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">a.jiantou();</span><br><span class="line">a.putong();</span><br><span class="line"><span class="keyword">typeof</span> a.b; <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>箭头函数的 this 在定义时所在的对象，其实质是因为箭头函数没有自己的 this,用的是外层的 this。<br>普通函数的 this 是看的是它执行时候的调用对象; 箭头函数的 this 与它的执行没有关系，在定义的时候就决定了。</p>
+]]></content>
+      <tags>
+        <tag>react</tag>
+        <tag>this</tag>
       </tags>
   </entry>
 </search>
