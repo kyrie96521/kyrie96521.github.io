@@ -29,17 +29,6 @@
   </entry>
   <entry>
     <title>React&amp;JS</title>
-    <url>/2020/02/25/2.25/</url>
-    <content><![CDATA[<p>今天用 jQuery，bootstrap3.7.3，以及 GitHub api 做了一个小应用，主要是读取用户输入，再返回输入的 username 的基本信息，包括用户头像、followers、仓库等。<br><img src="/images/github_j.png" alt=""></p>
-<p>难点在于两次 ajax 的调用，第一次通过用户名获取用户的个人信息，第二次是在第一次结束之后再利用 url+/repos 来获取用户的最新仓库，用 each 方法来遍历整个 repos，再单个渲染；当 fetch 多个元素的时候，还要注意 jQuery append 的用法。<br>另，html 里学会了 target=”_blank”，打开新页面的指令。<br>总结：<br>这次的 jQuery 来写的小程序让我了解了怎么在 jQuery 里用异步调用，以及 bootstrap 的常见 class。</p>
-]]></content>
-      <tags>
-        <tag>jquery</tag>
-        <tag>project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>React&amp;JS</title>
     <url>/2020/02/27/2.27/</url>
     <content><![CDATA[<h3 id="JS-异步函数"><a href="#JS-异步函数" class="headerlink" title="JS 异步函数"></a>JS 异步函数</h3><ol>
 <li><p>promise：<br><a href="https://juejin.im/post/5b605b035188251a90189c61" target="_blank" rel="noopener">https://juejin.im/post/5b605b035188251a90189c61</a></p>
@@ -62,38 +51,22 @@
 <p>整个项目要注意的是没有用 redux，导致传递 props 时最多经过了两个的组件，降低了可读性；在回调函数作为 props 时的处理问题；以及利用 async/await 从 youtube api 调取数据的流程，由 axios.create 创建实例等；</p>
 ]]></content>
       <tags>
-        <tag>project</tag>
         <tag>promise</tag>
         <tag>javascript</tag>
         <tag>async-await</tag>
         <tag>axios</tag>
+        <tag>project</tag>
       </tags>
   </entry>
   <entry>
-    <title>Redux&amp;JS</title>
-    <url>/2020/02/28/2.28/</url>
-    <content><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol>
-<li><p>React-Redux 将 react 组件绑定到 redux<br>how?provider 组件将 app 连接到 redux store<br>connect 组件将 react 组件连接到 redux store</p>
-</li>
-<li><p>mapStateToProps<br>去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）<br>定义此函数时，组件会 subscribe redux store 的更新，每当 store 更新时，此函数会被调用；<br>mapDispatchToProps<br>去定义哪一 action 你想作为 props 传入给组件；</p>
-</li>
-</ol>
-<h3 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h3><p>把一个 object 和 function 相连，在 function 里的 this 代指这个 object，更改 this 的指向。</p>
-<ol>
-<li><p>bind<br>bind 会返回一个函数，但不会执行这个函数。<br>var newFunc = functionName.bind(object)<br>newFunc(argumentsOfFunction)</p>
-</li>
-<li><p>call<br>functionName.call(object,argumentsOfFunction)</p>
-</li>
-<li><p>apply<br>functionName.apply(object,arrayTypeArguments)</p>
-</li>
-<li><p>箭头函数与普通函数 this 指向<br>this 永远指向的是最后调用它的对象<br>new 关键字可以改变 this 的指向<br>如果返回值是一个对象，那么 this 指向的就是那个返回的对象，如果返回值不是一个对象那么 this 还是指向函数的实例。<br>普通函数 this 指向取决于函数调用的位置; 箭头函数 this 指向取决于函数定义的位置<br><a href="https://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5216085.html</a><br><a href="https://zhuanlan.zhihu.com/p/47132493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47132493</a></p>
-</li>
-</ol>
+    <title>React&amp;JS</title>
+    <url>/2020/02/25/2.25/</url>
+    <content><![CDATA[<p>今天用 jQuery，bootstrap3.7.3，以及 GitHub api 做了一个小应用，主要是读取用户输入，再返回输入的 username 的基本信息，包括用户头像、followers、仓库等。<br><img src="/images/github_j.png" alt=""></p>
+<p>难点在于两次 ajax 的调用，第一次通过用户名获取用户的个人信息，第二次是在第一次结束之后再利用 url+/repos 来获取用户的最新仓库，用 each 方法来遍历整个 repos，再单个渲染；当 fetch 多个元素的时候，还要注意 jQuery append 的用法。<br>另，html 里学会了 target=”_blank”，打开新页面的指令。<br>总结：<br>这次的 jQuery 来写的小程序让我了解了怎么在 jQuery 里用异步调用，以及 bootstrap 的常见 class。</p>
 ]]></content>
       <tags>
-        <tag>redux</tag>
-        <tag>this</tag>
-        <tag>javascript</tag>
+        <tag>project</tag>
+        <tag>jquery</tag>
       </tags>
   </entry>
   <entry>
@@ -155,6 +128,33 @@
       </tags>
   </entry>
   <entry>
+    <title>Redux&amp;JS</title>
+    <url>/2020/02/28/2.28/</url>
+    <content><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol>
+<li><p>React-Redux 将 react 组件绑定到 redux<br>how?provider 组件将 app 连接到 redux store<br>connect 组件将 react 组件连接到 redux store</p>
+</li>
+<li><p>mapStateToProps<br>去定义 store 里哪一部分 state 你想作为 props 传入；（确定可利用的 state）<br>定义此函数时，组件会 subscribe redux store 的更新，每当 store 更新时，此函数会被调用；<br>mapDispatchToProps<br>去定义哪一 action 你想作为 props 传入给组件；</p>
+</li>
+</ol>
+<h3 id="Js"><a href="#Js" class="headerlink" title="Js"></a>Js</h3><p>把一个 object 和 function 相连，在 function 里的 this 代指这个 object，更改 this 的指向。</p>
+<ol>
+<li><p>bind<br>bind 会返回一个函数，但不会执行这个函数。<br>var newFunc = functionName.bind(object)<br>newFunc(argumentsOfFunction)</p>
+</li>
+<li><p>call<br>functionName.call(object,argumentsOfFunction)</p>
+</li>
+<li><p>apply<br>functionName.apply(object,arrayTypeArguments)</p>
+</li>
+<li><p>箭头函数与普通函数 this 指向<br>this 永远指向的是最后调用它的对象<br>new 关键字可以改变 this 的指向<br>如果返回值是一个对象，那么 this 指向的就是那个返回的对象，如果返回值不是一个对象那么 this 还是指向函数的实例。<br>普通函数 this 指向取决于函数调用的位置; 箭头函数 this 指向取决于函数定义的位置<br><a href="https://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="noopener">https://www.cnblogs.com/pssp/p/5216085.html</a><br><a href="https://zhuanlan.zhihu.com/p/47132493" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/47132493</a></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>redux</tag>
+        <tag>this</tag>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>express</title>
     <url>/2020/03/11/3.11/</url>
     <content><![CDATA[<h3 id="express"><a href="#express" class="headerlink" title="express"></a>express</h3><ol>
@@ -170,6 +170,34 @@
 ]]></content>
       <tags>
         <tag>express</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redux</title>
+    <url>/2020/03/12/3.12/</url>
+    <content><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol>
+<li><p>redux 作用？<br>随着应用复杂度地不断提升，组件之间的状态通信变得越来越多，组件之间的耦合也变得越来越重。redux 能更好维护的模块间通信。</p>
+</li>
+<li><p>Redux 的单一状态树<br>所有的 state 都以一个对象树的形式储存在一个单一的 store 中。页面中的所有状态 or 数据，都应该用这种状态树的形式来描述；页面上的任何变化，都应该先去改变这个状态树，然后再通过某种方式实现到页面上。</p>
+</li>
+<li><p>action</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeText</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"CHANGE_TEXT"</span>,</span><br><span class="line">    payload: <span class="string">"Hello"</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Action 的任务是描述“发生了什么事情？”，这个函数会返回一个 Action 对象，这个对象里描述了“页面发生了什么”。随后这个对象会被传入到 Reducer 中。</p>
+</li>
+<li><p>reducer<br>(state, action) =&gt; newState<br>Reducer 的任务是根据传入的 Action 对象去修改状态树。<br>Reducer 是一个纯函数， 根据传入的 当前 state 和 action ，返回一个新的 state 。</p>
+</li>
+<li><p>Store<br>let store = createStore(Reducer);<br>state 是 store 的映射；<br>Store 就是把 Reducer 和 action 联系到一起的对象。<br>Store 有以下职责：<br>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器；</p>
+</li>
+<li><p>异步操作怎么办？<br>Action 发出以后，Reducer 立即算出 State，这叫做同步；Action 发出以后，过一段时间再执行 Reducer，这就是异步。中间件解决了这个问题。</p>
+</li>
+<li><p>什么是中间件？<br>中间件就是一个函数，对 store.dispatch 方法进行了改造，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</p>
+</li>
+</ol>
+<p>摘自：<a href="https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" target="_blank" rel="noopener">阮一峰</a> <a href="https://zhuanlan.zhihu.com/p/24684803" target="_blank" rel="noopener">知乎 er</a></p>
+]]></content>
+      <tags>
+        <tag>redux</tag>
       </tags>
   </entry>
   <entry>
@@ -230,34 +258,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Redux</title>
-    <url>/2020/03/12/3.12/</url>
-    <content><![CDATA[<h3 id="Redux"><a href="#Redux" class="headerlink" title="Redux"></a>Redux</h3><ol>
-<li><p>redux 作用？<br>随着应用复杂度地不断提升，组件之间的状态通信变得越来越多，组件之间的耦合也变得越来越重。redux 能更好维护的模块间通信。</p>
-</li>
-<li><p>Redux 的单一状态树<br>所有的 state 都以一个对象树的形式储存在一个单一的 store 中。页面中的所有状态 or 数据，都应该用这种状态树的形式来描述；页面上的任何变化，都应该先去改变这个状态树，然后再通过某种方式实现到页面上。</p>
-</li>
-<li><p>action</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeText</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    type: <span class="string">"CHANGE_TEXT"</span>,</span><br><span class="line">    payload: <span class="string">"Hello"</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Action 的任务是描述“发生了什么事情？”，这个函数会返回一个 Action 对象，这个对象里描述了“页面发生了什么”。随后这个对象会被传入到 Reducer 中。</p>
-</li>
-<li><p>reducer<br>(state, action) =&gt; newState<br>Reducer 的任务是根据传入的 Action 对象去修改状态树。<br>Reducer 是一个纯函数， 根据传入的 当前 state 和 action ，返回一个新的 state 。</p>
-</li>
-<li><p>Store<br>let store = createStore(Reducer);<br>state 是 store 的映射；<br>Store 就是把 Reducer 和 action 联系到一起的对象。<br>Store 有以下职责：<br>维持应用的 state；<br>提供 getState() 方法获取 state；<br>提供 dispatch(action) 方法更新 state；<br>通过 subscribe(listener) 注册监听器；</p>
-</li>
-<li><p>异步操作怎么办？<br>Action 发出以后，Reducer 立即算出 State，这叫做同步；Action 发出以后，过一段时间再执行 Reducer，这就是异步。中间件解决了这个问题。</p>
-</li>
-<li><p>什么是中间件？<br>中间件就是一个函数，对 store.dispatch 方法进行了改造，在发出 Action 和执行 Reducer 这两步之间，添加了其他功能。</p>
-</li>
-</ol>
-<p>摘自：<a href="https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" target="_blank" rel="noopener">阮一峰</a> <a href="https://zhuanlan.zhihu.com/p/24684803" target="_blank" rel="noopener">知乎 er</a></p>
-]]></content>
-      <tags>
-        <tag>redux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>event-loop</title>
     <url>/2020/03/15/3.15/</url>
     <content><![CDATA[<ol>
@@ -278,6 +278,32 @@
         <tag>jquery</tag>
         <tag>event loop</tag>
         <tag>ajax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>social network project</title>
+    <url>/2020/03/21/3.21/</url>
+    <content><![CDATA[<p>今天做的 project 内容是 express 对 server 的配置包括路由以及连接 MongoDB，让我对后端的结构有一个初步的理解。主要是以下几个点：</p>
+<ol>
+<li>设置 PORT 环境变量并且告诉服务器去哪监听；若没有，本地在 5000 端口 。</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PORT = process.env.PORT || <span class="number">5000</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>app.use(/api/users, require(./routers/api/users));<br>路由规则是 app.use(path,router)定义的，router 代表一个由 express.Router()创建的对象，在路由对象中可定义多个路由规则。每次将请求发送到服务器时，都会调用各个 app.use（middleware）</p>
+</li>
+<li><p><a href="https://blog.csdn.net/wthfeng/article/details/53366169" target="_blank" rel="noopener">app.use 和 app.get 的区别</a><br>app.use(path,callback)中的 callback 既可以是 router 对象又可以是函数<br>app.get(path,callback)中的 callback 只能是函数<br>给 app.get(app.post、app.put 同理)赋个路由对象是不行的</p>
+</li>
+<li><p>获取 mongoURI<br>cluster 连接自己的 app，设置安全地址等</p>
+</li>
+<li><p>mongodb 连接配置<br>每次用 async 函数时，都要用 try-catch 函数来判断失败情况</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>project</tag>
+        <tag>express</tag>
+        <tag>mongodb</tag>
       </tags>
   </entry>
   <entry>
@@ -323,50 +349,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Redux middleware</title>
-    <url>/2020/03/02/3.2/</url>
-    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol>
-<li><p>为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p>
-</li>
-<li><p>什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p>
-</li>
-<li><p>实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p>
-</li>
-<li><p>其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>redux middleware</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>social network project</title>
-    <url>/2020/03/21/3.21/</url>
-    <content><![CDATA[<p>今天做的 project 内容是 express 对 server 的配置包括路由以及连接 MongoDB，让我对后端的结构有一个初步的理解。主要是以下几个点：</p>
-<ol>
-<li>设置 PORT 环境变量并且告诉服务器去哪监听；若没有，本地在 5000 端口 。</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> PORT = process.env.PORT || <span class="number">5000</span>;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li><p>app.use(/api/users, require(./routers/api/users));<br>路由规则是 app.use(path,router)定义的，router 代表一个由 express.Router()创建的对象，在路由对象中可定义多个路由规则。每次将请求发送到服务器时，都会调用各个 app.use（middleware）</p>
-</li>
-<li><p><a href="https://blog.csdn.net/wthfeng/article/details/53366169" target="_blank" rel="noopener">app.use 和 app.get 的区别</a><br>app.use(path,callback)中的 callback 既可以是 router 对象又可以是函数<br>app.get(path,callback)中的 callback 只能是函数<br>给 app.get(app.post、app.put 同理)赋个路由对象是不行的</p>
-</li>
-<li><p>获取 mongoURI<br>cluster 连接自己的 app，设置安全地址等</p>
-</li>
-<li><p>mongodb 连接配置<br>每次用 async 函数时，都要用 try-catch 函数来判断失败情况</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>project</tag>
-        <tag>express</tag>
-        <tag>mongodb</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>react</title>
     <url>/2020/03/22/3.22/</url>
     <content><![CDATA[<ol>
@@ -382,6 +364,24 @@
       <tags>
         <tag>react</tag>
         <tag>this</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Redux middleware</title>
+    <url>/2020/03/02/3.2/</url>
+    <content><![CDATA[<h3 id="redux-中间件"><a href="#redux-中间件" class="headerlink" title="redux 中间件"></a>redux 中间件</h3><ol>
+<li><p>为什么要有中间件：目的是去处理一些在 redux 里的异步问题 store.dispath(action)是瞬时的，如果需要在 redux 里处理异步问题，则需要中间件来处理。</p>
+</li>
+<li><p>什么是中间件？（From Dan Abramov）<br>It provides a third-party extension point between dispatching an action, and the moment it reaches the reducer.</p>
+</li>
+<li><p>实现一个异步功能的计数器？<br>如果在 view 里有一个 button 的 onClick 事件，用户每次点击 button，则会触发 addOne action creator 并且可以 dispatch action；<br>thunk 中间件允许我们 dispatch 出异步 function，它相比 reducers 是不纯净的；<br>然后经过 thunk 中间件，再传递给 reducer 对 action 进行处理，生成全新的 state；<br><img src="https://s2.ax1x.com/2020/03/03/34kEl9.png" alt="alt text"></p>
+</li>
+<li><p>其与小点<br>applyMiddlewares 作用是将所有中间件组成一个数组，依次执行，要注意中间件的次序；<br>view 和 state 是一一对应的，当 state 变化，view 会被重新渲染；<br>store.dispatch 方法会触发 Reducer 的自动执行；<br>一个 action 可能经过不同的中间件，当 action 不需要再被处理时，中间件会进行自己的“熔断”机制；</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>redux middleware</tag>
       </tags>
   </entry>
   <entry>
@@ -522,74 +522,6 @@
       </tags>
   </entry>
   <entry>
-    <title>React 的生命周期</title>
-    <url>/2020/03/30/3.30/</url>
-    <content><![CDATA[<ol>
-<li><p>Virtual DOM 工作原理<br>Virtual DOM 是一个轻量级的 JavaScript 对象。它是一个节点树，将元素、它们的属性和内容作为对象及其属性，可以理解为树上的每个节点。 React 的渲染函数从 React 组件中创建一个节点树。然后它响应数据模型中的变化来更新该树，该变化是由用户或系统完成的各种动作引起的。<br>每当底层数据发生改变时，整个 UI 都将在 Virtual DOM 描述中重新渲染。<br>计算之前 DOM 表示与新表示的之间的差异。<br>完成计算后，将只用实际更改的内容更新 real DOM。</p>
-</li>
-<li><p><a href="https://juejin.im/post/5b077f04f265da0dc073caa6" target="_blank" rel="noopener">React 的生命周期方法有哪些</a><br>componentWillMount:在渲染之前执行，用于根组件中的 App 级配置。<br>componentDidMount：在第一次渲染之后执行，可以在这里做 AJAX 请求，DOM 的操作或状态更新以及设置事件监听器。<br>componentWillReceiveProps：在初始化 render 的时候不会执行，它会在组件接受到新的状态(Props)时被触发，一般用于父组件状态更新时子组件的重新渲染<br>shouldComponentUpdate：确定是否更新组件。默认情况下，它返回 true。如果确定在 state 或 props 更新后组件不需要在重新渲染，则可以返回 false，这是一个提高性能的方法。<br>componentWillUpdate：在 shouldComponentUpdate 返回 true 确定要更新组件之前执行。<br>componentDidUpdate：它主要用于更新 DOM 以响应 props 或 state 更改。<br>componentWillUnmount：它用于取消任何的网络请求，或删除与组件关联的所有事件监听器。</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>react</tag>
-        <tag>this</tag>
-        <tag>virtual dom</tag>
-        <tag>lifecycle</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css flex box</title>
-    <url>/2020/03/04/3.4/</url>
-    <content><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p>
-<p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">CSS3 Flexbox 布局完全指南</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰</a></p>
-<p><img src="/images/background.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>css flex box</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>css grid</title>
-    <url>/2020/03/05/3.5/</url>
-    <content><![CDATA[<h3 id="css-grid"><a href="#css-grid" class="headerlink" title="css grid"></a>css grid</h3><ol>
-<li>grid 构成</li>
-</ol>
-<p>Grid Container) 应用 display: grid 的元素<br>网格项(Grid Item) 网格容器（Grid Container）的子元素（例如直接子元素）<br>网格线(Grid Line) 网格轨道(Grid Track) 网格单元格(Grid Cell) 网格区域(Grid Area)</p>
-<ol start="2">
-<li><p>grid 属性<br>学习了各种网格容器属性以及网格项属性；<br>两个教程：<br><a href="https://www.html.cn/archives/8510" target="_blank" rel="noopener">https://www.html.cn/archives/8510</a><br><a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html</a></p>
-</li>
-<li><p>网格容器与网格项结构<br><img src="/images/grid-1.png" alt=""><br><img src="/images/grid-2.png" alt=""></p>
-</li>
-<li><p>属性分为三大类：<br>grid container;grid item;以及 grid 里的 content</p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>css grid</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git</title>
-    <url>/2020/03/08/3.8/</url>
-    <content><![CDATA[<p>今天算是做完了 9321 的第一个 assignment，考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。</p>
-<p>顺便记录一下 <a href="https://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git</a> 的基本操作。</p>
-]]></content>
-      <tags>
-        <tag>unsw</tag>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS</title>
-    <url>/2020/03/06/3.6/</url>
-    <content><![CDATA[<h3 id="JS-高阶函数"><a href="#JS-高阶函数" class="headerlink" title="JS 高阶函数"></a>JS 高阶函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//forEach</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in this array not a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//map</span></span><br><span class="line"><span class="keyword">const</span> newArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//filter</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].filter(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//return true or false;</span></span><br><span class="line">  <span class="comment">//true will put the item back to the new array</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//reduce</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//prev item and next item will do some kind of calculation;</span></span><br><span class="line">  <span class="comment">//return a number</span></span><br><span class="line">&#125;, randomNumAsStartNum);</span><br><span class="line"></span><br><span class="line"><span class="comment">//some,every return true or false;</span></span><br><span class="line"><span class="comment">//some: if any item satisfy the condition,return true</span></span><br><span class="line"><span class="comment">//every: if all items satisfy the condition,return true</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>javascript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>react-router</title>
     <url>/2020/03/28/3.28/</url>
     <content><![CDATA[<ol>
@@ -620,20 +552,80 @@
       </tags>
   </entry>
   <entry>
-    <title>compare</title>
-    <url>/2020/04/12/4.12/</url>
+    <title>React 的生命周期</title>
+    <url>/2020/03/30/3.30/</url>
     <content><![CDATA[<ol>
-<li>mongodb 和 mysql 的对比<br><img src="/images/mysql.png" alt=""></li>
-</ol>
-<p>MySQL MongoDB<br>表 集合<br>行 文档<br>列 字段<br>joins 嵌入文档或者链接</p>
-<ol start="2">
-<li>TDD 和 BDD<br>TDD 的原理是在开发功能代码之前，先编写单元测试用例代码，测试代码确定需要编写什么产品代码<br>BDD 的原理是鼓励软件项目中的开发者、QA 和非技术人员或商业参与者之间的协作,行为驱动是从用户的需求出发，强调系统行为</li>
+<li><p>Virtual DOM 工作原理<br>Virtual DOM 是一个轻量级的 JavaScript 对象。它是一个节点树，将元素、它们的属性和内容作为对象及其属性，可以理解为树上的每个节点。 React 的渲染函数从 React 组件中创建一个节点树。然后它响应数据模型中的变化来更新该树，该变化是由用户或系统完成的各种动作引起的。<br>每当底层数据发生改变时，整个 UI 都将在 Virtual DOM 描述中重新渲染。<br>计算之前 DOM 表示与新表示的之间的差异。<br>完成计算后，将只用实际更改的内容更新 real DOM。</p>
+</li>
+<li><p><a href="https://juejin.im/post/5b077f04f265da0dc073caa6" target="_blank" rel="noopener">React 的生命周期方法有哪些</a><br>componentWillMount:在渲染之前执行，用于根组件中的 App 级配置。<br>componentDidMount：在第一次渲染之后执行，可以在这里做 AJAX 请求，DOM 的操作或状态更新以及设置事件监听器。<br>componentWillReceiveProps：在初始化 render 的时候不会执行，它会在组件接受到新的状态(Props)时被触发，一般用于父组件状态更新时子组件的重新渲染<br>shouldComponentUpdate：确定是否更新组件。默认情况下，它返回 true。如果确定在 state 或 props 更新后组件不需要在重新渲染，则可以返回 false，这是一个提高性能的方法。<br>componentWillUpdate：在 shouldComponentUpdate 返回 true 确定要更新组件之前执行。<br>componentDidUpdate：它主要用于更新 DOM 以响应 props 或 state 更改。<br>componentWillUnmount：它用于取消任何的网络请求，或删除与组件关联的所有事件监听器。</p>
+</li>
 </ol>
 ]]></content>
       <tags>
+        <tag>react</tag>
         <tag>this</tag>
-        <tag>jsx</tag>
-        <tag>tdd</tag>
+        <tag>virtual dom</tag>
+        <tag>lifecycle</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css flex box</title>
+    <url>/2020/03/04/3.4/</url>
+    <content><![CDATA[<h3 id="css-flex-box"><a href="#css-flex-box" class="headerlink" title="css flex box"></a>css flex box</h3><p>在 flex 布局中，flex 项（就是子元素）要么按照 main axis(主轴)（从 main-start 到 main-end ）排布，要么按照 cross axis(交叉轴) (从 cross-start 到 cross-end)排布。了解六个容器属性等。</p>
+<p>两个极好的教程:<br><a href="https://www.html.cn/archives/8629" target="_blank" rel="noopener">CSS3 Flexbox 布局完全指南</a><br><a href="https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="noopener">阮一峰</a></p>
+<p><img src="/images/background.png" alt=""></p>
+]]></content>
+      <tags>
+        <tag>css flex box</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git</title>
+    <url>/2020/03/08/3.8/</url>
+    <content><![CDATA[<p>今天算是做完了 9321 的第一个 assignment，考察了对 python 里几个包的运用，pandas、matplotlib 等，主要是用 python 进行数据处理和可视化，还是蛮简单的。</p>
+<p>顺便记录一下 <a href="https://www.bootcss.com/p/git-guide/" target="_blank" rel="noopener">git</a> 的基本操作。</p>
+]]></content>
+      <tags>
+        <tag>unsw</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>css grid</title>
+    <url>/2020/03/05/3.5/</url>
+    <content><![CDATA[<h3 id="css-grid"><a href="#css-grid" class="headerlink" title="css grid"></a>css grid</h3><ol>
+<li>grid 构成</li>
+</ol>
+<p>Grid Container) 应用 display: grid 的元素<br>网格项(Grid Item) 网格容器（Grid Container）的子元素（例如直接子元素）<br>网格线(Grid Line) 网格轨道(Grid Track) 网格单元格(Grid Cell) 网格区域(Grid Area)</p>
+<ol start="2">
+<li><p>grid 属性<br>学习了各种网格容器属性以及网格项属性；<br>两个教程：<br><a href="https://www.html.cn/archives/8510" target="_blank" rel="noopener">https://www.html.cn/archives/8510</a><br><a href="http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html</a></p>
+</li>
+<li><p>网格容器与网格项结构<br><img src="/images/grid-1.png" alt=""><br><img src="/images/grid-2.png" alt=""></p>
+</li>
+<li><p>属性分为三大类：<br>grid container;grid item;以及 grid 里的 content</p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>css grid</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Node</title>
+    <url>/2020/03/07/3.7/</url>
+    <content><![CDATA[<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><ol>
+<li><p>为什么说 nodejs 是单线程语言呢？这是因为 nodejs 中 javascript 代码的执行是单线程；但 node 确实只有一个主线程，但是底层工作的线程却有多个。遇到异步时，主线程发出操作指令，然后就可以去做别的事情了（主线程不需要等待），所有操作完成后再执行回调。主线程什么时候知道操作完成执行回调，则通过 event loop 机制循环遍历。</p>
+</li>
+<li><p>nodejs 的异步 IO<br>当需要 IO(网络 IO/文件 IO)操作时，单线程的 javascript 并不会停下来等待 IO 操作完成，而是“事件驱动”开始介入，javascript 执行线程继续执行未完的 javascript 代码，当执行完成后该线程处于空闲状态</p>
+</li>
+<li><p>事件循环<br><img src="/images/node_sys.png" alt=""><br>Node.js 应用启动时，V8 引擎会执行你写的应用代码，保持一份观察者（注册在事件上的回调函数）列表。当事件发生时，它的回调函数会被加进一个事件队列。只要这个队列还有等待执行的回调函数，事件循环就会持续把回调函数从队列中拿出并执行。</p>
+</li>
+</ol>
+<p>4.</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//module 是一个 obj，有一个 exports 属性导出 function 或者 obj</span></span><br><span class="line"><span class="built_in">module</span>.exports.func = func</span><br><span class="line"><span class="built_in">module</span>.exports.endPoint = url (keep url private)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"./相对路径"</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span> pathObj = path.parse(\_\_filename)</span><br><span class="line"><span class="comment">//包含 dir 地址，root，name 等属性</span></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">"os"</span>)</span><br><span class="line"><span class="comment">//包含内存等等属性</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>node</tag>
       </tags>
   </entry>
   <entry>
@@ -662,6 +654,126 @@
       </tags>
   </entry>
   <entry>
+    <title>compare</title>
+    <url>/2020/04/12/4.12/</url>
+    <content><![CDATA[<ol>
+<li>mongodb 和 mysql 的对比<br><img src="/images/mysql.png" alt=""></li>
+</ol>
+<p>MySQL MongoDB<br>表 集合<br>行 文档<br>列 字段<br>joins 嵌入文档或者链接</p>
+<ol start="2">
+<li>TDD 和 BDD<br>TDD 的原理是在开发功能代码之前，先编写单元测试用例代码，测试代码确定需要编写什么产品代码<br>BDD 的原理是鼓励软件项目中的开发者、QA 和非技术人员或商业参与者之间的协作,行为驱动是从用户的需求出发，强调系统行为</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>this</tag>
+        <tag>jsx</tag>
+        <tag>tdd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS</title>
+    <url>/2020/03/06/3.6/</url>
+    <content><![CDATA[<h3 id="JS-高阶函数"><a href="#JS-高阶函数" class="headerlink" title="JS 高阶函数"></a>JS 高阶函数</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//forEach</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in this array not a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//map</span></span><br><span class="line"><span class="keyword">const</span> newArr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//do something</span></span><br><span class="line">  <span class="comment">//handle in a new array;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//filter</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].filter(<span class="function">(<span class="params">item, index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//return true or false;</span></span><br><span class="line">  <span class="comment">//true will put the item back to the new array</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//reduce</span></span><br><span class="line"><span class="keyword">const</span> evens = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">//prev item and next item will do some kind of calculation;</span></span><br><span class="line">  <span class="comment">//return a number</span></span><br><span class="line">&#125;, randomNumAsStartNum);</span><br><span class="line"></span><br><span class="line"><span class="comment">//some,every return true or false;</span></span><br><span class="line"><span class="comment">//some: if any item satisfy the condition,return true</span></span><br><span class="line"><span class="comment">//every: if all items satisfy the condition,return true</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>this keyword of react</title>
+    <url>/2020/04/01/4.1/</url>
+    <content><![CDATA[<ol>
+<li><p>为什么用 react hooks？<br>允许创建每个组件为函数组件。<br>更简单的在组件中分享状态逻辑。</p>
+</li>
+<li><p>React Fragments<br>React 中常见模式是为一个组件返回多个元素。为了包裹多个元素你肯定写过很多的 div 和 span，进行不必要的嵌套，无形中增加了浏览器的渲染压力。Fragments 简写形式&lt;&gt;&lt;/&gt;。</p>
+</li>
+<li><p>this 指向</p>
+</li>
+</ol>
+<p>普通函数 this 指向函数的调用对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> user = <span class="string">"XX"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">//这里f 的调用等同于window.f(); 所以f函数内部this指向的是window</span></span><br></pre></td></tr></table></figure>
+
+<p>对象方法中调用 —- this 指向上级对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//xxx</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn();</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里要注意一点，就是在对象中可能有多层嵌套的对象，但是this指向的都是他调用地方的上级对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// bbb</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">obj.b.fn();</span><br><span class="line"><span class="comment">//如上，虽然是在obj里面this调用，但是因为是在obj.b这个对象中，所以this指向的是 obj.b</span></span><br><span class="line"></span><br><span class="line">注意不能只看上级对象，更关键的是调用对象</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// undefined</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = obj.b.fn;</span><br><span class="line">f()</span><br><span class="line"><span class="comment">//如上，this其实是在f执行的时候调用的，这时候，f的this的调用对象是window,那么就可以理解window.user为undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>构造函数 — this 指向 new 出来的对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.user = <span class="string">"xxx;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">var a = new Fn();</span></span><br><span class="line"><span class="string">    console.log(a.user); //xxx</span></span><br><span class="line"><span class="string">//new 的过程其实也是初始化了一个新的对象，然后用新的对象调用原先的函数 Fn.call(a) 这个情况跟下面这种情况类似了。</span></span><br></pre></td></tr></table></figure>
+
+<p>apply, call, bind 通过改变函数的调用对象而改变 this 的指向</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"id:"</span>, <span class="keyword">this</span>.id); <span class="comment">//42</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line">foo.call(&#123; <span class="attr">id</span>: <span class="number">42</span> &#125;); <span class="comment">//foo函数的调用对象变成了 &#123;id: 42&#125;,所以this指向发生了变化</span></span><br></pre></td></tr></table></figure>
+
+<p>箭头函数 this 的指向 —- this 指向其定义时候的对象</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name = <span class="string">"peter"</span>;</span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  name: <span class="string">"tony"</span>,</span><br><span class="line">  c: (<span class="keyword">this</span>.name = <span class="string">"lily"</span>),</span><br><span class="line">  b: <span class="built_in">console</span>.log(<span class="string">"1"</span>, name), <span class="comment">//peter,函数里this指向global(node)/window ; 最先打印出</span></span><br><span class="line">  jiantou: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//若注解c: (this.name = "lily"),this === &#123;&#125;,指的定义处上下文;否则&#123;this.name = "lily"&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//lily</span></span><br><span class="line">  &#125;,</span><br><span class="line">  putong: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">/* obj a &#123;</span></span><br><span class="line"><span class="comment">        name: 'tony',</span></span><br><span class="line"><span class="comment">        b: undefined,</span></span><br><span class="line"><span class="comment">        jiantou: [Function: jiantou],</span></span><br><span class="line"><span class="comment">        putong: [Function: putong]</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//tony</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">a.jiantou();</span><br><span class="line">a.putong();</span><br><span class="line"><span class="keyword">typeof</span> a.b; <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+
+<p>箭头函数的 this 在定义时所在的对象，其实质是因为箭头函数没有自己的 this,用的是外层的 this。<br>普通函数的 this 是看的是它执行时候的调用对象; 箭头函数的 this 与它的执行没有关系，在定义的时候就决定了。</p>
+]]></content>
+      <tags>
+        <tag>react</tag>
+        <tag>this</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>this</title>
+    <url>/2020/04/10/4.10/</url>
+    <content><![CDATA[<ol>
+<li>JSX 中使用三元运算符<br>{}大括号来在 JSX 中显示 JS 变量</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello &#123;this.props.someVar ? "World" : "Kitty"&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>对象方法，”this”</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  age: <span class="number">30</span>,</span><br><span class="line"></span><br><span class="line">  sayHi() &#123;</span><br><span class="line">    <span class="comment">// "this" 指的是“当前的对象”; 可用 "user" 替代 "this"</span></span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">user.sayHi();</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果是 alert(user.name)，并且将 user 复制给另一个变量，例如 admin = user，并赋另外的值给 user，那么它将访问到错误的对象。</span></span><br><span class="line"><span class="keyword">let</span> admin = user;</span><br><span class="line">user = <span class="literal">null</span>; <span class="comment">// 重写让其更明显</span></span><br><span class="line">admin.sayHi(); <span class="comment">// 噢哟！在 sayHi() 使用了旧的 name 属性！报错！</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>“this” 不受限制<br>this 可以用于任何函数，this 的值是在代码运行时计算出来的，它取决于代码上下文。 在没有对象的情况下调用：this == undefined 。</p>
+</li>
+<li><p>内部：引用类型<br>obj.method() 语句中有两个操作符。<br>首先，点符号 ‘.’ 取得这个 obj.method 属性。其后的括号 () 调用它。<br>如果把这些操作拆分开，那么 this 肯定会丢失：</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  hi() &#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将赋值与方法调用拆分为两行</span></span><br><span class="line"><span class="keyword">let</span> hi = user.hi;</span><br><span class="line">hi(); <span class="comment">// 错误，因为 this 未定义</span></span><br></pre></td></tr></table></figure>
+
+<p>这里 hi = user.hi 把函数赋值给变量，其后的最后一行代码是完全独立的，所以它没有 this。<br>为了让 user.hi() 有效，JavaScript 用了一个技巧 —— 这个 ‘.’ 点符号返回的不是一个函数，而是一种特殊的 引用类型 的值。<br>引用类型是一种“规范中有的类型”。我们不能明确地指定它，但它被用在编程语言的内部。<br>引用类型的值是三部分的结合 (base, name, strict)，如下：<br>base 是对象。<br>name 是属性名。<br>在严格模式 use strict 下，strict 为真。<br>属性访问 user.hi 的结果不是函数，而是引用类型。在严格模式下的 user.hi 是：<br>// 引用类型值<br>(user, “hi”, true)<br>括号 () 调用引用类型时，将接收关于该对象及其方法的所有信息，并且可以设定正确的 this 值（这里等于 user）。<br>引用类型是一种特殊的“中间”内部类型，用于将信息从点符号 . 传递到调用括号 ()。<br>像赋值 hi = user.hi 等其他的操作，将引用类型作为一个整体丢弃，只获取 user.hi（一个函数）的值进行传递。因此，任何进一步的操作都会“失去” this。</p>
+<ol start="5">
+<li>箭头函数没有自己的 “this”<br><a href="https://zh.javascript.info/arrow-functions#jian-tou-han-shu-mei-you-this" target="_blank" rel="noopener">箭头函数</a>没有 this。如果访问 this，则会从外部获取。</li>
+</ol>
+<p>6) 我的理解是：this 的传递需要对象+.+方法并且调用（）才能传递，否则会丢失。而且 this 是调用时给值，指向调用它的对象。</p>
+]]></content>
+      <tags>
+        <tag>this</tag>
+        <tag>jsx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>react官方文档</title>
+    <url>/2020/04/14/4.14/</url>
+    <content><![CDATA[<ol>
+<li><p>事件监听函数后要加一个 function<br>onClick={() =&gt; alert(‘click’)<br>onClick={function() { alert(‘click’); }}</p>
+</li>
+<li><p>在类组件里，构造函数必须以 super(props) 开头。</p>
+</li>
+<li><p>状态提升<br>所有的 state 状态数据存储在父组件当中，之后父组件可以将这些数据通过 props 传递给各个子组件。遇到需要同时获取多个子组件数据，或者两个组件之间需要相互通讯的情况时，需要把子组件的 state 数据提升至其共同的父组件当中保存。之后父组件可以通过 props 将状态数据传递到子组件当中。状态数据就能够更方便地同步共享。</p>
+</li>
+</ol>
+<p>子组件不再持有 state，因此每次它们被点击的时候，子组件就会从父组件中接收值，并且通知父组件。在 React 术语中，我们把目前的 子组件称做“受控组件”。在这种情况下，父组件完全控制了子组件。</p>
+<p>例子：Board 为父组件，Square 为子组件。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">renderSquare(i) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line"><span class="comment">//Board 把 whenClick=&#123;() =&gt; this.handleClick(i)&#125; 传递给了 Square，所以当 Square 中的事件处理函数触发时，其实就是触发的 Board 当中的 this.handleClick(i) 方法</span></span><br><span class="line">    &lt;Square</span><br><span class="line">    value=&#123;<span class="keyword">this</span>.state.squares[i]&#125;</span><br><span class="line">    whenClick=&#123;() =&gt; <span class="keyword">this</span>.handleClick(i)&#125; /&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line"><span class="comment">//button 被点击时，React 会调用 Square 组件的 render() 方法中的 onClick 事件处理函数;事件处理函数触发了传入其中的 this.props.onClick() 方法</span></span><br><span class="line">            &lt;button</span><br><span class="line">            className=<span class="string">"square"</span></span><br><span class="line">            onClick=&#123;() =&gt; <span class="keyword">this</span>.props.whenClick()&#125; &gt;</span><br><span class="line">            &#123;<span class="keyword">this</span>.props.value&#125; &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>不可变性的优点？新数据替换旧数据，原变量值没改变<br>简化复杂的功能，撤销和恢复到之前的状态。<br>跟踪数据的改变，发现新的对象就可跟踪到改变。<br>确定在 React 中何时重新渲染，可以帮助我们在 React 中创建 pure components。</p>
+</li>
+<li><p>函数组件<br>函数接收 props 作为参数，然后返回需要渲染的元素。<br>写法简单，不用定义继承于 React.Component 的类，this.props 都替换成了 props。</p>
+</li>
+<li><p>实现“X” 和 “O” 轮流落子的效果</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">squares[i] = <span class="keyword">this</span>.state.xIsNext ? <span class="string">"X"</span> : <span class="string">"O"</span>;</span><br><span class="line"><span class="keyword">this</span>.state = &#123;</span><br><span class="line">  squares: <span class="built_in">Array</span>(<span class="number">9</span>).fill(<span class="literal">null</span>),</span><br><span class="line">  xIsNext: <span class="literal">true</span>, <span class="comment">//加一个 flag 判断</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>css</title>
     <url>/2020/04/16/4.16/</url>
     <content><![CDATA[<ol>
@@ -677,24 +789,6 @@
       <tags>
         <tag>css float</tag>
         <tag>css flex</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Node</title>
-    <url>/2020/03/07/3.7/</url>
-    <content><![CDATA[<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><ol>
-<li><p>为什么说 nodejs 是单线程语言呢？这是因为 nodejs 中 javascript 代码的执行是单线程；但 node 确实只有一个主线程，但是底层工作的线程却有多个。遇到异步时，主线程发出操作指令，然后就可以去做别的事情了（主线程不需要等待），所有操作完成后再执行回调。主线程什么时候知道操作完成执行回调，则通过 event loop 机制循环遍历。</p>
-</li>
-<li><p>nodejs 的异步 IO<br>当需要 IO(网络 IO/文件 IO)操作时，单线程的 javascript 并不会停下来等待 IO 操作完成，而是“事件驱动”开始介入，javascript 执行线程继续执行未完的 javascript 代码，当执行完成后该线程处于空闲状态</p>
-</li>
-<li><p>事件循环<br><img src="/images/node_sys.png" alt=""><br>Node.js 应用启动时，V8 引擎会执行你写的应用代码，保持一份观察者（注册在事件上的回调函数）列表。当事件发生时，它的回调函数会被加进一个事件队列。只要这个队列还有等待执行的回调函数，事件循环就会持续把回调函数从队列中拿出并执行。</p>
-</li>
-</ol>
-<p>4.</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//module 是一个 obj，有一个 exports 属性导出 function 或者 obj</span></span><br><span class="line"><span class="built_in">module</span>.exports.func = func</span><br><span class="line"><span class="built_in">module</span>.exports.endPoint = url (keep url private)</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"./相对路径"</span>)</span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span> pathObj = path.parse(\_\_filename)</span><br><span class="line"><span class="comment">//包含 dir 地址，root，name 等属性</span></span><br><span class="line"><span class="keyword">const</span> os = <span class="built_in">require</span>(<span class="string">"os"</span>)</span><br><span class="line"><span class="comment">//包含内存等等属性</span></span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>node</tag>
       </tags>
   </entry>
   <entry>
@@ -728,89 +822,6 @@
 ]]></content>
       <tags>
         <tag>project</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>react官方文档</title>
-    <url>/2020/04/14/4.14/</url>
-    <content><![CDATA[<ol>
-<li><p>事件监听函数后要加一个 function<br>onClick={() =&gt; alert(‘click’)<br>onClick={function() { alert(‘click’); }}</p>
-</li>
-<li><p>在类组件里，构造函数必须以 super(props) 开头。</p>
-</li>
-<li><p>状态提升<br>所有的 state 状态数据存储在父组件当中，之后父组件可以将这些数据通过 props 传递给各个子组件。遇到需要同时获取多个子组件数据，或者两个组件之间需要相互通讯的情况时，需要把子组件的 state 数据提升至其共同的父组件当中保存。之后父组件可以通过 props 将状态数据传递到子组件当中。状态数据就能够更方便地同步共享。</p>
-</li>
-</ol>
-<p>子组件不再持有 state，因此每次它们被点击的时候，子组件就会从父组件中接收值，并且通知父组件。在 React 术语中，我们把目前的 子组件称做“受控组件”。在这种情况下，父组件完全控制了子组件。</p>
-<p>例子：Board 为父组件，Square 为子组件。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">renderSquare(i) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line"><span class="comment">//Board 把 whenClick=&#123;() =&gt; this.handleClick(i)&#125; 传递给了 Square，所以当 Square 中的事件处理函数触发时，其实就是触发的 Board 当中的 this.handleClick(i) 方法</span></span><br><span class="line">    &lt;Square</span><br><span class="line">    value=&#123;<span class="keyword">this</span>.state.squares[i]&#125;</span><br><span class="line">    whenClick=&#123;() =&gt; <span class="keyword">this</span>.handleClick(i)&#125; /&gt;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">    render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line"><span class="comment">//button 被点击时，React 会调用 Square 组件的 render() 方法中的 onClick 事件处理函数;事件处理函数触发了传入其中的 this.props.onClick() 方法</span></span><br><span class="line">            &lt;button</span><br><span class="line">            className=<span class="string">"square"</span></span><br><span class="line">            onClick=&#123;() =&gt; <span class="keyword">this</span>.props.whenClick()&#125; &gt;</span><br><span class="line">            &#123;<span class="keyword">this</span>.props.value&#125; &lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp">        );</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><p>不可变性的优点？新数据替换旧数据，原变量值没改变<br>简化复杂的功能，撤销和恢复到之前的状态。<br>跟踪数据的改变，发现新的对象就可跟踪到改变。<br>确定在 React 中何时重新渲染，可以帮助我们在 React 中创建 pure components。</p>
-</li>
-<li><p>函数组件<br>函数接收 props 作为参数，然后返回需要渲染的元素。<br>写法简单，不用定义继承于 React.Component 的类，this.props 都替换成了 props。</p>
-</li>
-<li><p>实现“X” 和 “O” 轮流落子的效果</p>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">squares[i] = <span class="keyword">this</span>.state.xIsNext ? <span class="string">"X"</span> : <span class="string">"O"</span>;</span><br><span class="line"><span class="keyword">this</span>.state = &#123;</span><br><span class="line">  squares: <span class="built_in">Array</span>(<span class="number">9</span>).fill(<span class="literal">null</span>),</span><br><span class="line">  xIsNext: <span class="literal">true</span>, <span class="comment">//加一个 flag 判断</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>react</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sass</title>
-    <url>/2020/04/18/4.18/</url>
-    <content><![CDATA[<ol>
-<li><p>CSS 预处理器：用一种专门的编程语言，进行网页样式设计，然后再编译成正常的 CSS 文件</p>
-</li>
-<li><p>嵌套<br>在嵌套的代码块内，可以使用&amp;引用父元素。比如 a:hover 伪类</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">   　　 <span class="selector-tag">a</span> &#123;</span><br><span class="line">   　　　　&amp;:hover &#123; color: #ffb3ff; &#125;</span><br><span class="line">   　 &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>继承</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">   　　<span class="selector-class">.class1</span> &#123;</span><br><span class="line">   　　　　 <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">   　　&#125;</span><br><span class="line">   　　<span class="selector-class">.class2</span> &#123;</span><br><span class="line">   　　　　@extend .class1;</span><br><span class="line">   　　　　 <span class="selector-tag">font-size</span><span class="selector-pseudo">:120</span>%;</span><br><span class="line">   　　&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Mixin 可以重用的代码块<br>mixin 可以指定参数和缺省值。</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">　　<span class="keyword">@mixin</span> left($<span class="attribute">value:</span> <span class="number">10px</span>) &#123;</span><br><span class="line">　<span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line">　margin-right: $value;</span><br><span class="line">　　&#125;</span><br><span class="line">使用的时候，根据需要加入参数：</span><br><span class="line">　　 <span class="selector-tag">div</span> &#123;</span><br><span class="line">　　　　@include left(20px);</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>条件、循环语句<br><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2012/06/sass.html</a></p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>sass</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>react lifecycle</title>
-    <url>/2020/04/23/4.23/</url>
-    <content><![CDATA[<p>众所周知，这个世界上的所有事物都遵循一个周期（例如人类或树木）。我们出生，成长，然后死亡。几乎所有事物都遵循其生命周期，React 组件也是如此。组件被创建（mount 安装在 DOM 上），通过更新而增长，然后消失（在 DOM 上卸载 unmount）。这称为组件生命周期。</p>
-<ol>
-<li><p>初始化 initialize<br>在这个阶段，组件将通过 setting state 和 prop 来开始。这通常是在 constructor method 构造方法中完成的。</p>
-</li>
-<li><p>安装 mounting<br>mounting 是我们的 React 组件在 DOM 上挂载的阶段（即创建并插入到 DOM 中）。初始化阶段完成后，此阶段开始。在此阶段，我们的组件将首次呈现。此阶段可用的方法是：</p>
-</li>
-</ol>
-<p>componentWillMount（）在组件安装在 DOM 上或调用 render 方法之前，将调用此方法。使用此方法后，将安装组件。注意：请勿在此方法中使用 this.setstate 进行 API 调用或任何数据更改，因为它是在 render 方法之前调用的。因此，由于 DOM 尚未挂载，因此无法对其进行任何处理（即使用 API??响应更新数据）。因此，我们无法使用 API??响应来更新状态。</p>
-<p>componentDidMount（）在组件安装到 DOM 后，将调用此方法。<br>与 componentWillMount 一样，它在生命周期中被调用一次。在执行此方法之前，将调用 render 方法（即，我们可以访问 DOM）。我们可以进行 API 调用，并使用 API??响应更新状态。</p>
-<ol start="3">
-<li>更新 updating<br>这是我们组件通过的第三阶段。在已创建组件的安装阶段之后，进入了更新阶段。这是组件状态改变的地方，因此，进行了重新渲染。在此阶段，组件的数据（state 和 prop）会根据用户事件（例如单击，键入等）进行更新。这导致组件的重新渲染。此阶段可用的方法是：</li>
-</ol>
-<p>shouldComponentUpdate（）此方法确定是否应更新组件。<br>默认情况下，它返回 true。但是在某些时候，如果您想在某种条件下重新渲染组件，则应该使用 componentComponentUpdate 方法。例如，假设您只想在 prop 发生更改时重新渲染组件，然后利用此方法的强大功能。它接收诸如 nextProps 和 nextState 之类的参数，这些参数可以帮助我们通过与当前 prop 值进行比较来决定是否重新渲染。</p>
-<p>componentWillUpdate（）重新渲染组件之前调用它。在“ shouldComponentUpdate”方法之后调用一次。如果要在重新渲染组件之前以及在更新状态和属性之后执行一些计算，那么这是执行此操作的最佳位置。就像“ shouldComponentUpdate”方法一样，它也接收诸如 nextProps 和 nextState 之类的参数。</p>
-<p>ComponentDidUpdate（）在重新渲染组件之后立即调用此方法。在新的（更新的）组件在 DOM 上更新后，将执行“ componentDidUpdate”方法。此方法接收诸如 prevProps 和 prevState 之类的参数。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LifeCycle</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"><span class="keyword">constructor</span>(props)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    date : <span class="keyword">new</span> <span class="built_in">Date</span>(),</span><br><span class="line">    clickedStatus: <span class="literal">false</span>,</span><br><span class="line">    list:[]</span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br><span class="line">componentWillMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component will mount!)</span><br><span class="line">&#125;</span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component did mount!)</span><br><span class="line">    <span class="keyword">this</span>.getList();</span><br><span class="line">&#125;</span><br><span class="line">getList=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">/*** method to make api call***/</span></span><br><span class="line">    fetch(https:<span class="comment">//api.mydomain.com)</span></span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">    .then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="keyword">this</span>.setState(&#123; <span class="attr">list</span>:data &#125;));</span><br><span class="line">&#125;</span><br><span class="line">shouldComponentUpdate(nextProps, nextState)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.state.list!==nextState.list</span><br><span class="line">&#125;</span><br><span class="line">componentWillUpdate(nextProps, nextState) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component will update!);</span><br><span class="line">&#125;</span><br><span class="line">componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component did update!)</span><br><span class="line">&#125;</span><br><span class="line">render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;h3&gt;Hello Mounting Lifecycle Methods!&lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><p>卸载<br>这是组件生命周期的最后一个阶段。顾名思义，该阶段将组件从 DOM 卸载。此阶段可用的方法是：<br>componentWillUnmount（）在卸载组件之前会调用此方法。在从 DOM 中删除组件之前，执行“ componentWillUnMount”。此方法表示组件生命周期的结束。</p>
-</li>
-<li><p><img src="/images/reactlife.jpg" alt=""></p>
-</li>
-</ol>
-]]></content>
-      <tags>
-        <tag>react</tag>
       </tags>
   </entry>
   <entry>
@@ -869,35 +880,83 @@
       </tags>
   </entry>
   <entry>
-    <title>express路由</title>
-    <url>/2020/04/06/4.10/</url>
-    <content><![CDATA[<ol>
-<li>JSX 中使用三元运算符<br>{}大括号来在 JSX 中显示 JS 变量</li>
+    <title>react lifecycle</title>
+    <url>/2020/04/23/4.23/</url>
+    <content><![CDATA[<p>众所周知，这个世界上的所有事物都遵循一个周期（例如人类或树木）。我们出生，成长，然后死亡。几乎所有事物都遵循其生命周期，React 组件也是如此。组件被创建（mount 安装在 DOM 上），通过更新而增长，然后消失（在 DOM 上卸载 unmount）。这称为组件生命周期。</p>
+<ol>
+<li><p>初始化 initialize<br>在这个阶段，组件将通过 setting state 和 prop 来开始。这通常是在 constructor method 构造方法中完成的。</p>
+</li>
+<li><p>安装 mounting<br>mounting 是我们的 React 组件在 DOM 上挂载的阶段（即创建并插入到 DOM 中）。初始化阶段完成后，此阶段开始。在此阶段，我们的组件将首次呈现。此阶段可用的方法是：</p>
+</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComponent</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello &#123;this.props.someVar ? "World" : "Kitty"&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>对象方法，”this”</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  age: <span class="number">30</span>,</span><br><span class="line"></span><br><span class="line">  sayHi() &#123;</span><br><span class="line">    <span class="comment">// "this" 指的是“当前的对象”; 可用 "user" 替代 "this"</span></span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">user.sayHi();</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果是 alert(user.name)，并且将 user 复制给另一个变量，例如 admin = user，并赋另外的值给 user，那么它将访问到错误的对象。</span></span><br><span class="line"><span class="keyword">let</span> admin = user;</span><br><span class="line">user = <span class="literal">null</span>; <span class="comment">// 重写让其更明显</span></span><br><span class="line">admin.sayHi(); <span class="comment">// 噢哟！在 sayHi() 使用了旧的 name 属性！报错！</span></span><br></pre></td></tr></table></figure>
-
+<p>componentWillMount（）在组件安装在 DOM 上或调用 render 方法之前，将调用此方法。使用此方法后，将安装组件。注意：请勿在此方法中使用 this.setstate 进行 API 调用或任何数据更改，因为它是在 render 方法之前调用的。因此，由于 DOM 尚未挂载，因此无法对其进行任何处理（即使用 API??响应更新数据）。因此，我们无法使用 API??响应来更新状态。</p>
+<p>componentDidMount（）在组件安装到 DOM 后，将调用此方法。<br>与 componentWillMount 一样，它在生命周期中被调用一次。在执行此方法之前，将调用 render 方法（即，我们可以访问 DOM）。我们可以进行 API 调用，并使用 API??响应更新状态。</p>
 <ol start="3">
-<li><p>“this” 不受限制<br>this 可以用于任何函数，this 的值是在代码运行时计算出来的，它取决于代码上下文。 在没有对象的情况下调用：this == undefined 。</p>
-</li>
-<li><p>内部：引用类型<br>obj.method() 语句中有两个操作符。<br>首先，点符号 ‘.’ 取得这个 obj.method 属性。其后的括号 () 调用它。<br>如果把这些操作拆分开，那么 this 肯定会丢失：</p>
-</li>
+<li>更新 updating<br>这是我们组件通过的第三阶段。在已创建组件的安装阶段之后，进入了更新阶段。这是组件状态改变的地方，因此，进行了重新渲染。在此阶段，组件的数据（state 和 prop）会根据用户事件（例如单击，键入等）进行更新。这导致组件的重新渲染。此阶段可用的方法是：</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  name: <span class="string">"John"</span>,</span><br><span class="line">  hi() &#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.name);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将赋值与方法调用拆分为两行</span></span><br><span class="line"><span class="keyword">let</span> hi = user.hi;</span><br><span class="line">hi(); <span class="comment">// 错误，因为 this 未定义</span></span><br></pre></td></tr></table></figure>
+<p>shouldComponentUpdate（）此方法确定是否应更新组件。<br>默认情况下，它返回 true。但是在某些时候，如果您想在某种条件下重新渲染组件，则应该使用 componentComponentUpdate 方法。例如，假设您只想在 prop 发生更改时重新渲染组件，然后利用此方法的强大功能。它接收诸如 nextProps 和 nextState 之类的参数，这些参数可以帮助我们通过与当前 prop 值进行比较来决定是否重新渲染。</p>
+<p>componentWillUpdate（）重新渲染组件之前调用它。在“ shouldComponentUpdate”方法之后调用一次。如果要在重新渲染组件之前以及在更新状态和属性之后执行一些计算，那么这是执行此操作的最佳位置。就像“ shouldComponentUpdate”方法一样，它也接收诸如 nextProps 和 nextState 之类的参数。</p>
+<p>ComponentDidUpdate（）在重新渲染组件之后立即调用此方法。在新的（更新的）组件在 DOM 上更新后，将执行“ componentDidUpdate”方法。此方法接收诸如 prevProps 和 prevState 之类的参数。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LifeCycle</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line"><span class="keyword">constructor</span>(props)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">    date : <span class="keyword">new</span> <span class="built_in">Date</span>(),</span><br><span class="line">    clickedStatus: <span class="literal">false</span>,</span><br><span class="line">    list:[]</span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br><span class="line">componentWillMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component will mount!)</span><br><span class="line">&#125;</span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component did mount!)</span><br><span class="line">    <span class="keyword">this</span>.getList();</span><br><span class="line">&#125;</span><br><span class="line">getList=<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">/*** method to make api call***/</span></span><br><span class="line">    fetch(https:<span class="comment">//api.mydomain.com)</span></span><br><span class="line">    .then(<span class="function"><span class="params">response</span> =&gt;</span> response.json())</span><br><span class="line">    .then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="keyword">this</span>.setState(&#123; <span class="attr">list</span>:data &#125;));</span><br><span class="line">&#125;</span><br><span class="line">shouldComponentUpdate(nextProps, nextState)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.state.list!==nextState.list</span><br><span class="line">&#125;</span><br><span class="line">componentWillUpdate(nextProps, nextState) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component will update!);</span><br><span class="line">&#125;</span><br><span class="line">componentDidUpdate(prevProps, prevState) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(Component did update!)</span><br><span class="line">&#125;</span><br><span class="line">render() &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;h3&gt;Hello Mounting Lifecycle Methods!&lt;<span class="regexp">/h3&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这里 hi = user.hi 把函数赋值给变量，其后的最后一行代码是完全独立的，所以它没有 this。<br>为了让 user.hi() 有效，JavaScript 用了一个技巧 —— 这个 ‘.’ 点符号返回的不是一个函数，而是一种特殊的 引用类型 的值。<br>引用类型是一种“规范中有的类型”。我们不能明确地指定它，但它被用在编程语言的内部。<br>引用类型的值是三部分的结合 (base, name, strict)，如下：<br>base 是对象。<br>name 是属性名。<br>在严格模式 use strict 下，strict 为真。<br>属性访问 user.hi 的结果不是函数，而是引用类型。在严格模式下的 user.hi 是：<br>// 引用类型值<br>(user, “hi”, true)<br>括号 () 调用引用类型时，将接收关于该对象及其方法的所有信息，并且可以设定正确的 this 值（这里等于 user）。<br>引用类型是一种特殊的“中间”内部类型，用于将信息从点符号 . 传递到调用括号 ()。<br>像赋值 hi = user.hi 等其他的操作，将引用类型作为一个整体丢弃，只获取 user.hi（一个函数）的值进行传递。因此，任何进一步的操作都会“失去” this。</p>
-<ol start="5">
-<li>箭头函数没有自己的 “this”<br><a href="https://zh.javascript.info/arrow-functions#jian-tou-han-shu-mei-you-this" target="_blank" rel="noopener">箭头函数</a>没有 this。如果访问 this，则会从外部获取。</li>
+<ol start="4">
+<li><p>卸载<br>这是组件生命周期的最后一个阶段。顾名思义，该阶段将组件从 DOM 卸载。此阶段可用的方法是：<br>componentWillUnmount（）在卸载组件之前会调用此方法。在从 DOM 中删除组件之前，执行“ componentWillUnMount”。此方法表示组件生命周期的结束。</p>
+</li>
+<li><p><img src="/images/reactlife.jpg" alt=""></p>
+</li>
 </ol>
-<p>6) 我的理解是：this 的传递需要对象+.+方法并且调用（）才能传递，否则会丢失。而且 this 是调用时给值，指向调用它的对象。</p>
+]]></content>
+      <tags>
+        <tag>react</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sass</title>
+    <url>/2020/04/18/4.18/</url>
+    <content><![CDATA[<ol>
+<li><p>CSS 预处理器：用一种专门的编程语言，进行网页样式设计，然后再编译成正常的 CSS 文件</p>
+</li>
+<li><p>嵌套<br>在嵌套的代码块内，可以使用&amp;引用父元素。比如 a:hover 伪类</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">   　　 <span class="selector-tag">a</span> &#123;</span><br><span class="line">   　　　　&amp;:hover &#123; color: #ffb3ff; &#125;</span><br><span class="line">   　 &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>继承</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">   　　<span class="selector-class">.class1</span> &#123;</span><br><span class="line">   　　　　 <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ddd</span>;</span><br><span class="line">   　　&#125;</span><br><span class="line">   　　<span class="selector-class">.class2</span> &#123;</span><br><span class="line">   　　　　@extend .class1;</span><br><span class="line">   　　　　 <span class="selector-tag">font-size</span><span class="selector-pseudo">:120</span>%;</span><br><span class="line">   　　&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Mixin 可以重用的代码块<br>mixin 可以指定参数和缺省值。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">　　<span class="keyword">@mixin</span> left($<span class="attribute">value:</span> <span class="number">10px</span>) &#123;</span><br><span class="line">　<span class="selector-tag">float</span>: <span class="selector-tag">left</span>;</span><br><span class="line">　margin-right: $value;</span><br><span class="line">　　&#125;</span><br><span class="line">使用的时候，根据需要加入参数：</span><br><span class="line">　　 <span class="selector-tag">div</span> &#123;</span><br><span class="line">　　　　@include left(20px);</span><br><span class="line">　　&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>条件、循环语句<br><a href="http://www.ruanyifeng.com/blog/2012/06/sass.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2012/06/sass.html</a></p>
+</li>
+</ol>
+]]></content>
+      <tags>
+        <tag>sass</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>html&amp;js</title>
+    <url>/2020/04/05/4.5/</url>
+    <content><![CDATA[<ol>
+<li><p>setTimeout()、setInterval()的区别在于？<br>setTimeout()：当方法执行完成定时器就立即停止(但是定时器还在,只不过没用了);<br>setInterval()：当方法执行完成,定时器并没有停止,以后每隔[interval]这么长的时间都会重新的执行对应的方法[function],直到我们手动清除定时器为止;</p>
+</li>
+<li><p>什么 HTML 结构的语义化？<br>我的理解是让每个标签具有意义而不是无意义的标签 div 和 span；<br>为什么要语义化?<br>为了在没有 CSS 的情况下，页面也能呈现出很好地内容结构、代码结构；用户体验；有利于 SEO（搜索引擎优化）；便于团队开发和维护，语义化更具可读性，遵循 W3C 标准的团队都遵循这个标准，可以减少差异化。</p>
+</li>
+<li><p><a href="https://blog.csdn.net/major_zhang/article/details/79154287" target="_blank" rel="noopener">Promise 和 async-await 理解</a></p>
+</li>
+<li><p>JSX 最终会被 babel 编译为合法的 JS 语句给 React.createElement()函数调用（编译器在遇到{时采用 JS 语法进行解析，遇到&lt;就采用 HTML 规则进行解析）</p>
+</li>
+<li><p>label 标签</p>
+</li>
+</ol>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;label&gt; 标签的 <span class="keyword">for</span> 属性应当与相关元素（input）的 id 属性相同。</span><br><span class="line">&lt;label <span class="keyword">for</span>=<span class="string">"jog"</span>&gt;慢跑&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">&lt;input type="checkbox" name="jog" id="jog" /</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
         <tag>this</tag>
-        <tag>jsx</tag>
+        <tag>promise</tag>
+        <tag>sql</tag>
+        <tag>js</tag>
+        <tag>html</tag>
+        <tag>async</tag>
       </tags>
   </entry>
   <entry>
@@ -929,20 +988,9 @@
         <tag>react</tag>
         <tag>this</tag>
         <tag>dom</tag>
-        <tag>lifecycle</tag>
         <tag>sql</tag>
+        <tag>lifecycle</tag>
         <tag>js</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CICD</title>
-    <url>/2020/04/02/4.3/</url>
-    <content><![CDATA[<h3 id="CICD"><a href="#CICD" class="headerlink" title="CICD"></a><a href="https://blog.jjonline.cn/linux/238.html" target="_blank" rel="noopener">CICD</a></h3><p>CI 的英文名称是 Continuous Integration，中文翻译为：持续集成。<br>CI 中，开发人员将会频繁地向主干提交代码，这些新提交的代码在最终合并到主干前，需要经过编译和自动化测试流进行验证。</p>
-<p>持续集成（CI）是在源代码变更后自动检测、拉取、构建和（在大多数情况下）进行单元测试的过程。持续集成的目标是快速确保开发人员新提交的变更是好的，并且适合在代码库中进一步使用。CI 的流程执行和理论实践让我们可以确定新代码和原有代码能否正确地集成在一起。</p>
-<p>CD 可对应多个英文名称，持续交付 Continuous Delivery 和持续部署 Continuous Deployment 。<br>持续交付<br>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。<br>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中或发布给最终使用的用户。<br><img src="/images/ci.png" alt=""><br>持续部署<br>对于一个成熟的 CI/CD 管道（Pipeline）来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。<br>持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。<br>持续交付并不是指软件每一个改动都要尽快部署到产品环境中，它指的是任何的代码修改都可以在任何时候实施部署。<br>持续交付表示的是一种能力，而持续部署表示的则一种方式。持续部署是持续交付的最高阶段<br><img src="/images/cd.png" alt=""></p>
-]]></content>
-      <tags>
-        <tag>CICD</tag>
       </tags>
   </entry>
   <entry>
@@ -980,62 +1028,67 @@
       </tags>
   </entry>
   <entry>
-    <title>html&amp;js</title>
-    <url>/2020/04/05/4.5/</url>
-    <content><![CDATA[<ol>
-<li><p>setTimeout()、setInterval()的区别在于？<br>setTimeout()：当方法执行完成定时器就立即停止(但是定时器还在,只不过没用了);<br>setInterval()：当方法执行完成,定时器并没有停止,以后每隔[interval]这么长的时间都会重新的执行对应的方法[function],直到我们手动清除定时器为止;</p>
-</li>
-<li><p>什么 HTML 结构的语义化？<br>我的理解是让每个标签具有意义而不是无意义的标签 div 和 span；<br>为什么要语义化?<br>为了在没有 CSS 的情况下，页面也能呈现出很好地内容结构、代码结构；用户体验；有利于 SEO（搜索引擎优化）；便于团队开发和维护，语义化更具可读性，遵循 W3C 标准的团队都遵循这个标准，可以减少差异化。</p>
-</li>
-<li><p><a href="https://blog.csdn.net/major_zhang/article/details/79154287" target="_blank" rel="noopener">Promise 和 async-await 理解</a></p>
-</li>
-<li><p>JSX 最终会被 babel 编译为合法的 JS 语句给 React.createElement()函数调用（编译器在遇到{时采用 JS 语法进行解析，遇到&lt;就采用 HTML 规则进行解析）</p>
-</li>
-<li><p>label 标签</p>
-</li>
-</ol>
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">&lt;label&gt; 标签的 <span class="keyword">for</span> 属性应当与相关元素（input）的 id 属性相同。</span><br><span class="line">&lt;label <span class="keyword">for</span>=<span class="string">"jog"</span>&gt;慢跑&lt;<span class="regexp">/label&gt;</span></span><br><span class="line"><span class="regexp">&lt;input type="checkbox" name="jog" id="jog" /</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
+    <title>CICD</title>
+    <url>/2020/04/02/4.3/</url>
+    <content><![CDATA[<h3 id="CICD"><a href="#CICD" class="headerlink" title="CICD"></a><a href="https://blog.jjonline.cn/linux/238.html" target="_blank" rel="noopener">CICD</a></h3><p>CI 的英文名称是 Continuous Integration，中文翻译为：持续集成。<br>CI 中，开发人员将会频繁地向主干提交代码，这些新提交的代码在最终合并到主干前，需要经过编译和自动化测试流进行验证。</p>
+<p>持续集成（CI）是在源代码变更后自动检测、拉取、构建和（在大多数情况下）进行单元测试的过程。持续集成的目标是快速确保开发人员新提交的变更是好的，并且适合在代码库中进一步使用。CI 的流程执行和理论实践让我们可以确定新代码和原有代码能否正确地集成在一起。</p>
+<p>CD 可对应多个英文名称，持续交付 Continuous Delivery 和持续部署 Continuous Deployment 。<br>持续交付<br>完成 CI 中构建及单元测试和集成测试的自动化流程后，持续交付可自动将已验证的代码发布到存储库。为了实现高效的持续交付流程，务必要确保 CI 已内置于开发管道。持续交付的目标是拥有一个可随时部署到生产环境的代码库。<br>在持续交付中，每个阶段（从代码更改的合并，到生产就绪型构建版本的交付）都涉及测试自动化和代码发布自动化。在流程结束时，运维团队可以快速、轻松地将应用部署到生产环境中或发布给最终使用的用户。<br><img src="/images/ci.png" alt=""><br>持续部署<br>对于一个成熟的 CI/CD 管道（Pipeline）来说，最后的阶段是持续部署。作为持续交付——自动将生产就绪型构建版本发布到代码存储库——的延伸，持续部署可以自动将应用发布到生产环境。<br>持续部署意味着所有的变更都会被自动部署到生产环境中。持续交付意味着所有的变更都可以被部署到生产环境中，但是出于业务考虑，可以选择不部署。如果要实施持续部署，必须先实施持续交付。<br>持续交付并不是指软件每一个改动都要尽快部署到产品环境中，它指的是任何的代码修改都可以在任何时候实施部署。<br>持续交付表示的是一种能力，而持续部署表示的则一种方式。持续部署是持续交付的最高阶段<br><img src="/images/cd.png" alt=""></p>
 ]]></content>
       <tags>
-        <tag>this</tag>
-        <tag>promise</tag>
-        <tag>sql</tag>
-        <tag>js</tag>
-        <tag>html</tag>
-        <tag>async</tag>
+        <tag>CICD</tag>
       </tags>
   </entry>
   <entry>
-    <title>this keyword of react</title>
-    <url>/2020/04/01/4.1/</url>
-    <content><![CDATA[<ol>
-<li><p>为什么用 react hooks？<br>允许创建每个组件为函数组件。<br>更简单的在组件中分享状态逻辑。</p>
-</li>
-<li><p>React Fragments<br>React 中常见模式是为一个组件返回多个元素。为了包裹多个元素你肯定写过很多的 div 和 span，进行不必要的嵌套，无形中增加了浏览器的渲染压力。Fragments 简写形式&lt;&gt;&lt;/&gt;。</p>
-</li>
-<li><p>this 指向</p>
-</li>
-</ol>
-<p>普通函数 this 指向函数的调用对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> user = <span class="string">"XX"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//undefined</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f(); <span class="comment">//这里f 的调用等同于window.f(); 所以f函数内部this指向的是window</span></span><br></pre></td></tr></table></figure>
+    <title>Javascript语法</title>
+    <url>/2020/05/19/5.19/</url>
+    <content><![CDATA[<h1 id="Javascript-Adavanced"><a href="#Javascript-Adavanced" class="headerlink" title="Javascript Adavanced"></a>Javascript Adavanced</h1><p>** OOP **</p>
+<p>encapsulation 封装性，将属性和方法放在同一对象里。<br>abstraction 抽象性，简易接口，减少改变的影响。<br>inheritance 继承性，减少重用代码。<br>polymorphism 多态性。</p>
+<h2 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h2><h3 id="1-创建对象的两种方式"><a href="#1-创建对象的两种方式" class="headerlink" title="1. 创建对象的两种方式"></a>1. 创建对象的两种方式</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// factory function</span></span><br><span class="line"><span class="comment">// 当创建多个的对象时，使用factory函数返回一个对象, 减少重用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCircle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    radius,</span><br><span class="line">    draw: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"draw2"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> circle2 = createCircle(<span class="number">2</span>);</span><br><span class="line">circle2.draw();</span><br><span class="line"></span><br><span class="line"><span class="comment">// construction function</span></span><br><span class="line"><span class="comment">// 用this来代替调用者</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this 代指那个对象，对对象设置属性，而非返回一个对象。指向调用者。</span></span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// new操作符会有三步</span></span><br><span class="line"><span class="comment">// 1.new操作符会创建一个空的对象 2.并把this指向这个对象，this默认指向global/window</span></span><br><span class="line"><span class="comment">// 3.返回这个对象，不用return</span></span><br><span class="line"><span class="keyword">const</span> constructor1 = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
-<p>对象方法中调用 —- this 指向上级对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">//xxx</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn();</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里要注意一点，就是在对象中可能有多层嵌套的对象，但是this指向的都是他调用地方的上级对象</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// bbb</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">obj.b.fn();</span><br><span class="line"><span class="comment">//如上，虽然是在obj里面this调用，但是因为是在obj.b这个对象中，所以this指向的是 obj.b</span></span><br><span class="line"></span><br><span class="line">注意不能只看上级对象，更关键的是调用对象</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">user:<span class="string">"xxx"</span>,</span><br><span class="line">b: &#123;</span><br><span class="line">user: <span class="string">"bbb"</span>,</span><br><span class="line">fn:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user); <span class="comment">// undefined</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = obj.b.fn;</span><br><span class="line">f()</span><br><span class="line"><span class="comment">//如上，this其实是在f执行的时候调用的，这时候，f的this的调用对象是window,那么就可以理解window.user为undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-constructor-属性"><a href="#2-constructor-属性" class="headerlink" title="2. constructor 属性"></a>2. constructor 属性</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 打印出function Object</span></span><br><span class="line"><span class="comment">// 原因是当时用let x = &#123;&#125;来构造函数时，内部是调用let x = new Object()来构造的</span></span><br><span class="line"><span class="comment">// String()，Boolean()也相同</span></span><br><span class="line"><span class="built_in">console</span>.log(circle.constructor);</span><br><span class="line"><span class="comment">// 打印出function Circle</span></span><br><span class="line"><span class="built_in">console</span>.log(constructor1.constructor);</span><br><span class="line"></span><br><span class="line"><span class="comment">// function 也是对象，所以也可使用constructor属性，会得到Function 等同于如下。</span></span><br><span class="line"><span class="keyword">const</span> Circle = <span class="keyword">new</span> <span class="built_in">Function</span>(</span><br><span class="line">  <span class="string">"radius"</span>,</span><br><span class="line">  <span class="string">`</span></span><br><span class="line"><span class="string">    this.radius = radius;</span></span><br><span class="line"><span class="string">    this.draw = function()&#123;</span></span><br><span class="line"><span class="string">        console.log("draw")</span></span><br><span class="line"><span class="string">&#125;`</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// (object:target of this, argument)</span></span><br><span class="line">Circle.call(&#123;&#125;, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// arguments in array</span></span><br><span class="line">Circle.apply(&#123;&#125;, []);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
-<p>构造函数 — this 指向 new 出来的对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">this</span>.user = <span class="string">"xxx;</span></span><br><span class="line"><span class="string">&#125;</span></span><br><span class="line"><span class="string">var a = new Fn();</span></span><br><span class="line"><span class="string">    console.log(a.user); //xxx</span></span><br><span class="line"><span class="string">//new 的过程其实也是初始化了一个新的对象，然后用新的对象调用原先的函数 Fn.call(a) 这个情况跟下面这种情况类似了。</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-数据类型以及原理"><a href="#3-数据类型以及原理" class="headerlink" title="3. 数据类型以及原理"></a>3. 数据类型以及原理</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// value type(primitive type): number string beeloean symbol undefined null</span></span><br><span class="line"><span class="comment">// reference type: object function array</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x = &#123; <span class="attr">value</span>: <span class="number">20</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> y = x;</span><br><span class="line"><span class="built_in">console</span>.log(y); <span class="comment">// &#123;value : 20&#125;</span></span><br></pre></td></tr></table></figure>
 
-<p>apply, call, bind 通过改变函数的调用对象而改变 this 的指向</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"id:"</span>, <span class="keyword">this</span>.id); <span class="comment">//42</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> id = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line">foo.call(&#123; <span class="attr">id</span>: <span class="number">42</span> &#125;); <span class="comment">//foo函数的调用对象变成了 &#123;id: 42&#125;,所以this指向发生了变化</span></span><br></pre></td></tr></table></figure>
+<p>原因是 reference type 的值存在 memory 里，变量是引用其地址。<br>当执行 let y = x 时， y 保存的也是{value : 20}的地址。但对于原始值类型，x 值改变，y 值不会变。<br>primitives are copied by their value, objects are copied by there reference</p>
+<h3 id="4-增加，删除，遍历属性或方法"><a href="#4-增加，删除，遍历属性或方法" class="headerlink" title="4. 增加，删除，遍历属性或方法"></a>4. 增加，删除，遍历属性或方法</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对象可以直接加或者删除属性或者方法</span></span><br><span class="line">circle.location = &#123; <span class="attr">x</span>: <span class="number">1</span> &#125;;</span><br><span class="line">circle[<span class="string">"location"</span>] = &#123; <span class="attr">c</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">delete</span> [circle.location];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历对象的属性和值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> circle) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> circle[key] !== <span class="string">"function"</span>) <span class="built_in">console</span>.log(key, circle[key]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 得到keys</span></span><br><span class="line"><span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(Circle);</span><br><span class="line"><span class="built_in">console</span>.log(keys);</span><br></pre></td></tr></table></figure>
 
-<p>箭头函数 this 的指向 —- this 指向其定义时候的对象</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">name = <span class="string">"peter"</span>;</span><br><span class="line"><span class="keyword">const</span> a = &#123;</span><br><span class="line">  name: <span class="string">"tony"</span>,</span><br><span class="line">  c: (<span class="keyword">this</span>.name = <span class="string">"lily"</span>),</span><br><span class="line">  b: <span class="built_in">console</span>.log(<span class="string">"1"</span>, name), <span class="comment">//peter,函数里this指向global(node)/window ; 最先打印出</span></span><br><span class="line">  jiantou: <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//若注解c: (this.name = "lily"),this === &#123;&#125;,指的定义处上下文;否则&#123;this.name = "lily"&#125;</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//lily</span></span><br><span class="line">  &#125;,</span><br><span class="line">  putong: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">/* obj a &#123;</span></span><br><span class="line"><span class="comment">        name: 'tony',</span></span><br><span class="line"><span class="comment">        b: undefined,</span></span><br><span class="line"><span class="comment">        jiantou: [Function: jiantou],</span></span><br><span class="line"><span class="comment">        putong: [Function: putong]</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">      */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name); <span class="comment">//tony</span></span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">a.jiantou();</span><br><span class="line">a.putong();</span><br><span class="line"><span class="keyword">typeof</span> a.b; <span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-闭包，getter-amp-setter-函数"><a href="#5-闭包，getter-amp-setter-函数" class="headerlink" title="5. 闭包，getter&amp;setter 函数"></a>5. 闭包，getter&amp;setter 函数</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="comment">// private object inside constructor function</span></span><br><span class="line">  <span class="keyword">let</span> defaultlocation = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  <span class="keyword">let</span> defaultlocationpos = &#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;;</span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x, y;</span><br><span class="line">    defaultlocation(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// getter：读取属性的函数</span></span><br><span class="line">  <span class="comment">// setter：更改属性值的函数</span></span><br><span class="line">  <span class="comment">// (要加属性的object，属性的名字,get function)</span></span><br><span class="line">  <span class="comment">// defaultlocationpos是闭包，这样就可以被外部访问</span></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>, <span class="string">"defaultlocationpos"</span>, &#123;</span><br><span class="line">    <span class="keyword">get</span>: function () &#123;</span><br><span class="line">      <span class="keyword">return</span> defaultlocationpos;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 参数值是value 可进行validation check.</span></span><br><span class="line">    <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">      defaultlocation = value;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> circle = <span class="keyword">new</span> Circle(<span class="number">10</span>);</span><br><span class="line">circle.defaultlocationpos;</span><br><span class="line">circle.defaultlocationpos = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
-<p>箭头函数的 this 在定义时所在的对象，其实质是因为箭头函数没有自己的 this,用的是外层的 this。<br>普通函数的 this 是看的是它执行时候的调用对象; 箭头函数的 this 与它的执行没有关系，在定义的时候就决定了。</p>
+<p>抽象性的理解：hide the details, show the essentials<br>闭包和作用域：<br>一个函数在另一个函数里，里面的函数可以定义一些变量，但里函数执行结束后就会被垃圾回收 dies。<br>里函数可访问的变量：函数内定义的以及父级作用域。每次里函数被调用时，它重新激活并且被回收。<br>所以 scope{}是暂时的，但 closure 是永久的。<br>因为会作用到父级作用域的对象(defaultlocationpos)里(我们知道 object 可被在函数里改变)。</p>
+<h2 id="Prototypes"><a href="#Prototypes" class="headerlink" title="Prototypes"></a>Prototypes</h2><h3 id="1-继承性"><a href="#1-继承性" class="headerlink" title="1. 继承性"></a>1. 继承性</h3><p>prototype 可以想象成父级对象。<br>每一个对象都有 prototype，除了 objectBase(root object)。<br>x.proto 里的所有函数都是继承而来，但 x.proto 这种写法已经被弃用，使用 Object.getPrototypeOf(x)来获取父级继承函数。<br>当在对象里找不到函数时，js 会向上通过原型链不断寻找该函数。prototype 只是一个对象，里面涵盖了可被继承的所有方法。</p>
+<h3 id="2-多层继承"><a href="#2-多层继承" class="headerlink" title="2. 多层继承"></a>2. 多层继承</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> myArray = [];</span><br></pre></td></tr></table></figure>
+
+<p>我们发现 myArray 第一层的 proto 是 arrayBase 对象，里面包含了所有 array 方法，并且 myArray 源自(derive from)rrayBase 对象这个 prototype。我们在这一层又发现了一个 proto，第二层里面是 objectBase 的方法，这就是多层继承。<br>circle 的第一层 proto 是构造函数，这是因为所有 new 操作出来的实例都是继承了构造函数的属性方法。<br>第二层是 objectBase。</p>
+<h3 id="3-属性描述符"><a href="#3-属性描述符" class="headerlink" title="3. 属性描述符"></a>3. 属性描述符</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;<span class="attr">name</span>:<span class="string">"mosh"</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> objectBase = <span class="built_in">Object</span>.getPrototypeOf(person)</span><br><span class="line"><span class="keyword">let</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(objectBase, <span class="string">"toString"</span>)</span><br><span class="line"><span class="built_in">console</span>.log(descriptor)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> &#123;writable: true, enumerable: false, configurable: true, value: ƒ&#125;</span></span><br><span class="line"><span class="comment"> configurable: true 是否可以删除属性</span></span><br><span class="line"><span class="comment"> enumerable: false 直接遍历实例对象</span></span><br><span class="line"><span class="comment"> value: ƒ toString() 默认值</span></span><br><span class="line"><span class="comment"> writable: true 是否可以重写</span></span><br><span class="line"><span class="comment"> __proto__: Object</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 重新给对象定义属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person,<span class="string">"name"</span>,</span><br><span class="line">    &#123;</span><br><span class="line">        writable: <span class="literal">false</span>, <span class="comment">// 不能重写 &#123;name: "mosh"&#125;</span></span><br><span class="line">  enumerable: <span class="literal">false</span>, <span class="comment">// 不会在objects.keys()实例对象里出现</span></span><br><span class="line">  configureable：<span class="literal">false</span> <span class="comment">// 不可改变</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line">person.name = <span class="string">"john"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br></pre></td></tr></table></figure>
+
+<p>得到原型/父级的属性描述。</p>
+<h3 id="4-构造函数原型"><a href="#4-构造函数原型" class="headerlink" title="4. 构造函数原型"></a>4. 构造函数原型</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;<span class="attr">name</span>:<span class="string">"mosh"</span>&#125;;</span><br><span class="line">person.__proto__ === <span class="built_in">Object</span>.getPrototypeOf(person)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">person.__proto__ === <span class="built_in">Object</span>.prototype</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>对象实例.<strong><em>proto</em></strong> = 它的构造函数.prototype</p>
+<h3 id="5-在-prototype-里增加方法或属性"><a href="#5-在-prototype-里增加方法或属性" class="headerlink" title="5. 在 prototype 里增加方法或属性"></a>5. 在 prototype 里增加方法或属性</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//instance member</span></span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="comment">// 并且在实例里可以用prototype定义的方法</span></span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.move();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Circle &#123;radius: 1, draw: ƒ&#125;</span></span><br><span class="line"><span class="comment"> draw: ƒ ()</span></span><br><span class="line"><span class="comment"> radius: 1</span></span><br><span class="line"><span class="comment">__proto__:</span></span><br><span class="line"><span class="comment">  constructor: ƒ Circle(radius)</span></span><br><span class="line"><span class="comment">  __proto__: Object</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> c1 = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(c1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Prototype members</span></span><br><span class="line"><span class="comment">// 可把draw方法定义道prototype里面</span></span><br><span class="line"><span class="comment">// js引擎会一直向下一层寻找这个方法</span></span><br><span class="line"><span class="comment">// 并且在prototype可以用实力里定义的方法</span></span><br><span class="line">Circle.prototype.move = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.draw();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"move"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Circle &#123;radius: 1, draw: ƒ&#125;</span></span><br><span class="line"><span class="comment"> radius: 1</span></span><br><span class="line"><span class="comment">__proto__:</span></span><br><span class="line"><span class="comment">  move: ƒ ()</span></span><br><span class="line"><span class="comment">  constructor: ƒ Circle(radius)</span></span><br><span class="line"><span class="comment">  __proto__: Object</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-遍历实例和原型-members"><a href="#6-遍历实例和原型-members" class="headerlink" title="6. 遍历实例和原型 members"></a>6. 遍历实例和原型 members</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 只能遍历实例里的属性方法</span></span><br><span class="line"><span class="comment">// ["radius", "draw"]</span></span><br><span class="line"><span class="built_in">Object</span>.keys(c1);</span><br><span class="line"><span class="comment">// 遍历实例和原型所有的属性方法</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> c1) <span class="built_in">console</span>.log(key);</span><br><span class="line"><span class="comment">// 判断是否是实例的方法</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line">c1.hasOwnProperty(<span class="string">"move"</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">c1.hasOwnProperty(<span class="string">"draw"</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Prototypical-Inheritance"><a href="#Prototypical-Inheritance" class="headerlink" title="Prototypical Inheritance"></a>Prototypical Inheritance</h2><h3 id="创建原型继承"><a href="#创建原型继承" class="headerlink" title="创建原型继承"></a>创建原型继承</h3><p>处理重复代码问题</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span>(<span class="params">color</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.color = color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Shape.prototype.duplicate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"duplicate"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius, color</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// shape 是函数也是对象，用call改变this指向。实例c能使用Shape属性。</span></span><br><span class="line">  shape.call(<span class="keyword">this</span>, color);</span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认是Object.prototype</span></span><br><span class="line">Circle.prototype = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.prototype);</span><br><span class="line"><span class="comment">// 创建了一个继承于shapeBase的原型，并令circlebase继承于shapebase</span></span><br><span class="line">Circle.prototype = <span class="built_in">Object</span>.create(Shape.prototype);</span><br><span class="line"><span class="comment">// 但每次重新设置继承关系时，被设置的构造函数Circle会丢失之前的构造函数，指向继承的构造函数。</span></span><br><span class="line"><span class="comment">// 所以我们需要再重新设置为之前的构造函数</span></span><br><span class="line">Circle.prototype.constructor = Circle;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 令Square也继承于Shape</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Square</span>(<span class="params">size</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.size = size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Square.prototype = <span class="built_in">Object</span>.create(Shape.prototype);</span><br><span class="line">Square.prototype.constructor = Square;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承代码冗余，用function代替；代替上述行。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">  Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</span><br><span class="line">  Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> Circle(<span class="number">1</span>, <span class="string">"red"</span>);</span><br><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> Shape(<span class="string">"red"</span>);</span><br><span class="line"><span class="keyword">const</span> sq = <span class="keyword">new</span> Square(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> Circle &#123;radius: 1, draw: ƒ&#125;</span></span><br><span class="line"><span class="comment"> draw: ƒ ()</span></span><br><span class="line"><span class="comment"> radius: 1</span></span><br><span class="line"><span class="comment"> __proto__: Shape</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>c 继承于 Circle.prototype(circleBase), circleBase 继承 objectBase。s 亦然。</p>
+<h3 id="重新定义继承的-prototype-属性或方法"><a href="#重新定义继承的-prototype-属性或方法" class="headerlink" title="重新定义继承的 prototype 属性或方法"></a>重新定义继承的 prototype 属性或方法</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line">Circle.prototype.duplicate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"duplicate circle"</span>); <span class="comment">//duplicate circle</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Circle.prototype.duplicate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 强制先执行继承的Shape</span></span><br><span class="line">  Shape.prototype.deplicate.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"duplicate circle"</span>);</span><br><span class="line">  <span class="comment">/** duplicate</span></span><br><span class="line"><span class="comment">   duplicate circle</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> Circle(<span class="number">1</span>, <span class="string">"red"</span>);</span><br><span class="line">c.duplicate();</span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<p>js 引擎根据原型链找到第一个方法实现就中止</p>
+<h3 id="多态性-polymorphism"><a href="#多态性-polymorphism" class="headerlink" title="多态性 polymorphism"></a>多态性 polymorphism</h3><p>有多种不同的重新定义后的继承方法，这就是多态性</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将其他对象里的方法或属性加入到一个新对象中</span></span><br><span class="line"><span class="keyword">const</span> newObject = <span class="built_in">Object</span>.assign(</span><br><span class="line">  &#123;&#125;,</span><br><span class="line">  methodPropertyOfoneObject,</span><br><span class="line">  methodPropertyOfoneObject</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h3 id="1-Classes"><a href="#1-Classes" class="headerlink" title="1. Classes"></a>1. Classes</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle1</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(radius) &#123;</span><br><span class="line">    <span class="keyword">this</span>.radius = radius;</span><br><span class="line">    <span class="keyword">this</span>.move = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// instance method</span></span><br><span class="line">  draw() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// static method</span></span><br><span class="line">  <span class="keyword">static</span> parse(str) &#123;</span><br><span class="line">    <span class="keyword">const</span> radius = <span class="built_in">JSON</span>.parse(str).radius;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Circle(radius);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c1 = <span class="keyword">new</span> Circle1(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Circle1); <span class="comment">// funciton</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 静态方法不对实例c1使用，而对Circle class使用。返回一个Circle对象</span></span><br><span class="line"><span class="keyword">const</span> c2 = Circle.parse(<span class="string">"&#123;'radius':1&#125;"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Circle1 &#123;radius: 1, move: ƒ&#125;</span></span><br><span class="line"><span class="comment"> move: ƒ ()</span></span><br><span class="line"><span class="comment"> radius: 1</span></span><br><span class="line"><span class="comment"> __proto__:</span></span><br><span class="line"><span class="comment">  constructor: class Circle1</span></span><br><span class="line"><span class="comment">  draw: ƒ draw()</span></span><br><span class="line"><span class="comment">  __proto__: Object</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Hoisting-hoisted"><a href="#2-Hoisting-hoisted" class="headerlink" title="2. Hoisting/hoisted"></a>2. Hoisting/hoisted</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// function declaration is hoisted and is raised to top of the code</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// function expression is not hoisted</span></span><br><span class="line"><span class="keyword">const</span> sayGoodbye = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// class declaration is not hoisted</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-this-keyword"><a href="#3-this-keyword" class="headerlink" title="3. this keyword"></a>3. this keyword</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> Circle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c1 = <span class="keyword">new</span> Circle();</span><br><span class="line"><span class="comment">// method call (c1)</span></span><br><span class="line">c1.draw();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> draw = c1.draw;</span><br><span class="line"><span class="comment">// function call reference (window);use strict 情况下undefined</span></span><br><span class="line">draw();</span><br><span class="line"></span><br><span class="line"><span class="comment">// class 情况下默认是strict模式</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-private-members-in-class"><a href="#4-private-members-in-class" class="headerlink" title="4. private members in class"></a>4. private members in class</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 为了隐藏一些属性对函数或者类外</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个唯一的值，不能直接访问这个属性</span></span><br><span class="line"><span class="keyword">const</span> _radius = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle1</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(radius) &#123;</span><br><span class="line">    <span class="keyword">this</span>[_radius] = radius;</span><br><span class="line">  &#125;</span><br><span class="line">  [_draw]() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 ]]></content>
       <tags>
-        <tag>react</tag>
-        <tag>this</tag>
+        <tag>js</tag>
       </tags>
   </entry>
 </search>

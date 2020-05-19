@@ -290,6 +290,211 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/05/19/5.19/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kyle Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kyle's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/19/5.19/" itemprop="url">Javascript语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-19T01:23:48+10:00">
+                2020-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/19/5.19/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/19/5.19/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Javascript-Adavanced"><a href="#Javascript-Adavanced" class="headerlink" title="Javascript Adavanced"></a>Javascript Adavanced</h1><p>** OOP **</p>
+<p>encapsulation 封装性，将属性和方法放在同一对象里。<br>abstraction 抽象性，简易接口，减少改变的影响。<br>inheritance 继承性，减少重用代码。<br>polymorphism 多态性。</p>
+<h2 id="Objects"><a href="#Objects" class="headerlink" title="Objects"></a>Objects</h2><h3 id="1-创建对象的两种方式"><a href="#1-创建对象的两种方式" class="headerlink" title="1. 创建对象的两种方式"></a>1. 创建对象的两种方式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// factory function</span></span><br><span class="line"><span class="comment">// 当创建多个的对象时，使用factory函数返回一个对象, 减少重用</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createCircle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    radius,</span><br><span class="line">    draw: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">"draw2"</span>);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> circle2 = createCircle(<span class="number">2</span>);</span><br><span class="line">circle2.draw();</span><br><span class="line"></span><br><span class="line"><span class="comment">// construction function</span></span><br><span class="line"><span class="comment">// 用this来代替调用者</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this 代指那个对象，对对象设置属性，而非返回一个对象。指向调用者。</span></span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// new操作符会有三步</span></span><br><span class="line"><span class="comment">// 1.new操作符会创建一个空的对象 2.并把this指向这个对象，this默认指向global/window</span></span><br><span class="line"><span class="comment">// 3.返回这个对象，不用return</span></span><br><span class="line"><span class="keyword">const</span> constructor1 = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-constructor-属性"><a href="#2-constructor-属性" class="headerlink" title="2. constructor 属性"></a>2. constructor 属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打印出function Object</span></span><br><span class="line"><span class="comment">// 原因是当时用let x = &#123;&#125;来构造函数时，内部是调用let x = new Object()来构造的</span></span><br><span class="line"><span class="comment">// String()，Boolean()也相同</span></span><br><span class="line"><span class="built_in">console</span>.log(circle.constructor);</span><br><span class="line"><span class="comment">// 打印出function Circle</span></span><br><span class="line"><span class="built_in">console</span>.log(constructor1.constructor);</span><br><span class="line"></span><br><span class="line"><span class="comment">// function 也是对象，所以也可使用constructor属性，会得到Function 等同于如下。</span></span><br><span class="line"><span class="keyword">const</span> Circle = <span class="keyword">new</span> <span class="built_in">Function</span>(</span><br><span class="line">  <span class="string">"radius"</span>,</span><br><span class="line">  <span class="string">`</span></span><br><span class="line"><span class="string">    this.radius = radius;</span></span><br><span class="line"><span class="string">    this.draw = function()&#123;</span></span><br><span class="line"><span class="string">        console.log("draw")</span></span><br><span class="line"><span class="string">&#125;`</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="comment">// (object:target of this, argument)</span></span><br><span class="line">Circle.call(&#123;&#125;, <span class="number">1</span>);</span><br><span class="line"><span class="comment">// arguments in array</span></span><br><span class="line">Circle.apply(&#123;&#125;, []);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-数据类型以及原理"><a href="#3-数据类型以及原理" class="headerlink" title="3. 数据类型以及原理"></a>3. 数据类型以及原理</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// value type(primitive type): number string beeloean symbol undefined null</span></span><br><span class="line"><span class="comment">// reference type: object function array</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> x = &#123; <span class="attr">value</span>: <span class="number">20</span> &#125;;</span><br><span class="line"><span class="keyword">let</span> y = x;</span><br><span class="line"><span class="built_in">console</span>.log(y); <span class="comment">// &#123;value : 20&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>原因是 reference type 的值存在 memory 里，变量是引用其地址。<br>当执行 let y = x 时， y 保存的也是{value : 20}的地址。但对于原始值类型，x 值改变，y 值不会变。<br>primitives are copied by their value, objects are copied by there reference</p>
+<h3 id="4-增加，删除，遍历属性或方法"><a href="#4-增加，删除，遍历属性或方法" class="headerlink" title="4. 增加，删除，遍历属性或方法"></a>4. 增加，删除，遍历属性或方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对象可以直接加或者删除属性或者方法</span></span><br><span class="line">circle.location = &#123; <span class="attr">x</span>: <span class="number">1</span> &#125;;</span><br><span class="line">circle[<span class="string">"location"</span>] = &#123; <span class="attr">c</span>: <span class="number">1</span> &#125;;</span><br><span class="line"><span class="keyword">delete</span> [circle.location];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历对象的属性和值</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> circle) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> circle[key] !== <span class="string">"function"</span>) <span class="built_in">console</span>.log(key, circle[key]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 得到keys</span></span><br><span class="line"><span class="keyword">const</span> keys = <span class="built_in">Object</span>.keys(Circle);</span><br><span class="line"><span class="built_in">console</span>.log(keys);</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-闭包，getter-amp-setter-函数"><a href="#5-闭包，getter-amp-setter-函数" class="headerlink" title="5. 闭包，getter&amp;setter 函数"></a>5. 闭包，getter&amp;setter 函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="comment">// private object inside constructor function</span></span><br><span class="line">  <span class="keyword">let</span> defaultlocation = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  <span class="keyword">let</span> defaultlocationpos = &#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;;</span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> x, y;</span><br><span class="line">    defaultlocation(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// getter：读取属性的函数</span></span><br><span class="line">  <span class="comment">// setter：更改属性值的函数</span></span><br><span class="line">  <span class="comment">// (要加属性的object，属性的名字,get function)</span></span><br><span class="line">  <span class="comment">// defaultlocationpos是闭包，这样就可以被外部访问</span></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(<span class="keyword">this</span>, <span class="string">"defaultlocationpos"</span>, &#123;</span><br><span class="line">    <span class="keyword">get</span>: function () &#123;</span><br><span class="line">      <span class="keyword">return</span> defaultlocationpos;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 参数值是value 可进行validation check.</span></span><br><span class="line">    <span class="keyword">set</span>: function (value) &#123;</span><br><span class="line">      defaultlocation = value;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> circle = <span class="keyword">new</span> Circle(<span class="number">10</span>);</span><br><span class="line">circle.defaultlocationpos;</span><br><span class="line">circle.defaultlocationpos = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<p>抽象性的理解：hide the details, show the essentials<br>闭包和作用域：<br>一个函数在另一个函数里，里面的函数可以定义一些变量，但里函数执行结束后就会被垃圾回收 dies。<br>里函数可访问的变量：函数内定义的以及父级作用域。每次里函数被调用时，它重新激活并且被回收。<br>所以 scope{}是暂时的，但 closure 是永久的。<br>因为会作用到父级作用域的对象(defaultlocationpos)里(我们知道 object 可被在函数里改变)。</p>
+<h2 id="Prototypes"><a href="#Prototypes" class="headerlink" title="Prototypes"></a>Prototypes</h2><h3 id="1-继承性"><a href="#1-继承性" class="headerlink" title="1. 继承性"></a>1. 继承性</h3><p>prototype 可以想象成父级对象。<br>每一个对象都有 prototype，除了 objectBase(root object)。<br>x.proto 里的所有函数都是继承而来，但 x.proto 这种写法已经被弃用，使用 Object.getPrototypeOf(x)来获取父级继承函数。<br>当在对象里找不到函数时，js 会向上通过原型链不断寻找该函数。prototype 只是一个对象，里面涵盖了可被继承的所有方法。</p>
+<h3 id="2-多层继承"><a href="#2-多层继承" class="headerlink" title="2. 多层继承"></a>2. 多层继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myArray = [];</span><br></pre></td></tr></table></figure>
+
+<p>我们发现 myArray 第一层的 proto 是 arrayBase 对象，里面包含了所有 array 方法，并且 myArray 源自(derive from)rrayBase 对象这个 prototype。我们在这一层又发现了一个 proto，第二层里面是 objectBase 的方法，这就是多层继承。<br>circle 的第一层 proto 是构造函数，这是因为所有 new 操作出来的实例都是继承了构造函数的属性方法。<br>第二层是 objectBase。</p>
+<h3 id="3-属性描述符"><a href="#3-属性描述符" class="headerlink" title="3. 属性描述符"></a>3. 属性描述符</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;<span class="attr">name</span>:<span class="string">"mosh"</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> objectBase = <span class="built_in">Object</span>.getPrototypeOf(person)</span><br><span class="line"><span class="keyword">let</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(objectBase, <span class="string">"toString"</span>)</span><br><span class="line"><span class="built_in">console</span>.log(descriptor)</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> &#123;writable: true, enumerable: false, configurable: true, value: ƒ&#125;</span></span><br><span class="line"><span class="comment"> configurable: true 是否可以删除属性</span></span><br><span class="line"><span class="comment"> enumerable: false 直接遍历实例对象</span></span><br><span class="line"><span class="comment"> value: ƒ toString() 默认值</span></span><br><span class="line"><span class="comment"> writable: true 是否可以重写</span></span><br><span class="line"><span class="comment"> __proto__: Object</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 重新给对象定义属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person,<span class="string">"name"</span>,</span><br><span class="line">    &#123;</span><br><span class="line">        writable: <span class="literal">false</span>, <span class="comment">// 不能重写 &#123;name: "mosh"&#125;</span></span><br><span class="line">  enumerable: <span class="literal">false</span>, <span class="comment">// 不会在objects.keys()实例对象里出现</span></span><br><span class="line">  configureable：<span class="literal">false</span> <span class="comment">// 不可改变</span></span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line">person.name = <span class="string">"john"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person);</span><br></pre></td></tr></table></figure>
+
+<p>得到原型/父级的属性描述。</p>
+<h3 id="4-构造函数原型"><a href="#4-构造函数原型" class="headerlink" title="4. 构造函数原型"></a>4. 构造函数原型</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;<span class="attr">name</span>:<span class="string">"mosh"</span>&#125;;</span><br><span class="line">person.__proto__ === <span class="built_in">Object</span>.getPrototypeOf(person)</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">person.__proto__ === <span class="built_in">Object</span>.prototype</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>对象实例.<strong><em>proto</em></strong> = 它的构造函数.prototype</p>
+<h3 id="5-在-prototype-里增加方法或属性"><a href="#5-在-prototype-里增加方法或属性" class="headerlink" title="5. 在 prototype 里增加方法或属性"></a>5. 在 prototype 里增加方法或属性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//instance member</span></span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="comment">// 并且在实例里可以用prototype定义的方法</span></span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.move();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Circle &#123;radius: 1, draw: ƒ&#125;</span></span><br><span class="line"><span class="comment"> draw: ƒ ()</span></span><br><span class="line"><span class="comment"> radius: 1</span></span><br><span class="line"><span class="comment">__proto__:</span></span><br><span class="line"><span class="comment">  constructor: ƒ Circle(radius)</span></span><br><span class="line"><span class="comment">  __proto__: Object</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">const</span> c1 = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(c1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Prototype members</span></span><br><span class="line"><span class="comment">// 可把draw方法定义道prototype里面</span></span><br><span class="line"><span class="comment">// js引擎会一直向下一层寻找这个方法</span></span><br><span class="line"><span class="comment">// 并且在prototype可以用实力里定义的方法</span></span><br><span class="line">Circle.prototype.move = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.draw();</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"move"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Circle &#123;radius: 1, draw: ƒ&#125;</span></span><br><span class="line"><span class="comment"> radius: 1</span></span><br><span class="line"><span class="comment">__proto__:</span></span><br><span class="line"><span class="comment">  move: ƒ ()</span></span><br><span class="line"><span class="comment">  constructor: ƒ Circle(radius)</span></span><br><span class="line"><span class="comment">  __proto__: Object</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-遍历实例和原型-members"><a href="#6-遍历实例和原型-members" class="headerlink" title="6. 遍历实例和原型 members"></a>6. 遍历实例和原型 members</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只能遍历实例里的属性方法</span></span><br><span class="line"><span class="comment">// ["radius", "draw"]</span></span><br><span class="line"><span class="built_in">Object</span>.keys(c1);</span><br><span class="line"><span class="comment">// 遍历实例和原型所有的属性方法</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> c1) <span class="built_in">console</span>.log(key);</span><br><span class="line"><span class="comment">// 判断是否是实例的方法</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line">c1.hasOwnProperty(<span class="string">"move"</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">c1.hasOwnProperty(<span class="string">"draw"</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="Prototypical-Inheritance"><a href="#Prototypical-Inheritance" class="headerlink" title="Prototypical Inheritance"></a>Prototypical Inheritance</h2><h3 id="创建原型继承"><a href="#创建原型继承" class="headerlink" title="创建原型继承"></a>创建原型继承</h3><p>处理重复代码问题</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span>(<span class="params">color</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.color = color;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Shape.prototype.duplicate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"duplicate"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius, color</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// shape 是函数也是对象，用call改变this指向。实例c能使用Shape属性。</span></span><br><span class="line">  shape.call(<span class="keyword">this</span>, color);</span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认是Object.prototype</span></span><br><span class="line">Circle.prototype = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.prototype);</span><br><span class="line"><span class="comment">// 创建了一个继承于shapeBase的原型，并令circlebase继承于shapebase</span></span><br><span class="line">Circle.prototype = <span class="built_in">Object</span>.create(Shape.prototype);</span><br><span class="line"><span class="comment">// 但每次重新设置继承关系时，被设置的构造函数Circle会丢失之前的构造函数，指向继承的构造函数。</span></span><br><span class="line"><span class="comment">// 所以我们需要再重新设置为之前的构造函数</span></span><br><span class="line">Circle.prototype.constructor = Circle;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 令Square也继承于Shape</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Square</span>(<span class="params">size</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.size = size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Square.prototype = <span class="built_in">Object</span>.create(Shape.prototype);</span><br><span class="line">Square.prototype.constructor = Square;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 继承代码冗余，用function代替；代替上述行。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">Child, Parent</span>) </span>&#123;</span><br><span class="line">  Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</span><br><span class="line">  Child.prototype.constructor = Child;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> Circle(<span class="number">1</span>, <span class="string">"red"</span>);</span><br><span class="line"><span class="keyword">const</span> s = <span class="keyword">new</span> Shape(<span class="string">"red"</span>);</span><br><span class="line"><span class="keyword">const</span> sq = <span class="keyword">new</span> Square(<span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> Circle &#123;radius: 1, draw: ƒ&#125;</span></span><br><span class="line"><span class="comment"> draw: ƒ ()</span></span><br><span class="line"><span class="comment"> radius: 1</span></span><br><span class="line"><span class="comment"> __proto__: Shape</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>c 继承于 Circle.prototype(circleBase), circleBase 继承 objectBase。s 亦然。</p>
+<h3 id="重新定义继承的-prototype-属性或方法"><a href="#重新定义继承的-prototype-属性或方法" class="headerlink" title="重新定义继承的 prototype 属性或方法"></a>重新定义继承的 prototype 属性或方法</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Circle.prototype.duplicate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"duplicate circle"</span>); <span class="comment">//duplicate circle</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Circle.prototype.duplicate = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 强制先执行继承的Shape</span></span><br><span class="line">  Shape.prototype.deplicate.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"duplicate circle"</span>);</span><br><span class="line">  <span class="comment">/** duplicate</span></span><br><span class="line"><span class="comment">   duplicate circle</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> Circle(<span class="number">1</span>, <span class="string">"red"</span>);</span><br><span class="line">c.duplicate();</span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<p>js 引擎根据原型链找到第一个方法实现就中止</p>
+<h3 id="多态性-polymorphism"><a href="#多态性-polymorphism" class="headerlink" title="多态性 polymorphism"></a>多态性 polymorphism</h3><p>有多种不同的重新定义后的继承方法，这就是多态性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将其他对象里的方法或属性加入到一个新对象中</span></span><br><span class="line"><span class="keyword">const</span> newObject = <span class="built_in">Object</span>.assign(</span><br><span class="line">  &#123;&#125;,</span><br><span class="line">  methodPropertyOfoneObject,</span><br><span class="line">  methodPropertyOfoneObject</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h2><h3 id="1-Classes"><a href="#1-Classes" class="headerlink" title="1. Classes"></a>1. Classes</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle1</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(radius) &#123;</span><br><span class="line">    <span class="keyword">this</span>.radius = radius;</span><br><span class="line">    <span class="keyword">this</span>.move = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// instance method</span></span><br><span class="line">  draw() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"draw"</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// static method</span></span><br><span class="line">  <span class="keyword">static</span> parse(str) &#123;</span><br><span class="line">    <span class="keyword">const</span> radius = <span class="built_in">JSON</span>.parse(str).radius;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> Circle(radius);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c1 = <span class="keyword">new</span> Circle1(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Circle1); <span class="comment">// funciton</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 静态方法不对实例c1使用，而对Circle class使用。返回一个Circle对象</span></span><br><span class="line"><span class="keyword">const</span> c2 = Circle.parse(<span class="string">"&#123;'radius':1&#125;"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">Circle1 &#123;radius: 1, move: ƒ&#125;</span></span><br><span class="line"><span class="comment"> move: ƒ ()</span></span><br><span class="line"><span class="comment"> radius: 1</span></span><br><span class="line"><span class="comment"> __proto__:</span></span><br><span class="line"><span class="comment">  constructor: class Circle1</span></span><br><span class="line"><span class="comment">  draw: ƒ draw()</span></span><br><span class="line"><span class="comment">  __proto__: Object</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Hoisting-hoisted"><a href="#2-Hoisting-hoisted" class="headerlink" title="2. Hoisting/hoisted"></a>2. Hoisting/hoisted</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function declaration is hoisted and is raised to top of the code</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="comment">// function expression is not hoisted</span></span><br><span class="line"><span class="keyword">const</span> sayGoodbye = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// class declaration is not hoisted</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-this-keyword"><a href="#3-this-keyword" class="headerlink" title="3. this keyword"></a>3. this keyword</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Circle = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.draw = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> c1 = <span class="keyword">new</span> Circle();</span><br><span class="line"><span class="comment">// method call (c1)</span></span><br><span class="line">c1.draw();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> draw = c1.draw;</span><br><span class="line"><span class="comment">// function call reference (window);use strict 情况下undefined</span></span><br><span class="line">draw();</span><br><span class="line"></span><br><span class="line"><span class="comment">// class 情况下默认是strict模式</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-private-members-in-class"><a href="#4-private-members-in-class" class="headerlink" title="4. private members in class"></a>4. private members in class</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为了隐藏一些属性对函数或者类外</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个唯一的值，不能直接访问这个属性</span></span><br><span class="line"><span class="keyword">const</span> _radius = <span class="built_in">Symbol</span>();</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle1</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(radius) &#123;</span><br><span class="line">    <span class="keyword">this</span>[_radius] = radius;</span><br><span class="line">  &#125;</span><br><span class="line">  [_draw]() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> c = <span class="keyword">new</span> Circle(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/23/4.23/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1350,7 +1555,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/06/4.10/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/10/4.10/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kyle Yang">
@@ -1369,7 +1574,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/06/4.10/" itemprop="url">express路由</a></h1>
+                <a class="post-title-link" href="/2020/04/10/4.10/" itemprop="url">this</a></h1>
         
 
         <div class="post-meta">
@@ -1381,8 +1586,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-06T01:23:48+10:00">
-                2020-04-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-10T01:23:48+10:00">
+                2020-04-10
               </time>
             
 
@@ -1400,8 +1605,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/04/06/4.10/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/06/4.10/" itemprop="commentCount"></span>
+                <a href="/2020/04/10/4.10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/10/4.10/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1879,187 +2084,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/04/04/4.4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kyle Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kyle's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/04/4.4/" itemprop="url">react this keyword</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-04T01:23:48+11:00">
-                2020-04-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/04/04/4.4/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/04/4.4/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  951
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>SQL 中 join 操作后面的 on 与 where 的区别<br>得到 on 条件是在 left join 之前先进行条件筛选，而后才对两个表格 join 操作，on 比 where 起作用更早，先根据 on 条件进行多表的连接操作，生成一个临时表再通过 where 来筛选</p>
-</li>
-<li><p>react 什么时候 render？<br>如果父组件重新渲染，则会发生重新渲染（可能包括新道具）<br>如果调用 this.setState（），将安排重新渲染。</p>
-</li>
-<li><p>function 的三种类型<br>构造函数：是用于使用 new 关键字创建具有相同原型的新对象的函数</p>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">"amitai"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(newPerson.name); <span class="comment">// ‘amitai’this === newPerson</span></span><br><span class="line"><span class="comment">//我们使用它来设置 Person 的实例。调用构造函数时，this.name 的值为“ amitai”。并且对象 newPerson 具有值为 amitai 的属性名称。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//普通函数：如果函数不是对象的属性，则它是“普通函数”。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// undefined in “strict mode” or the global variable</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方法：方法是一个定义为对象属性的函数。</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">person.firstName = <span class="string">"Amitai"</span>;</span><br><span class="line">person.lastName = <span class="string">"Barnea"</span>; <span class="comment">// 在方法里，this 用于引用对象的其他属性</span></span><br><span class="line"><span class="built_in">console</span>.log(person.fullName()); <span class="comment">// ‘Amitai Barnea’</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//对象方法和内嵌函数的 this 指向</span></span><br><span class="line"><span class="comment">//与变量不同，this 关键字没有作用域，并且嵌套函数不继承其调用者的 this 值,会被当做为普通函数指向 window/global。</span></span><br><span class="line"><span class="comment">//如果将嵌套函数作为方法调用，则其 this 值为在其上调用的对象.</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  fullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//person</span></span><br><span class="line">    <span class="keyword">var</span> calcFullName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">//window/global</span></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//把返回值换成 this.firstName + " " + this.lastName 会正常打印</span></span><br><span class="line">    <span class="keyword">return</span> calcFullName();</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">person.firstName = <span class="string">"Amitai"</span>;</span><br><span class="line">person.lastName = <span class="string">"Barnea"</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person.fullName()); <span class="comment">// Undefined!!!</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><p>react 怎么操作 dom？<br>大部分情况下你不需要去操作 DOM 元素，你只需要通过设置组件的状态值（setState），react 会通过状态值去渲染组 UI。但是可能在某些情况下你确实需要直接操作 DOM。<br>react 是从 jsx 到虚拟 dom 再从虚拟 dom 生成 dom 的，所以需要在页面生成 DOM 后才能去操作 DOM 节点的，那么很容易让我们相到 react 的几个生命周期，componentDidMount（）就是在组件挂载之后调用的一个生命周期，这时已经生成了 DOM 节点，所以，可以在这个生命周期里 操作 DOM！</p>
-</li>
-<li><p>为什么在 componentWillReceiveProps 在中调用 this.setState() 将不会引起第二次渲染？如果不重新渲染，那么获取到的新数据怎么更新到视图上去？</p>
-</li>
-</ol>
-<p>props 有两种调用方式，第一，直接使用<br>这种方式，父组件改变 props 后，子组件重新渲染，由于直接使用的 props，所以我们不需要做什么就可以正常显示最新的 props</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.props.someThings&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>第二、转换成自己的 state<br>由于我们使用的是 state，所以每当父组件每次重新传递 props 时，我们需要重新处理下，将 props 转换成自己的 state，这里就用到了 componentWillReceiveProps。为什么不会二次渲染是这样的：每次子组件接收到新的 props，都会重新渲染一次，除非你做了处理来阻止（比如使用：shouldComponentUpdate），但是你可以在这次渲染前，根据新的 props 更新 state，更新 state 也会触发一次重新渲染，但 react 不会这么傻，所以只会渲染一次，这对应用的性能是有利的。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      someThings: props.someThings,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">someThings</span>: nextProps.someThings &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;this.state.someThings&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2115,7 +2139,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2178,7 +2202,7 @@
     <h6 class="widget-title"></h6>
     <div id="myCanvasContainer" class="widget tagcloud">
         <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CICD/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVC/" rel="tag">MVC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPA/" rel="tag">SPA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scss/" rel="tag">Scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/" rel="tag">async</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async-await/" rel="tag">async-await</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/" rel="tag">axios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aysnc/" rel="tag">aysnc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bable/" rel="tag">bable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-box-model/" rel="tag">css box model</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex/" rel="tag">css flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/" rel="tag">css flex box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-float/" rel="tag">css float</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/" rel="tag">css grid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-positioning/" rel="tag">css positioning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/" rel="tag">dom</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event-loop/" rel="tag">event loop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/" rel="tag">express</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsx/" rel="tag">jsx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lifecycle/" rel="tag">lifecycle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/" rel="tag">middleware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/" rel="tag">mongoose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/" rel="tag">project</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/promise/" rel="tag">promise</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react hooks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/" rel="tag">react-router</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux-middleware/" rel="tag">redux middleware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful-api/" rel="tag">restful api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/" rel="tag">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tdd/" rel="tag">tdd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/" rel="tag">this</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unsw/" rel="tag">unsw</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtual-dom/" rel="tag">virtual dom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag">异步</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CICD/" rel="tag">CICD</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVC/" rel="tag">MVC</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPA/" rel="tag">SPA</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Scss/" rel="tag">Scss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/" rel="tag">ajax</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async/" rel="tag">async</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/async-await/" rel="tag">async-await</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/axios/" rel="tag">axios</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/aysnc/" rel="tag">aysnc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/bable/" rel="tag">bable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-box-model/" rel="tag">css box model</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex/" rel="tag">css flex</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-flex-box/" rel="tag">css flex box</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-float/" rel="tag">css float</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-grid/" rel="tag">css grid</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/css-positioning/" rel="tag">css positioning</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/dom/" rel="tag">dom</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/event-loop/" rel="tag">event loop</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/" rel="tag">express</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/" rel="tag">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/http/" rel="tag">http</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/" rel="tag">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jquery/" rel="tag">jquery</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/" rel="tag">js</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jsx/" rel="tag">jsx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/lifecycle/" rel="tag">lifecycle</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/middleware/" rel="tag">middleware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongodb/" rel="tag">mongodb</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mongoose/" rel="tag">mongoose</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node/" rel="tag">node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/project/" rel="tag">project</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/promise/" rel="tag">promise</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/" rel="tag">react</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-hooks/" rel="tag">react hooks</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-router/" rel="tag">react-router</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux/" rel="tag">redux</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redux-middleware/" rel="tag">redux middleware</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/restful-api/" rel="tag">restful api</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sass/" rel="tag">sass</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tdd/" rel="tag">tdd</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/this/" rel="tag">this</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/unsw/" rel="tag">unsw</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/virtual-dom/" rel="tag">virtual dom</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webpack/" rel="tag">webpack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag">异步</a><span class="tag-list-count">1</span></li></ul>
         </canvas>
     </div>
 </div>
@@ -2216,7 +2240,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18.3k</span>
+    <span title="Site words total count">20.3k</span>
   
   
 
