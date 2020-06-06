@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/05/30/5.30/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/06/05/6.5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kyle Yang">
@@ -309,7 +309,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/30/5.30/" itemprop="url">Leetcode array</a></h1>
+                <a class="post-title-link" href="/2020/06/05/6.5/" itemprop="url">css总结</a></h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-30T01:23:48+10:00">
-                2020-05-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-05T01:23:48+10:00">
+                2020-06-05
               </time>
             
 
@@ -340,187 +340,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/05/30/5.30/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/30/5.30/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  849
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="125-回文数"><a href="#125-回文数" class="headerlink" title="125 回文数"></a>125 回文数</h3><p>arr.slice() 切割数组 reverse() 翻转数组<br>正则表达式 去除标点符号及空格 str.replace(/[\W_]/g,””)<br>字符串首位各一个指针遍历字符串 while(){ left++;right—}<br>Time complex: On 一个 while 循环遍历字符串。<br>space: O1 常量加减</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  s = s.toUpperCase().replace(<span class="regexp">/[\W_]/g</span>, <span class="string">""</span>);</span><br><span class="line">  <span class="keyword">var</span> left = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> right = s.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">    <span class="keyword">if</span> (s[left] != s[right]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    left++;</span><br><span class="line">    right--;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="26-数组中重复的数字"><a href="#26-数组中重复的数字" class="headerlink" title="26 数组中重复的数字"></a>26 数组中重复的数字</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> findRepeatNumber = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    obj[nums[i]] = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    obj[nums[i]] += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> temp = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj[key] &gt; temp) temp = obj[key];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj[key] === temp) <span class="keyword">return</span> key;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>很笨的方法，继续努力吧。。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.max(...Object.values(obj).sort()) <span class="comment">//返回obj里value最大的数值</span></span><br><span class="line"><span class="keyword">const</span> a =[…<span class="keyword">new</span> <span class="built_in">Set</span>(arr)] <span class="comment">// 数组去重</span></span><br><span class="line"><span class="comment">// 求最大 reduce</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,curr</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.max(prev,curr);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>总结一些 object 的常用方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Object.keys()方法</span></span><br><span class="line"><span class="comment">// 输出对象中值大于2的key的数组 x是每一个元素</span></span><br><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>, <span class="attr">d</span>: <span class="number">4</span> &#125;;</span><br><span class="line"><span class="built_in">Object</span>.keys(data).filter(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> data[x] &gt; <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.values()方法</span></span><br><span class="line"><span class="comment">// 返回数组的成员顺序，属性名为数值的属性，是按照数值大小，从小到大遍历的，因此返回的顺序是b、c、a。</span></span><br><span class="line"><span class="comment">// Object.values只返回对象自身的可遍历属性。</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">100</span>: <span class="string">"a"</span>, <span class="number">2</span>: <span class="string">"b"</span>, <span class="number">7</span>: <span class="string">"c"</span> &#125;;</span><br><span class="line"><span class="built_in">Object</span>.values(obj);</span><br><span class="line"><span class="comment">// ["b", "c", "a"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.hasOwnProperty()方法</span></span><br><span class="line"><span class="comment">// 判断对象自身属性中是否具有指定的属性。</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name: <span class="string">"fei"</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">"name"</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">"toString"</span>)); <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.create()</span></span><br><span class="line"><span class="comment">// Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。</span></span><br><span class="line"><span class="keyword">var</span> parent = &#123;</span><br><span class="line">  x: <span class="number">1</span>,</span><br><span class="line">  y: <span class="number">1</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> child = <span class="built_in">Object</span>.create(parent, &#123;</span><br><span class="line">  z: &#123;</span><br><span class="line">    <span class="comment">// z会成为创建对象的属性</span></span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="string">"newAdd"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(child); <span class="comment">//&#123; z: "newAdd"&#125; z: "newAdd"__proto__: x: 1y: 1__proto__: Object</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="二维数组中的查找"><a href="#二维数组中的查找" class="headerlink" title="二维数组中的查找"></a>二维数组中的查找</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//84 ms</span></span><br><span class="line"><span class="keyword">var</span> findNumberIn2DArray = <span class="function"><span class="keyword">function</span> (<span class="params">matrix, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> row <span class="keyword">in</span> matrix) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> num <span class="keyword">in</span> matrix[row]) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[row][num] == target) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 76 ms</span></span><br><span class="line"><span class="keyword">var</span> findNumberIn2DArray = <span class="function"><span class="keyword">function</span> (<span class="params">matrix, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> row <span class="keyword">in</span> matrix) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[row].indexOf(target) === <span class="number">-1</span>) count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (count === matrix.length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 64 ms, 在所有 JavaScript 提交中击败了93.60%的用户</span></span><br><span class="line"><span class="keyword">var</span> findNumberIn2DArray = <span class="function"><span class="keyword">function</span> (<span class="params">matrix, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (matrix.length == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> rowLength = matrix.length;</span><br><span class="line">  <span class="keyword">var</span> columnLength = matrix[<span class="number">0</span>].length; <span class="comment">//从左下角开始往上面进行遍历</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> row = rowLength - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> column = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (row &gt;= <span class="number">0</span> &amp;&amp; column &lt; columnLength) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[row][column] &lt; target) &#123;</span><br><span class="line">      column++;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (matrix[row][column] &gt; target) &#123;</span><br><span class="line">      row--;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>二叉树：一棵二叉树最多只能有两个分支结点</p>
-<h3 id="4-替换空格"><a href="#4-替换空格" class="headerlink" title="4.替换空格"></a>4.替换空格</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> replaceSpace = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> s.replace(<span class="regexp">/\s/g</span>, <span class="string">"%20"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h3 id="50-第一个只出现一次的字符"><a href="#50-第一个只出现一次的字符" class="headerlink" title="50. 第一个只出现一次的字符"></a>50. 第一个只出现一次的字符</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;character&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">//248 ms</span></span><br><span class="line"><span class="keyword">var</span> firstUniqChar = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> index <span class="keyword">in</span> s) &#123;</span><br><span class="line">    <span class="keyword">if</span> (s.indexOf(s[index]) === s.lastIndexOf(s[index])) &#123;</span><br><span class="line">      <span class="keyword">return</span> s[index];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">" "</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 88 ms, 在所有 JavaScript 提交中击败了97.67%的用户</span></span><br><span class="line"><span class="comment">// O(1) space</span></span><br><span class="line"><span class="keyword">var</span> firstUniqChar = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">26</span>).fill(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> c <span class="keyword">of</span> s) &#123;</span><br><span class="line">    arr[c.charCodeAt() - <span class="number">97</span>] += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> c <span class="keyword">of</span> s) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[c.charCodeAt() - <span class="number">97</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">" "</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/05/30/6.5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Kyle Yang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Kyle's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/30/6.5/" itemprop="url">css总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-30T01:23:48+10:00">
-                2020-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/05/30/6.5/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/30/6.5/" itemprop="commentCount"></span>
+                <a href="/2020/06/05/6.5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/05/6.5/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -664,6 +485,185 @@
 <p><a href="https://scarletsky.github.io/2016/01/23/simple-flexbox/" target="_blank" rel="noopener">https://scarletsky.github.io/2016/01/23/simple-flexbox/</a></p>
 <h3 id="css-选择器"><a href="#css-选择器" class="headerlink" title="css 选择器"></a>css 选择器</h3><p><a href="https://www.w3school.com.cn/css/css_selector_type.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/css/css_selector_type.asp</a></p>
 <h3 id="css-position"><a href="#css-position" class="headerlink" title="css position"></a>css position</h3><p><a href="https://www.w3school.com.cn/css/css_positioning.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/css/css_positioning.asp</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/05/30/5.30/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Kyle Yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/01/03/lUdGAs.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Kyle's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/05/30/5.30/" itemprop="url">Leetcode array</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-30T01:23:48+10:00">
+                2020-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/05/30/5.30/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/30/5.30/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  849
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="125-回文数"><a href="#125-回文数" class="headerlink" title="125 回文数"></a>125 回文数</h3><p>arr.slice() 切割数组 reverse() 翻转数组<br>正则表达式 去除标点符号及空格 str.replace(/[\W_]/g,””)<br>字符串首位各一个指针遍历字符串 while(){ left++;right—}<br>Time complex: On 一个 while 循环遍历字符串。<br>space: O1 常量加减</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;boolean&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> isPalindrome = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  s = s.toUpperCase().replace(<span class="regexp">/[\W_]/g</span>, <span class="string">""</span>);</span><br><span class="line">  <span class="keyword">var</span> left = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">var</span> right = s.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">    <span class="keyword">if</span> (s[left] != s[right]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    left++;</span><br><span class="line">    right--;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="26-数组中重复的数字"><a href="#26-数组中重复的数字" class="headerlink" title="26 数组中重复的数字"></a>26 数组中重复的数字</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number[]&#125;</span> <span class="variable">nums</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> findRepeatNumber = <span class="function"><span class="keyword">function</span> (<span class="params">nums</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> obj = &#123;&#125;;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    obj[nums[i]] = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    obj[nums[i]] += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> temp = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj[key] &gt; temp) temp = obj[key];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="keyword">if</span> (obj[key] === temp) <span class="keyword">return</span> key;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>很笨的方法，继续努力吧。。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Math</span>.max(...Object.values(obj).sort()) <span class="comment">//返回obj里value最大的数值</span></span><br><span class="line"><span class="keyword">const</span> a =[…<span class="keyword">new</span> <span class="built_in">Set</span>(arr)] <span class="comment">// 数组去重</span></span><br><span class="line"><span class="comment">// 求最大 reduce</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">max</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev,curr</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.max(prev,curr);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结一些 object 的常用方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Object.keys()方法</span></span><br><span class="line"><span class="comment">// 输出对象中值大于2的key的数组 x是每一个元素</span></span><br><span class="line"><span class="keyword">var</span> data = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span>, <span class="attr">c</span>: <span class="number">3</span>, <span class="attr">d</span>: <span class="number">4</span> &#125;;</span><br><span class="line"><span class="built_in">Object</span>.keys(data).filter(<span class="function"><span class="keyword">function</span> (<span class="params">x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> data[x] &gt; <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.values()方法</span></span><br><span class="line"><span class="comment">// 返回数组的成员顺序，属性名为数值的属性，是按照数值大小，从小到大遍历的，因此返回的顺序是b、c、a。</span></span><br><span class="line"><span class="comment">// Object.values只返回对象自身的可遍历属性。</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="number">100</span>: <span class="string">"a"</span>, <span class="number">2</span>: <span class="string">"b"</span>, <span class="number">7</span>: <span class="string">"c"</span> &#125;;</span><br><span class="line"><span class="built_in">Object</span>.values(obj);</span><br><span class="line"><span class="comment">// ["b", "c", "a"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//Object.hasOwnProperty()方法</span></span><br><span class="line"><span class="comment">// 判断对象自身属性中是否具有指定的属性。</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name: <span class="string">"fei"</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">"name"</span>)); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.hasOwnProperty(<span class="string">"toString"</span>)); <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.create()</span></span><br><span class="line"><span class="comment">// Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。</span></span><br><span class="line"><span class="keyword">var</span> parent = &#123;</span><br><span class="line">  x: <span class="number">1</span>,</span><br><span class="line">  y: <span class="number">1</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> child = <span class="built_in">Object</span>.create(parent, &#123;</span><br><span class="line">  z: &#123;</span><br><span class="line">    <span class="comment">// z会成为创建对象的属性</span></span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    value: <span class="string">"newAdd"</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(child); <span class="comment">//&#123; z: "newAdd"&#125; z: "newAdd"__proto__: x: 1y: 1__proto__: Object</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="二维数组中的查找"><a href="#二维数组中的查找" class="headerlink" title="二维数组中的查找"></a>二维数组中的查找</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//84 ms</span></span><br><span class="line"><span class="keyword">var</span> findNumberIn2DArray = <span class="function"><span class="keyword">function</span> (<span class="params">matrix, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> row <span class="keyword">in</span> matrix) &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> num <span class="keyword">in</span> matrix[row]) &#123;</span><br><span class="line">      <span class="keyword">if</span> (matrix[row][num] == target) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 76 ms</span></span><br><span class="line"><span class="keyword">var</span> findNumberIn2DArray = <span class="function"><span class="keyword">function</span> (<span class="params">matrix, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> row <span class="keyword">in</span> matrix) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[row].indexOf(target) === <span class="number">-1</span>) count++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (count === matrix.length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 64 ms, 在所有 JavaScript 提交中击败了93.60%的用户</span></span><br><span class="line"><span class="keyword">var</span> findNumberIn2DArray = <span class="function"><span class="keyword">function</span> (<span class="params">matrix, target</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (matrix.length == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> rowLength = matrix.length;</span><br><span class="line">  <span class="keyword">var</span> columnLength = matrix[<span class="number">0</span>].length; <span class="comment">//从左下角开始往上面进行遍历</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">var</span> row = rowLength - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">var</span> column = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (row &gt;= <span class="number">0</span> &amp;&amp; column &lt; columnLength) &#123;</span><br><span class="line">    <span class="keyword">if</span> (matrix[row][column] &lt; target) &#123;</span><br><span class="line">      column++;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (matrix[row][column] &gt; target) &#123;</span><br><span class="line">      row--;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>二叉树：一棵二叉树最多只能有两个分支结点</p>
+<h3 id="4-替换空格"><a href="#4-替换空格" class="headerlink" title="4.替换空格"></a>4.替换空格</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> replaceSpace = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> s.replace(<span class="regexp">/\s/g</span>, <span class="string">"%20"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="50-第一个只出现一次的字符"><a href="#50-第一个只出现一次的字符" class="headerlink" title="50. 第一个只出现一次的字符"></a>50. 第一个只出现一次的字符</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">s</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;character&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">//248 ms</span></span><br><span class="line"><span class="keyword">var</span> firstUniqChar = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> index <span class="keyword">in</span> s) &#123;</span><br><span class="line">    <span class="keyword">if</span> (s.indexOf(s[index]) === s.lastIndexOf(s[index])) &#123;</span><br><span class="line">      <span class="keyword">return</span> s[index];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">" "</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 88 ms, 在所有 JavaScript 提交中击败了97.67%的用户</span></span><br><span class="line"><span class="comment">// O(1) space</span></span><br><span class="line"><span class="keyword">var</span> firstUniqChar = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">26</span>).fill(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> c <span class="keyword">of</span> s) &#123;</span><br><span class="line">    arr[c.charCodeAt() - <span class="number">97</span>] += <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> c <span class="keyword">of</span> s) &#123;</span><br><span class="line">    <span class="keyword">if</span> (arr[c.charCodeAt() - <span class="number">97</span>] == <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">" "</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
           
         
