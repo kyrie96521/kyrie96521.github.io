@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="dom," />
+  <meta name="keywords" content="css," />
 
 
 
@@ -81,20 +81,18 @@
 
 
 
-<meta name="description" content="DOM 操作&amp;jQuery 在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)  事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。但事件捕获(event capturing)与事件冒泡相反，事件会从">
+<meta name="description" content="Flex boxMain axis 水平轴 cross axis 垂直轴Flexbox 是 CSS 3 的布局方式，可以轻松实现传统布局中难以实现的布局。 基本用法  设置父容器的  display  为  flex，然后调节容器相关的属性。 调节子元素相关的属性。 1 2 3     .container { display: flex; … }.item { … } 具体用法要使用 Flexb">
 <meta property="og:type" content="article">
-<meta property="og:title" content="事件捕获及冒泡">
-<meta property="og:url" content="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/01/3.1/index.html">
+<meta property="og:title" content="css总结">
+<meta property="og:url" content="https://github.com/kyrie96521/kyrie96521.github.io/2020/05/30/6.5/index.html">
 <meta property="og:site_name" content="Kyle&#39;s Blog">
-<meta property="og:description" content="DOM 操作&amp;jQuery 在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)  事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。但事件捕获(event capturing)与事件冒泡相反，事件会从">
+<meta property="og:description" content="Flex boxMain axis 水平轴 cross axis 垂直轴Flexbox 是 CSS 3 的布局方式，可以轻松实现传统布局中难以实现的布局。 基本用法  设置父容器的  display  为  flex，然后调节容器相关的属性。 调节子元素相关的属性。 1 2 3     .container { display: flex; … }.item { … } 具体用法要使用 Flexb">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.ax1x.com/2020/03/04/35UlJU.png">
-<meta property="article:published_time" content="2020-03-01T10:47:28.000Z">
-<meta property="article:modified_time" content="2020-04-10T10:48:20.572Z">
+<meta property="article:published_time" content="2020-05-29T15:23:48.000Z">
+<meta property="article:modified_time" content="2020-06-06T14:33:25.667Z">
 <meta property="article:author" content="Kyle Yang">
-<meta property="article:tag" content="dom">
+<meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.ax1x.com/2020/03/04/35UlJU.png">
 
 
 
@@ -124,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/01/3.1/"/>
+  <link rel="canonical" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/05/30/6.5/"/>
 
 
 
 
 
-  <title>事件捕获及冒泡 | Kyle's Blog</title>
+  <title>css总结 | Kyle's Blog</title>
   
 
 
@@ -291,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/03/01/3.1/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/kyrie96521/kyrie96521.github.io/2020/05/30/6.5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kyle Yang">
@@ -308,7 +306,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">事件捕获及冒泡</h1>
+          <h1 class="post-title" itemprop="name headline">css总结</h1>
         
 
         <div class="post-meta">
@@ -320,8 +318,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-01T21:47:28+11:00">
-                2020-03-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-30T01:23:48+10:00">
+                2020-05-30
               </time>
             
 
@@ -339,8 +337,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2020/03/01/3.1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/03/01/3.1/" itemprop="commentsCount"></span>
+                <a href="/2020/05/30/6.5/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2020/05/30/6.5/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -362,7 +360,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  288
+                  916
                 </span>
               
 
@@ -378,7 +376,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  3
                 </span>
               
             </div>
@@ -399,16 +397,89 @@
       
 
       
-        <h3 id="DOM-操作-amp-jQuery"><a href="#DOM-操作-amp-jQuery" class="headerlink" title="DOM 操作&amp;jQuery"></a>DOM 操作&amp;jQuery</h3><ol>
-<li><p>在 jQuery 里必须是对 jQuery 对象进行操作，所以对象需要被包裹在$(obj)里,比如$(this.obj)</p>
-</li>
-<li><p>事件冒泡可以形象地比喻为把一颗石头投入水中，泡泡会一直从水底冒出水面。事件会从最内层的元素开始发生，一直向上传播，直到 document 对象。即 child 事件先处理。<br><img src="https://s2.ax1x.com/2020/03/04/35UlJU.png" alt="alt text"><br>但事件捕获(event capturing)与事件冒泡相反，事件会从最外层开始发生，直到最具体的元素。<br>element.addEventListener(event, function, useCapture)<br>true - 事件在捕获阶段执行<br>false- 默认。事件在冒泡阶段执行</p>
-</li>
-<li><p>我们给一个 dom 同时绑定两个点击事件，一个用捕获，一个用冒泡，会执行几次事件，会先执行冒泡还是捕获？<br>非目标元素捕获 -&gt; 目标元素代码顺序 -&gt; 非目标元素冒泡<br><a href="https://blog.csdn.net/moguzhale/article/details/53503044" target="_blank" rel="noopener">https://blog.csdn.net/moguzhale/article/details/53503044</a></p>
-</li>
-<li><p>阻止冒泡和取消默认事件<br>event.stopPropagation()起到阻止捕获和冒泡阶段中当前事件的进一步传播。使用 event.preventDefault()可以取消默认事件<br><a href="https://www.jianshu.com/p/1fd066b4c0ba" target="_blank" rel="noopener">https://www.jianshu.com/p/1fd066b4c0ba</a></p>
+        <h3 id="Flex-box"><a href="#Flex-box" class="headerlink" title="Flex box"></a>Flex box</h3><p>Main axis 水平轴 cross axis 垂直轴<br>Flexbox 是 CSS 3 的布局方式，可以轻松实现传统布局中难以实现的布局。</p>
+<p>基本用法</p>
+<ol>
+<li>设置父容器的  display  为  flex，然后调节容器相关的属性。</li>
+<li>调节子元素相关的属性。<div class="container">
+<div class="item">1</div>
+<div class="item">2</div>
+<div class="item">3</div>
+</div>
+
 </li>
 </ol>
+<p>.container { display: flex; … }<br>.item { … }</p>
+<p>具体用法<br>要使用 Flexbox 布局，你需要设置父容器和子元素的属性。</p>
+<p>父容器设置</p>
+<ol>
+<li><p>启用 flex 布局  display: flex | inline-flex</p>
+</li>
+<li><p>设置主轴方向  flex-direction: row | row-reverse | column | column-reverse</p>
+<ul>
+<li>row  默认值，从左到右</li>
+<li>row-reverse  从右到左</li>
+<li>column  从上到下</li>
+<li>column-reverse  从下到上</li>
+</ul>
+</li>
+<li><p>设置子元素的换行方式  flex-wrap: nowrap | wrap | wrap-reverse</p>
+<ul>
+<li>nowrap  默认值，让所有子元素排在一行中</li>
+<li>wrap  自动换行，方向为从右到左。(这里的方向是指换行方向，不是指排列方向)</li>
+<li>wrap-reverse  自动换行，方向为从左到右</li>
+</ul>
+</li>
+<li><p>flex-direction  和  flex-wrap  的简写：flex-flow: &lt;’flex-direction’&gt; || &lt;’flex-wrap’&gt;</p>
+</li>
+<li><p>设置子元素的在主轴中对齐方式  justify-content: flex-start | flex-end | center | space-between | space-around</p>
+<ul>
+<li>flex-start  默认值，在起始位置对齐。和  flex-direction: row  一起用的话相当于左对齐，和  flex-direction: column  一起用的话相当于上对齐</li>
+<li>flex-end  在终点位置对齐</li>
+<li>center  居中对齐</li>
+<li>space-bewteen  第一个子元素会在起始位置，最后一个子元素会在终点位置，它们之间的元素会在剩余位置中平均分布</li>
+<li>space-around  所有元素都会平均分布在容器中。注意，视觉上元素不是平均分布的。那是因为所有元素所占的空间都被平均分了，元素两边都有空间，第一个元素和最后一个元素靠近容器的边缘只有一份空间，其他空白的地方都是有两份空间组成的，所以看起来两边的空间少，而中间的空间多。好好体会一下  space-around  字面上的意思就能理解了。</li>
+</ul>
+</li>
+<li><p>设置子元素在侧轴中的对齐方式  align-items: flex-start | flex-end | center | baseline | stretch</p>
+<ul>
+<li>stretch  默认值，拉伸元素来填充父容器</li>
+<li>flex-start  在侧轴的起始位置对齐</li>
+<li>flex-end  在侧轴的终点位置对齐</li>
+<li>center  居中于侧轴</li>
+<li>baseline  在基线对齐</li>
+</ul>
+</li>
+<li><p>设置侧轴中行(不是元素)的对齐方式  align-content: flex-start | flex-end | center | space-between | space-around | stretch</p>
+<ul>
+<li>stretch  默认值，拉伸行来填充剩余的空间</li>
+<li>flex-start  所有行在容器的起始位置对齐</li>
+<li>flex-end  所有行在容器的终点位置对齐</li>
+<li>center  所有行居中于容器</li>
+<li>space-between  类似  justify-content: space-between</li>
+<li>space-around  类似  justify-content: space-around</li>
+</ul>
+</li>
+</ol>
+<p>子元素设置</p>
+<ol>
+<li><p>设置元素的排序方式  order: <integer>，数字越小，排越前面。默认情况下是以文档流的先后顺序排序，负值合法。</p>
+</li>
+<li><p>调节元素的扩展能力  flex-grow: <number>，默认为 1，增大该值表示该元素所占空间是其他元素的 n 倍，负值不合法。</p>
+</li>
+<li><p>调节元素的收缩能力  flex-shrink: <number>，默认为 1，减少该值表示该元素所站空间是其他元素的 1/n，负值不合法。</p>
+</li>
+<li><p>调节元素的基本大小：flex-basis: <length> | auto，默认为 auto。</p>
+</li>
+<li><p>上面属性的缩写：flex: none | [ &lt;’flex-grow’&gt; &lt;’flex-shrink’&gt;? || &lt;’flex-basis’&gt; ]</p>
+</li>
+<li><p>指定元素的排列方式，作用和容器中的  align-items  类似，优先级比  align-items  高。</p>
+</li>
+</ol>
+<p>注意：float, clear, vertical-align  在子元素中不起作用。</p>
+<p><a href="https://scarletsky.github.io/2016/01/23/simple-flexbox/" target="_blank" rel="noopener">https://scarletsky.github.io/2016/01/23/simple-flexbox/</a></p>
+<h3 id="css-选择器"><a href="#css-选择器" class="headerlink" title="css 选择器"></a>css 选择器</h3><p><a href="https://www.w3school.com.cn/css/css_selector_type.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/css/css_selector_type.asp</a></p>
+<h3 id="css-position"><a href="#css-position" class="headerlink" title="css position"></a>css position</h3><p><a href="https://www.w3school.com.cn/css/css_positioning.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/css/css_positioning.asp</a></p>
 
       
     </div>
@@ -426,7 +497,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/dom/" rel="tag"><i class="fa fa-tag"></i> dom</a>
+            <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
           
         </div>
       
@@ -439,8 +510,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/29/2.29/" rel="next" title="Redux middleware">
-                <i class="fa fa-chevron-left"></i> Redux middleware
+              <a href="/2020/05/29/5.29/" rel="next" title="react review">
+                <i class="fa fa-chevron-left"></i> react review
               </a>
             
           </div>
@@ -449,8 +520,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/03/02/3.2/" rel="prev" title="Redux middleware">
-                Redux middleware <i class="fa fa-chevron-right"></i>
+              <a href="/2020/05/30/5.30/" rel="prev" title="Leetcode array">
+                Leetcode array <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -621,7 +692,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM-操作-amp-jQuery"><span class="nav-number">1.</span> <span class="nav-text">DOM 操作&amp;jQuery</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex-box"><span class="nav-number">1.</span> <span class="nav-text">Flex box</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css-选择器"><span class="nav-number">2.</span> <span class="nav-text">css 选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css-position"><span class="nav-number">3.</span> <span class="nav-text">css position</span></a></li></ol></div>
             
 
           </div>
